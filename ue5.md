@@ -8,6 +8,7 @@ permalink: /ue5/
 | where_exp: "p", "p.categories contains 'ue5'"  
 | where_exp: "p", "p.categories contains 'summary'"  
 | where_exp: "p", "p.project"  
+| where_exp: "p", "p.status contains 'public'"  
 | sort: "date" | reverse %}
   
 {% for post in posts %}  
@@ -18,7 +19,10 @@ permalink: /ue5/
 
 ## Dev Log
 
-{% assign items = site.devlog | sort: "date" | reverse %}  
+{% assign items = site.devlog 
+| where_exp: "i", "i.status contains 'public'"  
+| sort: "date" 
+| reverse %}  
 {% assign count = 0 %}  
   
 {% for post in items %}  

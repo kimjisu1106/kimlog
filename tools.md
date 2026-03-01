@@ -7,6 +7,7 @@ permalink: /tools/
 {% assign posts = site.devlog  
 | where_exp: "p", "p.categories contains 'tools'"  
 | where_exp: "p", "p.categories contains 'summary'"  
+| where_exp: "p", "p.status contains 'public'"  
 | where_exp: "p", "p.project"  
 | sort: "date" | reverse %}
   
@@ -18,7 +19,10 @@ permalink: /tools/
 
 ## Dev Log
 
-{% assign items = site.devlog | sort: "date" | reverse %}  
+{% assign items = site.devlog 
+| where_exp: "i", "i.status contains 'public'"  
+| sort: "date" 
+| reverse %}  
 {% assign count = 0 %}  
   
 {% for post in items %}  
