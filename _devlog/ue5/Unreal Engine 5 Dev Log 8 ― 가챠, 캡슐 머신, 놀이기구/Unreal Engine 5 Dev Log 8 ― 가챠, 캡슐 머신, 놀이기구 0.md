@@ -8,6 +8,8 @@ categories:
 project: gacha-machine
 project_name: Gacha Machine
 video_id:
+redirect_to:
+status: public
 ---
 ## 요약
 

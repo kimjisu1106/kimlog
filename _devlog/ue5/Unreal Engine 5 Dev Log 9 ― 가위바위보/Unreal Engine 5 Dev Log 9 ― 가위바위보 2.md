@@ -7,6 +7,10 @@ categories:
   - ue5
 project: rock-paper-scissors
 projectName: Rock Paper Scissors
+project_name:
+video_id:
+redirect_to:
+status: public
 ---
 ## 오늘 한 일
 

@@ -8,6 +8,8 @@ categories:
 project: number-run
 project_name: Number Run BluePrint
 video_id:
+redirect_to:
+status: public
 ---
 ## 오늘 한 일
 

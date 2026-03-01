@@ -8,6 +8,8 @@ categories:
 project: rock-paper-scissors
 project_name: Rock Paper Scissors
 video_id:
+redirect_to:
+status: public
 ---
 ## 오늘 한 일
 

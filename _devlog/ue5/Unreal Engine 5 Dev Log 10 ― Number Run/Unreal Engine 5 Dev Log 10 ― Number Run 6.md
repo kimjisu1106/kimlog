@@ -1,6 +1,6 @@
 ---
 layout: post
-title:
+title: Unreal Engine 5 Dev Log 10 ― Number Run 6
 date: 2026-03-01
 categories:
   - devlog
@@ -9,6 +9,7 @@ project: number-run
 project_name: Number Run BluePrint
 video_id:
 redirect_to:
+status:
 ---
 # 오늘 한 일
 
