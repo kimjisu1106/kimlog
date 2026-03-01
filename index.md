@@ -15,7 +15,8 @@ permalink: /
   {% for post in latest %}
     <li>
       <div style="display:flex; gap:12px; align-items:center; text-decoration:none; font-weight:700;">
-	      <span class="post-meta">{{ post.date | date: "%Y-%m-%d" }}</span> ｜ <a class="post-link" href="{{ post.url }}">{{ post.title }}</a>
+	      <span class="post-meta">{{ post.date | date: "%Y-%m-%d" }}</span> ｜ 
+		  <a class="post-link" href="{{ post.url }}" style="font-weight:700;">{{ post.title }}</a>
 	  </div>
     </li>
   {% endfor %}
