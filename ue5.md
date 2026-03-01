@@ -7,8 +7,8 @@ permalink: /ue5/
 {% assign posts = site.devlog  
 | where_exp: "p", "p.categories contains 'ue5'"  
 | where_exp: "p", "p.categories contains 'summary'"  
-| where_exp: "p", "p.project"  
 | where_exp: "p", "p.status contains 'public'"  
+| where_exp: "p", "p.project"   
 | sort: "date" | reverse %}
   
 {% for post in posts %}  
