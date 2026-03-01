@@ -10,7 +10,7 @@ title: About
 	      <span class="post-meta">📧</span>
 	      <span>kimlog0415@gmail.com</span>
 	  </div>
-	  <div style="display:flex; gap:12px; align-items:center; text-decoration:none;">
+	  <div style="display:flex; gap:12px; align-items:center; text-decoration:none;"font-weight:700";">
 	      <span class="post-meta">▶️</span>
 	      <a class="post-link" href="https://www.youtube.com/@kimlog1106">https://www.youtube.com/@kimlog1106</a>
 	  </div>
