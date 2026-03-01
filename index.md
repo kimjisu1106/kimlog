@@ -3,7 +3,6 @@ layout: default
 title: Home
 permalink: /
 ---
-
 <h2>Latest Dev Log</h2>
 
 <ul class="post-list">
