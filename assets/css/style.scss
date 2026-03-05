@@ -78,3 +78,56 @@
   border: 0;
   display: block;
 }
+
+/* Home lists */
+.home-list { margin-left: 0; padding-left: 0; }
+.home-list > li { list-style: none; }
+
+.home-row{
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin: 10px 0;
+}
+
+.home-sep{ opacity: .5; }
+
+/* ✅ DevLog/Video 타이틀 폰트 통일 */
+.home-title{
+  font-weight: 700;
+  font-size: 28px; /* 여기로 통일 */
+  line-height: 1.2;
+}
+
+/* ✅ DevLog/Video 날짜 폰트 통일 */
+.home-date{
+  font-size: 16px; /* 여기로 통일 */
+  line-height: 1.2;
+}
+
+/* Video row */
+.home-video{ margin: 12px 0; }
+.home-video-link{
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  text-decoration: none;
+}
+
+.home-thumb{
+  width: 240px;
+  max-width: 40%;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+}
+
+.home-video-text .home-title{
+  font-size: 28px; /* 혹시 minima가 덮으면 여기서 다시 고정 */
+}
+
+/* Mobile: 썸네일 아래로 떨어뜨리기 */
+@media (max-width: 640px){
+  .home-video-link{ flex-direction: column; align-items: flex-start; }
+  .home-thumb{ max-width: 100%; width: 100%; }
+}
