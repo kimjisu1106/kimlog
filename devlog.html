@@ -6,6 +6,7 @@ permalink: /devlog/
 
 {% assign base = site.devlog
   | where_exp: "p", "p.categories contains 'devlog'"
+  | where_exp: "p", "p.status contains 'public'"
   | sort: "date"
   | reverse
 %}
