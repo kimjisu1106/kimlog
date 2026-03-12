@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Unreal Engine 5 Dev Log ― Run Game With BluePrint 1
+title: Unreal Engine 5 Dev Log ― Run Game with BluePrint 1
 date: 2026-02-28
 categories:
   - devlog

@@ -3,7 +3,8 @@ layout: post
 title: Unreal Engine 5 Dev Log 12 ― 전광판 영상
 date: 2026-03-04
 categories:
-  - devlog
+  - ue5
+  - summary
 project: music-video-media-plate
 project_name: 미디어 플레이트 등을 이용한 영상 제작
 video_id:
