@@ -62,35 +62,6 @@ permalink: /devlog/
   <hr />
 {% endfor %}
 
-<style>
-  .devlog-toggle{
-    margin: 6px 0 14px;
-    padding: 6px 10px;
-    border: 1px solid #d0d7de;
-    border-radius: 8px;
-    background: #f6f8fa;
-    font-size: 13px;
-    line-height: 1.2;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-  }
-  .devlog-toggle:hover{ background:#eef2f6; }
-  .devlog-toggle:active{ transform: translateY(1px); }
-  .devlog-toggle[aria-expanded="true"]{
-    background:#fff;
-    border-color:#b6c2cf;
-  }
-  .devlog-summary{
-    display:flex;
-    align-items:baseline;
-    gap:8px;
-  }
-  .devlog-title{ font-weight: 700; }
-  .devlog-meta{ color:#6b7280; font-size:12px; }
-  .devlog-list{ margin: 8px 0 0 18px; }
-</style>
 
 <script>
 document.addEventListener("click", (e) => {

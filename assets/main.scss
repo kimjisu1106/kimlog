@@ -1,78 +1,119 @@
 ---
 ---
 
-@import
-  "minima";
+@import "minima";
 
+/* =========================================================
+   CSS Variables (Light mode defaults)
+   ========================================================= */
+:root {
+  --border-color:   rgba(0, 0, 0, 0.12);
+  --btn-border:     rgba(0, 0, 0, 0.15);
+  --muted:          rgba(0, 0, 0, 0.55);
+  --card-bg:        transparent;
 
-/* Landing */
+  --devlog-bg:      #f6f8fa;
+  --devlog-bg-open: #fff;
+  --devlog-border:  #d0d7de;
+  --devlog-border-open: #b6c2cf;
+  --devlog-hover:   #eef2f6;
+  --devlog-meta:    #6b7280;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --border-color:   rgba(255, 255, 255, 0.12);
+    --btn-border:     rgba(255, 255, 255, 0.15);
+    --muted:          rgba(255, 255, 255, 0.55);
+
+    --devlog-bg:      #21262d;
+    --devlog-bg-open: #161b22;
+    --devlog-border:  #30363d;
+    --devlog-border-open: #8b949e;
+    --devlog-hover:   #30363d;
+    --devlog-meta:    #8b949e;
+  }
+}
+
+/* =========================================================
+   Landing
+   ========================================================= */
 .hero {
-  padding: 2rem 0 1.5rem;
+  padding: 32px 0 24px;
 }
+
 .subtitle {
-  margin-top: .5rem;
-  opacity: .8;
+  margin-top: 8px;
+  opacity: 0.8;
 }
+
 .hero-actions {
-  margin-top: 1rem;
+  margin-top: 16px;
   display: flex;
-  gap: .5rem;
+  gap: 8px;
   flex-wrap: wrap;
 }
 
 .btn {
   display: inline-block;
-  padding: .55rem .9rem;
-  border: 1px solid rgba(0,0,0,.15);
-  border-radius: .6rem;
+  padding: 8px 14px;
+  border: 1px solid var(--btn-border);
+  border-radius: 10px;
   text-decoration: none;
 }
+
 .btn.primary {
   font-weight: 600;
 }
 
+/* =========================================================
+   Cards
+   ========================================================= */
 .cards {
-  margin-top: 1rem;
+  margin-top: 16px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1rem;
+  gap: 16px;
 }
 
 .card {
   display: block;
-  padding: 1rem;
-  border: 1px solid rgba(0,0,0,.12);
-  border-radius: .9rem;
+  padding: 16px;
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
   text-decoration: none;
 }
 
 .card-title {
   font-weight: 700;
-  font-size: 1.05rem;
+  font-size: 17px;
 }
 
 .card-desc {
-  margin-top: .35rem;
-  opacity: .85;
+  margin-top: 6px;
+  opacity: 0.85;
   line-height: 1.35;
 }
 
 .card-meta {
-  margin-top: .8rem;
-  font-size: .92rem;
-  opacity: .75;
+  margin-top: 12px;
+  font-size: 14px;
+  opacity: 0.75;
 }
-.yt-wrap{
+
+/* =========================================================
+   YouTube embed
+   ========================================================= */
+.yt-wrap {
   position: relative;
   width: 100%;
-  max-width: 100%;
   overflow: hidden;
   border-radius: 12px;
   margin: 12px 0 20px;
   aspect-ratio: 16 / 9;
 }
 
-.yt-wrap iframe{
+.yt-wrap iframe {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -81,11 +122,19 @@
   display: block;
 }
 
-/* Home lists */
-.home-list { margin-left: 0; padding-left: 0; }
-.home-list > li { list-style: none; }
+/* =========================================================
+   Home lists (DevLog + Video)
+   ========================================================= */
+.home-list {
+  margin-left: 0;
+  padding-left: 0;
+}
 
-.home-row{
+.home-list > li {
+  list-style: none;
+}
+
+.home-row {
   display: flex;
   justify-content: flex-start;
   align-items: baseline;
@@ -93,31 +142,34 @@
   margin: 10px 0;
 }
 
-.home-sep{ opacity: .5; }
+.home-sep {
+  opacity: 0.5;
+}
 
-/* ✅ DevLog/Video 타이틀 폰트 통일 */
-.home-title{
+.home-title {
   font-weight: 700;
-  font-size: 18px; /* 여기로 통일 */
+  font-size: 18px;
   line-height: 1.2;
 }
 
-/* ✅ DevLog/Video 날짜 폰트 통일 */
-.home-date{
-  font-size: 18px; /* 여기로 통일 */
+.home-date {
+  font-size: 18px;
   line-height: 1.2;
 }
 
 /* Video row */
-.home-video{ margin: 12px 0; }
-.home-video-link{
+.home-video {
+  margin: 12px 0;
+}
+
+.home-video-link {
   display: flex;
   gap: 12px;
   align-items: center;
   text-decoration: none;
 }
 
-.home-thumb{
+.home-thumb {
   width: 240px;
   max-width: 40%;
   height: auto;
@@ -125,12 +177,63 @@
   display: block;
 }
 
-.home-video-text .home-title{
-  font-size: 20px; /* 혹시 minima가 덮으면 여기서 다시 고정 */
+@media (max-width: 640px) {
+  .home-video-link {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .home-thumb {
+    max-width: 100%;
+    width: 100%;
+  }
 }
 
-/* Mobile: 썸네일 아래로 떨어뜨리기 */
-@media (max-width: 640px){
-  .home-video-link{ flex-direction: column; align-items: flex-start; }
-  .home-thumb{ max-width: 100%; width: 100%; }
+/* =========================================================
+   DevLog page
+   ========================================================= */
+.devlog-toggle {
+  margin: 6px 0 14px;
+  padding: 6px 10px;
+  border: 1px solid var(--devlog-border);
+  border-radius: 8px;
+  background: var(--devlog-bg);
+  font-size: 13px;
+  line-height: 1.2;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.devlog-toggle:hover {
+  background: var(--devlog-hover);
+}
+
+.devlog-toggle:active {
+  transform: translateY(1px);
+}
+
+.devlog-toggle[aria-expanded="true"] {
+  background: var(--devlog-bg-open);
+  border-color: var(--devlog-border-open);
+}
+
+.devlog-summary {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.devlog-title {
+  font-weight: 700;
+}
+
+.devlog-meta {
+  color: var(--devlog-meta);
+  font-size: 12px;
+}
+
+.devlog-list {
+  margin: 8px 0 0 18px;
 }
