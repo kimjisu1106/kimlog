@@ -14,7 +14,7 @@ title: About
   <li>
     <div class="contact-row">
       <span class="post-meta">▶️</span>
-      <a class="post-link" href="https://www.youtube.com/@kimlog1106">https://www.youtube.com/@kimlog1106</a>
+      <a href="https://www.youtube.com/@kimlog1106">https://www.youtube.com/@kimlog1106</a>
     </div>
   </li>
 </ul>

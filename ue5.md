@@ -3,36 +3,46 @@ layout: page
 title: Unreal Engine 5
 permalink: /ue5/
 ---
+
 ## Projects
-{% assign posts = site.devlog  
-| where_exp: "p", "p.categories contains 'ue5'"  
-| where_exp: "p", "p.categories contains 'summary'"  
-| where_exp: "p", "p.status contains 'public'"  
-| where_exp: "p", "p.project"   
-| sort: "date" | reverse %}
-  
-{% for post in posts %}  
-  
-- {{ post.date | date: "%Y-%m-%d" }} ｜ [{{ post.title }}]({{ post.url | relative_url }})  
-  
-{% endfor %}
+
+{% assign posts = site.devlog
+  | where_exp: "p", "p.categories contains 'ue5'"
+  | where_exp: "p", "p.categories contains 'summary'"
+  | where_exp: "p", "p.status contains 'public'"
+  | where_exp: "p", "p.project"
+  | sort: "date" | reverse %}
+
+{% if posts.size == 0 %}
+<p>아직 글이 없습니다.</p>
+{% else %}
+<ul class="devlog-list">
+  {% for post in posts %}
+  <li>{{ post.date | date: "%Y-%m-%d" }} ｜ <a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
+  {% endfor %}
+</ul>
+{% endif %}
 
 ## Dev Log
 
-{% assign items = site.devlog 
-| where_exp: "i", "i.status contains 'public'"  
-| sort: "date" 
-| reverse %}  
-{% assign count = 0 %}  
-  
-{% for post in items %}  
-{% assign cats = post.categories | join: "," | downcase %}  
-{% if cats contains "devlog" and cats contains "ue5" %}  
-- {{ post.date | date: "%Y-%m-%d" }} ｜ [{{ post.title }}]({{ post.url | relative_url }})  
-{% assign count = count | plus: 1 %}  
-{% endif %}  
-{% endfor %}  
-  
-{% if count == 0 %}  
-아직 글이 없습니다.  
+{% assign items = site.devlog
+  | where_exp: "i", "i.status contains 'public'"
+  | sort: "date"
+  | reverse %}
+{% assign devlog_posts = "" | split: "" %}
+{% for post in items %}
+  {% assign cats = post.categories | join: "," | downcase %}
+  {% if cats contains "devlog" and cats contains "ue5" %}
+    {% assign devlog_posts = devlog_posts | push: post %}
+  {% endif %}
+{% endfor %}
+
+{% if devlog_posts.size == 0 %}
+<p>아직 글이 없습니다.</p>
+{% else %}
+<ul class="devlog-list">
+  {% for post in devlog_posts %}
+  <li>{{ post.date | date: "%Y-%m-%d" }} ｜ <a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
+  {% endfor %}
+</ul>
 {% endif %}
