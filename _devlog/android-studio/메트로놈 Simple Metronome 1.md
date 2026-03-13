@@ -13,8 +13,7 @@ status: public
 ---
 ![](https://blog.kakaocdn.net/dna/b0bkr4/dJMcabJQDec/AAAAAAAAAAAAAAAAAAAAAEe6nNiE99iaudMzSQil8OV9O11Ohgj3JIn0DxHAzcw-/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&expires=1774969199&allow_ip=&allow_referer=&signature=fisT8GfMgyP61GrBihXIa1Oepk0%3D)
 
-[[메트로놈 Simple Metronome ― Google Play 바로가기][(https://play.google.com/store/apps/details?id=io.github.kimjisu1106.simplemetronome)﻿]
-
+[메트로놈 Simple Metronome ― Google Play 바로가기](https://play.google.com/store/apps/details?id=io.github.kimjisu1106.simplemetronome)
 
 
 ## 1. 왜 만들었는가
