@@ -16,6 +16,7 @@
   {% endfor %}
 </ul>
 
+<hr>
 <h2>Latest Videos</h2>
 
 <ul class="post-list home-list">

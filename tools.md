@@ -23,6 +23,7 @@ permalink: /tools/
 </ul>
 {% endif %}
 
+<hr>
 ## Dev Log
 
 {% assign items = site.devlog

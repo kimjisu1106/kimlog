@@ -3,7 +3,6 @@ layout: page
 title: Android Studio
 permalink: /android-studio/
 ---
-
 ## Projects
 
 {% assign posts = site.devlog
@@ -23,6 +22,7 @@ permalink: /android-studio/
 </ul>
 {% endif %}
 
+<hr>
 ## Dev Log
 
 {% assign items = site.devlog

@@ -23,6 +23,7 @@ permalink: /ue5/
 </ul>
 {% endif %}
 
+<hr>
 ## Dev Log
 
 {% assign items = site.devlog
