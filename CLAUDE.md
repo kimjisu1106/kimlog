@@ -18,6 +18,7 @@ _devlog/             # 포스트 원본 (Obsidian에서 작성)
   devlog/            # 카테고리: devlog
   tools/             # 카테고리: tools
   ue5/               # 카테고리: ue5
+  android-studio/    # 카테고리: android-studio
 _includes/
   head.html          # Minima head 오버라이드 (favicon 포함)
   custom-head.html   # head.html에서 include 되는 추가 요소 (현재 favicon은 head.html에 직접 작성)
@@ -29,6 +30,7 @@ assets/
   images/            # profile.ico, profile.png (favicon으로 사용)
 devlog.html          # Dev Log 목록 페이지
 index.md             # 홈 (Latest DevLog + Latest Videos)
+android-studio.md    # Android Studio 페이지
 ue5.md               # UE5 페이지
 tools.md             # Tools 페이지
 about.md             # About 페이지
@@ -44,11 +46,11 @@ about.md             # About 페이지
 ## Link Style Convention
 
 - 모든 페이지의 포스트 링크는 `font-weight: 600` 이상
-- `devlog.html`, `ue5.md`, `tools.md`의 리스트 링크는 `<ul class="devlog-list">` + `<a>` 태그 사용 → `.devlog-list a { font-weight: 600 }` 적용
+- `devlog.html`, `android-studio.md`, `ue5.md`, `tools.md`의 리스트 링크는 `<ul class="devlog-list">` + `<a>` 태그 사용 → `.devlog-list a { font-weight: 600 }` 적용
 - `about.md` 링크는 `.contact-row a { font-weight: 700 }` 적용
 - Minima의 `.post-link` 클래스는 `display: block` 등 레이아웃 스타일이 붙어 있어 커스텀 레이아웃에서 사용 금지
 
-## Post List Pages (ue5.md, tools.md)
+## Post List Pages (android-studio.md, ue5.md, tools.md)
 
 마크다운 리스트 문법(`- [title](url)`) 대신 HTML 사용:
 
@@ -75,7 +77,7 @@ about.md             # About 페이지
 ---
 title: "포스트 제목"
 date: 2025-01-01
-categories: [devlog, ue5] # devlog 필수, 카테고리 추가
+categories: [devlog, ue5] # devlog 필수, 카테고리 추가 (ue5 | android-studio | tools)
 status: public # public 이어야 노출됨
 project: "프로젝트명" # devlog 그룹핑 기준
 project_name: "표시할 이름" # (선택) project와 다른 표시명
