@@ -40,13 +40,13 @@ permalink: /devlog/
 
         <ul class="devlog-list" id="list-{{ gid }}">
           {% for post in group.items %}
-            <li {% if forloop.index > 3 %}hidden class="devlog-extra-item"{% endif %}>{{ post.date | date: "%Y-%m-%d" }} ｜ <a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
+            <li {% if forloop.index > 5 %}hidden class="devlog-extra-item"{% endif %}>{{ post.date | date: "%Y-%m-%d" }} ｜ <a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
           {% endfor %}
         </ul>
 
-        {% if group.items.size > 3 %}
+        {% if group.items.size > 5 %}
           <button type="button" class="devlog-toggle" data-list="list-{{ gid }}" aria-expanded="false">
-            ↓ 더보기 ({{ group.items.size | minus: 3 }}개)
+            ↓ 더보기 ({{ group.items.size | minus: 5 }}개)
           </button>
         {% endif %}
       </details>

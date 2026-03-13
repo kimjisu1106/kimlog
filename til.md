@@ -1,0 +1,66 @@
+---
+layout: page
+title: TIL
+permalink: /today-i-learn/
+---
+
+{% assign posts = site.devlog
+  | where_exp: "p", "p.categories contains 'today-i-learn'"
+  | where_exp: "p", "p.status contains 'public'"
+  | sort: "date"
+  | reverse
+%}
+
+{% if posts.size == 0 %}
+<p>아직 글이 없습니다.</p>
+{% else %}
+  {% assign groups = posts | group_by: "project" %}
+
+  {% for group in groups %}
+    {% assign first = group.items | first %}
+    {% assign project_title = first.project_name | default: group.name %}
+    {% assign gid = group.name | replace: " ", "-" | downcase %}
+
+    <details open class="devlog-group">
+      <summary class="devlog-summary">
+        <span class="devlog-title">{{ project_title }}</span>
+        <span class="devlog-meta">({{ group.items.size }} posts)</span>
+      </summary>
+
+      <ul class="devlog-list" id="list-{{ gid }}">
+        {% for post in group.items %}
+          <li {% if forloop.index > 5 %}hidden class="devlog-extra-item"{% endif %}>{{ post.date | date: "%Y-%m-%d" }} ｜ <a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
+        {% endfor %}
+      </ul>
+
+      {% if group.items.size > 5 %}
+        <button type="button" class="devlog-toggle" data-list="list-{{ gid }}" aria-expanded="false">
+          ↓ 더보기 ({{ group.items.size | minus: 5 }}개)
+        </button>
+      {% endif %}
+    </details>
+  {% endfor %}
+{% endif %}
+
+<script>
+document.addEventListener("click", (e) => {
+  const btn = e.target.closest(".devlog-toggle");
+  if (!btn) return;
+
+  const list = document.getElementById(btn.dataset.list);
+  if (!list) return;
+
+  const extras = list.querySelectorAll(".devlog-extra-item");
+  const isOpen = btn.getAttribute("aria-expanded") === "true";
+
+  if (isOpen) {
+    extras.forEach(li => li.setAttribute("hidden", ""));
+    btn.setAttribute("aria-expanded", "false");
+    btn.textContent = `↓ 더보기 (${extras.length}개)`;
+  } else {
+    extras.forEach(li => li.removeAttribute("hidden"));
+    btn.setAttribute("aria-expanded", "true");
+    btn.textContent = "↑ 접기";
+  }
+});
+</script>
