@@ -3,9 +3,9 @@ layout: post
 title: UE5 강의 1 - OT
 date: 2025-12-27
 categories:
-  - devlog
-project: today-i-learn
-project_name:
+  - today-i-learn
+project: ue5-class-sbs
+project_name: UnrealEngine5 Class
 video_id:
 redirect_to:
 status:
