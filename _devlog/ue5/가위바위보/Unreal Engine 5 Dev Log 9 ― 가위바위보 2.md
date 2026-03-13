@@ -6,8 +6,7 @@ categories:
   - devlog
   - ue5
 project: rock-paper-scissors
-projectName: Rock Paper Scissors
-project_name:
+project_name: Rock Paper Scissors
 video_id:
 redirect_to:
 status: public
