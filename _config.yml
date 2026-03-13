@@ -9,6 +9,7 @@ collections:
     permalink: /devlog/:path/
 header_pages:
   - devlog.html
+  - android-studio.md
   - ue5.md
   - tools.md
   - about.md
