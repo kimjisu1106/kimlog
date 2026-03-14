@@ -5,49 +5,43 @@ layout: home
 <h2>Latest Dev Log</h2>
 
 <ul class="post-list home-list">
-  {% assign latest = site.devlog
-    | sort: "date"
-    | where_exp: "p", "p.categories contains 'devlog'"
-    | where_exp: "p", "p.status contains 'public'"
-    | reverse
-    | slice: 0, 5 %}
-  {% for post in latest %}
-    <li class="home-row">
-      <span class="home-date post-meta">{{ post.date | date: "%Y-%m-%d" }}</span>
-      <span class="home-sep">｜</span>
-      <a class="home-title post-link" href="{{ post.url | relative_url }}">{{ post.title }}</a>
-    </li>
+  {% assign latest = site.devlog | sort: "date" | where_exp: "p", "p.categories
+  contains 'devlog'" | where_exp: "p", "p.status contains 'public'" | reverse |
+  slice: 0, 5 %} {% for post in latest %}
+  <li class="home-row">
+    <span class="home-date post-meta">{{ post.date | date: "%Y-%m-%d" }}</span>
+    <span class="home-sep">｜</span>
+    <a class="home-title post-link" href="{{ post.url | relative_url }}"
+      >{{ post.title }}</a
+    >
+  </li>
   {% endfor %}
 </ul>
 
-<hr>
+<hr />
+
 <h2>Latest Videos</h2>
 
 <ul class="post-list home-list">
-  {% assign vids = site.devlog
-    | where_exp: "p", "p.video_id"
-    | sort: "date"
-    | reverse
-    | slice: 0, 6
-  %}
-  {% if vids.size == 0 %}
-    <p>No videos yet.</p>
-  {% else %}
-    {% for post in vids %}
-      <li class="home-video">
-        <a class="home-video-link" href="{{ post.url | relative_url }}">
-          <img
-            class="home-thumb"
-            src="https://i.ytimg.com/vi/{{ post.video_id }}/hqdefault.jpg"
-            alt="YouTube thumbnail"
-            loading="lazy"
-          />
-          <div class="home-video-text">
-            <div class="home-date post-meta">{{ post.date | date: "%Y-%m-%d" }}</div>
-            <div class="home-title">{{ post.title }}</div>
-          </div>
-        </a>
-      </li>
-    {% endfor %}
-  {% endif %}
+  {% assign vids = site.devlog | where_exp: "p", "p.video_id" | sort: "date" |
+  reverse | slice: 0, 6 %} {% if vids.size == 0 %}
+  <p>No videos yet.</p>
+  {% else %} {% for post in vids %}
+  <li class="home-video">
+    <a class="home-video-link" href="{{ post.url | relative_url }}">
+      <img
+        class="home-thumb"
+        src="https://i.ytimg.com/vi/{{ post.video_id }}/hqdefault.jpg"
+        alt="YouTube thumbnail"
+        loading="lazy"
+      />
+      <div class="home-video-text">
+        <div class="home-date post-meta">
+          {{ post.date | date: "%Y-%m-%d" }}
+        </div>
+        <div class="home-title">{{ post.title }}</div>
+      </div>
+    </a>
+  </li>
+  {% endfor %} {% endif %}
 </ul>
