@@ -30,13 +30,19 @@ assets/
   images/            # profile.ico, profile.png (favicon으로 사용)
 devlog.html          # Dev Log 목록 페이지 (project별 그룹핑)
 til.html             # TIL 목록 페이지 (project별 그룹핑)
-index.md             # 홈 (Latest DevLog + Latest Videos)
-android-studio.md    # Android Studio 페이지
-ue5.md               # UE5 페이지
-tools.md             # Tools 페이지
-about.md             # About 페이지
+android-studio.html  # Android Studio 페이지
+ue5.html             # UE5 페이지
+tools.html           # Tools 페이지
+index.html           # 홈 (Latest DevLog + Latest Videos)
+about.html           # About 페이지
 .gitignore           # **/draft-*.md 제외
 ```
+
+## Page File Convention
+
+- 모든 페이지 파일은 `.html` 확장자 사용
+- HTML+Liquid로만 구성 → `.md`로 하면 Markdown 파서가 HTML 구조 훼손할 수 있음
+- `index.html`, `about.html` 포함 전체 통일
 
 ## CSS Rules
 
@@ -44,17 +50,19 @@ about.md             # About 페이지
 - 단위는 `px` 통일
 - 색상은 CSS 변수 사용 (`--border-color`, `--btn-border`, `--muted`, `--devlog-*` 등)
 - 다크모드: `@media (prefers-color-scheme: dark)` 로 CSS 변수 오버라이드
+- `hr`: `margin-top: 32px; margin-bottom: 32px` 전역 적용
+- `.post-content h3`: `font-size: 1.5em; font-weight: 600` (h2와 동일하게)
 
 ## Link Style Convention
 
 - 모든 페이지의 포스트 링크는 `font-weight: 600` 이상
-- `devlog.html`, `til.html`, `android-studio.md`, `ue5.md`, `tools.md`의 리스트 링크는 `<ul class="devlog-list">` + `<a>` 태그 사용 → `.devlog-list a { font-weight: 600 }` 적용
-- `about.md` 링크는 `.contact-row a { font-weight: 700 }` 적용
+- `devlog.html`, `til.html`, `android-studio.html`, `ue5.html`, `tools.html`의 리스트 링크는 `<ul class="devlog-list">` + `<a>` 태그 사용 → `.devlog-list a { font-weight: 600 }` 적용
+- `about.html` 링크는 `.contact-row a { font-weight: 700 }` 적용
 - Minima의 `.post-link` 클래스는 `display: block` 등 레이아웃 스타일이 붙어 있어 커스텀 레이아웃에서 사용 금지
 
-## Post List Pages (android-studio.md, ue5.md, tools.md)
+## Post List Pages (android-studio.html, ue5.html, tools.html)
 
-마크다운 리스트 문법(`- [title](url)`) 대신 HTML 사용:
+`<h2>Projects</h2>` + `<h2>Dev Log</h2>` 섹션 구조, 리스트는 HTML 사용:
 
 ```html
 <ul class="devlog-list">
@@ -70,10 +78,11 @@ about.md             # About 페이지
 ## DevLog / TIL 더보기 구조 (devlog.html, til.html)
 
 - 5개 초과 시 6번째부터 `<li hidden class="devlog-extra-item">` 처리
+- 프로젝트 타이틀: `<h3 class="devlog-title">` (h3 태그, margin/font-size 리셋)
 - 버튼: `<button class="devlog-toggle" data-list="list-{gid}">` — 테두리/배경 없는 심플 텍스트
 - JS가 `hidden` attribute를 toggle함 (갭 없이 동일 `<ul>` 안에서 처리)
-- `.devlog-summary`에 `margin-bottom: 30px` 적용 (project 그룹 간 간격)
-- 페이지 구조가 HTML+Liquid로만 구성되어 `.html` 확장자 사용 (`.md`로 하면 Markdown 파서가 HTML 구조 훼손)
+- `.devlog-group { margin-bottom: 32px }` (project 그룹 간 간격)
+- `.devlog-summary { margin-bottom: 30px }` (summary 아래 간격)
 
 ## Post Frontmatter
 
@@ -94,4 +103,3 @@ video_id: "YouTube ID" # (선택) 있으면 홈 Latest Videos에 노출
 - GitHub Pages는 허용된 플러그인만 사용 가능 (`jekyll-feed` 등)
 - Minima skin 기능 없음 → 다크모드는 CSS 변수 + `prefers-color-scheme`으로 직접 처리
 - Favicon: `_includes/head.html` 직접 오버라이드 방식 사용 (`custom-head.html` include 방식은 Minima 버전에 따라 불안정)
-- 포스트 내 `---`(hr)에는 `margin-top: 16px, margin-bottom: 16px` 적용됨.
