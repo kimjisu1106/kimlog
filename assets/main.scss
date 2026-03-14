@@ -224,6 +224,8 @@
 
 .devlog-title {
   font-weight: 700;
+  margin: 0;
+  font-size: 1em;
 }
 
 .devlog-meta {
@@ -240,11 +242,19 @@
 }
 
 /* =========================================================
-   Post content hr spacing
+   hr spacing (global)
    ========================================================= */
-.post-content hr {
+hr {
   margin-top: 16px;
   margin-bottom: 16px;
+}
+
+/* =========================================================
+   Post content heading
+   ========================================================= */
+.post-content h3 {
+  font-size: 1.5em;
+  font-weight: 600;
 }
 
 /* =========================================================
