@@ -1,11 +1,15 @@
+---
+layout: home
+---
+
 <h2>Latest Dev Log</h2>
 
 <ul class="post-list home-list">
-  {% assign latest = site.devlog 
-    | sort: "date" 
-    | where_exp: "p", "p.categories contains 'devlog'" 
+  {% assign latest = site.devlog
+    | sort: "date"
+    | where_exp: "p", "p.categories contains 'devlog'"
     | where_exp: "p", "p.status contains 'public'"
-    | reverse 
+    | reverse
     | slice: 0, 5 %}
   {% for post in latest %}
     <li class="home-row">

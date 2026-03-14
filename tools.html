@@ -4,7 +4,7 @@ title: Tools
 permalink: /tools/
 ---
 
-## Projects
+<h2>Projects</h2>
 
 {% assign posts = site.devlog
   | where_exp: "p", "p.categories contains 'tools'"
@@ -24,7 +24,7 @@ permalink: /tools/
 {% endif %}
 
 <hr>
-## Dev Log
+<h2>Dev Log</h2>
 
 {% assign items = site.devlog
   | where_exp: "i", "i.status contains 'public'"
