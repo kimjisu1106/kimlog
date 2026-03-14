@@ -19,21 +19,23 @@ _devlog/             # 포스트 원본 (Obsidian에서 작성)
   tools/             # 카테고리: tools
   ue5/               # 카테고리: ue5
   android-studio/    # 카테고리: android-studio
+  today-i-learn/     # 카테고리: today-i-learn
 _includes/
   head.html          # Minima head 오버라이드 (favicon 포함)
-  custom-head.html   # head.html에서 include 되는 추가 요소 (현재 favicon은 head.html에 직접 작성)
   youtube.html       # YouTube embed 인클루드
 _data/
   sections.yml       # devlog.html 섹션 정의
 assets/
   main.scss          # 전체 커스텀 CSS (여기에만 스타일 작성)
   images/            # profile.ico, profile.png (favicon으로 사용)
-devlog.html          # Dev Log 목록 페이지
+devlog.html          # Dev Log 목록 페이지 (project별 그룹핑)
+til.html             # TIL 목록 페이지 (project별 그룹핑)
 index.md             # 홈 (Latest DevLog + Latest Videos)
 android-studio.md    # Android Studio 페이지
 ue5.md               # UE5 페이지
 tools.md             # Tools 페이지
 about.md             # About 페이지
+.gitignore           # **/draft-*.md 제외
 ```
 
 ## CSS Rules
@@ -46,7 +48,7 @@ about.md             # About 페이지
 ## Link Style Convention
 
 - 모든 페이지의 포스트 링크는 `font-weight: 600` 이상
-- `devlog.html`, `android-studio.md`, `ue5.md`, `tools.md`의 리스트 링크는 `<ul class="devlog-list">` + `<a>` 태그 사용 → `.devlog-list a { font-weight: 600 }` 적용
+- `devlog.html`, `til.html`, `android-studio.md`, `ue5.md`, `tools.md`의 리스트 링크는 `<ul class="devlog-list">` + `<a>` 태그 사용 → `.devlog-list a { font-weight: 600 }` 적용
 - `about.md` 링크는 `.contact-row a { font-weight: 700 }` 적용
 - Minima의 `.post-link` 클래스는 `display: block` 등 레이아웃 스타일이 붙어 있어 커스텀 레이아웃에서 사용 금지
 
@@ -65,11 +67,13 @@ about.md             # About 페이지
 </ul>
 ```
 
-## DevLog 더보기 구조 (devlog.html)
+## DevLog / TIL 더보기 구조 (devlog.html, til.html)
 
-- 3개 이상일 때 4번째부터 `<li hidden class="devlog-extra-item">` 처리
+- 5개 초과 시 6번째부터 `<li hidden class="devlog-extra-item">` 처리
 - 버튼: `<button class="devlog-toggle" data-list="list-{gid}">` — 테두리/배경 없는 심플 텍스트
 - JS가 `hidden` attribute를 toggle함 (갭 없이 동일 `<ul>` 안에서 처리)
+- `.devlog-summary`에 `margin-bottom: 30px` 적용 (project 그룹 간 간격)
+- 페이지 구조가 HTML+Liquid로만 구성되어 `.html` 확장자 사용 (`.md`로 하면 Markdown 파서가 HTML 구조 훼손)
 
 ## Post Frontmatter
 
@@ -77,7 +81,7 @@ about.md             # About 페이지
 ---
 title: "포스트 제목"
 date: 2025-01-01
-categories: [devlog, ue5] # devlog 필수, 카테고리 추가 (ue5 | android-studio | tools)
+categories: [devlog, ue5] # devlog 필수, 카테고리 추가 (ue5 | android-studio | tools | today-i-learn)
 status: public # public 이어야 노출됨
 project: "프로젝트명" # devlog 그룹핑 기준
 project_name: "표시할 이름" # (선택) project와 다른 표시명
