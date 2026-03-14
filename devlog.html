@@ -11,7 +11,7 @@ sec_data = sec[1] %} {% assign sec_posts = base %} {% for inc in
 sec_data.include %} {% assign sec_posts = sec_posts | where_exp: "p",
 "p.categories contains inc" %} {% endfor %}
 
-<h3>Dev Log ― {{ sec_data.title }}</h3>
+<h2>Dev Log ― {{ sec_data.title }}</h2>
 
 {% if sec_posts.size == 0 %}
 <p>아직 글이 없습니다.</p>
