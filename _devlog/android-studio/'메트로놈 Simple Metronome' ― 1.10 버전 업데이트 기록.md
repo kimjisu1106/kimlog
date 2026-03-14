@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 메트로놈 Simple Metronome
+title: "'메트로놈 Simple Metronome' ― 1.10 버전 업데이트 기록"
 date: 2025-08-26
 categories:
   - android-studio
