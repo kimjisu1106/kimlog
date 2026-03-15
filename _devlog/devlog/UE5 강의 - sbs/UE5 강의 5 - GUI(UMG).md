@@ -19,7 +19,7 @@ status: public
         3. 언리얼에서는 WBP에서 UMG를 구현 가능하고 그걸 Create Widget, Add Viewport를 이용해 노출할 수 있게 한다.
 2. [실습] 가상 키보드 만들기
     1. < : onClicked, 왼쪽으로 이동
-    2. >: onClicked, 오른쪽으로 이동
+    2. > : onClicked, 오른쪽으로 이동
     3. Center: onClicked, 가운데로 이동(정지)  
         
         ![](https://blog.kakaocdn.net/dna/q1JoY/dJMcadurysM/AAAAAAAAAAAAAAAAAAAAAEhAUOJ7W9UhJe7azo8cSdqypIdBZHEZ-Jfx_GDKWbqH/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&expires=1774969199&allow_ip=&allow_referer=&signature=uFYNAgVIbVucGCuqXkHhJQQediE%3D)
