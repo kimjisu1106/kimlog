@@ -52,6 +52,7 @@ about.html           # About 페이지
 - 다크모드: `@media (prefers-color-scheme: dark)` 로 CSS 변수 오버라이드
 - `hr`: `margin-top: 32px; margin-bottom: 32px` 전역 적용
 - `.post-content h3`: `font-size: 1.5em; font-weight: 600` (h2와 동일하게)
+- `.devlog-badge`: `vertical-align: middle; position: relative; top: -3px` (✅ 이모지 수직 정렬)
 
 ## Link Style Convention
 
