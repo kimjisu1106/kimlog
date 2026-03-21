@@ -106,3 +106,51 @@ video_id: "YouTube ID" # (선택) 있으면 홈 Latest Videos에 노출
 - GitHub Pages는 허용된 플러그인만 사용 가능 (`jekyll-feed` 등)
 - Minima skin 기능 없음 → 다크모드는 CSS 변수 + `prefers-color-scheme`으로 직접 처리
 - Favicon: `_includes/head.html` 직접 오버라이드 방식 사용 (`custom-head.html` include 방식은 Minima 버전에 따라 불안정)
+
+## 보안 검사 (코드 작성 시 필수 확인)
+
+코드를 작성하거나 수정할 때마다 아래 항목을 반드시 검토한다.
+그 후 CLAUDE.md를 업데이트하고 git commit & push 한다.
+
+**검토 완료 후 응답 끝에 아래 형식으로 보안 검사 결과를 항상 출력한다:**
+
+```
+🔐 보안 검사 결과
+🔑 민감 정보: ✅ 없음 / ❌ 발견됨 → [내용]
+🌐 외부 호출: ✅ 없음 / ❌ 발견됨 → [내용]
+📦 의존성:   ✅ 공식   / ⚠️ 확인 필요 → [내용]
+📁 파일 I/O: ✅ 안전   / ⚠️ 확인 필요 → [내용]
+🕵️ 코드 이상: ✅ 없음 / ❌ 발견됨 → [내용]
+📝 CLAUDE.md Updated ✅
+🔄️ Git Commit & Push ✅
+```
+
+문제가 발견된 항목은 ❌ 또는 ⚠️로 표시하고 내용을 명시한다. 모두 이상 없으면 각 항목 ✅로 표시한다.
+
+### 민감 정보 노출 금지 🔑
+
+- API 키, 토큰 등 민감 정보를 `_config.yml`, HTML, Liquid 템플릿에 하드코딩하지 않는다.
+- 외부 서비스 연동 시 환경 변수 또는 GitHub Secrets를 사용한다.
+
+### 외부 호출 검토 🌐
+
+- 외부 URL(`href`, `src`, `redirect_to`)이 의도된 링크인지 확인한다.
+- `<script>` 태그로 외부 JS를 로드할 경우 신뢰할 수 있는 출처(CDN 등)인지 확인한다.
+- YouTube 썸네일 등 외부 이미지 호출은 허용 (의도된 동작).
+
+### 의존성(플러그인) 검증 📦
+
+- Jekyll 플러그인은 [GitHub Pages 허용 목록](https://pages.github.com/versions/) 내에서만 추가한다.
+- `_config.yml`의 플러그인은 공식 gem인지 확인한다.
+- 불필요한 플러그인은 추가하지 않는다.
+
+### 파일 I/O 보안 📁
+
+- `_devlog/` 내 draft 파일은 반드시 `draft-` 접두사를 붙여 `.gitignore`로 제외한다.
+- 민감한 내용이 담긴 포스트가 실수로 git에 포함되지 않도록 확인한다.
+
+### 코드 이상 여부 확인 🕵️
+
+- Liquid 템플릿에 난독화된 코드나 의미 불명의 문자열이 없는지 확인한다.
+- 인라인 `<style>`, `style=""` 속성이 추가되지 않았는지 확인한다 (모든 스타일은 `assets/main.scss`에만 작성).
+- `<script>` 내 `eval()` 또는 동적 코드 실행이 없는지 확인한다.
