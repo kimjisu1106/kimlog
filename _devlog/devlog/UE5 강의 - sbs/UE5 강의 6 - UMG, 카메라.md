@@ -1,6 +1,6 @@
 ---
 layout: post
-title: UE5 강의 5 - GUI(UMG)
+title: UE5 강의 6 - UMG, 카메라
 date: 2026-01-31
 categories:
   - today-i-learn
