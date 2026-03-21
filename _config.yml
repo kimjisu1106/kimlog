@@ -3,6 +3,7 @@ description: "Unreal Engine / Web Tools "
 theme: minima
 plugins:
   - jekyll-feed
+  - jekyll-redirect-from
 collections:
   devlog:
     output: true
