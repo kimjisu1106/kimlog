@@ -33,7 +33,7 @@ til.html             # TIL 목록 페이지 (project별 그룹핑)
 android-studio.html  # Android Studio 페이지
 ue5.html             # UE5 페이지
 tools.html           # Tools 페이지
-index.html           # 홈 (Latest DevLog + Latest Videos)
+index.html           # 홈 (Dev Logs + Apps + Videos)
 about.html           # About 페이지
 .gitignore           # **/draft-*.md 제외
 ```
@@ -65,12 +65,16 @@ about.html           # About 페이지
 
 `<h2>Projects</h2>` + `<h2>Dev Log</h2>` 섹션 구조, 리스트는 HTML 사용:
 
+- Projects 섹션: `categories`에 `summary` 포함된 포스트만 표시, 링크 텍스트는 `project_name | default: title`
+- 완료된 프로젝트는 `status: finished` → `<span class="devlog-badge">✅</span>` 표시
+
 ```html
 <ul class="devlog-list">
   {% for post in posts %}
   <li>
     {{ post.date | date: "%Y-%m-%d" }} ｜
-    <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+    <a href="{{ post.url | relative_url }}">{{ post.project_name | default: post.title }}</a>
+    {% if post.status == 'finished' %}<span class="devlog-badge">✅</span>{% endif %}
   </li>
   {% endfor %}
 </ul>
@@ -92,10 +96,12 @@ about.html           # About 페이지
 title: "포스트 제목"
 date: 2025-01-01
 categories: [devlog, ue5] # devlog 필수, 카테고리 추가 (ue5 | android-studio | tools | today-i-learn)
+                           # summary 추가 시 해당 페이지 Projects 섹션에 노출
 status: finished # (선택) finished 이면 project 그룹에 완료 뱃지 표시. 미설정시 정상 노출
-project: "프로젝트명" # devlog 그룹핑 기준
+project: "프로젝트명" # devlog 그룹핑 기준. index.html Apps 썸네일은 /assets/images/{project}.png 자동 참조
 project_name: "표시할 이름" # (선택) project와 다른 표시명
 video_id: "YouTube ID" # (선택) 있으면 홈 Latest Videos에 노출
+redirect_to: "https://..." # (선택) 있으면 홈 Apps 섹션에 노출 (외부 링크로 이동)
 ---
 ```
 
