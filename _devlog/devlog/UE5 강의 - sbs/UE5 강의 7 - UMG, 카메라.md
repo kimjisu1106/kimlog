@@ -1,7 +1,7 @@
 ---
 layout: post
-title: UE5 강의 6 - UMG, 카메라
-date: 2026-01-31
+title: UE5 강의 7 - UMG, 카메라
+date: 2026-02-07
 categories:
   - today-i-learn
 project: ue5-class-sbs
