@@ -9,7 +9,7 @@ redirect_to: /tools/pdf-editor/index.html
 project: pdf-editor
 project_name: PDF Editor
 video_id:
-status: public
+status:
 ---
 <iframe  
 src="{{ page.redirect_to | relative_url }}"  

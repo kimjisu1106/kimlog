@@ -10,7 +10,7 @@ project: logstone-bank
 project_name: 로그스톤 은행
 video_id: 5iGeL8S5PHo
 redirect_to:
-status: public
+status:
 ---
 ## 요약
 

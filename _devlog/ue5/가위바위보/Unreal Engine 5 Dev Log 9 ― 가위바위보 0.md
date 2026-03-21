@@ -9,7 +9,7 @@ project: rock-paper-scissors
 project_name: Rock Paper Scissors
 video_id: mGDfCV_GyjQ
 redirect_to:
-status: public
+status: finished
 ---
 ![](https://blog.kakaocdn.net/dna/cxQ2l1/dJMcab38FX9/AAAAAAAAAAAAAAAAAAAAAHcx9VfxOrmF_oB6XugLryRKwnwjgSciX23nVUVzNmmZ/img.webp?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&expires=1772290799&allow_ip=&allow_referer=&signature=j4CtdzHWP0YQ1NGOgvO5Fc89bv4%3D)
 

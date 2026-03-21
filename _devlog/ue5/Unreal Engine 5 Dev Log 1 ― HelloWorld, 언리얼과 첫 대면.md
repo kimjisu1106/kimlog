@@ -9,7 +9,7 @@ categories:
 project: hello-world
 project_name: Hello World
 video_id: DV_3clCPYXw
-status: public
+status:
 ---
 ![](https://blog.kakaocdn.net/dna/xCa0e/dJMcagRUeQ4/AAAAAAAAAAAAAAAAAAAAAB5jbW_7RL4JH5wU0ft5aTphI-jj7YvOLufBxAAFb2GP/img.webp?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&expires=1772290799&allow_ip=&allow_referer=&signature=PMLh1eR0b6TBuZAYJrx3x4M4I1o%3D)
 

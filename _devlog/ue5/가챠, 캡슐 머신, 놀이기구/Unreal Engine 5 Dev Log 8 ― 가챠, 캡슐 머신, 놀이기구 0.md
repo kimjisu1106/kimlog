@@ -9,7 +9,7 @@ project: gacha-machine
 project_name: Gacha Machine
 video_id:
 redirect_to:
-status: public
+status:
 ---
 ## 요약
 
