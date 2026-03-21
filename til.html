@@ -14,7 +14,12 @@ replace: " ", "-" | downcase %}
 
 <details open class="devlog-group">
   <summary class="devlog-summary">
-    <h3 class="devlog-title">{{ project_title }}{% if first.status == 'finished' %}<span class="devlog-badge">✓</span>{% endif %}</h3>
+    <h3 class="devlog-title">
+      {{ project_title }}{% if first.status == 'finished' %}<span
+        class="devlog-badge"
+        >✅</span
+      >{% endif %}
+    </h3>
     <span class="devlog-meta">({{ group.items.size }} posts)</span>
   </summary>
 
@@ -38,10 +43,9 @@ replace: " ", "-" | downcase %}
     ↓ 더보기 ({{ group.items.size | minus: 5 }}개)
   </button>
   {% endif %}
+  <hr />
 </details>
 {% endfor %} {% endif %}
-
-<hr />
 
 <script>
   document.addEventListener("click", (e) => {
