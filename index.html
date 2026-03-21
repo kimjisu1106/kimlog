@@ -2,12 +2,11 @@
 layout: home
 ---
 
-<h2>Latest Dev Log</h2>
+<h2>Lastest Dev Log</h2>
 
 <ul class="post-list home-list">
   {% assign latest = site.devlog | sort: "date" | where_exp: "p", "p.categories
-  contains 'devlog'" | reverse |
-  slice: 0, 5 %} {% for post in latest %}
+  contains 'devlog'" | reverse | slice: 0, 5 %} {% for post in latest %}
   <li class="home-row">
     <span class="home-date post-meta">{{ post.date | date: "%Y-%m-%d" }}</span>
     <span class="home-sep">｜</span>
@@ -20,7 +19,24 @@ layout: home
 
 <hr />
 
-<h2>Latest Videos</h2>
+<h2>Apps</h2>
+
+<ul class="post-list home-list">
+  {% assign apps = site.devlog | where_exp: "p", "p.redirect_to" | sort: "date" | reverse %}
+  {% if apps.size == 0 %}
+  <p>No apps yet.</p>
+  {% else %} {% for post in apps %}
+  <li class="home-row">
+    <span class="home-date post-meta">{{ post.date | date: "%Y-%m-%d" }}</span>
+    <span class="home-sep">｜</span>
+    <a class="home-title" href="{{ post.redirect_to }}" target="_blank">{{ post.project_name | default: post.title }}</a>
+  </li>
+  {% endfor %} {% endif %}
+</ul>
+
+<hr />
+
+<h2>Lastest Videos</h2>
 
 <ul class="post-list home-list">
   {% assign vids = site.devlog | where_exp: "p", "p.video_id" | sort: "date" |
