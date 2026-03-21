@@ -185,6 +185,27 @@
   }
 }
 
+/* App row */
+.home-app {
+  margin: 12px 0;
+}
+
+.home-app-link {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  text-decoration: none;
+}
+
+.home-app-thumb {
+  width: 72px;
+  height: 72px;
+  object-fit: cover;
+  border-radius: 16px;
+  display: block;
+  flex-shrink: 0;
+}
+
 /* =========================================================
    DevLog page
    ========================================================= */
