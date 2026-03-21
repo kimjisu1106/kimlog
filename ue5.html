@@ -17,7 +17,7 @@ permalink: /ue5/
 {% else %}
 <ul class="devlog-list">
   {% for post in posts %}
-  <li>{{ post.date | date: "%Y-%m-%d" }} ｜ <a href="{{ post.url | relative_url }}">{{ post.project_name | default: post.title }}</a></li>
+  <li>{{ post.date | date: "%Y-%m-%d" }} ｜ <a href="{{ post.url | relative_url }}">{{ post.project_name | default: post.title }}</a>{% if post.status == 'finished' %} <span class="devlog-badge">✅</span>{% endif %}</li>
   {% endfor %}
 </ul>
 {% endif %}
