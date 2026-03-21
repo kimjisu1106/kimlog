@@ -10,7 +10,7 @@ project: rhythm-game-firework
 project_name: 리듬게임, 불꽃놀이 그리고 야경
 video_id: rDfp-p8g3R0
 redirect_to:
-status:
+status: finished
 ---
 ## 요약
 
