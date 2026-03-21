@@ -239,19 +239,14 @@
 
 .devlog-badge {
   display: inline-block;
-  margin-left: 8px;
-  padding: 1px 7px;
-  border-radius: 10px;
-  font-size: 11px;
-  font-weight: 600;
-  vertical-align: middle;
-  background: #ddf4e4;
+  margin-left: 6px;
+  font-size: 0.85em;
   color: #1a7f37;
+  vertical-align: middle;
 }
 
 @media (prefers-color-scheme: dark) {
   .devlog-badge {
-    background: #1a3a2a;
     color: #3fb950;
   }
 }
