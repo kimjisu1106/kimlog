@@ -91,12 +91,14 @@ about.html           # About 페이지
 title: "포스트 제목"
 date: 2025-01-01
 categories: [devlog, ue5] # devlog 필수, 카테고리 추가 (ue5 | android-studio | tools | today-i-learn)
-status: public # public 이어야 노출됨
+status: finished # (선택) finished 이면 project 그룹에 완료 뱃지 표시. 미설정시 정상 노출
 project: "프로젝트명" # devlog 그룹핑 기준
 project_name: "표시할 이름" # (선택) project와 다른 표시명
 video_id: "YouTube ID" # (선택) 있으면 홈 Latest Videos에 노출
 ---
 ```
+
+> draft 파일은 파일명에 `draft-` 접두사를 붙이면 `.gitignore`에 의해 git 추적 제외됨.
 
 ## Key Constraints
 

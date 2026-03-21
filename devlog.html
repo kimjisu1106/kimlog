@@ -5,7 +5,7 @@ permalink: /devlog/
 ---
 
 {% assign base = site.devlog | where_exp: "p", "p.categories contains 'devlog'"
-| where_exp: "p", "p.status contains 'public'" | sort: "date" | reverse %} {%
+| sort: "date" | reverse %} {%
 for sec in site.data.sections %} {% assign sec_key = sec[0] %} {% assign
 sec_data = sec[1] %} {% assign sec_posts = base %} {% for inc in
 sec_data.include %} {% assign sec_posts = sec_posts | where_exp: "p",
@@ -22,7 +22,7 @@ first.project_name | default: group.name %} {% assign gid = sec_key | append:
 
 <details open class="devlog-group">
   <summary class="devlog-summary">
-    <h3 class="devlog-title">{{ project_title }}</h3>
+    <h3 class="devlog-title">{{ project_title }}{% if first.status == 'finished' %}<span class="devlog-badge">완료</span>{% endif %}</h3>
     <span class="devlog-meta">({{ group.items.size }} posts)</span>
   </summary>
 

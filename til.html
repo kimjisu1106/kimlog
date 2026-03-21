@@ -5,8 +5,7 @@ permalink: /today-i-learn/
 ---
 
 {% assign posts = site.devlog | where_exp: "p", "p.categories contains
-'today-i-learn'" | where_exp: "p", "p.status contains 'public'" | sort: "date" |
-reverse %} {% if posts.size == 0 %}
+'today-i-learn'" | sort: "date" | reverse %} {% if posts.size == 0 %}
 <p>아직 글이 없습니다.</p>
 {% else %} {% assign groups = posts | group_by: "project" %} {% for group in
 groups %} {% assign first = group.items | first %} {% assign project_title =
@@ -15,7 +14,7 @@ replace: " ", "-" | downcase %}
 
 <details open class="devlog-group">
   <summary class="devlog-summary">
-    <h3 class="devlog-title">{{ project_title }}</h3>
+    <h3 class="devlog-title">{{ project_title }}{% if first.status == 'finished' %}<span class="devlog-badge">완료</span>{% endif %}</h3>
     <span class="devlog-meta">({{ group.items.size }} posts)</span>
   </summary>
 

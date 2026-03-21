@@ -9,7 +9,6 @@ permalink: /ue5/
 {% assign posts = site.devlog
   | where_exp: "p", "p.categories contains 'ue5'"
   | where_exp: "p", "p.categories contains 'summary'"
-  | where_exp: "p", "p.status contains 'public'"
   | where_exp: "p", "p.project"
   | sort: "date" | reverse %}
 
@@ -27,7 +26,6 @@ permalink: /ue5/
 <h2>Dev Log</h2>
 
 {% assign items = site.devlog
-  | where_exp: "i", "i.status contains 'public'"
   | sort: "date"
   | reverse %}
 {% assign devlog_posts = "" | split: "" %}

@@ -6,7 +6,7 @@ layout: home
 
 <ul class="post-list home-list">
   {% assign latest = site.devlog | sort: "date" | where_exp: "p", "p.categories
-  contains 'devlog'" | where_exp: "p", "p.status contains 'public'" | reverse |
+  contains 'devlog'" | reverse |
   slice: 0, 5 %} {% for post in latest %}
   <li class="home-row">
     <span class="home-date post-meta">{{ post.date | date: "%Y-%m-%d" }}</span>
