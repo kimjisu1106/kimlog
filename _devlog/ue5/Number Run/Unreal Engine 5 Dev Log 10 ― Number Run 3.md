@@ -9,7 +9,7 @@ project: number-run
 project_name: Number Run BluePrint
 video_id:
 redirect_to:
-status: public
+status: finished
 ---
 ## 오늘 한 일
 
