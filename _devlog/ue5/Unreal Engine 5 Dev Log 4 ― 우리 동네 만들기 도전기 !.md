@@ -10,7 +10,7 @@ project: my-first-simcity
 project_name: 우리 동네 만들기
 video_id: 40FEFY3NUw4
 redirect_to:
-status:
+status: finished
 ---
 ## 요약
 퇴근길에 본 분홍 구름 하늘 + 버스가 스쳐가는 교차로를 UE5로 재현.
