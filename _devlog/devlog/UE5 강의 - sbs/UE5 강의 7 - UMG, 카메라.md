@@ -6,7 +6,7 @@ categories:
   - today-i-learn
 project: ue5-class-sbs
 project_name: UnrealEngine5 Class
-video_id:
+video_id: a-SI0Rz9B8w
 app_url:
 status:
 ---
@@ -14,7 +14,6 @@ status:
 
 1. [실습] NRBP(Number Run BluePrint)
     1. [DevLog 보기](https://kimlog0415.github.io/devlog/ue5/Number%20Run/Unreal%20Engine%205%20Dev%20Log%2010%20%E2%80%95%20Number%20Run%200/)
-    2. ﻿[영상 보기](https://youtu.be/a-SI0Rz9B8w?si=O92RdXaw7-L--tD1)
 
 ---
 
