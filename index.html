@@ -27,7 +27,7 @@ layout: home
   <p>No apps yet.</p>
   {% else %} {% for post in apps %}
   <li class="home-app">
-    <a class="home-app-link" href="{{ post.app_url }}" target="_blank">
+    <a class="home-app-link" href="{{ post.url | relative_url }}">
       <img
         class="home-app-thumb"
         src="{{ '/assets/images/' | append: post.project | append: '.png' | relative_url }}"
