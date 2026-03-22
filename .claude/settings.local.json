@@ -1,7 +1,11 @@
 {
   "permissions": {
     "allow": [
-      "Read(//c/Users/JISU/Documents/Jisu''''s Obsidian/Github/kimlog0415.github.io/**)"
+      "Read(//c/Users/JISU/Documents/Jisu''''s Obsidian/Github/kimlog0415.github.io/**)",
+      "Read(//c/Users/JISU/**)"
+    ],
+    "additionalDirectories": [
+      "C:\\Users\\JISU\\Documents\\Jisu''''s Obsidian\\Github\\kimlog0415.github.io"
     ]
   }
 }
