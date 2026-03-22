@@ -20,8 +20,6 @@ status:
             
             ![](https://blog.kakaocdn.net/dna/yVB1e/dJMcab4vN5a/AAAAAAAAAAAAAAAAAAAAADI0AKfIaurK2Uf3hd8v0hg0ptDzGxJCXKeDoyu0U4K3/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&expires=1774969199&allow_ip=&allow_referer=&signature=lsSjetA1Bm4QS5UDqT7qh2CONLw%3D)
             
-              
-            
         2. Break(제어)
     2. 함수
     3. 배열(자료구조)
@@ -43,6 +41,7 @@ status:
     
       
       
+      
     
 5. [실습] 구구단 출력 결과값을 캐싱 처리, 함수  
     ArrCachedResults(배열 변수)  
@@ -51,8 +50,7 @@ status:
     (함수이름: PrintResult, 파라미터 이름: Index)  
     인덱스 접근  
     입력값이 5인 경우 출력값  
-    결과(5단의 결과값만 출력(단, 연산은 없다. 캐싱된 결과값에서 가져온다))  
-    
+    결과(5단의 결과값만 출력(단, 연산은 없다. 캐싱된 결과값에서 가져온다))
 
 ![](https://blog.kakaocdn.net/dna/cE7TLM/dJMcadVwuca/AAAAAAAAAAAAAAAAAAAAAGwmPwR1yh6-LMW6rvybiax9qcEFdS98XNEWOeJoLhG7/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&expires=1774969199&allow_ip=&allow_referer=&signature=C52yxeQ%2FwF1i5NZDcdAwn0jsTNA%3D)
 
@@ -62,7 +60,7 @@ status:
 
 ![](https://blog.kakaocdn.net/dna/cWllA0/dJMcadBbVTg/AAAAAAAAAAAAAAAAAAAAAKklkastKx6UrtOysMHDFJABLnsyWM0HAxQsI0srfEDW/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&expires=1774969199&allow_ip=&allow_referer=&signature=fvUgCJWPjU6oVOpzlVeKMHR88kc%3D)
 
-입력값이 8인 경우  
+입력값이 8인 경우
 
 ![](https://blog.kakaocdn.net/dna/zInzR/dJMcabQYrtl/AAAAAAAAAAAAAAAAAAAAAGTrFEnod7woZ9yfBSe4vPelyJi-n9UTdRE3GUFojL0I/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&expires=1774969199&allow_ip=&allow_referer=&signature=NDeGYueuuIN%2FU0u3FpdbyKuRCbA%3D)
 
