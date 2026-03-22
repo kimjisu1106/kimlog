@@ -50,7 +50,7 @@ layout: home
 <h2>Videos</h2>
 
 <ul class="post-list home-list" id="list-videos">
-  {% assign vids = site.devlog | where_exp: "p", "p.video_id" | sort: "date" | reverse %} {% if vids.size == 0 %}
+  {% assign vids = site.devlog | where_exp: "p", "p.video_id" | where_exp: "p", "p.categories contains 'summary'" | sort: "date" | reverse %} {% if vids.size == 0 %}
   <p>No videos yet.</p>
   {% else %} {% for post in vids %}
   <li class="home-video{% if forloop.index > 5 %} devlog-extra-item{% endif %}"{% if forloop.index > 5 %} hidden{% endif %}>
