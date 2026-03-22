@@ -8,7 +8,7 @@ categories:
 project: simple-metronome
 project_name: 메트로놈 Simple Metronome
 video_id:
-redirect_to:
+app_url:
 status: finished
 ---
 ![](https://blog.kakaocdn.net/dna/b0bkr4/dJMcabJQDec/AAAAAAAAAAAAAAAAAAAAAEe6nNiE99iaudMzSQil8OV9O11Ohgj3JIn0DxHAzcw-/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&expires=1774969199&allow_ip=&allow_referer=&signature=fisT8GfMgyP61GrBihXIa1Oepk0%3D)

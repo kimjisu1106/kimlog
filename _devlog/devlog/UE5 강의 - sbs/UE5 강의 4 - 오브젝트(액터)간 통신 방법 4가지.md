@@ -7,7 +7,7 @@ categories:
 project: ue5-class-sbs
 project_name: UnrealEngine5 Class
 video_id:
-redirect_to:
+app_url:
 status:
 ---
 ## 오늘 한 일

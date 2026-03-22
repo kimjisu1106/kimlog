@@ -9,7 +9,7 @@ categories:
 project: my-first-simcity
 project_name: 우리 동네 만들기
 video_id: 40FEFY3NUw4
-redirect_to:
+app_url:
 status: finished
 ---
 ## 요약

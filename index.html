@@ -22,12 +22,12 @@ layout: home
 <h2>Apps</h2>
 
 <ul class="post-list home-list">
-  {% assign apps = site.devlog | where_exp: "p", "p.redirect_to" | sort: "date"
+  {% assign apps = site.devlog | where_exp: "p", "p.app_url" | sort: "date"
   | reverse %} {% if apps.size == 0 %}
   <p>No apps yet.</p>
   {% else %} {% for post in apps %}
   <li class="home-app">
-    <a class="home-app-link" href="{{ post.redirect_to }}" target="_blank">
+    <a class="home-app-link" href="{{ post.app_url }}" target="_blank">
       <img
         class="home-app-thumb"
         src="{{ '/assets/images/' | append: post.project | append: '.png' | relative_url }}"

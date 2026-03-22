@@ -8,7 +8,7 @@ categories:
 project: number-run
 project_name: Number Run BluePrint
 video_id:
-redirect_to:
+app_url:
 status: finished
 ---
 ## 오늘 한 일

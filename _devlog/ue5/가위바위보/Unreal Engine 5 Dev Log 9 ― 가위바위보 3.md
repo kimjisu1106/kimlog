@@ -8,7 +8,7 @@ categories:
 project: rock-paper-scissors
 project_name: Rock Paper Scissors
 video_id:
-redirect_to:
+app_url:
 status: finished
 ---
 ## 오늘 한 일

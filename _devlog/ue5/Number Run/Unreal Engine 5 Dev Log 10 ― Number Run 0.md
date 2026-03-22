@@ -8,7 +8,7 @@ categories:
 project: number-run
 project_name: Number Run BluePrint
 video_id: a-SI0Rz9B8w
-redirect_to:
+app_url:
 status: finished
 ---
 ## 요약

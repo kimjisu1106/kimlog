@@ -5,7 +5,7 @@ date: 2026-02-17
 categories:
   - tools
   - summary
-redirect_to: /tools/pdf-editor/index.html
+app_url: /tools/pdf-editor/index.html
 project: pdf-editor
 project_name: PDF Editor
 video_id:

@@ -8,7 +8,7 @@ categories:
 project: gacha-machine
 project_name: Gacha Machine
 video_id:
-redirect_to:
+app_url:
 status:
 ---
 ## 오늘 한 일

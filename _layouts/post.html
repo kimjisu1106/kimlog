@@ -14,8 +14,8 @@ layout: default
 
   <div class="post-content e-content" itemprop="articleBody">
 
-    {% if page.redirect_to %}
-    <a class="app-card" href="{{ page.redirect_to }}" target="_blank" rel="noopener noreferrer">
+    {% if page.app_url %}
+    <a class="app-card" href="{{ page.app_url }}" target="_blank" rel="noopener noreferrer">
       {% if page.project %}
       <img class="app-card-thumb" src="{{ '/assets/images/' | append: page.project | append: '.png' | relative_url }}" alt="{{ page.project_name | default: page.project }}" onerror="this.style.display='none'">
       {% endif %}
