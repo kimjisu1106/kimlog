@@ -118,6 +118,7 @@ status: finished
 
 ---
 ## 배운점
+
 - WBP의 Animation 기능
 - BP에서 Sequencer 연결하는 방법
 - Cam의 Location, Rotation을 가져오는 방법
