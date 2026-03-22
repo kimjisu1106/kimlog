@@ -22,8 +22,7 @@ layout: home
 <h2>Apps</h2>
 
 <ul class="post-list home-list">
-  {% assign apps = site.devlog | where_exp: "p", "p.app_url and p.categories contains 'summary'" | sort: "date"
-  | reverse %} {% if apps.size == 0 %}
+  {% assign apps = site.devlog | where_exp: "p", "p.categories contains 'summary'" | where_exp: "p", "p.app_url" | sort: "date" | reverse %} {% if apps.size == 0 %}
   <p>No apps yet.</p>
   {% else %} {% for post in apps %}
   <li class="home-app">
