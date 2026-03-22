@@ -28,4 +28,4 @@ status:
 
 ## 다음에 할 일
 
-1. 
+1. AndroidStudio+ClaudeCode 앱 만들기
