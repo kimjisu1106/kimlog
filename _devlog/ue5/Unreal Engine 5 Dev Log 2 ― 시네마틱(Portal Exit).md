@@ -99,5 +99,3 @@ status: finished
 ---
 
 ## 결과
-
-{% include youtube.html id=page.video_id %}

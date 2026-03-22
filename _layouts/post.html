@@ -60,6 +60,11 @@ layout: default
         | sort: "date" %}
     {% endif %}
 
+    {% if page.video_id %}
+    <hr>
+    {% include youtube.html id=page.video_id %}
+    {% endif %}
+
     {% if related.size > 1 %}
     <hr>
     <h2>Related Posts</h2>
