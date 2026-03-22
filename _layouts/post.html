@@ -26,6 +26,16 @@ layout: default
     </a>
     {% endif %}
 
+    {% if page.video_id %}
+    <a class="app-card" href="https://www.youtube.com/watch?v={{ page.video_id }}" target="_blank" rel="noopener noreferrer">
+      <img class="app-card-thumb" src="https://i.ytimg.com/vi/{{ page.video_id }}/hqdefault.jpg" alt="{{ page.title }}">
+      <div class="app-card-info">
+        <span class="app-card-name">{{ page.project_name | default: page.title }}</span>
+        <span class="app-card-link">YouTube에서 보기 ↗</span>
+      </div>
+    </a>
+    {% endif %}
+
     {{ content }}
 
     {% assign current_project = page.project %}
