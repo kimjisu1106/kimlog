@@ -49,3 +49,8 @@ status: finished
     5. WBP_Result ☑️
 4. Sequence 구성 ☑️
 5. SFX / BGM ☑️
+
+---
+
+## 결과
+  
