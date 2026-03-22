@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 메트로놈 Simple Metronome ― 1.10 버전 업데이트 기록
+title: 메트로놈 Simple Metronome ― ver 1.10
 date: 2025-08-26
 categories:
   - android-studio
@@ -8,14 +8,9 @@ categories:
 project: simple-metronome
 project_name: 메트로놈 Simple Metronome
 video_id:
-app_url:
+app_url: https://play.google.com/store/apps/details?id=io.github.kimjisu1106.simplemetronome
 status: finished
 ---
-![](https://blog.kakaocdn.net/dna/b0bkr4/dJMcabJQDec/AAAAAAAAAAAAAAAAAAAAAEe6nNiE99iaudMzSQil8OV9O11Ohgj3JIn0DxHAzcw-/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&expires=1774969199&allow_ip=&allow_referer=&signature=fisT8GfMgyP61GrBihXIa1Oepk0%3D)
-
-[메트로놈 Simple Metronome ― Google Play 바로가기](https://play.google.com/store/apps/details?id=io.github.kimjisu1106.simplemetronome)
-
-
 ## 1. 화면 회전 시 재생 유지
 
 기존에는 휴대폰을 세로 ↔ 가로로 돌릴 때마다 메트로놈 소리가 끊기고 다시 시작했다.  

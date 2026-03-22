@@ -11,11 +11,6 @@ video_id:
 app_url: https://play.google.com/store/apps/details?id=io.github.kimjisu1106.simplemetronome
 status: finished
 ---
-![](https://blog.kakaocdn.net/dna/b0bkr4/dJMcabJQDec/AAAAAAAAAAAAAAAAAAAAAEe6nNiE99iaudMzSQil8OV9O11Ohgj3JIn0DxHAzcw-/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&expires=1774969199&allow_ip=&allow_referer=&signature=fisT8GfMgyP61GrBihXIa1Oepk0%3D)
-
-[메트로놈 Simple Metronome ― Google Play 바로가기](https://play.google.com/store/apps/details?id=io.github.kimjisu1106.simplemetronome)
-
-
 ## 1. 왜 만들었는가
 
 피아노를 치고 싶어 연습실을 등록해 다니기 시작했다. 연습할 때 메트로놈이 꼭 필요했는데, 처음에는 기존에 올라온 무료 앱을 다운받아 사용했다.

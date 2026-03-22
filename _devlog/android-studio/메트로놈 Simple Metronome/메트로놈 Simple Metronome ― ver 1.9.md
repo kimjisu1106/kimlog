@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 메트로놈 Simple Metronome ― 1.9 ver
+title: 메트로놈 Simple Metronome ― ver 1.9
 date: 2025-08-21
 categories:
   - android-studio
@@ -8,14 +8,9 @@ categories:
 project: simple-metronome
 project_name: 메트로놈 Simple Metronome
 video_id:
-app_url:
+app_url: https://play.google.com/store/apps/details?id=io.github.kimjisu1106.simplemetronome
 status: finished
 ---
-![](https://blog.kakaocdn.net/dna/b0bkr4/dJMcabJQDec/AAAAAAAAAAAAAAAAAAAAAEe6nNiE99iaudMzSQil8OV9O11Ohgj3JIn0DxHAzcw-/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&expires=1774969199&allow_ip=&allow_referer=&signature=fisT8GfMgyP61GrBihXIa1Oepk0%3D)
-
-[메트로놈 Simple Metronome ― Google Play 바로가기](https://play.google.com/store/apps/details?id=io.github.kimjisu1106.simplemetronome)
-
-
 ## 1. 마지막 BPM 기억하기 (Book Mark)
 
 연습하다 보면 매번 템포를 다시 60에서 시작하는 게 은근히 귀찮았다.  
