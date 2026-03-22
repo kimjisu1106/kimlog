@@ -31,21 +31,3 @@ status: finished
 ![](https://blog.kakaocdn.net/dna/54qYS/dJMcacILYVo/AAAAAAAAAAAAAAAAAAAAAMmMO0PrbdQclKXh-Q19iQnR4LaEXZw4hyMgcNEX1v95/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&expires=1772290799&allow_ip=&allow_referer=&signature=k5aMNvpNtocdoW4Gaha2%2Bmga5Zk%3D)
 
 ---
-
-{% assign current_project = page.project | default: post.project %}  
-  
-{% assign related = site.devlog  
-| where_exp: "p", "p.categories contains 'ue5'"  
-| where_exp: "p", "p.project == current_project"  
-| sort: "date"  
-%}  
-  
-{% if related.size > 1 %}  
-## Related Post
-  
-{% for item in related %}  
-{% unless item.url == page.url %}  
-- {{ item.date | date: "%Y-%m-%d" }} · [{{ item.title }}]({{ item.url | relative_url }})  
-{% endunless %}  
-{% endfor %}  
-{% endif %}

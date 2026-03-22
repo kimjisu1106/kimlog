@@ -57,21 +57,3 @@ status:
 ![](https://blog.kakaocdn.net/dna/cRMUVL/dJMcadHBa2L/AAAAAAAAAAAAAAAAAAAAAMRVUFlgvltspWEmgtLVxK9nNG-7zJt-59ECWyvvoxK2/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&expires=1772290799&allow_ip=&allow_referer=&signature=9piLWbjAYJzSIaHFYC1AEwwx2qQ%3D)![](https://blog.kakaocdn.net/dna/bAXq4D/dJMb99SLVQ3/AAAAAAAAAAAAAAAAAAAAAI1cDvKyJG0t6fhbtoAq9G7htB9PUzKofCSzkLYaDVno/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&expires=1772290799&allow_ip=&allow_referer=&signature=iSOzJCjoGDJ5pIGubJviHyJTWIs%3D)![](https://blog.kakaocdn.net/dna/cGVJDt/dJMcadHBa22/AAAAAAAAAAAAAAAAAAAAAFzX4ORoI6IzTdRbpLC6muix6hG9eUPXGOXzjOcrTBtv/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&expires=1772290799&allow_ip=&allow_referer=&signature=9kODfgfxHoUWVpvXjZCuvR0rz7w%3D)
 
 ---
-
-{% assign current_project = page.project | default: post.project %}  
-  
-{% assign related = site.devlog  
-| where_exp: "p", "p.categories contains 'ue5'"  
-| where_exp: "p", "p.project == current_project"  
-| sort: "date"  
-%}  
-  
-{% if related.size > 1 %}  
-## Related Post
-  
-{% for item in related %}  
-{% unless item.url == page.url %}  
-- {{ item.date | date: "%Y-%m-%d" }} · [{{ item.title }}]({{ item.url | relative_url }})  
-{% endunless %}  
-{% endfor %}  
-{% endif %}

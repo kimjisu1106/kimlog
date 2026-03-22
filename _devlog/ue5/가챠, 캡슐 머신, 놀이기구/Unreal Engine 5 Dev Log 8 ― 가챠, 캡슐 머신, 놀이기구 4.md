@@ -39,21 +39,3 @@ status:
 1. Pull Btn 위에서 특정 버튼(Spacebar 등)을 누르면 가챠 이벤트(시네마틱) 실행.
 
 ---
-
-{% assign current_project = page.project | default: post.project %}  
-  
-{% assign related = site.devlog  
-| where_exp: "p", "p.categories contains 'ue5'"  
-| where_exp: "p", "p.project == current_project"  
-| sort: "date"  
-%}  
-  
-{% if related.size > 1 %}  
-## Related Post
-  
-{% for item in related %}  
-{% unless item.url == page.url %}  
-- {{ item.date | date: "%Y-%m-%d" }} · [{{ item.title }}]({{ item.url | relative_url }})  
-{% endunless %}  
-{% endfor %}  
-{% endif %}

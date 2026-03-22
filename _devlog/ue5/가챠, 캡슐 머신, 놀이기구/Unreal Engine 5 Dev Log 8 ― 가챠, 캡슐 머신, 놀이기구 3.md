@@ -29,21 +29,3 @@ status:
 1. Insert Coin 존에 player가 도달하면 가챠 기계에 코인 count를 하나씩 빼고 관련 조명이 1개씩 켜지게 들어오게 하기. 3개가 되면 pull zone 활성화.
 
 ---
-
-{% assign current_project = page.project | default: post.project %}  
-  
-{% assign related = site.devlog  
-| where_exp: "p", "p.categories contains 'ue5'"  
-| where_exp: "p", "p.project == current_project"  
-| sort: "date"  
-%}  
-  
-{% if related.size > 1 %}  
-## Related Post
-  
-{% for item in related %}  
-{% unless item.url == page.url %}  
-- {{ item.date | date: "%Y-%m-%d" }} · [{{ item.title }}]({{ item.url | relative_url }})  
-{% endunless %}  
-{% endfor %}  
-{% endif %}

@@ -44,21 +44,3 @@ status: finished
 ![](https://blog.kakaocdn.net/dna/c81Yip/dJMcabQBCjH/AAAAAAAAAAAAAAAAAAAAAPQjLFM00LrJ3snTZdNyyfiO08z3lutS-qy0urPwZo7x/img.webp?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&expires=1772290799&allow_ip=&allow_referer=&signature=IUs8rdu31W1s8WwqTPmskmDJJm8%3D)
 
 ---
-
-{% assign current_project = page.project | default: post.project %}  
-  
-{% assign related = site.devlog  
-| where_exp: "p", "p.categories contains 'ue5'"  
-| where_exp: "p", "p.project == current_project"  
-| sort: "date"  
-%}  
-  
-{% if related.size > 1 %}  
-## Related Post
-  
-{% for item in related %}  
-{% unless item.url == page.url %}  
-- {{ item.date | date: "%Y-%m-%d" }} · [{{ item.title }}]({{ item.url | relative_url }})  
-{% endunless %}  
-{% endfor %}  
-{% endif %}
