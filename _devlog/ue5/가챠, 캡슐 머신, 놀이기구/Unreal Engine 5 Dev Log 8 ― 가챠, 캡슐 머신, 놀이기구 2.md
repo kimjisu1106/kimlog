@@ -52,6 +52,4 @@ status:
 
 1. Insert Coin 존에 player가 도달하면 가챠 기계에 코인 count를 하나씩 빼고 관련 조명이 1개씩 켜지게 들어오게 하기. 3개가 되면 pull zone 활성화.
 
-  
-
 ![](https://blog.kakaocdn.net/dna/cRMUVL/dJMcadHBa2L/AAAAAAAAAAAAAAAAAAAAAMRVUFlgvltspWEmgtLVxK9nNG-7zJt-59ECWyvvoxK2/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&expires=1772290799&allow_ip=&allow_referer=&signature=9piLWbjAYJzSIaHFYC1AEwwx2qQ%3D)![](https://blog.kakaocdn.net/dna/bAXq4D/dJMb99SLVQ3/AAAAAAAAAAAAAAAAAAAAAI1cDvKyJG0t6fhbtoAq9G7htB9PUzKofCSzkLYaDVno/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&expires=1772290799&allow_ip=&allow_referer=&signature=iSOzJCjoGDJ5pIGubJviHyJTWIs%3D)![](https://blog.kakaocdn.net/dna/cGVJDt/dJMcadHBa22/AAAAAAAAAAAAAAAAAAAAAFzX4ORoI6IzTdRbpLC6muix6hG9eUPXGOXzjOcrTBtv/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&expires=1772290799&allow_ip=&allow_referer=&signature=9kODfgfxHoUWVpvXjZCuvR0rz7w%3D)
