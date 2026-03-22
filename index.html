@@ -73,3 +73,23 @@ layout: home
   <button class="devlog-toggle" data-list="list-videos">더보기 ▾</button>
   {% endif %} {% endif %}
 </ul>
+
+<script>
+  document.addEventListener("click", (e) => {
+    const btn = e.target.closest(".devlog-toggle");
+    if (!btn || !btn.dataset.list) return;
+    const list = document.getElementById(btn.dataset.list);
+    if (!list) return;
+    const extras = list.querySelectorAll(".devlog-extra-item");
+    const isOpen = btn.getAttribute("aria-expanded") === "true";
+    if (isOpen) {
+      extras.forEach((li) => li.setAttribute("hidden", ""));
+      btn.setAttribute("aria-expanded", "false");
+      btn.textContent = "더보기 ▾";
+    } else {
+      extras.forEach((li) => li.removeAttribute("hidden"));
+      btn.setAttribute("aria-expanded", "true");
+      btn.textContent = "접기 ▴";
+    }
+  });
+</script>
