@@ -12,8 +12,6 @@ video_id: DV_3clCPYXw
 app_url:
 status: finished
 ---
-![](https://blog.kakaocdn.net/dna/xCa0e/dJMcagRUeQ4/AAAAAAAAAAAAAAAAAAAAAB5jbW_7RL4JH5wU0ft5aTphI-jj7YvOLufBxAAFb2GP/img.webp?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&expires=1772290799&allow_ip=&allow_referer=&signature=PMLh1eR0b6TBuZAYJrx3x4M4I1o%3D)
-
 ## 오늘 한 일
 
 언리얼엔진 설치  
@@ -25,7 +23,6 @@ status: finished
 뭔가 만들어보기 도전
 
 ---
-
 ## 생각한 것
 
 큐브로 만든 벽, 천장 + 스타터 세트에 있는 벽, 문, 창문을 이용해 집 만들기  
@@ -33,20 +30,17 @@ status: finished
 그나마 바닥에 붙이는건 단축키가 있어서 편리했다.
 
 ---
-
 ## 오브젝트
 
 아무것도 없는 것보다는 오브젝트가 있는 것이 좋긴 했는데, 마켓같은데서 추가적으로 다운받아 사용가능하다고 본 것 같은데 내가 사용한 UE 5.3 버전에서 사용 가능한 현실 오브젝트를 아직 못찾았다. 이것도 분명 어딘가 있을텐데...
 
 ---
-
 ## 재질 바꿔보기
 
 Material을 커버 갈아끼우듯이 바꿀 수 있는게 신기했다.  
 다만 어정쩡하게 남는 부분을 추가적으로 큐브를 덧대어 메웠는데 그러다보니 스타터 세트에 있는 벽과 덧댄 큐브의 스케일이 맞지 않아 Material을 넣었을 때 패턴이 달라져서 그나마 티가 덜 나는 것으로 적용했다. 뭔가 방법이 있을테니 다른날 찾아봐야겠다.
 
 ---
-
 ## 벽에 조명을 달고 빛 구현하기
 
 이거 생각보다 어려웠다.  
@@ -57,7 +51,6 @@ Material을 커버 갈아끼우듯이 바꿀 수 있는게 신기했다.
 밖은 대낮인데 실내는 시간이 더 흘러보이는 느낌.
 
 ---
-
 ## 카메라 무빙
 
 이건 생각보다 많이 어렵진 않았다.  
@@ -67,15 +60,8 @@ After effect나 Cubase 등에서도 사용하는 방식과 유사했다.
 처음에 만들 때는 카메라 연출을 생각하지 않고 그냥 만들어서 그게 아쉬웠다.
 
 ---
-
 ## 랜더링
 
 랜더링 자체는 어려운게 아니었는데, 카메라가 무빙한 것을 랜더링 하도록 설정하는 과정에서 조금 애를 먹었다. 카메라만 있다고 되는게 아니라 뭔가를 추가해야했는데 처음엔 그걸 잘 몰랐다.  
 지금보니까 좀 더 화질 좋게 랜더링 했으면 좋았을걸 하는 아쉬움이 남는다.
 
-
-![](https://scrap.kakaocdn.net/dn/b414aT/dJMb9kl7Rrn/b8kmgkIXn0A7j9LJFctjR1/img.jpg?width=480&height=360&face=0_0_480_360,https://scrap.kakaocdn.net/dn/Atg40/dJMb9b3M7oM/cGD1bVJnBVK9lFfqZdnA80/img.jpg?width=480&height=360&face=0_0_480_360,https://scrap.kakaocdn.net/dn/cEHdcB/dJMb9bvXkYc/2NuYYMhkxmrdysPyZfAaQ0/img.jpg?width=480&height=360&face=0_0_480_360)
-
----
-
-## 결과
