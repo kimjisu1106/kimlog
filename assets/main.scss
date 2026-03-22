@@ -329,14 +329,16 @@ hr {
 }
 
 /* =========================================================
-   About page
+   Footer
    ========================================================= */
-.contact-row {
+.footer-contact {
   display: flex;
-  gap: 12px;
+  gap: 8px;
   align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 4px;
 }
 
-.contact-row a {
+.footer-contact a {
   font-weight: 700;
 }
