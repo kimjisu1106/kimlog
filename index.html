@@ -21,11 +21,11 @@ layout: home
 
 <h2>Apps</h2>
 
-<ul class="post-list home-list">
+<ul class="post-list home-list" id="list-apps">
   {% assign apps = site.devlog | where_exp: "p", "p.categories contains 'summary'" | where_exp: "p", "p.app_url" | sort: "date" | reverse %} {% if apps.size == 0 %}
   <p>No apps yet.</p>
   {% else %} {% for post in apps %}
-  <li class="home-app">
+  <li class="home-app" {% if forloop.index > 5 %}hidden class="devlog-extra-item"{% endif %}>
     <a class="home-app-link" href="{{ post.url | relative_url }}">
       <img
         class="home-app-thumb"
@@ -39,19 +39,20 @@ layout: home
       </div>
     </a>
   </li>
-  {% endfor %} {% endif %}
+  {% endfor %} {% if apps.size > 5 %}
+  <button class="devlog-toggle" data-list="list-apps">더보기 ▾</button>
+  {% endif %} {% endif %}
 </ul>
 
 <hr />
 
 <h2>Videos</h2>
 
-<ul class="post-list home-list">
-  {% assign vids = site.devlog | where_exp: "p", "p.video_id" | sort: "date" |
-  reverse | slice: 0, 6 %} {% if vids.size == 0 %}
+<ul class="post-list home-list" id="list-videos">
+  {% assign vids = site.devlog | where_exp: "p", "p.video_id" | sort: "date" | reverse %} {% if vids.size == 0 %}
   <p>No videos yet.</p>
   {% else %} {% for post in vids %}
-  <li class="home-video">
+  <li class="home-video" {% if forloop.index > 5 %}hidden class="devlog-extra-item"{% endif %}>
     <a class="home-video-link" href="{{ post.url | relative_url }}">
       <img
         class="home-thumb"
@@ -67,5 +68,7 @@ layout: home
       </div>
     </a>
   </li>
-  {% endfor %} {% endif %}
+  {% endfor %} {% if vids.size > 5 %}
+  <button class="devlog-toggle" data-list="list-videos">더보기 ▾</button>
+  {% endif %} {% endif %}
 </ul>
