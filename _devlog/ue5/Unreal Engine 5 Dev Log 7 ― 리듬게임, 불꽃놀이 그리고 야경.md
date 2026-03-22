@@ -118,6 +118,7 @@ status: finished
 
 ---
 ## 배운점
+
 - WBP의 Animation 기능
 - BP에서 Sequencer 연결하는 방법
 - Cam의 Location, Rotation을 가져오는 방법
@@ -126,7 +127,3 @@ status: finished
 - UI 애니메이션의 효과
 - BP 간 통신 구조 설계
 - NiagaraSystem의 파라미터 설계
-
----
-
-## 결과

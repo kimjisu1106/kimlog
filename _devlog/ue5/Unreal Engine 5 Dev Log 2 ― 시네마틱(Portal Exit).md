@@ -12,8 +12,6 @@ video_id: 8hCDR3biZro
 app_url:
 status: finished
 ---
-![](https://blog.kakaocdn.net/dna/btyLwe/dJMcaiWrN28/AAAAAAAAAAAAAAAAAAAAADFZKT6OmBGU4-RflvRbHa1Wmms-cHIxFCJWH3vOZ-w5/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&expires=1772290799&allow_ip=&allow_referer=&signature=uLV0ErYiioGs%2B9L%2B34iXzY4NNVg%3D)
-
 ## 도입
 
 언리얼엔진 5로 시네마틱 영상 만드는 튜토리얼이 있길래 따라 해봤다.  
@@ -27,7 +25,6 @@ status: finished
 7시간 작업해서 26초짜리 영상을 만들었다!
 
 ---
-
 ## 오늘 좋았던 포인트
 
 1. 시네마틱을 만든다고 꼭 '시네마' 프리셋으로 시작하지 않아도 된다는 것
@@ -35,7 +32,6 @@ status: finished
 3. "언리얼로 만든 영상이 이렇게 멋질 수 있구나" 하는 충격
 
 ---
-
 ## 사용한 리소스
 
 1. 캐릭터
@@ -49,7 +45,6 @@ status: finished
 3. 컨셉: RPG 보스전 인트로 씬
 
 ---
-
 ## 작업 과정 요약
 
 1. 프로젝트 생성
@@ -82,7 +77,6 @@ status: finished
     5. 언리얼 내부 믹스는 제한적이었지만 생각보다 자연스럽게 섞여서 놀랐다.
 
 ---
-
 ## 아쉬운 점 & 다음에 해보고 싶은 것
 
 1. Opacity 조절을 몰라서 포털/연기 사라지는 연출이 어색했다.
@@ -90,12 +84,7 @@ status: finished
 3. 사운드에서 Reverb, Pan, EQ 같은 디테일을 언리얼 안에서 다루는 방법을 익히고 싶다.
 
 ---
-
 ## 오늘의 결론
 
 26초 영상이지만, "나도 언리얼로 이렇게 연출할 수 있다"는 걸 직접 경험한 게 가장 큰 수확이었다.  
 멀미와 아쉬움은 남았지만, 만족감이 더 크다.
-
----
-
-## 결과

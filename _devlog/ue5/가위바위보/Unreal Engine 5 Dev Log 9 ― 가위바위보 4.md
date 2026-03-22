@@ -40,5 +40,3 @@ status: finished
 ## 다음에 할 일
 
 1. 영상 업로드
-
-![](https://blog.kakaocdn.net/dna/c81Yip/dJMcabQBCjH/AAAAAAAAAAAAAAAAAAAAAPQjLFM00LrJ3snTZdNyyfiO08z3lutS-qy0urPwZo7x/img.webp?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&expires=1772290799&allow_ip=&allow_referer=&signature=IUs8rdu31W1s8WwqTPmskmDJJm8%3D)
