@@ -37,5 +37,3 @@ status: finished
     2. PCResult에 Scale Anim 넣기
     3. 점수 룰렛에서 얻은 부분 강조하기
 2. SFX, BGM 넣기
-
-![](https://blog.kakaocdn.net/dna/bFFfyE/dJMcabC5QaI/AAAAAAAAAAAAAAAAAAAAAJzqQoAw2_bkyP2ew-FK21_9-GOjTmgaTrkFh22x67O6/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&expires=1772290799&allow_ip=&allow_referer=&signature=icH3lH2kgkfb7FhDozcAo1fETPk%3D)
