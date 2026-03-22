@@ -29,5 +29,3 @@ status: finished
 1. 가위바위보 WBP 및 로직 보강
 
 ![](https://blog.kakaocdn.net/dna/54qYS/dJMcacILYVo/AAAAAAAAAAAAAAAAAAAAAMmMO0PrbdQclKXh-Q19iQnR4LaEXZw4hyMgcNEX1v95/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&expires=1772290799&allow_ip=&allow_referer=&signature=k5aMNvpNtocdoW4Gaha2%2Bmga5Zk%3D)
-
----

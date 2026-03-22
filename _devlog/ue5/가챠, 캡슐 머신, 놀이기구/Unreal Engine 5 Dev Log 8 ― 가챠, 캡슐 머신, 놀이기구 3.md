@@ -27,5 +27,3 @@ status:
 ## 다음에 할 일
 
 1. Insert Coin 존에 player가 도달하면 가챠 기계에 코인 count를 하나씩 빼고 관련 조명이 1개씩 켜지게 들어오게 하기. 3개가 되면 pull zone 활성화.
-
----

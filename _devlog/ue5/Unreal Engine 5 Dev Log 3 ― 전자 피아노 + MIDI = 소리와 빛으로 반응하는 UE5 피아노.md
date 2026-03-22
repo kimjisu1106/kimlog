@@ -325,5 +325,3 @@ NoteOff되면 짧은 타이머
 ## 결과
 
 {% include youtube.html id=page.video_id %}
-
----

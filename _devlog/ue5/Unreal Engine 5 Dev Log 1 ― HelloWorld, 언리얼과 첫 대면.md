@@ -80,5 +80,3 @@ After effect나 Cubase 등에서도 사용하는 방식과 유사했다.
 ## 결과
 
 {% include youtube.html id=page.video_id %}
-
----

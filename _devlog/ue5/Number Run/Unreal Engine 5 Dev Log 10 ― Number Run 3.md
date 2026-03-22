@@ -50,5 +50,3 @@ status: finished
 
 1. GameSystem
 	1. WBP_Result 만들어서 표처럼 순위, 숫자, 몇 초인지 표시하기
-
----

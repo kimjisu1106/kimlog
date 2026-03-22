@@ -68,5 +68,3 @@ status: finished
 	1. SelectedNumber의 DeltaY보다 값이 큰 항목이 있으면 CountRank(Int)++하는 로직을 구현.
 	2.  Index: 각 숫자 번호, Item: CountRank를 갖는 ArrRanks를 생성하는 반복문을 구성. 
 
-
----

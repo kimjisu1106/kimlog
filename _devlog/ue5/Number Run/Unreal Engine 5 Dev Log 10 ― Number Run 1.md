@@ -74,5 +74,3 @@ status: finished
 4. Camera
 	- Player가 선택한 Number Actor 추적
 	- 중계 카메라 느낌의 Follow Camera 구현
-
----

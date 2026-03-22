@@ -56,5 +56,3 @@ status: finished
 3. 실제 플레이 화면은 아래 영상으로 확인할 수 있다.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/mGDfCV_GyjQ?si=CIQUl-SKM-y_7UlJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
----
