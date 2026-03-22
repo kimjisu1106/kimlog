@@ -21,15 +21,9 @@ status: finished
 ## 막힌 부분
 
 1.   
-    
 
 ---
 
 ## 다음에 할 일
 
 1. 가위바위보 WBP 및 로직 구현
-
-  
-
-![](https://blog.kakaocdn.net/dna/dkQYXq/dJMcagYGmra/AAAAAAAAAAAAAAAAAAAAAI4UHpRp7_Tkz8t70UKv_HuW-b80S69HF-gZX5F3esVL/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&expires=1772290799&allow_ip=&allow_referer=&signature=V%2FWjWFruWevew33MAaXEWaOwAys%3D)
-
