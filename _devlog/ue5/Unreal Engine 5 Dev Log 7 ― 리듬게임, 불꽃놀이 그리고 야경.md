@@ -133,4 +133,3 @@ status: finished
 
 {% include youtube.html id=page.video_id %}
 
----
