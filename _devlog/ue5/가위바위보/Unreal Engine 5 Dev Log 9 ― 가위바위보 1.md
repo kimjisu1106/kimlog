@@ -7,7 +7,7 @@ categories:
   - ue5
 project: rock-paper-scissors
 project_name: Rock Paper Scissors
-video_id:
+video_id: mGDfCV_GyjQ
 app_url:
 status: finished
 ---
