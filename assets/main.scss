@@ -287,6 +287,48 @@ hr {
 }
 
 /* =========================================================
+   App redirect card (post 상단)
+   ========================================================= */
+.app-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  text-decoration: none;
+  margin-bottom: 32px;
+}
+
+.app-card:hover {
+  background: var(--devlog-hover);
+}
+
+.app-card-thumb {
+  width: 72px;
+  height: 72px;
+  border-radius: 16px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.app-card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.app-card-name {
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.app-card-link {
+  font-size: 13px;
+  opacity: 0.6;
+}
+
+/* =========================================================
    About page
    ========================================================= */
 .contact-row {
