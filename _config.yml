@@ -1,5 +1,6 @@
 title: "김로그의 우당탕탕"
 description: "Unreal Engine / Web Tools "
+logo: /assets/images/profile.png
 theme: minima
 plugins:
   - jekyll-feed
