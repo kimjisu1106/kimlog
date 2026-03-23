@@ -331,6 +331,14 @@ hr {
 /* =========================================================
    Footer
    ========================================================= */
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
 .footer-contact {
   display: flex;
   gap: 8px;
