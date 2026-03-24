@@ -26,6 +26,12 @@ status:
 ## 배운 점
 
 1. Player가 버튼을 누르는 순간, 이미 결과는 정해져있다.
+2. CustomEvent와 Function의 차이
+	1. CustomEvent: ReturnValue 없이 흐름 위주
+	2. Function: ReturnValue가 있다
+3. Event Construction과 Event Pre-Construction의 차이는 언제 Construct?
+	1. Event Construction: When Instance widget
+	2. Event Pre-Construction: When CreateWidget
 
 ---
 
