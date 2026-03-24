@@ -3,7 +3,7 @@ layout: post
 title: PDF Editor
 date: 2026-02-17
 categories:
-  - tools
+  - apps
   - summary
 app_url: /tools/pdf-editor/index.html
 project: pdf-editor

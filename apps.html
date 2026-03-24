@@ -1,13 +1,13 @@
 ---
 layout: page
-title: Tools
-permalink: /tools/
+title: Apps
+permalink: /apps/
 ---
 
 <h2>Projects</h2>
 
 {% assign posts = site.devlog
-  | where_exp: "p", "p.categories contains 'tools'"
+  | where_exp: "p", "p.categories contains 'apps'"
   | where_exp: "p", "p.categories contains 'summary'"
   | where_exp: "p", "p.project"
   | sort: "date" | reverse %}
@@ -31,7 +31,7 @@ permalink: /tools/
 {% assign devlog_posts = "" | split: "" %}
 {% for post in items %}
   {% assign cats = post.categories | join: "," | downcase %}
-  {% if cats contains "devlog" and cats contains "tools" %}
+  {% if cats contains "devlog" and cats contains "apps" %}
     {% assign devlog_posts = devlog_posts | push: post %}
   {% endif %}
 {% endfor %}
