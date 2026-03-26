@@ -4,7 +4,7 @@ title: 중복된 파일 찾기 File Duplicate Finder
 date: 2026-03-22
 categories:
   - summary
-  - tools
+  - apps
 project: duplicate-finder
 project_name: 중복된 파일 찾기 Duplicate Finder
 video_id:

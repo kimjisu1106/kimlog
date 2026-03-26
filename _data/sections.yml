@@ -4,4 +4,4 @@ ue5:
 
 apps:
   title: Apps
-  include: [apps, tools]
+  include: [apps]
