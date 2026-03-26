@@ -4,33 +4,31 @@ title: Dev Log
 permalink: /devlog/
 ---
 
-{% assign base = site.devlog | where_exp: "p", "p.categories contains 'devlog'"
-| sort: "date" | reverse %} {%
-for sec in site.data.sections %} {% assign sec_key = sec[0] %} {% assign
-sec_data = sec[1] %} {% assign sec_posts = base %} {% for inc in
-sec_data.include %} {% assign sec_posts = sec_posts | where_exp: "p",
-"p.categories contains inc" %} {% endfor %}
+{% assign all_posts = site.devlog | where_exp: "p", "p.categories contains 'devlog'" | sort: "date" | reverse %}
+{% assign groups = all_posts | group_by: "project" %}
 
-
-
-{% if sec_posts.size == 0 %}
+{% if groups.size == 0 %}
 <p>아직 글이 없습니다.</p>
-{% else %} {% assign groups = sec_posts | group_by: "project" %} {% for group in
-groups %} {% assign first = group.items | first %} {% assign project_title =
-first.project_name | default: group.name %} {% assign gid = sec_key | append:
-"-" | append: group.name | replace: " ", "-" | downcase %}
+{% else %}
+{% for group in groups %}
+{% assign first = group.items | first %}
+{% assign project_title = first.project_name | default: group.name %}
+{% assign gid = group.name | replace: " ", "-" | downcase %}
+
+{% if first.categories contains 'ue5' %}{% assign cat_label = "Unreal Engine 5" %}
+{% elsif first.categories contains 'apps' or first.categories contains 'tools' %}{% assign cat_label = "Apps" %}
+{% elsif first.categories contains 'android-studio' %}{% assign cat_label = "Android Studio" %}
+{% else %}{% assign cat_label = "" %}{% endif %}
 
 <details open class="devlog-group">
   <summary class="devlog-summary">
-    <h3 class="devlog-title">{{ sec_data.title }} | {{ project_title }}{% if first.status == 'finished' %}<span class="devlog-badge">✅</span>{% endif %}</h3>
+    <h3 class="devlog-title">{% if cat_label != "" %}{{ cat_label }} | {% endif %}{{ project_title }}{% if first.status == 'finished' %}<span class="devlog-badge">✅</span>{% endif %}</h3>
     <span class="devlog-meta">({{ group.items.size }} posts)</span>
   </summary>
 
   <ul class="devlog-list" id="list-{{ gid }}">
     {% for post in group.items %}
-    <li {% if forloop.index>
-      5 %}hidden class="devlog-extra-item"{% endif %}>{{ post.date | date:
-      "%Y-%m-%d" }} ｜
+    <li {% if forloop.index > 5 %}hidden class="devlog-extra-item"{% endif %}>{{ post.date | date: "%Y-%m-%d" }} ｜
       <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
     </li>
     {% endfor %}
@@ -47,11 +45,8 @@ first.project_name | default: group.name %} {% assign gid = sec_key | append:
   </button>
   {% endif %}
 </details>
-{% endfor %} {% endif %}
-
-<hr />
-
 {% endfor %}
+{% endif %}
 
 <script>
   document.addEventListener("click", (e) => {
