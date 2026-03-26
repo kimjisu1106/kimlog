@@ -351,3 +351,24 @@ hr {
 .footer-contact a {
   font-weight: 700;
 }
+
+/* =========================================================
+   Support button (footer + contact page)
+   ========================================================= */
+.support-btn {
+  display: inline-flex;
+  align-items: center;
+  background-color: #ffdd00;
+  color: #000000;
+  text-decoration: none;
+  padding: 7px 15px;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 14px;
+  transition: opacity 0.2s;
+}
+
+.support-btn:hover {
+  opacity: 0.8;
+  color: #000000;
+}
