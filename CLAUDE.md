@@ -22,7 +22,7 @@ _devlog/             # 포스트 원본 (Obsidian에서 작성)
   today-i-learn/     # 카테고리: today-i-learn
 _includes/
   head.html          # Minima head 오버라이드 (favicon, OG, Google Search Console)
-  footer.html        # footer 오버라이드 (contact + Buy Me a Coffee)
+  footer.html        # footer 오버라이드 (contact 정보 + /contact/ 후원 링크)
   youtube.html       # YouTube embed 인클루드
 _layouts/
   post.html          # Minima post layout 오버라이드 (app card, video card, related posts)
@@ -38,6 +38,7 @@ ue5.html             # UE5 페이지
 apps.html            # Apps 페이지
 index.html           # 홈 (Dev Logs + Apps + Videos)
 .gitignore           # **/draft-*.md 제외
+contact.html         # Contact 페이지 (이메일, YouTube, PayPal/카카오페이 후원)
 ```
 
 ## Page File Convention
