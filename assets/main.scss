@@ -379,3 +379,47 @@ hr {
   gap: 10px;
   flex-wrap: wrap;
 }
+
+.kakao-qr-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.kakao-qr-modal[hidden] {
+  display: none;
+}
+
+.kakao-qr-box {
+  background: #fff;
+  border-radius: 14px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.kakao-qr-box p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.kakao-qr-box img {
+  display: block;
+  border-radius: 8px;
+}
+
+.kakao-qr-close {
+  background: none;
+  border: 1px solid var(--btn-border);
+  border-radius: 6px;
+  padding: 6px 16px;
+  cursor: pointer;
+  font-size: 13px;
+  color: inherit;
+}
