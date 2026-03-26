@@ -363,10 +363,13 @@ hr {
   text-decoration: none;
   padding: 7px 15px;
   border-radius: 5px;
+  border: none;
   font-weight: bold;
   font-size: 14px;
+  font-family: inherit;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   transition: box-shadow 0.2s;
+  cursor: pointer;
 }
 
 .support-btn:hover {
