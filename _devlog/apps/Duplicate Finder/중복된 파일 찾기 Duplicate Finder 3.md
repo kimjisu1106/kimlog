@@ -8,8 +8,8 @@ categories:
 project: duplicate-finder
 project_name: 중복된 파일 찾기 Duplicate Finder
 video_id:
-app_url:
-status:
+app_url: https://github.com/kimlog0415/DuplicateFinder/releases/download/v1.0.0/DuplicateFinder.exe
+status: finished
 ---
 ## 오늘 한 일
 
