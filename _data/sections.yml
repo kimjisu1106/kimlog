@@ -2,6 +2,6 @@ ue5:
   title: Unreal Engine 5
   include: [ue5]
 
-tools:
-  title: Tools
-  include: [tools]
+apps:
+  title: Apps
+  include: [apps]

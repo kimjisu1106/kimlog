@@ -18,11 +18,15 @@ status:
         2. UMG: Unreal Motion Graphic. 언리얼 엔진에서 제공하는 HUD, 메뉴 등 사용자 인터페이스(UI)를 비주얼 툴로 제작할 수 있게 하는 기능
         3. 언리얼에서는 WBP에서 UMG를 구현 가능하고 그걸 Create Widget, Add Viewport를 이용해 노출할 수 있게 한다.
 2. [실습] 가상 키보드 만들기
-    1. '<' : onClicked, 왼쪽으로 이동
-    2. '>' : onClicked, 오른쪽으로 이동
-    3. 'Center' : onClicked, 가운데로 이동(정지)  
+	1. '<' : onClicked, 왼쪽으로 이동
+	2. '>' : onClicked, 오른쪽으로 이동
+	3. 'Center' : onClicked, 가운데로 이동(정지)  
+    ![](https://blog.kakaocdn.net/dna/q1JoY/dJMcadurysM/AAAAAAAAAAAAAAAAAAAAAEhAUOJ7W9UhJe7azo8cSdqypIdBZHEZ-Jfx_GDKWbqH/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&expires=1774969199&allow_ip=&allow_referer=&signature=uFYNAgVIbVucGCuqXkHhJQQediE%3D)
+    ![](https://blog.kakaocdn.net/dna/upcyc/dJMcahp9bKa/AAAAAAAAAAAAAAAAAAAAAGVL-l_0mKueHuXfaTUZB054agMUIK_qGzg1mhgpbT2O/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&expires=1774969199&allow_ip=&allow_referer=&signature=QKjRqp%2FZ9NLFCu5zczaZfXOORs0%3D)
+    ![](https://blog.kakaocdn.net/dna/bfh0rH/dJMcahwVavJ/AAAAAAAAAAAAAAAAAAAAAH7UYaFOggH83-9pqCLH48KxrHp_y_mSjw8CzPR5wB7Q/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&expires=1774969199&allow_ip=&allow_referer=&signature=Sa4ZGcRqIO1B2nZ4FuC6TY%2FmRyc%3D)
+    ![](https://blog.kakaocdn.net/dna/H7FWY/dJMcac3pefI/AAAAAAAAAAAAAAAAAAAAAAuBCXbst_plnjeNqPMkQMNHXYW20UzpSXrL-tILPezl/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&expires=1774969199&allow_ip=&allow_referer=&signature=C6FOfYw98KkjRdfZCiramrsuk5U%3D)
         
-3. [실습] 2D 미니게임(가위바위보)
+6. [실습] 2D 미니게임(가위바위보)
     1. [DevLog 보기](https://kimlog0415.github.io/devlog/ue5/%EA%B0%80%EC%9C%84%EB%B0%94%EC%9C%84%EB%B3%B4/Unreal%20Engine%205%20Dev%20Log%209%20%E2%80%95%20%EA%B0%80%EC%9C%84%EB%B0%94%EC%9C%84%EB%B3%B4%200/)  
 
 ---

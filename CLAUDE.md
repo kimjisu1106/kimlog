@@ -18,11 +18,10 @@ _devlog/             # 포스트 원본 (Obsidian에서 작성)
   devlog/            # 카테고리: devlog
   apps/              # 카테고리: apps
   ue5/               # 카테고리: ue5
-  android-studio/    # 카테고리: android-studio
   today-i-learn/     # 카테고리: today-i-learn
 _includes/
   head.html          # Minima head 오버라이드 (favicon, OG, Google Search Console)
-  footer.html        # footer 오버라이드 (contact + Buy Me a Coffee)
+  footer.html        # footer 오버라이드 (contact 정보 + /contact/ 후원 링크)
   youtube.html       # YouTube embed 인클루드
 _layouts/
   post.html          # Minima post layout 오버라이드 (app card, video card, related posts)
@@ -33,11 +32,11 @@ apps/
   pdf-editor/        # PDF Editor 웹앱 정적 파일
 devlog.html          # Dev Log 목록 페이지 (project별 그룹핑)
 til.html             # TIL 목록 페이지 (project별 그룹핑)
-android-studio.html  # Android Studio 페이지
 ue5.html             # UE5 페이지
 apps.html            # Apps 페이지
 index.html           # 홈 (Dev Logs + Apps + Videos)
 .gitignore           # **/draft-*.md 제외
+contact.html         # Contact 페이지 (이메일, YouTube, PayPal/카카오페이 후원)
 ```
 
 ## Page File Convention
@@ -58,10 +57,8 @@ index.html           # 홈 (Dev Logs + Apps + Videos)
 ## Link Style Convention
 
 - 모든 페이지의 포스트 링크는 `font-weight: 600` 이상
-- `devlog.html`, `til.html`, `android-studio.html`, `ue5.html`, `apps.html`의 리스트 링크는 `<ul class="devlog-list">` + `<a>` 태그 사용 → `.devlog-list a { font-weight: 600 }` 적용
 - Minima의 `.post-link` 클래스는 `display: block` 등 레이아웃 스타일이 붙어 있어 커스텀 레이아웃에서 사용 금지
 
-## Post List Pages (android-studio.html, ue5.html, apps.html)
 
 `<h2>Projects</h2>` + `<h2>Dev Log</h2>` 섹션 구조, 리스트는 HTML 사용:
 
@@ -95,7 +92,6 @@ index.html           # 홈 (Dev Logs + Apps + Videos)
 ---
 title: "포스트 제목"
 date: 2025-01-01
-categories: [devlog, ue5] # devlog 필수, 카테고리 추가 (ue5 | android-studio | apps | today-i-learn)
                            # summary 추가 시 해당 페이지 Projects 섹션에 노출
 status: finished # (선택) finished 이면 project 그룹에 완료 뱃지 표시. 미설정시 정상 노출
 project: "프로젝트명" # devlog 그룹핑 기준. index.html Apps 썸네일은 /assets/images/{project}.png 자동 참조
