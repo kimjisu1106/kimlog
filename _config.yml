@@ -1,6 +1,7 @@
 title: "김로그의 우당탕탕"
 description: "KIMLOG―Need, Learn and Build"
 logo: /assets/images/profile.png
+future: true
 theme: minima
 plugins:
   - jekyll-feed
