@@ -11,7 +11,6 @@ collections:
     permalink: /devlog/:path/
 header_pages:
   - devlog.html
-  - android-studio.html
   - ue5.html
   - apps.html
   - til.html
