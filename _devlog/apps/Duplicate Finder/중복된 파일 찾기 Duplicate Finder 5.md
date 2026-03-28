@@ -38,6 +38,4 @@ status: finished
 
 ## 다음에 할 일
 
-1. 최종 코드 검토
-2. README 작성
-3. github public으로 바꾸기
+1. 
