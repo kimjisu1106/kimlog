@@ -3,8 +3,8 @@ layout: post
 title: 코드시트 ChordSheet 4
 date: 2026-03-20
 categories:
-  - android-studio
   - devlog
+  - apps
 project: chord-sheet
 project_name: 코드시트 ChordSheet
 video_id:

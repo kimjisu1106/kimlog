@@ -3,8 +3,8 @@ layout: post
 title: 메트로놈 Simple Metronome ― ver 1.10
 date: 2025-08-26
 categories:
-  - android-studio
   - devlog
+  - apps
 project: simple-metronome
 project_name: 메트로놈 Simple Metronome
 video_id:
