@@ -277,11 +277,14 @@ code {
   background-color: #c6c6c6;
 }
 
-pre {
+pre,
+.highlight,
+.highlight pre {
   background-color: #c6c6c6;
 }
 
-pre > code {
+pre > code,
+.highlight pre > code {
   background-color: transparent;
 }
 
