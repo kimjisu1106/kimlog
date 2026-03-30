@@ -73,9 +73,9 @@ status: finished
     -   한/영 언어 전환 버튼 (앱 재시작 없이 즉시 전환)
     -   언어별 폰트 자동 적용 (ko: 맑은 고딕, en: Segoe UI)
 10.  배포 ✅
-    -   후원 버튼 → Contact 페이지 연결
-    -   전체 코드 최종 보안 검토 완료
-    -   PyInstaller로 단일 .exe 패키징 (GitHub Releases 배포)
+	- 후원 버튼 → Contact 페이지 연결
+	- 전체 코드 최종 보안 검토 완료
+	- PyInstaller로 단일 .exe 패키징 (GitHub Releases 배포)
 
 ---
 
