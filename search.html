@@ -1,0 +1,54 @@
+---
+layout: page
+title: 검색
+permalink: /search/
+---
+
+<div class="search-wrap">
+  <input class="search-input" type="text" id="search-input" placeholder="검색어를 입력하세요..." autofocus>
+  <ul class="devlog-list" id="search-results"></ul>
+  <p class="search-empty post-meta" id="search-empty" hidden>검색 결과가 없습니다.</p>
+</div>
+
+<script>
+  const input = document.getElementById('search-input');
+  const results = document.getElementById('search-results');
+  const empty = document.getElementById('search-empty');
+  let posts = [];
+
+  fetch('/search.json')
+    .then(r => r.json())
+    .then(data => { posts = data; });
+
+  input.addEventListener('input', () => {
+    const q = input.value.trim().toLowerCase();
+    results.innerHTML = '';
+    empty.hidden = true;
+
+    if (q.length < 1) return;
+
+    const matched = posts.filter(p =>
+      p.title.toLowerCase().includes(q) ||
+      p.content.toLowerCase().includes(q)
+    );
+
+    if (matched.length === 0) {
+      empty.hidden = false;
+      return;
+    }
+
+    matched.forEach(p => {
+      const li = document.createElement('li');
+      const idx = p.content.toLowerCase().indexOf(q);
+      const snippet = idx >= 0
+        ? '…' + p.content.slice(Math.max(0, idx - 40), idx + 80) + '…'
+        : '';
+      li.innerHTML = `
+        <span class="post-meta">${p.date}</span> ｜
+        <a href="${p.url}">${p.title}</a>
+        ${snippet ? `<p class="search-snippet post-meta">${snippet}</p>` : ''}
+      `;
+      results.appendChild(li);
+    });
+  });
+</script>
