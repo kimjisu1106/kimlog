@@ -27,10 +27,12 @@ permalink: /search/
 
     if (q.length < 1) return;
 
-    const matched = posts.filter(p =>
-      p.title.toLowerCase().includes(q) ||
-      p.content.toLowerCase().includes(q)
-    );
+    const matched = posts
+      .filter(p =>
+        p.title.toLowerCase().includes(q) ||
+        p.content.toLowerCase().includes(q)
+      )
+      .sort((a, b) => b.date.localeCompare(a.date));
 
     if (matched.length === 0) {
       empty.hidden = false;
