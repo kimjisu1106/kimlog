@@ -5,6 +5,7 @@ ruby "3.2.2"
 gem "jekyll", "~> 3.10"
 gem "minima", "~> 2.5"
 gem "base64"
+gem "kramdown-parser-gfm"
 
 group :jekyll_plugins do
   gem "jekyll-feed"
