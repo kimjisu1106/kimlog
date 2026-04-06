@@ -127,10 +127,14 @@ Minima 기본 post layout을 오버라이드. 세 가지 기능이 자동으로 
 
 ## Key Constraints
 
-- GitHub Pages는 허용된 플러그인만 사용 가능 (`jekyll-feed`, `jekyll-redirect-from`)
+- **호스팅: Netlify** (kimjisu1106/kimlog repo 연결), GitHub Pages 아님
+- Netlify 빌드 커맨드: `bundle exec jekyll build`, publish directory: `_site`
+- Gemfile 필수 — `jekyll`, `minima`, `base64`, `kramdown-parser-gfm`, 플러그인 포함
+- Ruby 버전 `3.2.2`로 고정 (`.ruby-version` 파일) — Ruby 3.4는 safe_yaml 호환 문제 있음
 - Minima skin 기능 없음 → 다크모드는 CSS 변수 + `prefers-color-scheme`으로 직접 처리
 - Favicon: `_includes/head.html` 직접 오버라이드 방식 사용 (`custom-head.html` include 방식은 Minima 버전에 따라 불안정)
 - `app_url`로 내부 경로(`/apps/pdf-editor/index.html`) 사용 가능
+- `future: true` — 한국 시간(KST) 기준 당일 포스트가 UTC 기준 미래로 인식되어 누락되는 문제 방지
 
 ## 보안 검사 (코드 작성 시 필수 확인)
 
