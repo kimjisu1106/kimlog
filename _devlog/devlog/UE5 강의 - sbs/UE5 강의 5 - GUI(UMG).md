@@ -7,7 +7,7 @@ categories:
 project: ue5-class-sbs
 project_name: UnrealEngine5 Class
 video_id: 1SDfay71rGQ
-app_url: https://kimlog.pages.dev/devlog/ue5/Number%20Run/Unreal%20Engine%205%20Dev%20Log%2010%20%E2%80%95%20Number%20Run%200/
+app_url:
 status:
 ---
 ## 오늘 한 일
@@ -27,7 +27,7 @@ status:
         ![](/assets/images/for-posts/ue5-20260124_04.png)
         
 3. [실습] 2D 미니게임(가위바위보)
-    1. [DevLog 보기](https://kimlog0415.github.io/devlog/ue5/%EA%B0%80%EC%9C%84%EB%B0%94%EC%9C%84%EB%B3%B4/Unreal%20Engine%205%20Dev%20Log%209%20%E2%80%95%20%EA%B0%80%EC%9C%84%EB%B0%94%EC%9C%84%EB%B3%B4%200/)  
+    1. [DevLog 보기]([https://kimlog0415.github.io/devlog/ue5/%EA%B0%80%EC%9C%84%EB%B0%94%EC%9C%84%EB%B3%B4/Unreal%20Engine%205%20Dev%20Log%209%20%E2%80%95%20%EA%B0%80%EC%9C%84%EB%B0%94%EC%9C%84%EB%B3%B4%200/](https://kimlog.pages.dev/devlog/ue5/Number%20Run/Unreal%20Engine%205%20Dev%20Log%2010%20%E2%80%95%20Number%20Run%200/))  
         ![](/assets/images/for-posts/ue5-20260124_05.png)
 
 ---
