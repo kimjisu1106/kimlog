@@ -84,5 +84,5 @@ status: finished
 1.  로컬에서 완전히 동작하는 파일 중복 탐지 앱 완성
 2.  .exe 배포 완료 (GitHub Releases)
 
-![](../assets/images/for-posts/Duplicate Finder_ko.png)
-![](../assets/images/for-posts/Duplicate Finder_en.png)
+![](assets/images/for-posts/DuplicateFinder_ko.png)
+![](assets/images/for-posts/DuplicateFinder_en.png)
