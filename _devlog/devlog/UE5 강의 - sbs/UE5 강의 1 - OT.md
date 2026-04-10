@@ -17,8 +17,8 @@ status:
     2. 에디터 실행 방법 설명
     3. 기본 단축키 설명
 2. [실습]화면에 글자 출력하기
-
-![](https://blog.kakaocdn.net/dna/528od/dJMcabpV9FH/AAAAAAAAAAAAAAAAAAAAANFZcBLHG-wPzBjHfdlY1kInXw7kwYI4D1MmqG2f0ZYU/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&expires=1774969199&allow_ip=&allow_referer=&signature=ooqrCPdsne%2Fg6j8vFW7oO6LCQcM%3D)![](https://blog.kakaocdn.net/dna/b613L1/dJMcadgXxoc/AAAAAAAAAAAAAAAAAAAAADR8C4onIZTZ4pElFV-Yc2P386VyGGb7PFzCKoa4VWF0/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&expires=1774969199&allow_ip=&allow_referer=&signature=LduIqzHtG%2FeFIU1BiDOShF85yOQ%3D)
+	![](/assets/images/for-posts/ue5-20251227_01.png)
+	![](/assets/images/for-posts/ue5-20251227_02.png)
 
 ---
 
