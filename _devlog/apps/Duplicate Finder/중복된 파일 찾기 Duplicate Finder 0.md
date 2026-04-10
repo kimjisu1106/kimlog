@@ -84,6 +84,5 @@ status: finished
 1.  로컬에서 완전히 동작하는 파일 중복 탐지 앱 완성
 2.  .exe 배포 완료 (GitHub Releases)
 
-![](https://blog.kakaocdn.net/dna/cAPW0U/dJMcaaLviWG/AAAAAAAAAAAAAAAAAAAAAMUYOZVgFHtYyAqFc90cQBKOVkqYK-t93sfu6CFXmhka/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&expires=1774969199&allow_ip=&allow_referer=&signature=lvPxC1Rxt%2Fx5AMz1FDCYi97bIfE%3D)
-
-![](https://blog.kakaocdn.net/dna/bty4wC/dJMcabKrlwg/AAAAAAAAAAAAAAAAAAAAAOUS0u4F7rpZOefo-WcI1V92w5EppEGJV79IY6Svz_Ot/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&expires=1774969199&allow_ip=&allow_referer=&signature=RkmBZRDr7l3S6HsbZEMND8selJc%3D)
+![](../assets/images/for-posts/Duplicate Finder_ko.png)
+![](../assets/images/for-posts/Duplicate Finder_en.png)
