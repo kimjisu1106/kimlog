@@ -23,12 +23,7 @@ status: finished
 
 1. Object 생성
     - AI 이미지 생성 후 필요한 파트만 추출하여 사용
-    - WBP 배경, 숫자 이미지, 버튼 리소스까지 한 번에 제작  
-        
-        ![](https://blog.kakaocdn.net/dna/c4jpkC/dJMcagxBT8E/AAAAAAAAAAAAAAAAAAAAAJdolREVR5ZBF3qpDiy-e8sXgc-0k9ajYeALOiyTIc3m/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&expires=1774969199&allow_ip=&allow_referer=&signature=x5bheB09UUpx2JgiwJuEkMIFyBE%3D)
-        ![](https://blog.kakaocdn.net/dna/N4pKo/dJMcagxBT82/AAAAAAAAAAAAAAAAAAAAAAywgJKCPAOfcSvaUcm0MttNXT3N5YAxlhBKe6TNMa22/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&expires=1774969199&allow_ip=&allow_referer=&signature=GVrv2Js1yzS2eND6My84a9MiYac%3D)![](https://blog.kakaocdn.net/dna/EpPFi/dJMcafZL9XS/AAAAAAAAAAAAAAAAAAAAAOKOlVvz0CI7k1dymGf0rQ9pMDSfY0_I4OcHT1ZaWYVJ/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&expires=1774969199&allow_ip=&allow_referer=&signature=ZSlrBf3obWZ5qcrV0hjyYBJR1oU%3D)
-        ![](https://blog.kakaocdn.net/dna/bFk46D/dJMcaioG46j/AAAAAAAAAAAAAAAAAAAAAMw41uC9C4zdInYAyLBq4P0qeMoTmJmz1iCjGSsgGSqx/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&expires=1774969199&allow_ip=&allow_referer=&signature=5sUfM1%2BkP7A6JT0EUy%2BQE0dhoKo%3D)
-         
+    - WBP 배경, 숫자 이미지, 버튼 리소스까지 한 번에 제작            
 2. BP_Number 구현
     - StaticMeshComponent(SM_Number) 추가
     - 기본 Material 생성
@@ -79,3 +74,8 @@ status: finished
 4. Camera
     - Player가 선택한 Number Actor 추적
     - 중계 카메라 느낌의 Follow Camera 구현
+
+![](/assets/images/for-posts/ue5-20260206_01.png)
+![](/assets/images/for-posts/ue5-20260206_02.png)
+![](/assets/images/for-posts/ue5-20260206_03.png)
+![](/assets/images/for-posts/ue5-20260206_04.png)
