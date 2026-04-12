@@ -212,20 +212,21 @@
   display: flex;
   gap: 3px;
   margin-bottom: 32px;
-  overflow-x: auto;
+  width: 100%;
 }
 
 .til-graph-col {
   display: flex;
   flex-direction: column;
   gap: 3px;
+  flex: 1;
+  min-width: 0;
 }
 
 .til-cell {
-  width: 12px;
-  height: 12px;
+  width: 100%;
+  aspect-ratio: 1;
   border-radius: 2px;
-  flex-shrink: 0;
 }
 
 .til-cell--0 { background-color: var(--devlog-bg); }
