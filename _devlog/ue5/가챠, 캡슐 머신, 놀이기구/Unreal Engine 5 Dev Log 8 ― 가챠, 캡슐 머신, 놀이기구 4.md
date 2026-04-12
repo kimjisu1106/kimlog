@@ -11,8 +11,6 @@ video_id:
 app_url:
 status:
 ---
-![](https://blog.kakaocdn.net/dna/27drL/dJMcai3cfA0/AAAAAAAAAAAAAAAAAAAAAF2xLijZ6CZrAVo7JERySzMMBWfy8k5N051C6kI0YaEg/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&expires=1774969199&allow_ip=&allow_referer=&signature=%2F3o%2BTPlC85uTGZVDw8LoTzoRz6Y%3D)
-
 ## 오늘 한 일
 
 1. Insert Coin 존
@@ -39,3 +37,5 @@ status:
 ## 다음에 할 일
 
 1. Pull Btn 위에서 특정 버튼(Spacebar 등)을 누르면 가챠 이벤트(시네마틱) 실행.
+
+![](/assets/images/for-posts/ue5-20251217_01.png)
