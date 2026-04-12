@@ -37,4 +37,6 @@ status:
 1. 가챠 이벤트(시네마틱) 구현
 
 
-![](https://blog.kakaocdn.net/dna/XWnr4/dJMcacaUxOM/AAAAAAAAAAAAAAAAAAAAANHyug2j1udA1HuyPgOGyOocHWubXvCwNhwP39m1PV2F/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&expires=1772290799&allow_ip=&allow_referer=&signature=wPv9oA3PMnfKqdLwwI177N3xpL0%3D)![](https://blog.kakaocdn.net/dna/bO04ib/dJMcadU7NZf/AAAAAAAAAAAAAAAAAAAAAFVtDQu564b4dLubmmcV-h_AXr-X7vLTOxYLNGtqlTYe/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&expires=1772290799&allow_ip=&allow_referer=&signature=Y5Fezc4etDigHENRDueZySR73ZI%3D)![](https://blog.kakaocdn.net/dna/CBN59/dJMcadU7NZh/AAAAAAAAAAAAAAAAAAAAAGwweEvAFo-I1M0FRPXT26Z91xet3PY2tBQsbBD0H82b/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&expires=1772290799&allow_ip=&allow_referer=&signature=mxF49HIwP%2FQIxcy4M7FOQSHeTw0%3D)
+![](/assets/images/for-posts/ue5-20251228_01.png)
+![](/assets/images/for-posts/ue5-20251228_02.png)
+![](/assets/images/for-posts/ue5-20251228_03.png)
