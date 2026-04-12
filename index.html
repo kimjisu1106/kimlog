@@ -2,6 +2,20 @@
 layout: home
 ---
 
+<h2>Daily Logs</h2>
+
+{% assign all_tils = site.devlog | where_exp: "p", "p.categories contains 'today-i-learn'" | sort: "date" | reverse %}
+<ul class="devlog-list">
+  {% for post in all_tils limit: 5 %}
+  <li>{{ post.date | date: "%Y-%m-%d" }} ｜ <a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
+  {% endfor %}
+</ul>
+{% if all_tils.size > 5 %}
+<a class="devlog-toggle" href="{{ '/today-i-learn/' | relative_url }}">더보기 ▾</a>
+{% endif %}
+
+<hr />
+
 <h2>Dev Logs</h2>
 
 {% assign all_devlogs = site.devlog | where_exp: "p", "p.categories contains 'devlog'" | sort: "date" | reverse %}
