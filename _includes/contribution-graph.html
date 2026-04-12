@@ -1,0 +1,53 @@
+{% if include.category %}
+  {% assign _cat = include.category %}
+  {% assign graph_posts = site.devlog | where_exp: "p", "p.categories contains _cat" %}
+{% else %}
+  {% assign graph_posts = site.devlog %}
+{% endif %}
+
+{% assign graph_id = include.category | default: "all" %}
+
+<div class="til-graph" id="graph-{{ graph_id }}"></div>
+
+<script>
+(function () {
+  var postDates = [{% for post in graph_posts %}"{{ post.date | date: "%Y-%m-%d" }}"{% unless forloop.last %},{% endunless %}{% endfor %}];
+
+  var counts = {};
+  postDates.forEach(function (d) {
+    counts[d] = (counts[d] || 0) + 1;
+  });
+
+  var today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  var start = new Date(today);
+  start.setDate(start.getDate() - start.getDay());
+  start.setDate(start.getDate() - 51 * 7);
+
+  var container = document.getElementById('graph-{{ graph_id }}');
+
+  function toLocalDateStr(dt) {
+    var y = dt.getFullYear();
+    var m = String(dt.getMonth() + 1).padStart(2, '0');
+    var day = String(dt.getDate()).padStart(2, '0');
+    return y + '-' + m + '-' + day;
+  }
+
+  for (var w = 0; w < 52; w++) {
+    var col = document.createElement('div');
+    col.className = 'til-graph-col';
+    for (var d = 0; d < 7; d++) {
+      var date = new Date(start);
+      date.setDate(start.getDate() + w * 7 + d);
+      var dateStr = toLocalDateStr(date);
+      var count = counts[dateStr] || 0;
+      var cell = document.createElement('div');
+      cell.className = 'til-cell til-cell--' + Math.min(count, 4);
+      cell.title = dateStr + (count > 0 ? ' (' + count + ')' : '');
+      col.appendChild(cell);
+    }
+    container.appendChild(col);
+  }
+})();
+</script>
