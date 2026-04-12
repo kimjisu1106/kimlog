@@ -2,6 +2,8 @@
 layout: home
 ---
 
+{% include contribution-graph.html %}
+
 <h2>Daily Logs</h2>
 
 {% assign all_tils = site.devlog | where_exp: "p", "p.categories contains 'today-i-learn'" | sort: "date" | reverse %}

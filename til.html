@@ -4,47 +4,9 @@ title: TIL
 permalink: /today-i-learn/
 ---
 
-{% assign til_all = site.devlog | where_exp: "p", "p.categories contains 'today-i-learn'" %}
+{% include contribution-graph.html category="today-i-learn" %}
 
-<div class="til-graph" id="til-graph"></div>
-
-<script>
-(function () {
-  var postDates = [{% for post in til_all %}"{{ post.date | date: "%Y-%m-%d" }}"{% unless forloop.last %},{% endunless %}{% endfor %}];
-
-  var counts = {};
-  postDates.forEach(function (d) {
-    counts[d] = (counts[d] || 0) + 1;
-  });
-
-  var today = new Date();
-  today.setHours(0, 0, 0, 0);
-
-  var start = new Date(today);
-  start.setDate(start.getDate() - start.getDay()); // 이번 주 일요일
-  start.setDate(start.getDate() - 51 * 7);          // 52주 전으로
-
-  var container = document.getElementById('til-graph');
-
-  for (var w = 0; w < 52; w++) {
-    var col = document.createElement('div');
-    col.className = 'til-graph-col';
-    for (var d = 0; d < 7; d++) {
-      var date = new Date(start);
-      date.setDate(start.getDate() + w * 7 + d);
-      var dateStr = date.toISOString().slice(0, 10);
-      var count = counts[dateStr] || 0;
-      var cell = document.createElement('div');
-      cell.className = 'til-cell til-cell--' + Math.min(count, 4);
-      cell.title = dateStr + (count > 0 ? ' (' + count + ')' : '');
-      col.appendChild(cell);
-    }
-    container.appendChild(col);
-  }
-})();
-</script>
-
-{% assign posts = til_all | sort: "date" | reverse %}
+{% assign posts = site.devlog | where_exp: "p", "p.categories contains 'today-i-learn'" | sort: "date" | reverse %}
 {% if posts.size == 0 %}
 <p>아직 글이 없습니다.</p>
 {% else %}

@@ -4,6 +4,8 @@ title: Dev Log
 permalink: /devlog/
 ---
 
+{% include contribution-graph.html category="devlog" %}
+
 {% assign all_posts = site.devlog | where_exp: "p", "p.categories contains 'devlog'" | sort: "date" | reverse %}
 {% assign groups = all_posts | group_by: "project" %}
 
