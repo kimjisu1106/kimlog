@@ -39,26 +39,9 @@ layout: default
     {{ content }}
 
     {% assign current_project = page.project %}
-    {% assign page_categories = page.categories %}
-
-    {% assign category_filter = "" %}
-    {% for cat in page_categories %}
-      {% unless cat == "devlog" %}
-        {% assign category_filter = cat %}
-        {% break %}
-      {% endunless %}
-    {% endfor %}
-
-    {% if category_filter != "" %}
-      {% assign related = site.devlog
-        | where_exp: "p", "p.project == current_project"
-        | where_exp: "p", "p.categories contains category_filter"
-        | sort: "date" %}
-    {% else %}
-      {% assign related = site.devlog
-        | where_exp: "p", "p.project == current_project"
-        | sort: "date" %}
-    {% endif %}
+    {% assign related = site.devlog
+      | where_exp: "p", "p.project == current_project"
+      | sort: "date" %}
 
     {% if page.video_id %}
     <hr>
