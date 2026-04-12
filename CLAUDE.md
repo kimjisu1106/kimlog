@@ -2,47 +2,55 @@
 
 ## Project Overview
 
-Obsidian으로 마크다운 문서를 작성 → 이 vault 폴더가 git 추적됨 → GitHub Desktop으로 commit → GitHub Pages에 배포되는 Jekyll 블로그.
+Obsidian으로 마크다운 문서를 작성 → 이 vault 폴더가 git 추적됨 → GitHub Desktop 또는 Claude Code로 commit & push → Netlify에 배포되는 Jekyll 블로그.
 
 ## Stack
 
-- **Jekyll** + **Minima** 테마 (GitHub Pages 기본 지원, `~> 2.5`)
+- **Jekyll** + **Minima** 테마 (`~> 2.5`)
 - **Obsidian** 으로 포스트 작성 (`_devlog/` 폴더)
-- **GitHub Desktop** 으로 배포
+- **Netlify** 호스팅 (`kimjisu1106/kimlog` repo 연결)
+
+## Git / 배포
+
+- Netlify 빌드 커맨드: `bundle exec jekyll build`, publish directory: `_site`
+- Gemfile 필수 — `jekyll`, `minima`, `base64`, `kramdown-parser-gfm`, 플러그인 포함
+- Ruby 버전 `3.2.2`로 고정 (`.ruby-version`) — Ruby 3.4는 safe_yaml 호환 문제 있음
 
 ## Structure
 
 ```
 _config.yml          # 사이트 설정 (title, theme, collections, plugins)
+_data/
+  sections.yml       # ue5 / apps 섹션 정의 (include 카테고리 목록)
 _devlog/             # 포스트 원본 (Obsidian에서 작성)
   devlog/            # 카테고리: devlog
-    daily-log/       # 카테고리: daily-log (일일 기록)
-  apps/              # 카테고리: apps
+  apps/              # 카테고리: apps (구 tools 포함)
   ue5/               # 카테고리: ue5
-  android-studio/    # 카테고리: android-studio
   today-i-learn/     # 카테고리: today-i-learn
 _includes/
-  head.html          # Minima head 오버라이드 (favicon, OG, Google Search Console)
-  header.html        # Minima header 오버라이드 (nav + 검색 아이콘)
-  footer.html        # footer 오버라이드 (contact + Buy Me a Coffee)
-  youtube.html       # YouTube embed 인클루드
+  head.html                # Minima head 오버라이드 (favicon, OG, Google Search Console)
+  header.html              # Minima header 오버라이드 (nav + 검색 아이콘)
+  footer.html              # footer 오버라이드 (contact 정보 + /contact/ 후원 링크)
+  youtube.html             # YouTube embed 인클루드
+  contribution-graph.html  # GitHub 잔디 그래프 (category 파라미터 또는 전체)
 _layouts/
   post.html          # Minima post layout 오버라이드 (app card, video card, related posts)
 assets/
   main.scss          # 전체 커스텀 CSS (여기에만 스타일 작성)
   images/            # profile.ico, profile.png (favicon), {project}.png (앱 썸네일)
+                     #   kakaopay-qr.png (카카오페이 QR)
 apps/
   pdf-editor/        # PDF Editor 웹앱 정적 파일
-devlog.html          # Dev Log 목록 페이지 (project별 그룹핑)
-til.html             # TIL 목록 페이지 (project별 그룹핑)
-android-studio.html  # Android Studio 페이지
-ue5.html             # UE5 페이지
-apps.html            # Apps 페이지
-index.html           # 홈 (Dev Logs + Apps + Videos)
+devlog.html          # Dev Log 목록 페이지 (모든 devlog 포스트, 날짜순 project 그룹핑)
+til.html             # TIL 목록 페이지 (contribution graph + project별 그룹핑)
+ue5.html             # UE5 페이지 (contribution graph + Projects/Dev Log)
+apps.html            # Apps 페이지 (contribution graph + Projects/Dev Log)
+index.html           # 홈 (contribution graph + Daily Logs + Dev Logs + Apps + Videos)
 search.html          # 검색 페이지 (클라이언트 사이드 전문 검색)
 search.json          # 빌드 시 생성되는 검색 인덱스 (제목 + 본문)
+contact.html         # Contact 페이지 (이메일, YouTube, PayPal/카카오페이 후원)
+privacy-policy.html  # Privacy Policy (범용, 영/한, Google AdSense 조항 포함)
 .gitignore           # **/draft-*.md 제외
-contact.html         # Contact 페이지 (이메일, YouTube, Buy Me a Coffee)
 ```
 
 ## Page File Convention
@@ -57,17 +65,19 @@ contact.html         # Contact 페이지 (이메일, YouTube, Buy Me a Coffee)
 - 색상은 CSS 변수 사용 (`--border-color`, `--btn-border`, `--muted`, `--devlog-*` 등)
 - 다크모드: `@media (prefers-color-scheme: dark)` 로 CSS 변수 오버라이드
 - `hr`: `margin-top: 32px; margin-bottom: 32px` 전역 적용
-- `.post-content h3`: `font-size: 1.5em; font-weight: 600` (h2와 동일하게)
+- **전역 heading 크기 고정**: `h1=40px`, `h2=32px`, `h3=24px`
+- `.post-content h3`: `font-weight: 600` (크기는 전역 h3에서 상속)
 - `.devlog-badge`: `vertical-align: middle; position: relative; top: -3px` (✅ 이모지 수직 정렬)
+- 코드블럭 배경색: `#ebebeb` (인라인 백틱 + 코드블럭 공통)
 
 ## Link Style Convention
 
 - 모든 페이지의 포스트 링크는 `font-weight: 600` 이상
 - Minima의 `.post-link` 클래스는 `display: block` 등 레이아웃 스타일이 붙어 있어 커스텀 레이아웃에서 사용 금지
 
-## Post List Pages (android-studio.html, ue5.html, apps.html)
+## Post List Pages (ue5.html, apps.html)
 
-`<h2>Projects</h2>` + `<h2>Dev Log</h2>` 섹션 구조, 리스트는 HTML 사용:
+상단에 `{% include contribution-graph.html category="..." %}` 후 `<h2>Projects</h2>` + `<h2>Dev Log</h2>` 섹션 구조:
 
 - Projects 섹션: `categories`에 `summary` 포함된 포스트만 표시, 링크 텍스트는 `project_name | default: title`
 - 완료된 프로젝트는 `status: finished` → `<span class="devlog-badge">✅</span>` 표시
@@ -84,14 +94,36 @@ contact.html         # Contact 페이지 (이메일, YouTube, Buy Me a Coffee)
 </ul>
 ```
 
+## devlog.html 구조
+
+- 섹션 구분 없이 `categories contains 'devlog'`인 전체 포스트를 날짜순으로 project 그룹핑
+- h3: `{{ cat_label }} | {{ project_title }}` (cat_label은 ue5/apps 카테고리에서 파생)
+- 상단에 `{% include contribution-graph.html category="devlog" %}`
+
 ## DevLog / TIL 더보기 구조 (devlog.html, til.html)
 
 - 5개 초과 시 6번째부터 `<li hidden class="devlog-extra-item">` 처리
-- 프로젝트 타이틀: `<h3 class="devlog-title">` (h3 태그, margin/font-size 리셋)
+- 프로젝트 타이틀: `<h3 class="devlog-title">` (h3 태그)
 - 버튼: `<button class="devlog-toggle" data-list="list-{gid}">` — 테두리/배경 없는 심플 텍스트
-- JS가 `hidden` attribute를 toggle함 (갭 없이 동일 `<ul>` 안에서 처리)
+- JS가 `hidden` attribute를 toggle함
 - `.devlog-group { margin-bottom: 32px }` (project 그룹 간 간격)
 - `.devlog-summary { margin-bottom: 30px }` (summary 아래 간격)
+
+## Contribution Graph (`_includes/contribution-graph.html`)
+
+- `{% include contribution-graph.html category="ue5" %}` 형태로 호출
+- `category` 생략 시 전체 포스트 대상
+- `where_exp: "p", "p.categories contains _cat"` — 배열에 해당 카테고리가 하나라도 포함되면 매칭
+- 52주 × 7일 그리드, 로컬 시간(KST) 기준으로 날짜 계산 (`toISOString()` 미사용)
+- 셀 색상: `til-cell--0`(회색) ~ `til-cell--4`(진초록), 다크모드 자동 대응
+
+## Contact 페이지 (`contact.html`)
+
+- 이메일, YouTube 링크
+- PayPal 버튼: 직접 링크
+- 카카오페이 버튼: 모바일 → 딥링크(`qr.kakaopay.com`), 데스크탑 → QR 모달 팝업 (JS `navigator.userAgent` 판별)
+- QR 이미지: `assets/images/kakaopay-qr.png`
+- footer의 후원하기 버튼 → `/contact/` 로 이동
 
 ## Post Frontmatter
 
@@ -99,13 +131,16 @@ contact.html         # Contact 페이지 (이메일, YouTube, Buy Me a Coffee)
 ---
 title: "포스트 제목"
 date: 2025-01-01
-                           # summary 추가 시 해당 페이지 Projects 섹션에 노출
-status: finished # (선택) finished 이면 project 그룹에 완료 뱃지 표시. 미설정시 정상 노출
-project: "프로젝트명" # devlog 그룹핑 기준. index.html Apps 썸네일은 /assets/images/{project}.png 자동 참조
+categories:
+  - devlog        # devlog 필수
+  - ue5           # 섹션 카테고리 (ue5 | apps | today-i-learn)
+  - summary       # (선택) 해당 페이지 Projects 섹션에 노출
+status: finished  # (선택) finished 이면 완료 뱃지 표시
+project: "프로젝트명"       # devlog 그룹핑 기준. related posts 기준
 project_name: "표시할 이름" # (선택) project와 다른 표시명
-video_id: "YouTube ID" # (선택) summary + video_id 있으면 홈 Videos에 노출, 포스트 상단에 YouTube 카드 표시
-app_url: "https://..." # (선택) summary + app_url 있으면 홈 Apps 섹션 노출, 포스트 상단에 앱 카드 표시
-                        # redirect_to는 jekyll-redirect-from 플러그인과 충돌하여 사용 금지
+video_id: "YouTube ID"     # (선택) summary + video_id 있으면 홈 Videos에 노출
+app_url: "https://..."     # (선택) summary + app_url 있으면 홈 Apps 섹션 노출
+                            # redirect_to는 jekyll-redirect-from 플러그인과 충돌 → 사용 금지
 ---
 ```
 
@@ -118,15 +153,13 @@ Minima 기본 post layout을 오버라이드. 세 가지 기능이 자동으로 
 **1. App Card (상단)**
 - `app_url`이 있는 포스트에만 표시
 - `/assets/images/{project}.png` 썸네일 자동 참조
-- 클릭 시 `app_url`로 새 탭 이동
 
 **2. Video Card (상단)**
 - `video_id`가 있는 포스트에만 표시
 - YouTube 썸네일 자동 참조
-- 클릭 시 YouTube로 새 탭 이동
 
 **3. Related Posts (하단)**
-- 같은 `project`를 가진 다른 포스트 자동 목록
+- 같은 `project`를 가진 다른 포스트 자동 목록 (category 무관)
 - 현재 포스트 제외, date 내림차순 정렬
 - 1개 이상일 때만 표시, 5개 초과 시 더보기 toggle
 
@@ -135,13 +168,11 @@ Minima 기본 post layout을 오버라이드. 세 가지 기능이 자동으로 
 ## Key Constraints
 
 - **호스팅: Netlify** (kimjisu1106/kimlog repo 연결), GitHub Pages 아님
-- Netlify 빌드 커맨드: `bundle exec jekyll build`, publish directory: `_site`
-- Gemfile 필수 — `jekyll`, `minima`, `base64`, `kramdown-parser-gfm`, 플러그인 포함
-- Ruby 버전 `3.2.2`로 고정 (`.ruby-version` 파일) — Ruby 3.4는 safe_yaml 호환 문제 있음
 - Minima skin 기능 없음 → 다크모드는 CSS 변수 + `prefers-color-scheme`으로 직접 처리
 - Favicon: `_includes/head.html` 직접 오버라이드 방식 사용 (`custom-head.html` include 방식은 Minima 버전에 따라 불안정)
 - `app_url`로 내부 경로(`/apps/pdf-editor/index.html`) 사용 가능
 - `future: true` — 한국 시간(KST) 기준 당일 포스트가 UTC 기준 미래로 인식되어 누락되는 문제 방지
+- JS에서 날짜 계산 시 `toISOString()` 대신 로컬 날짜 포맷 함수 사용 (KST 오프셋 문제)
 
 ## 보안 검사 (코드 작성 시 필수 확인)
 
@@ -172,12 +203,12 @@ Minima 기본 post layout을 오버라이드. 세 가지 기능이 자동으로 
 
 - 외부 URL(`href`, `src`, `app_url`)이 의도된 링크인지 확인한다.
 - `<script>` 태그로 외부 JS를 로드할 경우 신뢰할 수 있는 출처(CDN 등)인지 확인한다.
-- YouTube 썸네일, Buy Me a Coffee 버튼 등 외부 리소스 호출은 허용 (의도된 동작).
+- YouTube 썸네일, 후원 버튼 등 외부 리소스 호출은 허용 (의도된 동작).
 
 ### 의존성(플러그인) 검증 📦
 
-- Jekyll 플러그인은 [GitHub Pages 허용 목록](https://pages.github.com/versions/) 내에서만 추가한다.
-- `_config.yml`의 플러그인은 공식 gem인지 확인한다.
+- Jekyll 플러그인은 공식 gem인지 확인한다.
+- `_config.yml`의 플러그인 목록 변경 시 반드시 검토한다.
 - 불필요한 플러그인은 추가하지 않는다.
 
 ### 파일 I/O 보안 📁
