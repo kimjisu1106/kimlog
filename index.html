@@ -5,13 +5,9 @@ layout: home
 <h2>Dev Logs</h2>
 
 {% assign all_devlogs = site.devlog | where_exp: "p", "p.categories contains 'devlog'" | sort: "date" | reverse %}
-<ul class="post-list home-list">
+<ul class="devlog-list">
   {% for post in all_devlogs limit: 5 %}
-  <li class="home-row">
-    <span class="home-date post-meta">{{ post.date | date: "%Y-%m-%d" }}</span>
-    <span class="home-sep">｜</span>
-    <a class="home-title" href="{{ post.url | relative_url }}">{{ post.title }}</a>
-  </li>
+  <li>{{ post.date | date: "%Y-%m-%d" }} ｜ <a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
   {% endfor %}
 </ul>
 {% if all_devlogs.size > 5 %}
