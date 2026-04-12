@@ -4,6 +4,7 @@ title: UE5 강의 1 - OT
 date: 2025-12-27
 categories:
   - today-i-learn
+  - ue5
 project: ue5-class-sbs
 project_name: UnrealEngine5 Class
 video_id:

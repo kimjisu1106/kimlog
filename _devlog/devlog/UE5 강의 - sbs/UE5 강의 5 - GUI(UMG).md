@@ -4,6 +4,7 @@ title: UE5 강의 5 - GUI(UMG)
 date: 2026-01-24
 categories:
   - today-i-learn
+  - ue5
 project: ue5-class-sbs
 project_name: UnrealEngine5 Class
 video_id: 1SDfay71rGQ

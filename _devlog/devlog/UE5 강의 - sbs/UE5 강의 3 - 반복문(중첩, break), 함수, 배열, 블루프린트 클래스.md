@@ -4,6 +4,7 @@ title: UE5 강의 3 - 반복문(중첩, break), 함수, 배열, 블루프린트 
 date: 2026-01-10
 categories:
   - today-i-learn
+  - ue5
 project: ue5-class-sbs
 project_name: UnrealEngine5 Class
 video_id:

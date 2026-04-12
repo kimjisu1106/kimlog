@@ -4,6 +4,7 @@ title: UE5 강의 7 - UMG, 카메라
 date: 2026-02-07
 categories:
   - today-i-learn
+  - ue5
 project: ue5-class-sbs
 project_name: UnrealEngine5 Class
 video_id: a-SI0Rz9B8w
