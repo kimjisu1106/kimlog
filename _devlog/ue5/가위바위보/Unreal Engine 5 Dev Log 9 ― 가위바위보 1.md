@@ -27,3 +27,5 @@ status: finished
 ## 다음에 할 일
 
 1. 가위바위보 WBP 및 로직 구현
+
+![](/assets/images/for-posts/ue5-20260124_06.png)
