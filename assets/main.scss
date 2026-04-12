@@ -206,6 +206,35 @@
 }
 
 /* =========================================================
+   TIL contribution graph
+   ========================================================= */
+.til-graph {
+  display: flex;
+  gap: 3px;
+  margin-bottom: 32px;
+  overflow-x: auto;
+}
+
+.til-graph-col {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.til-cell {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.til-cell--0 { background-color: var(--devlog-bg); }
+.til-cell--1 { background-color: #9be9a8; }
+.til-cell--2 { background-color: #40c463; }
+.til-cell--3 { background-color: #30a14e; }
+.til-cell--4 { background-color: #216e39; }
+
+/* =========================================================
    DevLog page
    ========================================================= */
 .devlog-group {
