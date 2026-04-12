@@ -37,3 +37,5 @@ status: finished
     2. PCResult에 Scale Anim 넣기
     3. 점수 룰렛에서 얻은 부분 강조하기
 2. SFX, BGM 넣기
+
+![](/assets/images/for-posts/ue5-20260127_01.png)
