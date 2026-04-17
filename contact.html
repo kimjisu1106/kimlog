@@ -4,57 +4,71 @@ title: Contact
 permalink: /contact/
 ---
 
-<p class="about-bio">11살에 첫 웹페이지를 만들었고,<br>음악을 전공했다.<br>지금은 UE5, Flutter, Python으로 필요한 걸 만들고 있다.</p>
+<p class="about-bio">
+  11살에 첫 웹페이지를 만들었고,<br />음악을 전공했습니다.<br />지금은 UE5,
+  Flutter, Python으로 필요한 걸 만들고 있습니다.
+</p>
 <p class="about-tagline">Need, Learn and Build.</p>
 
-<hr>
+<hr />
 
 <p>📧 kimlog0415@gmail.com</p>
-<p>▶️ <a href="https://www.youtube.com/@kimlog0415" target="_blank">YouTube @kimlog0415</a></p>
+<p>
+  ▶️
+  <a href="https://www.youtube.com/@kimlog0415" target="_blank"
+    >YouTube @kimlog0415</a
+  >
+</p>
 
-<hr>
+<hr />
 
 <h2>Support</h2>
 <p>이 블로그가 도움이 됐다면 커피 한 잔 사주세요 ☕</p>
 
 <div class="support-buttons">
-  <a href="https://www.paypal.com/ncp/payment/RJZFK9X53AD4G" target="_blank" class="support-btn">
+  <a
+    href="https://www.paypal.com/ncp/payment/RJZFK9X53AD4G"
+    target="_blank"
+    class="support-btn"
+  >
     🩵 PayPal
   </a>
-  <button class="support-btn" id="kakao-btn">
-    💛 카카오페이
-  </button>
+  <button class="support-btn" id="kakao-btn">💛 카카오페이</button>
 </div>
 
 <div class="kakao-qr-modal" id="kakao-qr-modal" hidden>
   <div class="kakao-qr-box">
     <p>카카오페이 앱으로 스캔해주세요</p>
-    <img src="{{ '/assets/images/kakaopay-qr.png' | relative_url }}" alt="KakaoPay QR" width="180">
+    <img
+      src="{{ '/assets/images/kakaopay-qr.png' | relative_url }}"
+      alt="KakaoPay QR"
+      width="180"
+    />
     <button class="kakao-qr-close" id="kakao-qr-close">닫기</button>
   </div>
 </div>
 
 <script>
-(function () {
-  var btn = document.getElementById('kakao-btn');
-  var modal = document.getElementById('kakao-qr-modal');
-  var closeBtn = document.getElementById('kakao-qr-close');
-  var isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+  (function () {
+    var btn = document.getElementById("kakao-btn");
+    var modal = document.getElementById("kakao-qr-modal");
+    var closeBtn = document.getElementById("kakao-qr-close");
+    var isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 
-  btn.addEventListener('click', function () {
-    if (isMobile) {
-      window.location.href = 'https://qr.kakaopay.com/Ej9NoO4uc';
-    } else {
-      modal.hidden = false;
-    }
-  });
+    btn.addEventListener("click", function () {
+      if (isMobile) {
+        window.location.href = "https://qr.kakaopay.com/Ej9NoO4uc";
+      } else {
+        modal.hidden = false;
+      }
+    });
 
-  closeBtn.addEventListener('click', function () {
-    modal.hidden = true;
-  });
+    closeBtn.addEventListener("click", function () {
+      modal.hidden = true;
+    });
 
-  modal.addEventListener('click', function (e) {
-    if (e.target === modal) modal.hidden = true;
-  });
-})();
+    modal.addEventListener("click", function (e) {
+      if (e.target === modal) modal.hidden = true;
+    });
+  })();
 </script>
