@@ -38,6 +38,7 @@ assets/
   main.scss          # 전체 커스텀 CSS (여기에만 스타일 작성)
   images/            # profile.ico, profile.png (favicon), {project}.png (앱 썸네일)
                      #   kakaopay-qr.png (카카오페이 QR)
+    for-posts/       # 포스트 본문 이미지 (외부 CDN 사용 금지, 로컬 저장 필수)
 apps/
   pdf-editor/        # PDF Editor 웹앱 정적 파일
 devlog.html          # Dev Log 목록 페이지 (모든 devlog 포스트, 날짜순 project 그룹핑)
@@ -214,6 +215,14 @@ Minima 기본 post layout을 오버라이드. 세 가지 기능이 자동으로 
 
 - `_devlog/` 내 draft 파일은 반드시 `draft-` 접두사를 붙여 `.gitignore`로 제외한다.
 - 민감한 내용이 담긴 포스트가 실수로 git에 포함되지 않도록 확인한다.
+
+## 이미지 관리
+
+- **포스트 본문 이미지는 `assets/images/for-posts/`에 저장** (Tistory/Kakao CDN 등 외부 CDN 사용 금지 — hotlink 차단으로 표시 안 됨)
+- 마크다운 경로는 반드시 절대경로 사용: `![](/assets/images/for-posts/파일명.png)`
+  - 상대경로(`assets/...`)는 Obsidian 미리보기에서는 보이지만 웹에서 깨짐
+  - 절대경로(`/assets/...`)는 Obsidian 미리보기에서 안 보이지만 웹에서 정상 표시
+- GitHub repo 용량 제한: 단일 파일 100MB 이하, 전체 권장 1GB 이하 (스크린샷 위주면 수년간 문제없음)
 
 ### 코드 이상 여부 확인 🕵️
 
