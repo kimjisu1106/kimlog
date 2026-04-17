@@ -407,6 +407,21 @@ hr {
 }
 
 /* =========================================================
+   About (contact page)
+   ========================================================= */
+.about-bio {
+  font-size: 18px;
+  line-height: 1.8;
+  color: var(--muted);
+}
+
+.about-tagline {
+  font-size: 20px;
+  font-weight: 700;
+  margin-top: 8px;
+}
+
+/* =========================================================
    Support button (footer + contact page)
    ========================================================= */
 .support-btn {
