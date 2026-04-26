@@ -145,6 +145,7 @@ video_id: "YouTube ID" # (선택) summary + video_id 있으면 홈 Videos에 노
 app_url:
   "https://..." # (선택) summary + app_url 있으면 홈 Apps 섹션 노출
   # redirect_to는 jekyll-redirect-from 플러그인과 충돌 → 사용 금지
+description: "설명" # (선택) SEO meta description. 없으면 첫 문단 자동 추출 → site.description 순으로 fallback
 ---
 ```
 
@@ -240,14 +241,16 @@ Minima 기본 post layout을 오버라이드. 세 가지 기능이 자동으로 
 ## 개발 백로그
 
 ### 낮음 (Liquid/CSS 수정)
+
 - [ ] **Series Posts 강화**: Related Posts → 시리즈 목록으로 개편
   - 날짜 오름차순 + 번호(1편, 2편...) + 현재 포스트 "읽는 중" 하이라이트
   - 상단 요약 박스: "이 글은 [프로젝트]의 N번째 기록입니다. 총 M개"
 - [ ] **Suggested Posts**: 같은 category + 다른 project의 summary 포스트 최하단 노출
-- [ ] **Meta Description**: frontmatter `description` 필드 → `head.html`에서 fallback 처리 (SEO)
-- [ ] **RSS 아이콘**: footer 또는 `<head>`에 `/feed.xml` 링크 추가 (`jekyll-feed` 이미 설치됨)
+- [x] **Meta Description**: `jekyll-seo-tag`가 자동 처리 (page.description → page.excerpt → site.description). frontmatter 명세에 `description` 필드 추가 완료
+- [x] **RSS 아이콘**: footer 또는 `<head>`에 `/feed.xml` 링크 추가 (`jekyll-feed` 이미 설치됨)
 
 ### 중간 (HTML/CSS/JS 작업)
+
 - [ ] **태그 기능**: frontmatter `tags` 추가 + 클라이언트 JS 태그 필터 (태그 페이지 자동생성은 `jekyll-archives` 플러그인 필요)
 - [ ] **Apps 카드 그리드**: `apps.html` 카드 레이아웃으로 전환
   - 앞면: 이미지 + 앱 이름 / 뒷면: 설명 (hover/click 플립 애니메이션)
@@ -255,4 +258,5 @@ Minima 기본 post layout을 오버라이드. 세 가지 기능이 자동으로 
 - [ ] **Lazy Loading**: 포스트 본문 이미지에 `loading="lazy"` 전역 적용
 
 ### 공수 미정
+
 - [ ] **라이브 데모 위젯**: 앱별 핵심 알고리즘 웹 위젯화 (앱마다 개별 작업)
