@@ -22,14 +22,14 @@ status:
 	1. '<' : onClicked, 왼쪽으로 이동
 	2. '>' : onClicked, 오른쪽으로 이동
 	3. 'Center' : onClicked, 가운데로 이동(정지)  
-        ![](/assets/images/for-posts/ue5-20260124_01.png)
-        ![](/assets/images/for-posts/ue5-20260124_02.png)
-        ![](/assets/images/for-posts/ue5-20260124_03.png)
-        ![](/assets/images/for-posts/ue5-20260124_04.png)
+        ![](/assets/images/for-posts/ue5-20260124_01.webp)
+        ![](/assets/images/for-posts/ue5-20260124_02.webp)
+        ![](/assets/images/for-posts/ue5-20260124_03.webp)
+        ![](/assets/images/for-posts/ue5-20260124_04.webp)
         
 3. [실습] 2D 미니게임(가위바위보)
     1. [DevLog 보기]([https://kimlog0415.github.io/devlog/ue5/%EA%B0%80%EC%9C%84%EB%B0%94%EC%9C%84%EB%B3%B4/Unreal%20Engine%205%20Dev%20Log%209%20%E2%80%95%20%EA%B0%80%EC%9C%84%EB%B0%94%EC%9C%84%EB%B3%B4%200/](https://kimlog.pages.dev/devlog/ue5/Number%20Run/Unreal%20Engine%205%20Dev%20Log%2010%20%E2%80%95%20Number%20Run%200/))  
-        ![](/assets/images/for-posts/ue5-20260124_05.png)
+        ![](/assets/images/for-posts/ue5-20260124_05.webp)
 
 ---
 

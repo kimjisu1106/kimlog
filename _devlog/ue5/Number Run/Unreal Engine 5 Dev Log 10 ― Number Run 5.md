@@ -20,7 +20,7 @@ status: finished
 3. BFL(Blueprint Function Library)
     1. 매번 ArrRanks를 가져다가 Find해서 ST_Numbers의 Index를 얻어내는 방식이 번거로워서 공통으로 사용 가능한 함수 생성. Rank 또는 Item을 넣으면 필요한 Index를 Return  
         
-        ![](/assets/images/for-posts/ue5-20260221_01.png)
+        ![](/assets/images/for-posts/ue5-20260221_01.webp)
 1. 영상 업로드
 
 ---

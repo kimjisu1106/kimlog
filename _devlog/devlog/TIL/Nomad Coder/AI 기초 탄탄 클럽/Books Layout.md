@@ -139,4 +139,4 @@ hr {
 
 **주의사항** | 다양한 선택자로 스타일을 짤 경우 유지보수에 비효율적이므로 Class위주의 스타일을 짤 것.
 
-![](/assets/images/for-posts/n_20260425_01.png)
+![](/assets/images/for-posts/n_20260425_01.webp)

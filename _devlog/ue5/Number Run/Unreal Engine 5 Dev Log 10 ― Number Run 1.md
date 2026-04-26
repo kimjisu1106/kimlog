@@ -75,7 +75,7 @@ status: finished
     - Player가 선택한 Number Actor 추적
     - 중계 카메라 느낌의 Follow Camera 구현
 
-![](/assets/images/for-posts/ue5-20260206_01.png)
-![](/assets/images/for-posts/ue5-20260206_02.png)
-![](/assets/images/for-posts/ue5-20260206_03.png)
-![](/assets/images/for-posts/ue5-20260206_04.png)
+![](/assets/images/for-posts/ue5-20260206_01.webp)
+![](/assets/images/for-posts/ue5-20260206_02.webp)
+![](/assets/images/for-posts/ue5-20260206_03.webp)
+![](/assets/images/for-posts/ue5-20260206_04.webp)
