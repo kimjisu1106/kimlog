@@ -242,9 +242,8 @@ Minima 기본 post layout을 오버라이드. 세 가지 기능이 자동으로 
 
 ### 낮음 (Liquid/CSS 수정)
 
-- [ ] **Series Posts 강화**: Related Posts → 시리즈 목록으로 개편
-  - 날짜 오름차순 + 번호(1편, 2편...) + 현재 포스트 "읽는 중" 하이라이트
-  - 상단 요약 박스: "이 글은 [프로젝트]의 N번째 기록입니다. 총 M개"
+- [x] **Series Posts 강화**: Related Posts → Series 목록으로 개편 완료
+  - 날짜 오름차순 + 번호 + 현재 포스트 "읽는 중" 뱃지 + 상단 요약 박스
 - [ ] **Suggested Posts**: 같은 category + 다른 project의 summary 포스트 최하단 노출
 - [x] **Meta Description**: `jekyll-seo-tag`가 자동 처리 (page.description → page.excerpt → site.description). frontmatter 명세에 `description` 필드 추가 완료
 - [x] **RSS 아이콘**: footer 또는 `<head>`에 `/feed.xml` 링크 추가 (`jekyll-feed` 이미 설치됨)
