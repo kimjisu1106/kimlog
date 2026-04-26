@@ -216,13 +216,13 @@
           <div id="dropZone" class="box">
             <div id="dropText">
               여기에 이미지 파일을 끌어다 놓거나, 클릭해서 선택하세요<br />
-              <span class="small">(JPG/PNG/WebP, 최대 20장)</span>
+              <span class="small">(JPG/PNG/WebP, 최대 <span id="maxFilesHint"></span>장)</span>
             </div>
 
             <div id="pickPanel" class="hidden">
               <div class="small pick-count-row">
-                선택됨: <b><span id="pickCount">0</span></b> / 20
-                <span id="pickWarn" class="small">20장을 초과했습니다. 필요없는 항목을 삭제하세요.</span>
+                선택됨: <b><span id="pickCount">0</span></b> / <span id="maxFilesCount"></span>
+                <span id="pickWarn" class="small"><span id="maxFilesWarn"></span>장을 초과했습니다. 필요없는 항목을 삭제하세요.</span>
               </div>
 
               <div id="thumbGrid" class="thumbGrid"></div>
@@ -281,7 +281,7 @@
             <div class="bar-wrap">
               <div id="bar" class="bar"></div>
             </div>
-            <div id="loadingText" class="hint">0%</div>
+            <div id="loadingText" class="hint">0 / 0</div>
           </div>
         </div>
       </section>
@@ -336,10 +336,16 @@
     </script>
 
     <script>
+      const MAX_FILES = 50;
+
+      // MAX_FILES를 UI 텍스트에 반영
+      document.getElementById("maxFilesHint").textContent  = MAX_FILES;
+      document.getElementById("maxFilesCount").textContent = MAX_FILES;
+      document.getElementById("maxFilesWarn").textContent  = MAX_FILES;
+
       const viewForm    = document.getElementById("viewForm");
       const viewLoading = document.getElementById("viewLoading");
       const viewDone    = document.getElementById("viewDone");
-      const MIN_LOADING_MS = 10000;
 
       function showView(name) {
         viewForm.classList.add("hidden");
@@ -363,7 +369,6 @@
       const compareLabel      = document.getElementById("compareLabel");
       const imgOriginalDesktop = document.getElementById("imgOriginalDesktop");
       const imgResultDesktop   = document.getElementById("imgResultDesktop");
-      const MAX_FILES = 20;
 
       const pickPanel   = document.getElementById("pickPanel");
       const thumbGrid   = document.getElementById("thumbGrid");
@@ -514,7 +519,7 @@
           return;
         }
         if (files.length > MAX_FILES) {
-          alert("20장 이하로 맞춰주세요.");
+          alert(`${MAX_FILES}장 이하로 맞춰주세요.`);
           return;
         }
         if (!window.JSZip) {
@@ -523,16 +528,7 @@
         }
 
         showView("loading");
-
-        let minTimePassed = false;
-        let conversionDone = false;
-
-        startConvertProgress();
-
-        const minTimer = setTimeout(() => {
-          minTimePassed = true;
-          tryFinish();
-        }, MIN_LOADING_MS);
+        updateProgress(0, files.length);
 
         try {
           const zip = new JSZip();
@@ -556,8 +552,11 @@
             const blob = await canvasToBlob(canvas, mime, q);
             const baseName = (f.name || `image_${i + 1}`).replace(/\.[^/.]+$/, "");
             zip.file(`${baseName}.${outExt}`, blob);
+
+            updateProgress(i + 1, files.length);
           }
 
+          loadingText.textContent = "ZIP 생성 중…";
           const zipBlob = await zip.generateAsync({ type: "blob" });
 
           if (resultBlobUrl) URL.revokeObjectURL(resultBlobUrl);
@@ -574,21 +573,11 @@
           imgResultDesktop.src   = "";
           mobileCompareImg.src   = "";
 
-          conversionDone = true;
-          tryFinish();
+          showView("done");
         } catch (e) {
           console.error(e);
-          clearTimeout(minTimer);
           alert("변환 중 오류가 발생했습니다. (지원되지 않는 이미지/포맷일 수 있음)");
           showView("form");
-        }
-
-        function tryFinish() {
-          if (!minTimePassed || !conversionDone) return;
-          if (convertTimer) clearInterval(convertTimer);
-          bar.style.width = "100%";
-          loadingText.textContent = "100%";
-          showView("done");
         }
       });
 
@@ -630,20 +619,10 @@
         });
       }
 
-      let convertTimer = null;
-      function startConvertProgress() {
-        if (convertTimer) clearInterval(convertTimer);
-        const start = Date.now();
-        const cap = 99;
-        bar.style.width = "0%";
-        loadingText.textContent = "0%";
-        convertTimer = setInterval(() => {
-          const elapsed = Date.now() - start;
-          const p   = Math.min(1, elapsed / MIN_LOADING_MS);
-          const pct = Math.floor(Math.pow(p, 0.85) * cap);
-          bar.style.width = pct + "%";
-          loadingText.textContent = pct + "%";
-        }, 100);
+      function updateProgress(done, total) {
+        const pct = total > 0 ? Math.round((done / total) * 100) : 0;
+        bar.style.width = pct + "%";
+        loadingText.textContent = `${done} / ${total}`;
       }
 
       btnToggleCompare.addEventListener("click", () => {
@@ -675,9 +654,8 @@
         widthEl.value  = "";
         heightEl.value = "";
 
-        if (convertTimer) clearInterval(convertTimer);
         bar.style.width = "0%";
-        loadingText.textContent = "0%";
+        loadingText.textContent = "0 / 0";
 
         if (resultBlobUrl) { URL.revokeObjectURL(resultBlobUrl); resultBlobUrl = null; }
         resultFilename = "converted.zip";
