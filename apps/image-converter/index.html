@@ -96,30 +96,6 @@
         box-sizing: border-box;
         display: block;
       }
-      #imgtool .compareMobile img,
-      #imgtool .compareDesktop img {
-        width: 100%;
-        display: block;
-        border-radius: 12px;
-        border: 1px solid #eee;
-      }
-      #imgtool .compareDesktop {
-        display: none;
-        gap: 12px;
-        margin-top: 10px;
-      }
-      #imgtool .compareCol {
-        flex: 1;
-        min-width: 0;
-      }
-      @media (min-width: 768px) {
-        #imgtool .compareMobile {
-          display: none;
-        }
-        #imgtool .compareDesktop {
-          display: flex;
-        }
-      }
       #imgtool .thumbGrid {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
@@ -195,12 +171,6 @@
       }
       #doneInfo {
         margin-top: 12px;
-      }
-      #compareWrap {
-        margin-top: 12px;
-      }
-      #compareLabel {
-        margin-top: 8px;
       }
     </style>
   </head>
@@ -296,29 +266,6 @@
           <button id="btnBack">다른 파일 변환</button>
 
           <div id="doneInfo" class="hint"></div>
-
-          <div id="compareWrap">
-            <label>원본 / 결과 비교</label>
-
-            <!-- 모바일 토글 -->
-            <div id="mobileCompare" class="compareMobile">
-              <button id="btnToggleCompare" type="button">원본 보기</button>
-              <div class="hint" id="compareLabel">현재: 결과</div>
-              <img id="imgCompareMobile" alt="compare mobile" />
-            </div>
-
-            <!-- 데스크톱 좌우 -->
-            <div id="desktopCompare" class="compareDesktop">
-              <div class="compareCol">
-                <div class="hint">원본</div>
-                <img id="imgOriginalDesktop" alt="original desktop" />
-              </div>
-              <div class="compareCol">
-                <div class="hint">결과</div>
-                <img id="imgResultDesktop" alt="result desktop" />
-              </div>
-            </div>
-          </div>
         </div>
       </section>
     </div>
@@ -364,20 +311,13 @@
       const keepRatioEl     = document.getElementById("keepRatio");
       const qualityEl       = document.getElementById("quality");
       const qualityWrap     = document.getElementById("qualityWrap");
-      const mobileCompareImg  = document.getElementById("imgCompareMobile");
-      const btnToggleCompare  = document.getElementById("btnToggleCompare");
-      const compareLabel      = document.getElementById("compareLabel");
-      const imgOriginalDesktop = document.getElementById("imgOriginalDesktop");
-      const imgResultDesktop   = document.getElementById("imgResultDesktop");
-
       const pickPanel   = document.getElementById("pickPanel");
       const thumbGrid   = document.getElementById("thumbGrid");
       const pickCount   = document.getElementById("pickCount");
       const pickWarn    = document.getElementById("pickWarn");
       const btnResetFiles = document.getElementById("btnResetFiles");
 
-      let selected = []; // { file: File, url: string }
-      let showingResultOnMobile = true;
+      let selected = [];
 
       function updateQualityVisibility() {
         qualityWrap.style.display = formatEl.value === "image/png" ? "none" : "block";
@@ -491,7 +431,6 @@
 
       let resultBlobUrl = null;
       let resultFilename = "converted.zip";
-      let originalBlobUrl = null;
 
       widthEl.addEventListener("input", () => {
         if (!keepRatioEl.checked) return;
@@ -566,13 +505,6 @@
           doneInfo.textContent     = `ZIP: ${resultFilename} (${files.length} files)`;
           btnDownload.textContent  = `${resultFilename} 다운로드`;
 
-          const compareWrap = document.getElementById("compareWrap");
-          if (compareWrap) compareWrap.style.display = files.length > 1 ? "none" : "";
-
-          imgOriginalDesktop.src = "";
-          imgResultDesktop.src   = "";
-          mobileCompareImg.src   = "";
-
           showView("done");
         } catch (e) {
           console.error(e);
@@ -625,20 +557,6 @@
         loadingText.textContent = `${done} / ${total}`;
       }
 
-      btnToggleCompare.addEventListener("click", () => {
-        if (!originalBlobUrl || !resultBlobUrl) return;
-        showingResultOnMobile = !showingResultOnMobile;
-        if (showingResultOnMobile) {
-          mobileCompareImg.src        = resultBlobUrl;
-          compareLabel.textContent    = "현재: 결과";
-          btnToggleCompare.textContent = "원본 보기";
-        } else {
-          mobileCompareImg.src        = originalBlobUrl;
-          compareLabel.textContent    = "현재: 원본";
-          btnToggleCompare.textContent = "결과 보기";
-        }
-      });
-
       function resetAll() {
         selected.forEach((item) => item.url && URL.revokeObjectURL(item.url));
         selected = [];
@@ -660,12 +578,6 @@
         if (resultBlobUrl) { URL.revokeObjectURL(resultBlobUrl); resultBlobUrl = null; }
         resultFilename = "converted.zip";
 
-        const compareWrap = document.getElementById("compareWrap");
-        if (compareWrap) compareWrap.style.display = "";
-
-        mobileCompareImg.src     = "";
-        imgOriginalDesktop.src   = "";
-        imgResultDesktop.src     = "";
         doneInfo.textContent     = "";
         btnDownload.textContent  = "다운로드";
       }
