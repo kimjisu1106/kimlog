@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 중복된 파일 찾기 Duplicate Finder 9
-date: 2026-04-27
+date: 2026-04-26
 categories:
   - devlog
   - apps
@@ -13,7 +13,7 @@ status: finished
 ---
 ## 오늘 한 일
 
-- 크기가 0인 파일은 같은 Hash가 적용되어 모조리 중복 파일로 뜨는 것 개선. 파일크기가 0 이상인 것부터 수입하도록 수정함.
+- 크기가 0인 파일은 같은 Hash가 적용되어 모조리 중복 파일로 뜨는 것 개선. 파일크기가 0 이상인 것부터 확인하도록 수정함.
 
 ---
 
