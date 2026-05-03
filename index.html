@@ -48,8 +48,7 @@ layout: home
           <span class="apps-card-name">{{ post.project_name | default: post.title }}</span>
         </div>
         <div class="apps-card-back">
-          <p class="apps-card-desc">{{ post.description | default: post.excerpt | strip_html | truncate: 72 }}</p>
-          <a class="apps-card-btn" href="{{ post.app_url }}" target="_blank" rel="noopener noreferrer">바로가기 ↗</a>
+          <a class="apps-card-btn" href="{{ post.url | relative_url }}">자세히 보기 →</a>
         </div>
       </div>
     </div>
@@ -62,8 +61,7 @@ layout: home
           <span class="apps-card-name">{{ post.project_name | default: post.title }}</span>
         </div>
         <div class="apps-card-back">
-          <p class="apps-card-desc">{{ post.description | default: post.excerpt | strip_html | truncate: 72 }}</p>
-          <a class="apps-card-btn" href="{{ post.app_url }}" target="_blank" rel="noopener noreferrer">바로가기 ↗</a>
+          <a class="apps-card-btn" href="{{ post.url | relative_url }}">자세히 보기 →</a>
         </div>
       </div>
     </div>

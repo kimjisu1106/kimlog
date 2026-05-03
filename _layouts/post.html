@@ -37,9 +37,15 @@ layout: default
     {% endif %}
 
     {% if page.project %}
-      {% assign series_posts = site.devlog
-        | where_exp: "p", "p.project == page.project"
-        | sort: "date" %}
+      {% assign _all = site.devlog | where_exp: "p", "p.project == page.project" | sort: "date" %}
+      {% assign _summary = _all | where_exp: "p", "p.categories contains 'summary'" %}
+      {% assign _rest = "" | split: "" %}
+      {% for _p in _all %}
+        {% unless _p.categories contains 'summary' %}
+          {% assign _rest = _rest | push: _p %}
+        {% endunless %}
+      {% endfor %}
+      {% assign series_posts = _summary | concat: _rest %}
       {% assign series_total = series_posts.size %}
 
       {% if series_total > 1 %}
