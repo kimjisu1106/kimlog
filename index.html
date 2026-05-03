@@ -34,28 +34,43 @@ layout: home
 
 <h2>Apps</h2>
 
-<ul class="post-list home-list" id="list-apps">
-  {% assign apps = site.devlog | where_exp: "p", "p.categories contains 'summary'" | where_exp: "p", "p.app_url" | sort: "date" | reverse %} {% if apps.size == 0 %}
-  <p>No apps yet.</p>
-  {% else %} {% for post in apps %}
-  <li class="home-app{% if forloop.index > 5 %} devlog-extra-item{% endif %}"{% if forloop.index > 5 %} hidden{% endif %}>
-    <a class="home-app-link" href="{{ post.url | relative_url }}">
-      <img
-        class="home-app-thumb"
-        src="{{ '/assets/images/' | append: post.project | append: '.png' | relative_url }}"
-        alt="{{ post.project_name | default: post.title }}"
-        loading="lazy"
-      />
-      <div class="home-app-text">
-        <div class="home-date post-meta">{{ post.date | date: "%Y-%m-%d" }}</div>
-        <div class="home-title">{{ post.project_name | default: post.title }}</div>
+{% assign apps = site.devlog | where_exp: "p", "p.categories contains 'summary'" | where_exp: "p", "p.app_url" | sort: "date" | reverse %}
+{% if apps.size == 0 %}
+<p>No apps yet.</p>
+{% else %}
+<div class="apps-showcase">
+  <div class="apps-slider-track">
+    {% for post in apps %}
+    <div class="apps-card">
+      <div class="apps-card-inner">
+        <div class="apps-card-front">
+          <img src="{{ '/assets/images/' | append: post.project | append: '.png' | relative_url }}" alt="{{ post.project_name | default: post.title }}" loading="lazy" onerror="this.style.display='none'">
+          <span class="apps-card-name">{{ post.project_name | default: post.title }}</span>
+        </div>
+        <div class="apps-card-back">
+          <p class="apps-card-desc">{{ post.description | default: post.excerpt | strip_html | truncate: 72 }}</p>
+          <a class="apps-card-btn" href="{{ post.app_url }}" target="_blank" rel="noopener noreferrer">바로가기 ↗</a>
+        </div>
       </div>
-    </a>
-  </li>
-  {% endfor %} {% if apps.size > 5 %}
-  <button class="devlog-toggle" data-list="list-apps">더보기 ▾</button>
-  {% endif %} {% endif %}
-</ul>
+    </div>
+    {% endfor %}
+    {% for post in apps %}
+    <div class="apps-card" aria-hidden="true">
+      <div class="apps-card-inner">
+        <div class="apps-card-front">
+          <img src="{{ '/assets/images/' | append: post.project | append: '.png' | relative_url }}" alt="" loading="lazy" onerror="this.style.display='none'">
+          <span class="apps-card-name">{{ post.project_name | default: post.title }}</span>
+        </div>
+        <div class="apps-card-back">
+          <p class="apps-card-desc">{{ post.description | default: post.excerpt | strip_html | truncate: 72 }}</p>
+          <a class="apps-card-btn" href="{{ post.app_url }}" target="_blank" rel="noopener noreferrer">바로가기 ↗</a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endif %}
 
 <hr />
 
@@ -87,6 +102,13 @@ layout: home
 </ul>
 
 <script>
+  document.querySelectorAll(".apps-card:not([aria-hidden])").forEach((card) => {
+    card.addEventListener("click", (e) => {
+      if (e.target.closest(".apps-card-btn")) return;
+      card.classList.toggle("flipped");
+    });
+  });
+
   document.addEventListener("click", (e) => {
     const btn = e.target.closest(".devlog-toggle");
     if (!btn || !btn.dataset.list) return;

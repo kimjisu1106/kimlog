@@ -251,9 +251,10 @@ Minima 기본 post layout을 오버라이드. 세 가지 기능이 자동으로 
 ### 중간 (HTML/CSS/JS 작업)
 
 - [ ] **태그 기능**: frontmatter `tags` 추가 + 클라이언트 JS 태그 필터 (태그 페이지 자동생성은 `jekyll-archives` 플러그인 필요)
-- [ ] **Apps 카드 그리드**: `apps.html` 카드 레이아웃으로 전환
-  - 앞면: 이미지 + 앱 이름 / 뒷면: 설명 (hover/click 플립 애니메이션)
-  - 한 줄 3개, 무한 루프 CSS 슬라이더 (`animation-play-state: paused` on hover)
+- [x] **Apps 카드 그리드**: `index.html` Apps 섹션 → 리퀴드 글래스 flip 슬라이더로 전환
+  - 앞면: 이미지 + 앱 이름 / 뒷면: 설명 + 바로가기 버튼 (hover/click 플립)
+  - 무한 루프 CSS 슬라이더, hover 시 `animation-play-state: paused`
+  - 모바일: 애니메이션 없이 wrap 그리드, aria-hidden 복사본 숨김
 - [ ] **Lazy Loading**: 포스트 본문 이미지에 `loading="lazy"` 전역 적용
 
 ### 공수 미정
