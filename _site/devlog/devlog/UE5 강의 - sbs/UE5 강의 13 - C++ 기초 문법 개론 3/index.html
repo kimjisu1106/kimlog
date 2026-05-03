@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>UE5 강의 13 - C++ 기초 문법 개론 3 | 김로그의 우당탕탕</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="UE5 강의 13 - C++ 기초 문법 개론 3" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="오늘 한 일" />
+<meta property="og:description" content="오늘 한 일" />
+<link rel="canonical" href="http://localhost:4000/devlog/devlog/UE5%20%EA%B0%95%EC%9D%98%20-%20sbs/UE5%20%EA%B0%95%EC%9D%98%2013%20-%20C++%20%EA%B8%B0%EC%B4%88%20%EB%AC%B8%EB%B2%95%20%EA%B0%9C%EB%A1%A0%203/" />
+<meta property="og:url" content="http://localhost:4000/devlog/devlog/UE5%20%EA%B0%95%EC%9D%98%20-%20sbs/UE5%20%EA%B0%95%EC%9D%98%2013%20-%20C++%20%EA%B8%B0%EC%B4%88%20%EB%AC%B8%EB%B2%95%20%EA%B0%9C%EB%A1%A0%203/" />
+<meta property="og:site_name" content="김로그의 우당탕탕" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2026-03-28T00:00:00+09:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="UE5 강의 13 - C++ 기초 문법 개론 3" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-03-28T00:00:00+09:00","datePublished":"2026-03-28T00:00:00+09:00","description":"오늘 한 일","headline":"UE5 강의 13 - C++ 기초 문법 개론 3","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/devlog/devlog/UE5%20%EA%B0%95%EC%9D%98%20-%20sbs/UE5%20%EA%B0%95%EC%9D%98%2013%20-%20C++%20%EA%B8%B0%EC%B4%88%20%EB%AC%B8%EB%B2%95%20%EA%B0%9C%EB%A1%A0%203/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/profile.png"}},"url":"http://localhost:4000/devlog/devlog/UE5%20%EA%B0%95%EC%9D%98%20-%20sbs/UE5%20%EA%B0%95%EC%9D%98%2013%20-%20C++%20%EA%B8%B0%EC%B4%88%20%EB%AC%B8%EB%B2%95%20%EA%B0%9C%EB%A1%A0%203/"}</script>
+<!-- End Jekyll SEO tag -->
+<meta property="og:image" content="http://localhost:4000/assets/images/profile.png" />
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="김로그의 우당탕탕" /><meta name="google-site-verification" content="R-IPOkDo6YoQGFHmV7mEX98FuuLCx1eUM98m3RETbnM" />
+  <meta name="google-adsense-account" content="ca-pub-2560235080070689">
+  <link rel="icon" type="image/png" href="/assets/images/profile.png">
+  <link rel="icon" type="image/x-icon" href="/assets/images/profile.ico">
+  <link rel="shortcut icon" href="/assets/images/profile.ico">
+  <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "727df4dd0ca343b1be0ffd30ba969676"}'></script>
+</head>
+<body><header class="site-header" role="banner">
+  <div class="wrapper">
+    <a class="site-title" rel="author" href="/">김로그의 우당탕탕</a>
+
+    <nav class="site-nav">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+      <label for="nav-trigger">
+        <span class="menu-icon">
+          <svg viewBox="0 0 18 15" width="18px" height="15px">
+            <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </span>
+      </label>
+
+      <div class="trigger">
+        
+          
+          
+          <a class="page-link" href="/devlog/">Dev Log</a>
+          
+        
+          
+          
+          <a class="page-link" href="/ue5/">Unreal Engine 5</a>
+          
+        
+          
+          
+          <a class="page-link" href="/apps/">Apps</a>
+          
+        
+          
+          
+          <a class="page-link" href="/today-i-learn/">TIL</a>
+          
+        
+          
+          
+          <a class="page-link" href="/contact/">Contact</a>
+          
+        
+        <a class="page-link search-icon-link" href="/search/" aria-label="검색">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"/>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+        </a>
+      </div>
+    </nav>
+  </div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">UE5 강의 13 - C++ 기초 문법 개론 3</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2026-03-28T00:00:00+09:00" itemprop="datePublished">
+        2026-03-28
+      </time>
+    </p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+
+    
+
+    
+
+    
+      
+      
+      
+      
+      
+      
+
+      
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            
+            
+        <div class="series-summary">
+          이 글은 <strong>UnrealEngine5 Class</strong> 시리즈의 <strong>10번째</strong> 기록입니다. (총 10개)
+        </div>
+      
+    
+
+    <h2 id="오늘-한-일">오늘 한 일</h2>
+
+<ol>
+  <li>C++ 기초 문법 개론
+    <ol>
+      <li>배열 확장
+        <ol>
+          <li>NumberRunWithConsole
+```
+#include <iostream>
+#include <Windows.h></Windows.h></iostream></li>
+        </ol>
+      </li>
+    </ol>
+  </li>
+</ol>
+
+<p>void main()
+{
+	//               0    1    2    3    4    5    6    7   index
+	char tiles[] = { ‘ ‘, ‘-‘, ‘|’, ‘1’, ‘2’, ‘3’, ‘4’, ‘5’ };
+	int maps[][25] = {
+		{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+		{3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0},
+		{4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0},
+		{5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0},
+		{6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0},
+		{7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0},
+		{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+	};</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int currentColumns[5] = { 0, };
+int ranks[5] = { 0, };
+bool isGameOver = false;
+
+while (!isGameOver)
+{
+	Sleep(50);
+	system("cls");
+
+	{//이동하기
+		for (int i = 0; i &lt; 5; i++)
+		{
+			int numberRow = i + 1; // 1, 2, 3, 4, 5
+			int numberColumn = currentColumns[i];
+			int temp = maps[numberRow][numberColumn]; // map[1][0]
+			maps[numberRow][numberColumn] = 0; // maps[1][0]=0
+			maps[numberRow][numberColumn + 1] = temp; // maps[1][1]=temp;
+			++currentColumns[i];
+		}
+	}
+
+	{//랜덤한 하나만 한번 더 이동
+		int randNum = rand() % 5; // 0, 1, 2, 3, 4
+		int randNumRow = randNum + 1; // 1, 2, 3, 4, 5
+		int randNumColumn = currentColumns[randNum];
+		int temp = maps[randNumRow][randNumColumn]; // map[1][0]
+		maps[randNumRow][randNumColumn] = 0; // maps[1][0]=0
+		maps[randNumRow][randNumColumn + 1] = temp; // maps[1][1]=temp;
+		++currentColumns[randNum];
+	}
+
+	{//게임오버
+		for (int i = 0; i &lt; 5; i++)
+		{
+			if (currentColumns[i] &gt; 23)
+			{
+				isGameOver = true;
+
+			}
+		}
+
+	}
+
+	{//순위
+		for (int i = 0; i &lt; 5; i++)
+		{
+			ranks[i] = 0;
+			for (int j = 0; j &lt; 5; j++)
+			{
+				if (i == j) continue;
+
+				if (currentColumns[i] &lt; currentColumns[j])
+				{
+					++ranks[i];
+				}
+			}
+		}
+	}
+
+	if(isGameOver)
+	{//결과
+		int results[5] = { 0, };
+		int indexResult = 0;
+		bool isFinished = false;
+
+		for (int checkResult = 0; checkResult &lt; 5; checkResult++)
+		{
+			for (int i = 0; i &lt; 5; i++)
+			{
+				if (checkResult == ranks[i])
+				{
+					results[indexResult] = i + 1;
+					++indexResult;
+				}
+				if (indexResult &gt;= 5)
+				{
+					break;
+				}
+			}
+			if (indexResult &gt;= 5)
+			{
+				break;
+			}
+		}
+		{
+			std::cout &lt;&lt; "결과" &lt;&lt; std::endl;
+			std::cout &lt;&lt; "-------------------------" &lt;&lt; std::endl;
+			std::cout &lt;&lt; "1등: " &lt;&lt; results[0] &lt;&lt; std::endl;
+			std::cout &lt;&lt; "2등: " &lt;&lt; results[1] &lt;&lt; std::endl;
+			std::cout &lt;&lt; "3등: " &lt;&lt; results[2] &lt;&lt; ", " &lt;&lt; results[3] &lt;&lt; std::endl;
+			std::cout &lt;&lt; "-------------------------" &lt;&lt; std::endl;
+		}
+	}
+
+	{//화면에 표시하기
+		for (int i = 0; i &lt; 7; i++)
+		{
+			for (int j = 0; j &lt; 25; j++)
+			{
+				char tile = tiles[maps[i][j]];
+				std::cout &lt;&lt; tile;
+			}
+			std::cout &lt;&lt; std::endl;
+		}
+	}
+}	 }
+	   ```
+	   ![](/assets/images/for-posts/ue5-20260328_01.webp)
+2. 포인터 변수: 메모리 주소를 저장하는 변수
+   ```
+   #include &lt;iostream&gt;
+</code></pre></div></div>
+
+<p>void main()
+{
+	int num = 100;
+	int* ptr = &amp;num;
+	std::cout « “num: “ « num « std::endl; // 100
+	std::cout « “ptr: “ « ptr « std::endl; // a의 주소
+	std::cout « “*ptr: “ « *ptr « std::endl; // ptr에 들어있는 주소(a)의 값
+	std::cout « “&amp;ptr: “ « &amp;ptr « std::endl; // ptr의 주소</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>*ptr = 3000;
+std::cout &lt;&lt; "num: " &lt;&lt; num &lt;&lt; std::endl; // 3000 }
+   ```
+	   ![](/assets/images/for-posts/ue5-20260328_02.webp)
+3. 함수
+   ```
+   #include &lt;iostream&gt;
+</code></pre></div></div>
+
+<p>//함수 선언
+void Print(); // 파라미터 x, 리턴 x
+void PrintParam(int a, int b); // 파라미터 o, 리턴 x
+int MaxInt(); // 파라미터 x, 리턴 o
+int Sum(int a, int b); // 파라미터 o, 리턴 o</p>
+
+<p>//함수 실행
+int main()
+{
+	Print();
+	PrintParam(10, 20);
+	int num = MaxInt();
+	std::cout « “MaxInt: “ « num « std::endl;</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>std::cout &lt;&lt; "Sum: " &lt;&lt; Sum(10, 20) &lt;&lt; std::endl; }
+</code></pre></div></div>
+
+<p>//함수 정의
+void Print()
+{
+	std::cout « “Hello World” « std::endl;
+}</p>
+
+<p>void PrintParam(int a, int b)
+{
+	std::cout « “a: “ « a « std::endl;
+	std::cout « “b: “ « a « std::endl;
+}</p>
+
+<p>int MaxInt()
+{
+	return INT16_MAX;
+}</p>
+
+<p>int Sum(int a, int b)
+{
+	int total = a + b;
+	return total;
+}
+	   <code class="language-plaintext highlighter-rouge">
+		   ![](/assets/images/for-posts/ue5-20260328_03.webp)
+	4. CheckPoint5 함수화
+		1. 함수화 하는 김에 user의 입력을 받아서 별을 그리는 것으로 수정해봤다.
+		  </code>
+		   #include <iostream></iostream></p>
+
+<p>int UserNumber();
+void Top(int setStars);
+void Bottom(int setStars);</p>
+
+<p>void main()
+{
+    int setStars = UserNumber();</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Top(setStars);
+Bottom(setStars); }
+</code></pre></div></div>
+
+<p>int UserNumber()
+{
+    int userNumber = 0;
+    while (true)
+    {
+        std::cout « “원하는 숫자(홀수)를 입력해주세요 :”;
+        std::cin » userNumber;
+        std::cout « std::endl;
+        if (userNumber % 2 != 0)
+        {
+            return userNumber;
+        }
+    }
+}</p>
+
+<p>void Top(int setStars)
+{
+    int countStar = setStars;
+    int countBlank = 0;
+    {
+        while (countStar &gt;= 1)
+        {
+            for (int j = 0; j &lt; countBlank; j++)
+            {
+                std::cout « ” “;
+            }
+            for (int k = 0; k &lt; countStar; k++)
+            {
+                std::cout « “*”;
+            }
+            countStar -= 2;
+            ++countBlank;
+            std::cout « std::endl;
+        }
+    }
+}</p>
+
+<p>void Bottom(int setStars)
+{
+    {
+        int countStar = 3;
+        int countBlank = (setStars - 3) / 2;
+        while (countStar &lt;= setStars)
+        {
+            for (int j = 0; j &lt; countBlank; j++)
+            {
+                std::cout « ” “;
+            }
+            for (int k = 0; k &lt; countStar; k++)
+            {
+                std::cout « “*”;
+            }
+            countStar += 2;
+            –countBlank;
+            std::cout « std::endl;
+        }
+    }
+}
+		   ```
+		   <img src="/assets/images/for-posts/ue5-20260328_04.webp" alt="" /></p>
+
+<hr />
+
+<h2 id="어려웠던-점">어려웠던 점</h2>
+
+<ol>
+  <li>NRWC의 로직은 이해했는데 마지막 results[]에 내용물 넣는 과정에서 1등만 확인하고 끝나는 상황이 만들어짐. while을 썼다가 isFinished 로직이 1회만 돌고 탈출하는 문제 발생.
+→ checkResult를 for 조건식 안에 선언하는 방식으로 해결.</li>
+</ol>
+
+<hr />
+
+<h2 id="배운-점">배운 점</h2>
+
+<ol>
+  <li>메모리와 포인터 변수: FK/ID처럼 “직접 값을 갖는 게 아니라 어딘가를 가리킨다”는 개념은 비슷하지만, 포인터는 실제 물리적 메모리 주소를 가리킴.</li>
+  <li>C++에서 함수의 선언과 정의: 컴파일 시 위에서부터 아래로 읽기 때문.</li>
+</ol>
+
+<hr />
+
+<h2 id="해야-할-일">해야 할 일</h2>
+
+<ol>
+  <li>CheckPoint2(숫자 맞추기 게임) development
+    <ol>
+      <li>반복문 추가(정답을 맞추거나 0을 입력하면 종료)</li>
+      <li>함수화</li>
+      <li>입력 예외 처리하지 않음</li>
+    </ol>
+  </li>
+</ol>
+
+
+    
+
+    
+    <hr>
+    <h2>Series: UnrealEngine5 Class</h2>
+    <ul class="devlog-list series-list">
+      
+      <li>
+        <span class="series-num">1</span>
+        2025-12-27 ｜
+        
+        <a href="/devlog/devlog/UE5%20%EA%B0%95%EC%9D%98%20-%20sbs/UE5%20%EA%B0%95%EC%9D%98%201%20-%20OT/">UE5 강의 1 - OT</a>
+        
+      </li>
+      
+      <li>
+        <span class="series-num">2</span>
+        2026-01-03 ｜
+        
+        <a href="/devlog/devlog/UE5%20%EA%B0%95%EC%9D%98%20-%20sbs/UE5%20%EA%B0%95%EC%9D%98%202%20-%20%EB%B3%80%EC%88%98,%20%EC%97%B0%EC%82%B0%EC%9E%90,%20%EB%B6%84%EA%B8%B0%EB%AC%B8(%EB%B9%84%EA%B5%90),%20%EB%B0%98%EB%B3%B5%EB%AC%B8/">UE5 강의 2 - 변수, 연산자, 분기문(비교), 반복문</a>
+        
+      </li>
+      
+      <li>
+        <span class="series-num">3</span>
+        2026-01-10 ｜
+        
+        <a href="/devlog/devlog/UE5%20%EA%B0%95%EC%9D%98%20-%20sbs/UE5%20%EA%B0%95%EC%9D%98%203%20-%20%EB%B0%98%EB%B3%B5%EB%AC%B8(%EC%A4%91%EC%B2%A9,%20break),%20%ED%95%A8%EC%88%98,%20%EB%B0%B0%EC%97%B4,%20%EB%B8%94%EB%A3%A8%ED%94%84%EB%A6%B0%ED%8A%B8%20%ED%81%B4%EB%9E%98%EC%8A%A4/">UE5 강의 3 - 반복문(중첩, break), 함수, 배열, 블루프린트 클래스</a>
+        
+      </li>
+      
+      <li>
+        <span class="series-num">4</span>
+        2026-01-17 ｜
+        
+        <a href="/devlog/devlog/UE5%20%EA%B0%95%EC%9D%98%20-%20sbs/UE5%20%EA%B0%95%EC%9D%98%204%20-%20%EC%98%A4%EB%B8%8C%EC%A0%9D%ED%8A%B8(%EC%95%A1%ED%84%B0)%EA%B0%84%20%ED%86%B5%EC%8B%A0%20%EB%B0%A9%EB%B2%95%204%EA%B0%80%EC%A7%80/">UE5 강의 4 - 오브젝트(액터)간 통신 방법 4가지</a>
+        
+      </li>
+      
+      <li>
+        <span class="series-num">5</span>
+        2026-01-24 ｜
+        
+        <a href="/devlog/devlog/UE5%20%EA%B0%95%EC%9D%98%20-%20sbs/UE5%20%EA%B0%95%EC%9D%98%205%20-%20GUI(UMG)/">UE5 강의 5 - GUI(UMG)</a>
+        
+      </li>
+      
+      <li>
+        <span class="series-num">6</span>
+        2026-01-31 ｜
+        
+        <a href="/devlog/devlog/UE5%20%EA%B0%95%EC%9D%98%20-%20sbs/UE5%20%EA%B0%95%EC%9D%98%206%20-%20UMG/">UE5 강의 6 - UMG</a>
+        
+      </li>
+      
+      <li>
+        <span class="series-num">7</span>
+        2026-02-07 ｜
+        
+        <a href="/devlog/devlog/UE5%20%EA%B0%95%EC%9D%98%20-%20sbs/UE5%20%EA%B0%95%EC%9D%98%207%20-%20UMG,%20%EC%B9%B4%EB%A9%94%EB%9D%BC/">UE5 강의 7 - UMG, 카메라</a>
+        
+      </li>
+      
+      <li>
+        <span class="series-num">8</span>
+        2026-03-14 ｜
+        
+        <a href="/devlog/devlog/UE5%20%EA%B0%95%EC%9D%98%20-%20sbs/UE5%20%EA%B0%95%EC%9D%98%2011%20-%20C++%20%EA%B8%B0%EC%B4%88%20%EB%AC%B8%EB%B2%95%20%EA%B0%9C%EB%A1%A0%201/">UE5 강의 11 - C++ 기초 문법 개론 1</a>
+        
+      </li>
+      
+      <li>
+        <span class="series-num">9</span>
+        2026-03-21 ｜
+        
+        <a href="/devlog/devlog/UE5%20%EA%B0%95%EC%9D%98%20-%20sbs/UE5%20%EA%B0%95%EC%9D%98%2012%20-%20C++%20%EA%B8%B0%EC%B4%88%20%EB%AC%B8%EB%B2%95%20%EA%B0%9C%EB%A1%A0%202/">UE5 강의 12 - C++ 기초 문법 개론 2</a>
+        
+      </li>
+      
+      <li class="series-current">
+        <span class="series-num">10</span>
+        2026-03-28 ｜
+        
+        <strong>UE5 강의 13 - C++ 기초 문법 개론 3</strong><span class="series-reading">읽는 중</span>
+        
+      </li>
+      
+    </ul>
+    
+
+  </div>
+
+  <a class="u-url" href="/devlog/devlog/UE5%20%EA%B0%95%EC%9D%98%20-%20sbs/UE5%20%EA%B0%95%EC%9D%98%2013%20-%20C++%20%EA%B8%B0%EC%B4%88%20%EB%AC%B8%EB%B2%95%20%EA%B0%9C%EB%A1%A0%203/" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer">
+  <div class="wrapper">
+    <div class="footer-inner">
+      <div class="footer-left">
+        <div class="footer-contact">
+          <span class="post-meta"
+            ><i class="fa-solid fa-envelope"></i> kimlog0415@gmail.com</span
+          >
+          <span class="post-meta">｜</span>
+          <span class="post-meta"
+            ><a href="https://www.youtube.com/@kimlog0415"
+              ><i class="fa-brands fa-youtube" style="color: #ff0335"></i>
+              YouTube</a
+            ></span
+          >
+          <span class="post-meta">｜</span>
+          <span class="post-meta"
+            ><a href="/feed.xml"><i class="fa-solid fa-rss"></i> RSS</a></span
+          >
+        </div>
+        <div class="footer-copy post-meta">
+          &copy; 2026 김로그의 우당탕탕 ｜
+          <a href="/privacy-policy/">Privacy Policy</a>
+        </div>
+      </div>
+      <div class="footer-bmc">
+        <a href="/contact/" class="support-btn">☕ 후원하기</a>
+      </div>
+    </div>
+  </div>
+</footer>
+</body>
+
+</html>

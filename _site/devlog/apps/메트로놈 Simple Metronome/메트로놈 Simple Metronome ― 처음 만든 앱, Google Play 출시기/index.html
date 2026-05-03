@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>메트로놈 Simple Metronome ― 처음 만든 앱, Google Play 출시기 | 김로그의 우당탕탕</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="메트로놈 Simple Metronome ― 처음 만든 앱, Google Play 출시기" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="1. 왜 만들었는가" />
+<meta property="og:description" content="1. 왜 만들었는가" />
+<link rel="canonical" href="http://localhost:4000/devlog/apps/%EB%A9%94%ED%8A%B8%EB%A1%9C%EB%86%88%20Simple%20Metronome/%EB%A9%94%ED%8A%B8%EB%A1%9C%EB%86%88%20Simple%20Metronome%20%E2%80%95%20%EC%B2%98%EC%9D%8C%20%EB%A7%8C%EB%93%A0%20%EC%95%B1,%20Google%20Play%20%EC%B6%9C%EC%8B%9C%EA%B8%B0/" />
+<meta property="og:url" content="http://localhost:4000/devlog/apps/%EB%A9%94%ED%8A%B8%EB%A1%9C%EB%86%88%20Simple%20Metronome/%EB%A9%94%ED%8A%B8%EB%A1%9C%EB%86%88%20Simple%20Metronome%20%E2%80%95%20%EC%B2%98%EC%9D%8C%20%EB%A7%8C%EB%93%A0%20%EC%95%B1,%20Google%20Play%20%EC%B6%9C%EC%8B%9C%EA%B8%B0/" />
+<meta property="og:site_name" content="김로그의 우당탕탕" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2025-08-19T00:00:00+09:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="메트로놈 Simple Metronome ― 처음 만든 앱, Google Play 출시기" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-19T00:00:00+09:00","datePublished":"2025-08-19T00:00:00+09:00","description":"1. 왜 만들었는가","headline":"메트로놈 Simple Metronome ― 처음 만든 앱, Google Play 출시기","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/devlog/apps/%EB%A9%94%ED%8A%B8%EB%A1%9C%EB%86%88%20Simple%20Metronome/%EB%A9%94%ED%8A%B8%EB%A1%9C%EB%86%88%20Simple%20Metronome%20%E2%80%95%20%EC%B2%98%EC%9D%8C%20%EB%A7%8C%EB%93%A0%20%EC%95%B1,%20Google%20Play%20%EC%B6%9C%EC%8B%9C%EA%B8%B0/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/profile.png"}},"url":"http://localhost:4000/devlog/apps/%EB%A9%94%ED%8A%B8%EB%A1%9C%EB%86%88%20Simple%20Metronome/%EB%A9%94%ED%8A%B8%EB%A1%9C%EB%86%88%20Simple%20Metronome%20%E2%80%95%20%EC%B2%98%EC%9D%8C%20%EB%A7%8C%EB%93%A0%20%EC%95%B1,%20Google%20Play%20%EC%B6%9C%EC%8B%9C%EA%B8%B0/"}</script>
+<!-- End Jekyll SEO tag -->
+<meta property="og:image" content="http://localhost:4000/assets/images/profile.png" />
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="김로그의 우당탕탕" /><meta name="google-site-verification" content="R-IPOkDo6YoQGFHmV7mEX98FuuLCx1eUM98m3RETbnM" />
+  <meta name="google-adsense-account" content="ca-pub-2560235080070689">
+  <link rel="icon" type="image/png" href="/assets/images/profile.png">
+  <link rel="icon" type="image/x-icon" href="/assets/images/profile.ico">
+  <link rel="shortcut icon" href="/assets/images/profile.ico">
+  <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "727df4dd0ca343b1be0ffd30ba969676"}'></script>
+</head>
+<body><header class="site-header" role="banner">
+  <div class="wrapper">
+    <a class="site-title" rel="author" href="/">김로그의 우당탕탕</a>
+
+    <nav class="site-nav">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+      <label for="nav-trigger">
+        <span class="menu-icon">
+          <svg viewBox="0 0 18 15" width="18px" height="15px">
+            <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </span>
+      </label>
+
+      <div class="trigger">
+        
+          
+          
+          <a class="page-link" href="/devlog/">Dev Log</a>
+          
+        
+          
+          
+          <a class="page-link" href="/ue5/">Unreal Engine 5</a>
+          
+        
+          
+          
+          <a class="page-link" href="/apps/">Apps</a>
+          
+        
+          
+          
+          <a class="page-link" href="/today-i-learn/">TIL</a>
+          
+        
+          
+          
+          <a class="page-link" href="/contact/">Contact</a>
+          
+        
+        <a class="page-link search-icon-link" href="/search/" aria-label="검색">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"/>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+        </a>
+      </div>
+    </nav>
+  </div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">메트로놈 Simple Metronome ― 처음 만든 앱, Google Play 출시기</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2025-08-19T00:00:00+09:00" itemprop="datePublished">
+        2025-08-19
+      </time>
+    </p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+
+    
+    <a class="app-card" href="https://play.google.com/store/apps/details?id=io.github.kimjisu1106.simplemetronome" target="_blank" rel="noopener noreferrer">
+      
+      <img class="app-card-thumb" src="/assets/images/simple-metronome.png" alt="메트로놈 Simple Metronome" onerror="this.style.display='none'">
+      
+      <div class="app-card-info">
+        <span class="app-card-name">메트로놈 Simple Metronome</span>
+        <span class="app-card-link">바로가기 ↗</span>
+      </div>
+    </a>
+    
+
+    
+
+    
+      
+      
+      
+      
+      
+      
+
+      
+        
+        
+          
+        
+          
+            
+            
+        <div class="series-summary">
+          이 글은 <strong>메트로놈 Simple Metronome</strong> 시리즈의 <strong>2번째</strong> 기록입니다. (총 4개)
+        </div>
+      
+    
+
+    <h2 id="1-왜-만들었는가">1. 왜 만들었는가</h2>
+
+<p>피아노를 치고 싶어 연습실을 등록해 다니기 시작했다. 연습할 때 메트로놈이 꼭 필요했는데, 처음에는 기존에 올라온 무료 앱을 다운받아 사용했다.</p>
+
+<p>하지만 피아노를 두 시간 정도 치는 동안, 앱 하단에는 계속 구글 광고가 흘러갔다. “이럴 바에 내가 직접 만들어서, 내 계정에 연결된 광고를 붙이면 어떨까?”라는 욕심이 생겼다. 결국 내가 직접 쓸 메트로놈 앱을 만들기로 결심했다.</p>
+
+<hr />
+<h2 id="2-개발-과정">2. 개발 과정</h2>
+
+<h4 id="진입장벽-낮추기--chatgpt">진입장벽 낮추기 ― ChatGPT</h4>
+
+<p>개발을 시작하면서 가장 크게 도움받은 건 ChatGPT였다. 그 당시 사용하던 모델은 GPT-4, 조금 더 깊게 생각하는 모드였다. 내가 할 수 있는 건 클론코딩으로 HTML, CSS, JS, Python 정도를  맛본 수준이었는데, 챗지는 Kotlin과 Android Studio를 권했다. 낯설었지만 일단 시작했다.
+돌이켜보면 너무 당연하게 “내가 만든 앱은 당연히 Play Store에 올려야지”라고 생각한 것도 웃긴다. 
+그리고 개발자 계정을 예전에 결제해둔 게 있었는데, 올린 앱이 없어서 이미 계정이 삭제돼 있었다. 
+“그때의 나는 대체 무슨 배짱으로 계정을 결제했던 걸까?”</p>
+
+<h4 id="첫-시도와-리셋">첫 시도와 리셋</h4>
+
+<p>2025년 6월 초, 처음 만든 버전은 소리 간격이 불안정했다. 그래도 이때 앱 아이콘과 메인 컬러 팔레트는 정했다.</p>
+
+<ul>
+  <li>Teal: #00797F</li>
+  <li>Dark Charcoal: #1E1F22</li>
+  <li>Light Gray: #D7D7D7</li>
+  <li>Pink Accent: #FF1763</li>
+</ul>
+
+<p>검정 대신 짙은 차콜을 쓴 이유는 완전 검정은 오히려 눈이 아프기도 했고, 2시간동안 화면이 켜져있어야 하니 악보에 집중하기 위함이었다. #1E1F22는 내가 사용하던 Android Studio 코드 편집기 배경색이었다.</p>
+
+<p>하지만 타이밍 문제는 해결되지 않았고, 결국 6월 말 프로젝트를 갈아엎었다.
+이 때 챗지를 “더 많이 생각하는 모드”로 바꾸었다.</p>
+
+<hr />
+<h2 id="3-핵심-기능들"> 3. 핵심 기능들</h2>
+
+<ol>
+  <li>Rotate 지원<br />
+ 피아노 위에 세로로 두면 스피커가 가려지고, 가로로 두면 화면이 불편했다. 그래서 기기 설정과 상관없이 세로/가로 전환이 가능하도록 만들었다. BPM도 그대로 유지되도록 했다.</li>
+  <li>Indicator<br />
+ 원래는 소리만 맞추면 된다고 생각했지만, 동생이 “시각적 요소도 필요하다”고 조언했다. 그래서 박자에 맞춰 화면에서 인디케이터가 움직이도록 구현했다.</li>
+  <li>BPM 조절<br />
+ 중앙 표시 좌우에 버튼(±1, ±5)과 SeekBar 두 가지 방식으로 조절할 수 있게 했다. 자리 수가 바뀌어도 UI가 깨지지 않도록 공간을 고정했다.</li>
+  <li>Play / Stop 버튼<br />
+ 직관적으로 한눈에 알아볼 수 있게 단순하게.</li>
+  <li>광고<br />
+ 하단 배너 광고만 넣었다. 피아노 칠 때 방해받지 않도록 전면 광고는 제외했다.</li>
+</ol>
+
+<hr />
+
+<h2 id="4-비공개-테스트-closed-test">4. 비공개 테스트 (Closed Test)</h2>
+
+<p>7월 말, Google Play Console에서 비공개 테스트를 진행했다. 개인 계정이라 최소 인원이 12명이었고, 지인과 가족을 총동원해 “정예 12명”을 꾸렸다. 중간에 누군가 빠져나가면 망하는 구조라 커피 쿠폰까지 돌려가며 관리했다.</p>
+
+<p>이 기간 동안 받은 피드백과 내 사용 경험을 반영해 Beats per Bar와 Sub per Beat 기능을 추가했다.</p>
+
+<ul>
+  <li>4/4 → Beats=4, Sub=1</li>
+  <li>6/8 → Beats=2, Sub=3</li>
+  <li>12/8 → Beats=4, Sub=3</li>
+</ul>
+
+<p>덕분에 다양한 박자 연습이 가능해졌다.</p>
+
+<hr />
+<h2 id="5-play-store-등록"> 5. Play Store 등록</h2>
+
+<p>8월 초, 비공개 테스트가 끝나자마자 바로 프로덕션에 올렸다.  
+처음이라 모든 게 새로웠다.</p>
+
+<ul>
+  <li>업데이트하려면 무조건 버전 바꿔야 한다는 사실</li>
+  <li>앱 구동 화면 캡처를 반드시 제출해야 한다는 점</li>
+  <li>서명키 때문에 헤맸던 경험</li>
+  <li>업데이트 노트를 작성하는 뿌듯함</li>
+</ul>
+
+<p>이 모든 과정이 신기했다.</p>
+
+<hr />
+<h2 id="6-마무리">6. 마무리</h2>
+
+<p>드디어, 내가 만든 앱이 Google Play에 올라갔다.  
+생각만 하던 게 실제로 구현된 걸 보니까, 말로 다 못할 만큼 기분이 좋았다.</p>
+
+<p>앞으로는 코드를 더 이해해야 하고, 불편한 게 생기면 바로 업데이트해야 한다.  
+이제 첫 앱을 출시했으니, 더 어려운 것도 한번 도전해볼 수 있을 것 같다.</p>
+
+<p><img src="https://blog.kakaocdn.net/dna/cyGWqp/dJMcabJQDed/AAAAAAAAAAAAAAAAAAAAADmDz34nrPI5g9sqt2_btUCCVzA6mhWhWNsgdAouBtZm/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1774969199&amp;allow_ip=&amp;allow_referer=&amp;signature=NdVZ4g4RR9DRsFiASP3yTFCKbSg%3D" alt="" /></p>
+
+
+
+    
+
+    
+    <hr>
+    <h2>Series: 메트로놈 Simple Metronome</h2>
+    <ul class="devlog-list series-list">
+      
+      <li>
+        <span class="series-num">1</span>
+        2025-08-05 ｜
+        
+        <a href="/devlog/apps/%EB%A9%94%ED%8A%B8%EB%A1%9C%EB%86%88%20Simple%20Metronome/%EB%A9%94%ED%8A%B8%EB%A1%9C%EB%86%88%20Simple%20Metronome%200/">메트로놈 Simple Metronome</a>
+        
+      </li>
+      
+      <li class="series-current">
+        <span class="series-num">2</span>
+        2025-08-19 ｜
+        
+        <strong>메트로놈 Simple Metronome ― 처음 만든 앱, Google Play 출시기</strong><span class="series-reading">읽는 중</span>
+        
+      </li>
+      
+      <li>
+        <span class="series-num">3</span>
+        2025-08-21 ｜
+        
+        <a href="/devlog/apps/%EB%A9%94%ED%8A%B8%EB%A1%9C%EB%86%88%20Simple%20Metronome/%EB%A9%94%ED%8A%B8%EB%A1%9C%EB%86%88%20Simple%20Metronome%20%E2%80%95%20ver%201.9/">메트로놈 Simple Metronome ― ver 1.9</a>
+        
+      </li>
+      
+      <li>
+        <span class="series-num">4</span>
+        2025-08-26 ｜
+        
+        <a href="/devlog/apps/%EB%A9%94%ED%8A%B8%EB%A1%9C%EB%86%88%20Simple%20Metronome/%EB%A9%94%ED%8A%B8%EB%A1%9C%EB%86%88%20Simple%20Metronome%20%E2%80%95%20ver%201.10/">메트로놈 Simple Metronome ― ver 1.10</a>
+        
+      </li>
+      
+    </ul>
+    
+
+  </div>
+
+  <a class="u-url" href="/devlog/apps/%EB%A9%94%ED%8A%B8%EB%A1%9C%EB%86%88%20Simple%20Metronome/%EB%A9%94%ED%8A%B8%EB%A1%9C%EB%86%88%20Simple%20Metronome%20%E2%80%95%20%EC%B2%98%EC%9D%8C%20%EB%A7%8C%EB%93%A0%20%EC%95%B1,%20Google%20Play%20%EC%B6%9C%EC%8B%9C%EA%B8%B0/" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer">
+  <div class="wrapper">
+    <div class="footer-inner">
+      <div class="footer-left">
+        <div class="footer-contact">
+          <span class="post-meta"
+            ><i class="fa-solid fa-envelope"></i> kimlog0415@gmail.com</span
+          >
+          <span class="post-meta">｜</span>
+          <span class="post-meta"
+            ><a href="https://www.youtube.com/@kimlog0415"
+              ><i class="fa-brands fa-youtube" style="color: #ff0335"></i>
+              YouTube</a
+            ></span
+          >
+          <span class="post-meta">｜</span>
+          <span class="post-meta"
+            ><a href="/feed.xml"><i class="fa-solid fa-rss"></i> RSS</a></span
+          >
+        </div>
+        <div class="footer-copy post-meta">
+          &copy; 2026 김로그의 우당탕탕 ｜
+          <a href="/privacy-policy/">Privacy Policy</a>
+        </div>
+      </div>
+      <div class="footer-bmc">
+        <a href="/contact/" class="support-btn">☕ 후원하기</a>
+      </div>
+    </div>
+  </div>
+</footer>
+</body>
+
+</html>

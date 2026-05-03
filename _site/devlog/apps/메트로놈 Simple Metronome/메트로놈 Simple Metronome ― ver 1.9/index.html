@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>메트로놈 Simple Metronome ― ver 1.9 | 김로그의 우당탕탕</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="메트로놈 Simple Metronome ― ver 1.9" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="1. 마지막 BPM 기억하기 (Book Mark)" />
+<meta property="og:description" content="1. 마지막 BPM 기억하기 (Book Mark)" />
+<link rel="canonical" href="http://localhost:4000/devlog/apps/%EB%A9%94%ED%8A%B8%EB%A1%9C%EB%86%88%20Simple%20Metronome/%EB%A9%94%ED%8A%B8%EB%A1%9C%EB%86%88%20Simple%20Metronome%20%E2%80%95%20ver%201.9/" />
+<meta property="og:url" content="http://localhost:4000/devlog/apps/%EB%A9%94%ED%8A%B8%EB%A1%9C%EB%86%88%20Simple%20Metronome/%EB%A9%94%ED%8A%B8%EB%A1%9C%EB%86%88%20Simple%20Metronome%20%E2%80%95%20ver%201.9/" />
+<meta property="og:site_name" content="김로그의 우당탕탕" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2025-08-21T00:00:00+09:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="메트로놈 Simple Metronome ― ver 1.9" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-21T00:00:00+09:00","datePublished":"2025-08-21T00:00:00+09:00","description":"1. 마지막 BPM 기억하기 (Book Mark)","headline":"메트로놈 Simple Metronome ― ver 1.9","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/devlog/apps/%EB%A9%94%ED%8A%B8%EB%A1%9C%EB%86%88%20Simple%20Metronome/%EB%A9%94%ED%8A%B8%EB%A1%9C%EB%86%88%20Simple%20Metronome%20%E2%80%95%20ver%201.9/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/profile.png"}},"url":"http://localhost:4000/devlog/apps/%EB%A9%94%ED%8A%B8%EB%A1%9C%EB%86%88%20Simple%20Metronome/%EB%A9%94%ED%8A%B8%EB%A1%9C%EB%86%88%20Simple%20Metronome%20%E2%80%95%20ver%201.9/"}</script>
+<!-- End Jekyll SEO tag -->
+<meta property="og:image" content="http://localhost:4000/assets/images/profile.png" />
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="김로그의 우당탕탕" /><meta name="google-site-verification" content="R-IPOkDo6YoQGFHmV7mEX98FuuLCx1eUM98m3RETbnM" />
+  <meta name="google-adsense-account" content="ca-pub-2560235080070689">
+  <link rel="icon" type="image/png" href="/assets/images/profile.png">
+  <link rel="icon" type="image/x-icon" href="/assets/images/profile.ico">
+  <link rel="shortcut icon" href="/assets/images/profile.ico">
+  <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "727df4dd0ca343b1be0ffd30ba969676"}'></script>
+</head>
+<body><header class="site-header" role="banner">
+  <div class="wrapper">
+    <a class="site-title" rel="author" href="/">김로그의 우당탕탕</a>
+
+    <nav class="site-nav">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+      <label for="nav-trigger">
+        <span class="menu-icon">
+          <svg viewBox="0 0 18 15" width="18px" height="15px">
+            <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </span>
+      </label>
+
+      <div class="trigger">
+        
+          
+          
+          <a class="page-link" href="/devlog/">Dev Log</a>
+          
+        
+          
+          
+          <a class="page-link" href="/ue5/">Unreal Engine 5</a>
+          
+        
+          
+          
+          <a class="page-link" href="/apps/">Apps</a>
+          
+        
+          
+          
+          <a class="page-link" href="/today-i-learn/">TIL</a>
+          
+        
+          
+          
+          <a class="page-link" href="/contact/">Contact</a>
+          
+        
+        <a class="page-link search-icon-link" href="/search/" aria-label="검색">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"/>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+        </a>
+      </div>
+    </nav>
+  </div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">메트로놈 Simple Metronome ― ver 1.9</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2025-08-21T00:00:00+09:00" itemprop="datePublished">
+        2025-08-21
+      </time>
+    </p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+
+    
+    <a class="app-card" href="https://play.google.com/store/apps/details?id=io.github.kimjisu1106.simplemetronome" target="_blank" rel="noopener noreferrer">
+      
+      <img class="app-card-thumb" src="/assets/images/simple-metronome.png" alt="메트로놈 Simple Metronome" onerror="this.style.display='none'">
+      
+      <div class="app-card-info">
+        <span class="app-card-name">메트로놈 Simple Metronome</span>
+        <span class="app-card-link">바로가기 ↗</span>
+      </div>
+    </a>
+    
+
+    
+
+    
+      
+      
+      
+      
+      
+      
+
+      
+        
+        
+          
+        
+          
+        
+          
+            
+            
+        <div class="series-summary">
+          이 글은 <strong>메트로놈 Simple Metronome</strong> 시리즈의 <strong>3번째</strong> 기록입니다. (총 4개)
+        </div>
+      
+    
+
+    <h2 id="1-마지막-bpm-기억하기-book-mark">1. 마지막 BPM 기억하기 (Book Mark)</h2>
+
+<p>연습하다 보면 매번 템포를 다시 60에서 시작하는 게 은근히 귀찮았다.<br />
+게다가 피드백에서도 “이전 템포를 기억했으면 좋겠다”는 요청이 들어왔다.<br />
+그래서 북마크 기능을 넣었다.</p>
+
+<ul>
+  <li>상단의 북마크 아이콘이 활성화된 상태에서 BPM을 바꾸면, 앱을 껐다 켜도 그대로 유지된다.</li>
+  <li>비활성화면 예전처럼 60부터 시작.</li>
+</ul>
+
+<hr />
+
+<h2 id="2-bpm-조절-방법-시각화">2. BPM 조절 방법 시각화</h2>
+
+<p>SeekBar가 있었는데… 의외로 “이걸로 BPM 조절되는지 몰랐다”는 피드백이 들어왔다.<br />
+그래서 좌우에 Slow / Fast를 붙여줬다.<br />
+이제는 한눈에 “아, 이걸 옆으로 움직이면 템포가 바뀌는구나” 알 수 있다.</p>
+
+<hr />
+<h2 id="3-bpm-직접-입력하기">3. BPM 직접 입력하기</h2>
+
+<p>버튼(±1/±5), SeekBar만으로는 뭔가 부족했다.<br />
+그래서 이번엔 중앙 BPM 숫자를 <strong>터치하면 직접 입력</strong>할 수 있게 했다.</p>
+
+<p>덕분에 이제는 3가지 방식으로 BPM을 조절할 수 있다:</p>
+
+<ol>
+  <li>± 버튼</li>
+  <li>SeekBar</li>
+  <li>직접 입력</li>
+</ol>
+
+
+    
+
+    
+    <hr>
+    <h2>Series: 메트로놈 Simple Metronome</h2>
+    <ul class="devlog-list series-list">
+      
+      <li>
+        <span class="series-num">1</span>
+        2025-08-05 ｜
+        
+        <a href="/devlog/apps/%EB%A9%94%ED%8A%B8%EB%A1%9C%EB%86%88%20Simple%20Metronome/%EB%A9%94%ED%8A%B8%EB%A1%9C%EB%86%88%20Simple%20Metronome%200/">메트로놈 Simple Metronome</a>
+        
+      </li>
+      
+      <li>
+        <span class="series-num">2</span>
+        2025-08-19 ｜
+        
+        <a href="/devlog/apps/%EB%A9%94%ED%8A%B8%EB%A1%9C%EB%86%88%20Simple%20Metronome/%EB%A9%94%ED%8A%B8%EB%A1%9C%EB%86%88%20Simple%20Metronome%20%E2%80%95%20%EC%B2%98%EC%9D%8C%20%EB%A7%8C%EB%93%A0%20%EC%95%B1,%20Google%20Play%20%EC%B6%9C%EC%8B%9C%EA%B8%B0/">메트로놈 Simple Metronome ― 처음 만든 앱, Google Play 출시기</a>
+        
+      </li>
+      
+      <li class="series-current">
+        <span class="series-num">3</span>
+        2025-08-21 ｜
+        
+        <strong>메트로놈 Simple Metronome ― ver 1.9</strong><span class="series-reading">읽는 중</span>
+        
+      </li>
+      
+      <li>
+        <span class="series-num">4</span>
+        2025-08-26 ｜
+        
+        <a href="/devlog/apps/%EB%A9%94%ED%8A%B8%EB%A1%9C%EB%86%88%20Simple%20Metronome/%EB%A9%94%ED%8A%B8%EB%A1%9C%EB%86%88%20Simple%20Metronome%20%E2%80%95%20ver%201.10/">메트로놈 Simple Metronome ― ver 1.10</a>
+        
+      </li>
+      
+    </ul>
+    
+
+  </div>
+
+  <a class="u-url" href="/devlog/apps/%EB%A9%94%ED%8A%B8%EB%A1%9C%EB%86%88%20Simple%20Metronome/%EB%A9%94%ED%8A%B8%EB%A1%9C%EB%86%88%20Simple%20Metronome%20%E2%80%95%20ver%201.9/" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer">
+  <div class="wrapper">
+    <div class="footer-inner">
+      <div class="footer-left">
+        <div class="footer-contact">
+          <span class="post-meta"
+            ><i class="fa-solid fa-envelope"></i> kimlog0415@gmail.com</span
+          >
+          <span class="post-meta">｜</span>
+          <span class="post-meta"
+            ><a href="https://www.youtube.com/@kimlog0415"
+              ><i class="fa-brands fa-youtube" style="color: #ff0335"></i>
+              YouTube</a
+            ></span
+          >
+          <span class="post-meta">｜</span>
+          <span class="post-meta"
+            ><a href="/feed.xml"><i class="fa-solid fa-rss"></i> RSS</a></span
+          >
+        </div>
+        <div class="footer-copy post-meta">
+          &copy; 2026 김로그의 우당탕탕 ｜
+          <a href="/privacy-policy/">Privacy Policy</a>
+        </div>
+      </div>
+      <div class="footer-bmc">
+        <a href="/contact/" class="support-btn">☕ 후원하기</a>
+      </div>
+    </div>
+  </div>
+</footer>
+</body>
+
+</html>

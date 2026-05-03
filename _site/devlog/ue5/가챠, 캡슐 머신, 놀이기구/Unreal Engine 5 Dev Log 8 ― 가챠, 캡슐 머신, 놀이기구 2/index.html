@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Unreal Engine 5 Dev Log 8 ― 가챠, 캡슐 머신, 놀이기구 2 | 김로그의 우당탕탕</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Unreal Engine 5 Dev Log 8 ― 가챠, 캡슐 머신, 놀이기구 2" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="오늘 한 일" />
+<meta property="og:description" content="오늘 한 일" />
+<link rel="canonical" href="http://localhost:4000/devlog/ue5/%EA%B0%80%EC%B1%A0,%20%EC%BA%A1%EC%8A%90%20%EB%A8%B8%EC%8B%A0,%20%EB%86%80%EC%9D%B4%EA%B8%B0%EA%B5%AC/Unreal%20Engine%205%20Dev%20Log%208%20%E2%80%95%20%EA%B0%80%EC%B1%A0,%20%EC%BA%A1%EC%8A%90%20%EB%A8%B8%EC%8B%A0,%20%EB%86%80%EC%9D%B4%EA%B8%B0%EA%B5%AC%202/" />
+<meta property="og:url" content="http://localhost:4000/devlog/ue5/%EA%B0%80%EC%B1%A0,%20%EC%BA%A1%EC%8A%90%20%EB%A8%B8%EC%8B%A0,%20%EB%86%80%EC%9D%B4%EA%B8%B0%EA%B5%AC/Unreal%20Engine%205%20Dev%20Log%208%20%E2%80%95%20%EA%B0%80%EC%B1%A0,%20%EC%BA%A1%EC%8A%90%20%EB%A8%B8%EC%8B%A0,%20%EB%86%80%EC%9D%B4%EA%B8%B0%EA%B5%AC%202/" />
+<meta property="og:site_name" content="김로그의 우당탕탕" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2025-12-15T00:00:00+09:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Unreal Engine 5 Dev Log 8 ― 가챠, 캡슐 머신, 놀이기구 2" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-12-15T00:00:00+09:00","datePublished":"2025-12-15T00:00:00+09:00","description":"오늘 한 일","headline":"Unreal Engine 5 Dev Log 8 ― 가챠, 캡슐 머신, 놀이기구 2","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/devlog/ue5/%EA%B0%80%EC%B1%A0,%20%EC%BA%A1%EC%8A%90%20%EB%A8%B8%EC%8B%A0,%20%EB%86%80%EC%9D%B4%EA%B8%B0%EA%B5%AC/Unreal%20Engine%205%20Dev%20Log%208%20%E2%80%95%20%EA%B0%80%EC%B1%A0,%20%EC%BA%A1%EC%8A%90%20%EB%A8%B8%EC%8B%A0,%20%EB%86%80%EC%9D%B4%EA%B8%B0%EA%B5%AC%202/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/profile.png"}},"url":"http://localhost:4000/devlog/ue5/%EA%B0%80%EC%B1%A0,%20%EC%BA%A1%EC%8A%90%20%EB%A8%B8%EC%8B%A0,%20%EB%86%80%EC%9D%B4%EA%B8%B0%EA%B5%AC/Unreal%20Engine%205%20Dev%20Log%208%20%E2%80%95%20%EA%B0%80%EC%B1%A0,%20%EC%BA%A1%EC%8A%90%20%EB%A8%B8%EC%8B%A0,%20%EB%86%80%EC%9D%B4%EA%B8%B0%EA%B5%AC%202/"}</script>
+<!-- End Jekyll SEO tag -->
+<meta property="og:image" content="http://localhost:4000/assets/images/profile.png" />
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="김로그의 우당탕탕" /><meta name="google-site-verification" content="R-IPOkDo6YoQGFHmV7mEX98FuuLCx1eUM98m3RETbnM" />
+  <meta name="google-adsense-account" content="ca-pub-2560235080070689">
+  <link rel="icon" type="image/png" href="/assets/images/profile.png">
+  <link rel="icon" type="image/x-icon" href="/assets/images/profile.ico">
+  <link rel="shortcut icon" href="/assets/images/profile.ico">
+  <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "727df4dd0ca343b1be0ffd30ba969676"}'></script>
+</head>
+<body><header class="site-header" role="banner">
+  <div class="wrapper">
+    <a class="site-title" rel="author" href="/">김로그의 우당탕탕</a>
+
+    <nav class="site-nav">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+      <label for="nav-trigger">
+        <span class="menu-icon">
+          <svg viewBox="0 0 18 15" width="18px" height="15px">
+            <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </span>
+      </label>
+
+      <div class="trigger">
+        
+          
+          
+          <a class="page-link" href="/devlog/">Dev Log</a>
+          
+        
+          
+          
+          <a class="page-link" href="/ue5/">Unreal Engine 5</a>
+          
+        
+          
+          
+          <a class="page-link" href="/apps/">Apps</a>
+          
+        
+          
+          
+          <a class="page-link" href="/today-i-learn/">TIL</a>
+          
+        
+          
+          
+          <a class="page-link" href="/contact/">Contact</a>
+          
+        
+        <a class="page-link search-icon-link" href="/search/" aria-label="검색">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"/>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+        </a>
+      </div>
+    </nav>
+  </div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Unreal Engine 5 Dev Log 8 ― 가챠, 캡슐 머신, 놀이기구 2</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2025-12-15T00:00:00+09:00" itemprop="datePublished">
+        2025-12-15
+      </time>
+    </p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+
+    
+
+    
+
+    
+      
+      
+      
+      
+      
+      
+
+      
+        
+        
+          
+        
+          
+        
+          
+            
+            
+        <div class="series-summary">
+          이 글은 <strong>Gacha Machine</strong> 시리즈의 <strong>3번째</strong> 기록입니다. (총 6개)
+        </div>
+      
+    
+
+    <h2 id="오늘-한-일">오늘 한 일</h2>
+
+<ol>
+  <li>블렌더로 만든 가챠 머신 및 관련 object 불러와서 맵에 설치함.</li>
+  <li>코인 10개 랜덤 스폰
+    <ol>
+      <li>BP_CoinSpawner
+        <ol>
+          <li>Component
+            <ol>
+              <li>BoxCollision(SpawnArea)</li>
+            </ol>
+          </li>
+          <li>EventBeginPlay
+            <ol>
+              <li>ForLoop(0, SpawnCount-1)</li>
+              <li>SpawnActor(BP_Coin, SpawnTransform)
+                <ol>
+                  <li>SpawnTransform
+                    <ol>
+                      <li>SpawnArea.GetWorldLocation, SpawnArea.GetScaledBoxExtent</li>
+                      <li>RandomFloatInRange(X)=-BoxExtentX~BoxExtentX<br />
+ RandomFloatInRange(Y)=-BoxExtentX~BoxExtentY</li>
+                      <li>MakeVector(RandomX, RandomY, 0)</li>
+                      <li>SpawnArea.GetWorldLocation+MakeVectorReturn</li>
+                    </ol>
+                  </li>
+                </ol>
+              </li>
+            </ol>
+          </li>
+        </ol>
+      </li>
+    </ol>
+  </li>
+  <li>코인 회전
+    <ol>
+      <li>BP_Coin.Component: RotatingMovement: Z=-45</li>
+    </ol>
+  </li>
+  <li>코인 줍기
+    <ol>
+      <li>BP_Coin.Component:
+        <ol>
+          <li>StaticMeshComponent(Coin)</li>
+          <li>SphereCollision(CoinCollision)
+            <ol>
+              <li>On Component Begin Overlap</li>
+              <li>Branch !=bCollected</li>
+              <li>SetbCollected=True</li>
+              <li>CastToBP_ThirdPersonCharacter(OtherActor)</li>
+              <li>BP_ThirdPersonCharacter.AddCoin(): Amount=1</li>
+              <li>DestoryActor</li>
+            </ol>
+          </li>
+        </ol>
+      </li>
+    </ol>
+  </li>
+</ol>
+
+<hr />
+
+<h2 id="막힌-부분">막힌 부분</h2>
+
+<ol>
+  <li>도달할 수 없는 위치에 생성되는 Coin 해결하기</li>
+</ol>
+
+<hr />
+
+<h2 id="다음에-할-일">다음에 할 일</h2>
+
+<ol>
+  <li>Insert Coin 존에 player가 도달하면 가챠 기계에 코인 count를 하나씩 빼고 관련 조명이 1개씩 켜지게 들어오게 하기. 3개가 되면 pull zone 활성화.</li>
+</ol>
+
+<p><img src="/assets/images/for-posts/ue5-20251215_01.webp" alt="" />
+<img src="/assets/images/for-posts/ue5-20251215_02.webp" alt="" />
+<img src="/assets/images/for-posts/ue5-20251215_03.webp" alt="" /></p>
+
+
+
+    
+
+    
+    <hr>
+    <h2>Series: Gacha Machine</h2>
+    <ul class="devlog-list series-list">
+      
+      <li>
+        <span class="series-num">1</span>
+        2025-12-14 ｜
+        
+        <a href="/devlog/ue5/%EA%B0%80%EC%B1%A0,%20%EC%BA%A1%EC%8A%90%20%EB%A8%B8%EC%8B%A0,%20%EB%86%80%EC%9D%B4%EA%B8%B0%EA%B5%AC/Unreal%20Engine%205%20Dev%20Log%208%20%E2%80%95%20%EA%B0%80%EC%B1%A0,%20%EC%BA%A1%EC%8A%90%20%EB%A8%B8%EC%8B%A0,%20%EB%86%80%EC%9D%B4%EA%B8%B0%EA%B5%AC%200/">Unreal Engine 5 Dev Log 8 ― 가챠, 캡슐 머신, 놀이기구</a>
+        
+      </li>
+      
+      <li>
+        <span class="series-num">2</span>
+        2025-12-14 ｜
+        
+        <a href="/devlog/ue5/%EA%B0%80%EC%B1%A0,%20%EC%BA%A1%EC%8A%90%20%EB%A8%B8%EC%8B%A0,%20%EB%86%80%EC%9D%B4%EA%B8%B0%EA%B5%AC/Unreal%20Engine%205%20Dev%20Log%208%20%E2%80%95%20%EA%B0%80%EC%B1%A0,%20%EC%BA%A1%EC%8A%90%20%EB%A8%B8%EC%8B%A0,%20%EB%86%80%EC%9D%B4%EA%B8%B0%EA%B5%AC%201/">Unreal Engine 5 Dev Log 8 ― 가챠, 캡슐 머신, 놀이기구 1</a>
+        
+      </li>
+      
+      <li class="series-current">
+        <span class="series-num">3</span>
+        2025-12-15 ｜
+        
+        <strong>Unreal Engine 5 Dev Log 8 ― 가챠, 캡슐 머신, 놀이기구 2</strong><span class="series-reading">읽는 중</span>
+        
+      </li>
+      
+      <li>
+        <span class="series-num">4</span>
+        2025-12-16 ｜
+        
+        <a href="/devlog/ue5/%EA%B0%80%EC%B1%A0,%20%EC%BA%A1%EC%8A%90%20%EB%A8%B8%EC%8B%A0,%20%EB%86%80%EC%9D%B4%EA%B8%B0%EA%B5%AC/Unreal%20Engine%205%20Dev%20Log%208%20%E2%80%95%20%EA%B0%80%EC%B1%A0,%20%EC%BA%A1%EC%8A%90%20%EB%A8%B8%EC%8B%A0,%20%EB%86%80%EC%9D%B4%EA%B8%B0%EA%B5%AC%203/">Unreal Engine 5 Dev Log 8 ― 가챠, 캡슐 머신, 놀이기구 3</a>
+        
+      </li>
+      
+      <li>
+        <span class="series-num">5</span>
+        2025-12-17 ｜
+        
+        <a href="/devlog/ue5/%EA%B0%80%EC%B1%A0,%20%EC%BA%A1%EC%8A%90%20%EB%A8%B8%EC%8B%A0,%20%EB%86%80%EC%9D%B4%EA%B8%B0%EA%B5%AC/Unreal%20Engine%205%20Dev%20Log%208%20%E2%80%95%20%EA%B0%80%EC%B1%A0,%20%EC%BA%A1%EC%8A%90%20%EB%A8%B8%EC%8B%A0,%20%EB%86%80%EC%9D%B4%EA%B8%B0%EA%B5%AC%204/">Unreal Engine 5 Dev Log 8 ― 가챠, 캡슐 머신, 놀이기구 4</a>
+        
+      </li>
+      
+      <li>
+        <span class="series-num">6</span>
+        2025-12-28 ｜
+        
+        <a href="/devlog/ue5/%EA%B0%80%EC%B1%A0,%20%EC%BA%A1%EC%8A%90%20%EB%A8%B8%EC%8B%A0,%20%EB%86%80%EC%9D%B4%EA%B8%B0%EA%B5%AC/Unreal%20Engine%205%20Dev%20Log%208%20%E2%80%95%20%EA%B0%80%EC%B1%A0,%20%EC%BA%A1%EC%8A%90%20%EB%A8%B8%EC%8B%A0,%20%EB%86%80%EC%9D%B4%EA%B8%B0%EA%B5%AC%205/">Unreal Engine 5 Dev Log 8 ― 가챠, 캡슐 머신, 놀이기구 5</a>
+        
+      </li>
+      
+    </ul>
+    
+
+  </div>
+
+  <a class="u-url" href="/devlog/ue5/%EA%B0%80%EC%B1%A0,%20%EC%BA%A1%EC%8A%90%20%EB%A8%B8%EC%8B%A0,%20%EB%86%80%EC%9D%B4%EA%B8%B0%EA%B5%AC/Unreal%20Engine%205%20Dev%20Log%208%20%E2%80%95%20%EA%B0%80%EC%B1%A0,%20%EC%BA%A1%EC%8A%90%20%EB%A8%B8%EC%8B%A0,%20%EB%86%80%EC%9D%B4%EA%B8%B0%EA%B5%AC%202/" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer">
+  <div class="wrapper">
+    <div class="footer-inner">
+      <div class="footer-left">
+        <div class="footer-contact">
+          <span class="post-meta"
+            ><i class="fa-solid fa-envelope"></i> kimlog0415@gmail.com</span
+          >
+          <span class="post-meta">｜</span>
+          <span class="post-meta"
+            ><a href="https://www.youtube.com/@kimlog0415"
+              ><i class="fa-brands fa-youtube" style="color: #ff0335"></i>
+              YouTube</a
+            ></span
+          >
+          <span class="post-meta">｜</span>
+          <span class="post-meta"
+            ><a href="/feed.xml"><i class="fa-solid fa-rss"></i> RSS</a></span
+          >
+        </div>
+        <div class="footer-copy post-meta">
+          &copy; 2026 김로그의 우당탕탕 ｜
+          <a href="/privacy-policy/">Privacy Policy</a>
+        </div>
+      </div>
+      <div class="footer-bmc">
+        <a href="/contact/" class="support-btn">☕ 후원하기</a>
+      </div>
+    </div>
+  </div>
+</footer>
+</body>
+
+</html>

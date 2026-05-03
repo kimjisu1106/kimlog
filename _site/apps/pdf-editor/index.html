@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PDF 편집기(삭제/순서변경/삽입/추출/합치기)</title>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <script src="./js/prevent.js"></script>
+  <script src="./js/libs.js"></script>
+  <script src="./js/app.js"></script>
+  <body>
+    <div id="newTool">
+      <!-- VIEW 1: Form -->
+      <section id="viewForm">
+        <h1>PDF 편집기</h1>
+
+        <div class="box">
+          <label>PDF 업로드</label>
+
+          <div id="dropZone" class="drop box" aria-label="PDF dropzone">
+            <div id="dropText">
+              여기에 PDF 파일을 끌어다 놓거나, 클릭해서 선택하세요<br />
+              <span class="small"
+                >(PDF, 최대 <span id="maxFilesText"></span>개)</span
+              >
+            </div>
+
+            <div id="panel" class="hidden">
+              <div class="topRow">
+                <div class="small">
+                  PDF: <b><span id="pdfCount">0</span></b> /
+                  <span id="maxFilesText2"></span>
+                  <span id="pdfWarn" class="warn hidden"
+                    >제한 초과. 삭제하세요.</span
+                  >
+                </div>
+
+                <div class="btnRow">
+                  <button id="btnAddPdfs" type="button" class="btnMini">
+                    PDF 추가
+                  </button>
+                  <button id="btnReset" type="button" class="btnMini">
+                    전체 초기화
+                  </button>
+                </div>
+              </div>
+
+              <div class="hint" style="margin-top: 10px">
+                <b>PDF 순서 변경:</b> 드래그 앤 드롭(≡) / 위·아래 버튼 (※ 편집
+                초기화)<br />
+                <b>페이지 순서 변경:</b> 드래그 앤 드롭(≡) 또는 위/아래 버튼<br />
+                <b>페이지 삭제:</b> 각 페이지의 삭제 버튼<br />
+                <b>페이지 추출:</b> 체크박스 선택 후 “선택 페이지만 추출” 또는
+                “범위 추출”
+              </div>
+
+              <div class="split">
+                <div class="subBox">
+                  <div class="subTitle">업로드된 PDF</div>
+                  <div id="pdfList" class="pdfList"></div>
+                </div>
+
+                <div class="subBox">
+                  <div class="subTitle">
+                    페이지 목록(편집 대상)
+                    <span class="subMeta">총 <b id="totalPages">0</b>p</span>
+                  </div>
+
+                  <div class="rangeRow">
+                    <input
+                      id="rangeInput"
+                      class="rangeInput"
+                      type="text"
+                      placeholder="범위 예: 1-3, 7, 10-12"
+                      inputmode="numeric"
+                    />
+                    <button id="btnExtractRange" type="button" class="btnMini">
+                      범위 선택
+                    </button>
+                  </div>
+
+                  <div class="row">
+                    <label class="checkRow">
+                      <input type="checkbox" id="chkSelectAll" />
+                      <span>전체 선택</span>
+                    </label>
+                  </div>
+
+                  <div
+                    id="pageList"
+                    class="pageList"
+                    aria-label="page list"
+                  ></div>
+                </div>
+              </div>
+            </div>
+
+            <input
+              type="file"
+              id="file"
+              accept="application/pdf"
+              multiple
+              style="display: none"
+            />
+          </div>
+
+          <div class="hint" style="margin-top: 10px">
+            출력은 현재 페이지 목록 기준으로 생성됩니다. (브라우저에서만 동작)
+          </div>
+
+          <div class="actionsBar">
+            <button id="btnExtract" type="button" class="btnPrimary" disabled>
+              선택 페이지만 추출
+            </button>
+            <button id="btnBuild" type="button" class="btnPrimary" disabled>
+              최종 1개로 합치기
+            </button>
+          </div>
+
+          <div id="libStatus" class="hint" style="margin-top: 10px"></div>
+        </div>
+
+        <div class="hint">
+          <a
+            href="https://kimlog1203.tistory.com/30"
+            target="_blank"
+            rel="noopener"
+            >개인정보처리방침</a
+          >
+          | 이 도구는 브라우저에서만 작동합니다.
+        </div>
+      </section>
+
+      <!-- VIEW 2: Loading -->
+      <section id="viewLoading" class="hidden">
+        <h1>처리 중…</h1>
+        <div class="box" style="text-align: center">
+          <div style="font-weight: 900" id="loadingTitle">PDF 처리 중</div>
+          <div class="hint">
+            변환된 파일은 바로 다운로드하지 않으면 사라집니다.
+          </div>
+
+          <div style="margin-top: 14px">
+            <div class="spinner" aria-hidden="true"></div>
+
+            <div class="bar-wrap"><div id="bar" class="bar"></div></div>
+            <div id="loadingText" class="hint">0%</div>
+          </div>
+
+          <div id="loadingStep" class="hint" style="margin-top: 10px"></div>
+        </div>
+      </section>
+
+      <!-- VIEW 3: Done -->
+      <section id="viewDone" class="hidden">
+        <h1>완료</h1>
+        <div class="box">
+          <div style="font-weight: 900; margin-bottom: 8px" id="doneTitle">
+            결과 PDF
+          </div>
+
+          <div id="doneInfo" class="hint"></div>
+
+          <button id="btnDownload" type="button" style="margin-top: 12px">
+            다운로드
+          </button>
+
+          <button id="btnBack" type="button" style="margin-top: 10px">
+            다른 파일로 만들기
+          </button>
+        </div>
+      </section>
+
+      <!-- Preview Modal -->
+      <div id="previewModal" class="modal hidden">
+        <div class="modalDim"></div>
+        <div class="modalBox">
+          <div class="modalTop">
+            <div style="font-weight: 900" id="previewTitle">미리보기</div>
+            <button id="btnClosePreview" class="btnMini">닫기</button>
+          </div>
+          <div class="modalMeta" id="previewMeta"></div>
+          <div class="modalBody">
+            <canvas id="previewCanvas"></canvas>
+            <div id="previewHint" class="hint" style="margin-top: 8px"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

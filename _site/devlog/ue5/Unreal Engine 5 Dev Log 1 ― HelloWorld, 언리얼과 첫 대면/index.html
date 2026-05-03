@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Unreal Engine 5 Dev Log 1 ― HelloWorld, 언리얼과 첫 대면 | 김로그의 우당탕탕</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Unreal Engine 5 Dev Log 1 ― HelloWorld, 언리얼과 첫 대면" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="오늘 한 일" />
+<meta property="og:description" content="오늘 한 일" />
+<link rel="canonical" href="http://localhost:4000/devlog/ue5/Unreal%20Engine%205%20Dev%20Log%201%20%E2%80%95%20HelloWorld,%20%EC%96%B8%EB%A6%AC%EC%96%BC%EA%B3%BC%20%EC%B2%AB%20%EB%8C%80%EB%A9%B4/" />
+<meta property="og:url" content="http://localhost:4000/devlog/ue5/Unreal%20Engine%205%20Dev%20Log%201%20%E2%80%95%20HelloWorld,%20%EC%96%B8%EB%A6%AC%EC%96%BC%EA%B3%BC%20%EC%B2%AB%20%EB%8C%80%EB%A9%B4/" />
+<meta property="og:site_name" content="김로그의 우당탕탕" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2025-08-28T00:00:00+09:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Unreal Engine 5 Dev Log 1 ― HelloWorld, 언리얼과 첫 대면" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-28T00:00:00+09:00","datePublished":"2025-08-28T00:00:00+09:00","description":"오늘 한 일","headline":"Unreal Engine 5 Dev Log 1 ― HelloWorld, 언리얼과 첫 대면","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/devlog/ue5/Unreal%20Engine%205%20Dev%20Log%201%20%E2%80%95%20HelloWorld,%20%EC%96%B8%EB%A6%AC%EC%96%BC%EA%B3%BC%20%EC%B2%AB%20%EB%8C%80%EB%A9%B4/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/profile.png"}},"url":"http://localhost:4000/devlog/ue5/Unreal%20Engine%205%20Dev%20Log%201%20%E2%80%95%20HelloWorld,%20%EC%96%B8%EB%A6%AC%EC%96%BC%EA%B3%BC%20%EC%B2%AB%20%EB%8C%80%EB%A9%B4/"}</script>
+<!-- End Jekyll SEO tag -->
+<meta property="og:image" content="http://localhost:4000/assets/images/profile.png" />
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="김로그의 우당탕탕" /><meta name="google-site-verification" content="R-IPOkDo6YoQGFHmV7mEX98FuuLCx1eUM98m3RETbnM" />
+  <meta name="google-adsense-account" content="ca-pub-2560235080070689">
+  <link rel="icon" type="image/png" href="/assets/images/profile.png">
+  <link rel="icon" type="image/x-icon" href="/assets/images/profile.ico">
+  <link rel="shortcut icon" href="/assets/images/profile.ico">
+  <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "727df4dd0ca343b1be0ffd30ba969676"}'></script>
+</head>
+<body><header class="site-header" role="banner">
+  <div class="wrapper">
+    <a class="site-title" rel="author" href="/">김로그의 우당탕탕</a>
+
+    <nav class="site-nav">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+      <label for="nav-trigger">
+        <span class="menu-icon">
+          <svg viewBox="0 0 18 15" width="18px" height="15px">
+            <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </span>
+      </label>
+
+      <div class="trigger">
+        
+          
+          
+          <a class="page-link" href="/devlog/">Dev Log</a>
+          
+        
+          
+          
+          <a class="page-link" href="/ue5/">Unreal Engine 5</a>
+          
+        
+          
+          
+          <a class="page-link" href="/apps/">Apps</a>
+          
+        
+          
+          
+          <a class="page-link" href="/today-i-learn/">TIL</a>
+          
+        
+          
+          
+          <a class="page-link" href="/contact/">Contact</a>
+          
+        
+        <a class="page-link search-icon-link" href="/search/" aria-label="검색">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"/>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+        </a>
+      </div>
+    </nav>
+  </div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Unreal Engine 5 Dev Log 1 ― HelloWorld, 언리얼과 첫 대면</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2025-08-28T00:00:00+09:00" itemprop="datePublished">
+        2025-08-28
+      </time>
+    </p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+
+    
+
+    
+    <a class="app-card" href="https://www.youtube.com/watch?v=DV_3clCPYXw" target="_blank" rel="noopener noreferrer">
+      <img class="app-card-thumb" src="https://i.ytimg.com/vi/DV_3clCPYXw/hqdefault.jpg" alt="Unreal Engine 5 Dev Log 1 ― HelloWorld, 언리얼과 첫 대면">
+      <div class="app-card-info">
+        <span class="app-card-name">Hello World</span>
+        <span class="app-card-link">YouTube에서 보기 ↗</span>
+      </div>
+    </a>
+    
+
+    
+      
+      
+      
+      
+      
+      
+
+      
+    
+
+    <h2 id="오늘-한-일">오늘 한 일</h2>
+
+<p>언리얼엔진 설치<br />
+회원가입부터 해야했던 완전 새로운 세상<br />
+캐릭터 하나 화면에 세우기<br />
+출근 전이라 시간이 없어서 세워놓고 끝. 이건 저장을 안했다.<br />
+언리얼엔진 튜토리얼 영상 하나 보기<br />
+내가 봤던 튜토리얼은 게임쪽 프리셋으로 진행된거다보니 재생을 하면 플레이어의 움직임을 구현할 수 있어서 신기했다.<br />
+뭔가 만들어보기 도전</p>
+
+<hr />
+<h2 id="생각한-것">생각한 것</h2>
+
+<p>큐브로 만든 벽, 천장 + 스타터 세트에 있는 벽, 문, 창문을 이용해 집 만들기<br />
+스케일을 조절해서 크기를 변경하는 방식이 좀 어색했다. 정확한 수치로 구현하는 방법이 있는지는 아직 모르겠지만 일단 당장 메뉴에 보이는건 스케일이라 그걸로 조절했더니 정확하게 벽과 벽 사이가 맞아떨어지는 느낌이 아니라 그냥 눈에 보이기에 그럴듯 한 정도로 맞출 수 밖에 없었다. 분명 뭔가 있을텐데…<br />
+그나마 바닥에 붙이는건 단축키가 있어서 편리했다.</p>
+
+<hr />
+<h2 id="오브젝트">오브젝트</h2>
+
+<p>아무것도 없는 것보다는 오브젝트가 있는 것이 좋긴 했는데, 마켓같은데서 추가적으로 다운받아 사용가능하다고 본 것 같은데 내가 사용한 UE 5.3 버전에서 사용 가능한 현실 오브젝트를 아직 못찾았다. 이것도 분명 어딘가 있을텐데…</p>
+
+<hr />
+<h2 id="재질-바꿔보기">재질 바꿔보기</h2>
+
+<p>Material을 커버 갈아끼우듯이 바꿀 수 있는게 신기했다.<br />
+다만 어정쩡하게 남는 부분을 추가적으로 큐브를 덧대어 메웠는데 그러다보니 스타터 세트에 있는 벽과 덧댄 큐브의 스케일이 맞지 않아 Material을 넣었을 때 패턴이 달라져서 그나마 티가 덜 나는 것으로 적용했다. 뭔가 방법이 있을테니 다른날 찾아봐야겠다.</p>
+
+<hr />
+<h2 id="벽에-조명을-달고-빛-구현하기">벽에 조명을 달고 빛 구현하기</h2>
+
+<p>이거 생각보다 어려웠다.<br />
+벽에 붙이는 조명을 선택했는데 그러다보니 직접적으로 조명에서 나오는 빛이 벽에 닿는 부분과 그 아래 등기구로 인한 그림자 지는 부분을 시각적으로 보면서 조정할 수 있는 건 좋긴 했지만 얼마나 퍼지는지 지금 내가 배치한 이 위치가 현실적으로 맞는 광원의 위치인지를 가늠하는게 쉽지 않았다.<br />
+그래서 벽에 거는 등기구 이미지를 찾아보면서 맞춰보려고 했다.<br />
+그림자가 좀 더 연했으면 좋겠는데 아직 방법을 몰라서 일단 색온도만 맞췄다.<br />
+방 안에 조명 색을 설정할 때는 전구색 느낌으로 생각했는데 막상 설정하고보니 바깥 하늘이 너무 대낮이어서 좀 어색해보였다.<br />
+밖은 대낮인데 실내는 시간이 더 흘러보이는 느낌.</p>
+
+<hr />
+<h2 id="카메라-무빙">카메라 무빙</h2>
+
+<p>이건 생각보다 많이 어렵진 않았다.<br />
+After effect나 Cubase 등에서도 사용하는 방식과 유사했다.<br />
+초반에 키를 찍고나서 값을 조절해야하는건지, 조절하고나서 키를 찍는건지가 좀 헷갈렸다.<br />
+그리고 카메라가 들어가서 훑기엔 방이 너무 작았다.<br />
+처음에 만들 때는 카메라 연출을 생각하지 않고 그냥 만들어서 그게 아쉬웠다.</p>
+
+<hr />
+<h2 id="랜더링">랜더링</h2>
+
+<p>랜더링 자체는 어려운게 아니었는데, 카메라가 무빙한 것을 랜더링 하도록 설정하는 과정에서 조금 애를 먹었다. 카메라만 있다고 되는게 아니라 뭔가를 추가해야했는데 처음엔 그걸 잘 몰랐다.<br />
+지금보니까 좀 더 화질 좋게 랜더링 했으면 좋았을걸 하는 아쉬움이 남는다.</p>
+
+
+
+    
+    <hr>
+    
+<div class="yt-wrap">
+  <iframe
+    src="https://www.youtube.com/embed/DV_3clCPYXw"
+    allowfullscreen>
+  </iframe>
+</div>
+
+
+    
+
+    
+
+  </div>
+
+  <a class="u-url" href="/devlog/ue5/Unreal%20Engine%205%20Dev%20Log%201%20%E2%80%95%20HelloWorld,%20%EC%96%B8%EB%A6%AC%EC%96%BC%EA%B3%BC%20%EC%B2%AB%20%EB%8C%80%EB%A9%B4/" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer">
+  <div class="wrapper">
+    <div class="footer-inner">
+      <div class="footer-left">
+        <div class="footer-contact">
+          <span class="post-meta"
+            ><i class="fa-solid fa-envelope"></i> kimlog0415@gmail.com</span
+          >
+          <span class="post-meta">｜</span>
+          <span class="post-meta"
+            ><a href="https://www.youtube.com/@kimlog0415"
+              ><i class="fa-brands fa-youtube" style="color: #ff0335"></i>
+              YouTube</a
+            ></span
+          >
+          <span class="post-meta">｜</span>
+          <span class="post-meta"
+            ><a href="/feed.xml"><i class="fa-solid fa-rss"></i> RSS</a></span
+          >
+        </div>
+        <div class="footer-copy post-meta">
+          &copy; 2026 김로그의 우당탕탕 ｜
+          <a href="/privacy-policy/">Privacy Policy</a>
+        </div>
+      </div>
+      <div class="footer-bmc">
+        <a href="/contact/" class="support-btn">☕ 후원하기</a>
+      </div>
+    </div>
+  </div>
+</footer>
+</body>
+
+</html>

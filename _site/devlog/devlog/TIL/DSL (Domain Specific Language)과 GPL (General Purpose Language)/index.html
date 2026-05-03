@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>DSL (Domain Specific Language)과 GPL (General Purpose Language) | 김로그의 우당탕탕</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="DSL (Domain Specific Language)과 GPL (General Purpose Language)" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="DSL (Domain Specific Language)" />
+<meta property="og:description" content="DSL (Domain Specific Language)" />
+<link rel="canonical" href="http://localhost:4000/devlog/devlog/TIL/DSL%20(Domain%20Specific%20Language)%EA%B3%BC%20GPL%20(General%20Purpose%20Language)/" />
+<meta property="og:url" content="http://localhost:4000/devlog/devlog/TIL/DSL%20(Domain%20Specific%20Language)%EA%B3%BC%20GPL%20(General%20Purpose%20Language)/" />
+<meta property="og:site_name" content="김로그의 우당탕탕" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2026-04-15T00:00:00+09:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="DSL (Domain Specific Language)과 GPL (General Purpose Language)" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-04-15T00:00:00+09:00","datePublished":"2026-04-15T00:00:00+09:00","description":"DSL (Domain Specific Language)","headline":"DSL (Domain Specific Language)과 GPL (General Purpose Language)","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/devlog/devlog/TIL/DSL%20(Domain%20Specific%20Language)%EA%B3%BC%20GPL%20(General%20Purpose%20Language)/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/profile.png"}},"url":"http://localhost:4000/devlog/devlog/TIL/DSL%20(Domain%20Specific%20Language)%EA%B3%BC%20GPL%20(General%20Purpose%20Language)/"}</script>
+<!-- End Jekyll SEO tag -->
+<meta property="og:image" content="http://localhost:4000/assets/images/profile.png" />
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="김로그의 우당탕탕" /><meta name="google-site-verification" content="R-IPOkDo6YoQGFHmV7mEX98FuuLCx1eUM98m3RETbnM" />
+  <meta name="google-adsense-account" content="ca-pub-2560235080070689">
+  <link rel="icon" type="image/png" href="/assets/images/profile.png">
+  <link rel="icon" type="image/x-icon" href="/assets/images/profile.ico">
+  <link rel="shortcut icon" href="/assets/images/profile.ico">
+  <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "727df4dd0ca343b1be0ffd30ba969676"}'></script>
+</head>
+<body><header class="site-header" role="banner">
+  <div class="wrapper">
+    <a class="site-title" rel="author" href="/">김로그의 우당탕탕</a>
+
+    <nav class="site-nav">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+      <label for="nav-trigger">
+        <span class="menu-icon">
+          <svg viewBox="0 0 18 15" width="18px" height="15px">
+            <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </span>
+      </label>
+
+      <div class="trigger">
+        
+          
+          
+          <a class="page-link" href="/devlog/">Dev Log</a>
+          
+        
+          
+          
+          <a class="page-link" href="/ue5/">Unreal Engine 5</a>
+          
+        
+          
+          
+          <a class="page-link" href="/apps/">Apps</a>
+          
+        
+          
+          
+          <a class="page-link" href="/today-i-learn/">TIL</a>
+          
+        
+          
+          
+          <a class="page-link" href="/contact/">Contact</a>
+          
+        
+        <a class="page-link search-icon-link" href="/search/" aria-label="검색">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"/>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+        </a>
+      </div>
+    </nav>
+  </div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">DSL (Domain Specific Language)과 GPL (General Purpose Language)</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2026-04-15T00:00:00+09:00" itemprop="datePublished">
+        2026-04-15
+      </time>
+    </p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+
+    
+
+    
+
+    
+      
+      
+      
+      
+      
+      
+
+      
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            
+            
+        <div class="series-summary">
+          이 글은 <strong>today-i-learn</strong> 시리즈의 <strong>19번째</strong> 기록입니다. (총 24개)
+        </div>
+      
+    
+
+    <h2 id="dsl-domain-specific-language">DSL (Domain Specific Language)</h2>
+
+<p>특정 도메인(영역)의 문제를 해결하기 위해 최적화된 ‘전용 언어’
+🌟악보를 그릴 때 오선에 표기하는 음표들과 비슷한 개념(음악이라는 영역에서는 표준어보다 훨씬 빠르고 정확하게 소통 가능)</p>
+
+<ul>
+  <li>특징: 범용 언어(GPL)보다 표현력이 높고, 해당 분야의 전문가라면 프로그래밍 지식이 적어도 이해하기 쉬움.</li>
+  <li>장점:
+    <ul>
+      <li>가독성이 좋고 생산성이 높음. (예: SQL 한 줄이면 끝날 DB 조회를 C++로 짜려면 수십 줄이 필요함)</li>
+      <li>복잡한 내부 로직을 몰라도 해당 도메인의 지식만 있으면 코드를 짤 수 있게 해준다.</li>
+    </ul>
+  </li>
+</ul>
+
+<p>| 도구            | DSL 예시                     | 목적          |
+| ————- | ————————– | ———– |
+| Appsheet      | <code class="language-plaintext highlighter-rouge">[연관 업체].[업체명]</code>            | 노코드 앱 로직 구현 |
+| Excel         | <code class="language-plaintext highlighter-rouge">=IF(A1&gt;0, "양수", "음수")</code>    | 스프레드시트 수식   |
+| Jekyll/Liquid | `` | 템플릿 렌더링     |
+| SQL           | <code class="language-plaintext highlighter-rouge">SELECT * FROM users</code>      | DB 조회       |
+SQL도 따지면 DB 전용 DSL이고,
+Liquid도 Jekyll 전용 DSL.
+직접 만들 수도 있음 — ChordSheet의 커스텀 파일 포맷도 일종의 DSL.</p>
+
+<hr />
+<h2 id="gpl-general-purpose-language">GPL (General Purpose Language)</h2>
+
+<p>다양한 분야에서 범용적으로 사용할 수 있는 ‘범용 언어’</p>
+
+<ul>
+  <li>특징: 실행 로직, 메모리 관리, 입출력 등 컴퓨터의 전반적인 기능을 수행할 수 있음.</li>
+  <li>예시: Python, C++, Java, Kotlin, Swift, Go 등.</li>
+  <li>확장성:
+    <ul>
+      <li>JavaScript: 초기엔 웹 브라우저 조작 전용(Scripting)에 가까웠으나, 생태계가 확장되며 현재는 서버, 앱, AI 등 모든 분야에서 쓰임.</li>
+      <li>Python: 데이터 분석 DSL처럼 쓰일 때도 있지만, 태생은 GPL임.</li>
+    </ul>
+  </li>
+</ul>
+
+
+    
+
+    
+    <hr>
+    <h2>Series: today-i-learn</h2>
+    <ul class="devlog-list series-list">
+      
+      <li>
+        <span class="series-num">1</span>
+        2026-03-14 ｜
+        
+        <a href="/devlog/devlog/TIL/C++%20%EC%9E%90%EB%A3%8C%ED%98%95(Data%20Type)/">C++ 자료형(Data Type)</a>
+        
+      </li>
+      
+      <li>
+        <span class="series-num">2</span>
+        2026-03-24 ｜
+        
+        <a href="/devlog/devlog/TIL/MD5%20vs%20pHash/">MD5 vs pHash</a>
+        
+      </li>
+      
+      <li>
+        <span class="series-num">3</span>
+        2026-03-28 ｜
+        
+        <a href="/devlog/devlog/TIL/Tkinter%20padx,%20pady/">Tkinter padx, pady</a>
+        
+      </li>
+      
+      <li>
+        <span class="series-num">4</span>
+        2026-03-28 ｜
+        
+        <a href="/devlog/devlog/TIL/%EB%A9%94%EB%AA%A8%EB%A6%AC%EC%99%80%20%ED%8F%AC%EC%9D%B8%ED%84%B0%20%EB%B3%80%EC%88%98/">메모리와 포인터 변수</a>
+        
+      </li>
+      
+      <li>
+        <span class="series-num">5</span>
+        2026-03-28 ｜
+        
+        <a href="/devlog/devlog/TIL/C++%EC%97%90%EC%84%9C%20%ED%95%A8%EC%88%98%EC%9D%98%20%EC%84%A0%EC%96%B8%EA%B3%BC%20%EC%A0%95%EC%9D%98/">C++에서 함수의 선언과 정의</a>
+        
+      </li>
+      
+      <li>
+        <span class="series-num">6</span>
+        2026-04-04 ｜
+        
+        <a href="/devlog/devlog/TIL/Call%20by%20Value,%20Call%20by%20Reference,%20Call%20by%20Pointer%20%EB%B9%84%EA%B5%90/">Call by Value, Call by Reference, Call by Pointer 비교</a>
+        
+      </li>
+      
+      <li>
+        <span class="series-num">7</span>
+        2026-04-04 ｜
+        
+        <a href="/devlog/devlog/TIL/const/">const</a>
+        
+      </li>
+      
+      <li>
+        <span class="series-num">8</span>
+        2026-04-06 ｜
+        
+        <a href="/devlog/devlog/TIL/kramdown-parser-gfm%20%E2%80%94%20Jekyll%EC%9D%98%20GFM%20%ED%8C%8C%EC%84%9C/">kramdown-parser-gfm — Jekyll의 GFM 파서</a>
+        
+      </li>
+      
+      <li>
+        <span class="series-num">9</span>
+        2026-04-06 ｜
+        
+        <a href="/devlog/devlog/TIL/%ED%8C%8C%EC%84%9C(Parser)/">파서(Parser)</a>
+        
+      </li>
+      
+      <li>
+        <span class="series-num">10</span>
+        2026-04-06 ｜
+        
+        <a href="/devlog/devlog/TIL/Gemfile%20%E2%80%94%20Jekyll%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EC%9D%98%20%EC%9D%98%EC%A1%B4%EC%84%B1%20%ED%8C%8C%EC%9D%BC/">Gemfile — Jekyll 프로젝트의 의존성 파일</a>
+        
+      </li>
+      
+      <li>
+        <span class="series-num">11</span>
+        2026-04-08 ｜
+        
+        <a href="/devlog/devlog/TIL/AHU%20vs%20OHU/">AHU vs OHU</a>
+        
+      </li>
+      
+      <li>
+        <span class="series-num">12</span>
+        2026-04-09 ｜
+        
+        <a href="/devlog/devlog/TIL/I%20might%20try%20it%20vs%20I'll%20try%20it%20%EB%89%98%EC%95%99%EC%8A%A4%20%EC%B0%A8%EC%9D%B4/">I might try it vs I'll try it 뉘앙스 차이</a>
+        
+      </li>
+      
+      <li>
+        <span class="series-num">13</span>
+        2026-04-09 ｜
+        
+        <a href="/devlog/devlog/TIL/SESSION_EXPIRE_AT_BROWSER_CLOSE=True/">SESSION_EXPIRE_AT_BROWSER_CLOSE=True</a>
+        
+      </li>
+      
+      <li>
+        <span class="series-num">14</span>
+        2026-04-09 ｜
+        
+        <a href="/devlog/devlog/TIL/configuration%20key/">configuration key</a>
+        
+      </li>
+      
+      <li>
+        <span class="series-num">15</span>
+        2026-04-10 ｜
+        
+        <a href="/devlog/devlog/TIL/subprocess.Popen%EC%9C%BC%EB%A1%9C%20Windows%20%ED%83%90%EC%83%89%EA%B8%B0%EC%97%90%20%EB%AA%85%EB%A0%B9%EC%96%B4%EB%A5%BC%20%EC%A0%84%EB%8B%AC/">subprocess.Popen으로 Windows 탐색기에 명령어를 전달</a>
+        
+      </li>
+      
+      <li>
+        <span class="series-num">16</span>
+        2026-04-10 ｜
+        
+        <a href="/devlog/devlog/TIL/Git%20stash%20vs%20discard/">Git stash vs discard</a>
+        
+      </li>
+      
+      <li>
+        <span class="series-num">17</span>
+        2026-04-12 ｜
+        
+        <a href="/devlog/devlog/TIL/Post%20%EC%9E%94%EB%94%94%20%EB%B6%84%EC%84%9D%ED%95%98%EA%B8%B0/">Post 잔디 분석하기</a>
+        
+      </li>
+      
+      <li>
+        <span class="series-num">18</span>
+        2026-04-13 ｜
+        
+        <a href="/devlog/devlog/TIL/Google%20Sheets%20Sync%20%EC%B5%9C%EC%A0%81%ED%99%94/">Google Sheets Sync 최적화</a>
+        
+      </li>
+      
+      <li class="series-current">
+        <span class="series-num">19</span>
+        2026-04-15 ｜
+        
+        <strong>DSL (Domain Specific Language)과 GPL (General Purpose Language)</strong><span class="series-reading">읽는 중</span>
+        
+      </li>
+      
+      <li>
+        <span class="series-num">20</span>
+        2026-04-15 ｜
+        
+        <a href="/devlog/devlog/TIL/%EB%A7%88%ED%81%AC%EB%8B%A4%EC%9A%B4%20%ED%91%9C%20%EA%B7%B8%EB%A6%AC%EB%8A%94%20%EB%B0%A9%EB%B2%95/">마크다운 표 그리는 방법</a>
+        
+      </li>
+      
+      <li>
+        <span class="series-num">21</span>
+        2026-04-16 ｜
+        
+        <a href="/devlog/devlog/TIL/%EC%BF%BC%EB%A6%AC%20%ED%8C%8C%EB%9D%BC%EB%AF%B8%ED%84%B0(Query%20Parameter).%20%EA%B8%B0%EC%A1%B4%20QR%EC%BD%94%EB%93%9C%20%EC%9E%AC%ED%99%9C%EC%9A%A9/">쿼리 파라미터(Query Parameter). 기존 QR코드 재활용</a>
+        
+      </li>
+      
+      <li>
+        <span class="series-num">22</span>
+        2026-04-17 ｜
+        
+        <a href="/devlog/devlog/TIL/Django%20%EB%B3%B4%EC%95%88%20%EC%B7%A8%EC%95%BD%EC%A0%90%20%EC%A0%90%EA%B2%80%20%EB%B0%8F%20%EC%88%98%EC%A0%95/">Django 보안 취약점 점검 및 수정</a>
+        
+      </li>
+      
+      <li>
+        <span class="series-num">23</span>
+        2026-04-19 ｜
+        
+        <a href="/devlog/devlog/TIL/OOP%20Object-Oriented%20Programming%20%EA%B0%9D%EC%B2%B4%20%EC%A7%80%ED%96%A5%20%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/">OOP Object-Oriented Programming 객체 지향 프로그래밍</a>
+        
+      </li>
+      
+      <li>
+        <span class="series-num">24</span>
+        2026-04-21 ｜
+        
+        <a href="/devlog/devlog/TIL/Fernet%20%EB%8C%80%EC%B9%AD%20%EC%95%94%ED%98%B8%ED%99%94/">Fernet 대칭 암호화</a>
+        
+      </li>
+      
+    </ul>
+    
+
+  </div>
+
+  <a class="u-url" href="/devlog/devlog/TIL/DSL%20(Domain%20Specific%20Language)%EA%B3%BC%20GPL%20(General%20Purpose%20Language)/" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer">
+  <div class="wrapper">
+    <div class="footer-inner">
+      <div class="footer-left">
+        <div class="footer-contact">
+          <span class="post-meta"
+            ><i class="fa-solid fa-envelope"></i> kimlog0415@gmail.com</span
+          >
+          <span class="post-meta">｜</span>
+          <span class="post-meta"
+            ><a href="https://www.youtube.com/@kimlog0415"
+              ><i class="fa-brands fa-youtube" style="color: #ff0335"></i>
+              YouTube</a
+            ></span
+          >
+          <span class="post-meta">｜</span>
+          <span class="post-meta"
+            ><a href="/feed.xml"><i class="fa-solid fa-rss"></i> RSS</a></span
+          >
+        </div>
+        <div class="footer-copy post-meta">
+          &copy; 2026 김로그의 우당탕탕 ｜
+          <a href="/privacy-policy/">Privacy Policy</a>
+        </div>
+      </div>
+      <div class="footer-bmc">
+        <a href="/contact/" class="support-btn">☕ 후원하기</a>
+      </div>
+    </div>
+  </div>
+</footer>
+</body>
+
+</html>

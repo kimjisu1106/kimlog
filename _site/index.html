@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>김로그의 우당탕탕 | KIMLOG―Need, Learn and Build</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="김로그의 우당탕탕" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="KIMLOG―Need, Learn and Build" />
+<meta property="og:description" content="KIMLOG―Need, Learn and Build" />
+<link rel="canonical" href="http://localhost:4000/" />
+<meta property="og:url" content="http://localhost:4000/" />
+<meta property="og:site_name" content="김로그의 우당탕탕" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="김로그의 우당탕탕" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","description":"KIMLOG―Need, Learn and Build","headline":"김로그의 우당탕탕","name":"김로그의 우당탕탕","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/profile.png"}},"url":"http://localhost:4000/"}</script>
+<!-- End Jekyll SEO tag -->
+<meta property="og:image" content="http://localhost:4000/assets/images/profile.png" />
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="김로그의 우당탕탕" /><meta name="google-site-verification" content="R-IPOkDo6YoQGFHmV7mEX98FuuLCx1eUM98m3RETbnM" />
+  <meta name="google-adsense-account" content="ca-pub-2560235080070689">
+  <link rel="icon" type="image/png" href="/assets/images/profile.png">
+  <link rel="icon" type="image/x-icon" href="/assets/images/profile.ico">
+  <link rel="shortcut icon" href="/assets/images/profile.ico">
+  <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "727df4dd0ca343b1be0ffd30ba969676"}'></script>
+</head>
+<body><header class="site-header" role="banner">
+  <div class="wrapper">
+    <a class="site-title" rel="author" href="/">김로그의 우당탕탕</a>
+
+    <nav class="site-nav">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+      <label for="nav-trigger">
+        <span class="menu-icon">
+          <svg viewBox="0 0 18 15" width="18px" height="15px">
+            <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </span>
+      </label>
+
+      <div class="trigger">
+        
+          
+          
+          <a class="page-link" href="/devlog/">Dev Log</a>
+          
+        
+          
+          
+          <a class="page-link" href="/ue5/">Unreal Engine 5</a>
+          
+        
+          
+          
+          <a class="page-link" href="/apps/">Apps</a>
+          
+        
+          
+          
+          <a class="page-link" href="/today-i-learn/">TIL</a>
+          
+        
+          
+          
+          <a class="page-link" href="/contact/">Contact</a>
+          
+        
+        <a class="page-link search-icon-link" href="/search/" aria-label="검색">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"/>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+        </a>
+      </div>
+    </nav>
+  </div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <div class="home">
+
+
+
+<div class="til-graph" id="graph-all"></div>
+
+<script>
+(function () {
+  var postDates = ["2025-08-05","2025-08-19","2025-08-21","2025-08-26","2025-08-28","2025-08-30","2025-09-09","2025-09-15","2025-09-30","2025-10-04","2025-11-30","2025-12-14","2025-12-14","2025-12-15","2025-12-16","2025-12-17","2025-12-27","2025-12-28","2026-01-03","2026-01-10","2026-01-17","2026-01-24","2026-01-24","2026-01-24","2026-01-25","2026-01-27","2026-01-29","2026-01-31","2026-02-06","2026-02-06","2026-02-07","2026-02-09","2026-02-15","2026-02-17","2026-02-17","2026-02-20","2026-02-21","2026-02-22","2026-02-24","2026-03-12","2026-03-13","2026-03-14","2026-03-14","2026-03-14","2026-03-14","2026-03-14","2026-03-15","2026-03-15","2026-03-16","2026-03-20","2026-03-20","2026-03-21","2026-03-21","2026-03-22","2026-03-22","2026-03-22","2026-03-22","2026-03-23","2026-03-23","2026-03-24","2026-03-24","2026-03-25","2026-03-26","2026-03-26","2026-03-27","2026-03-27","2026-03-28","2026-03-28","2026-03-28","2026-03-28","2026-03-28","2026-03-28","2026-03-29","2026-03-29","2026-03-30","2026-03-30","2026-04-02","2026-04-04","2026-04-04","2026-04-06","2026-04-06","2026-04-06","2026-04-06","2026-04-07","2026-04-08","2026-04-08","2026-04-09","2026-04-09","2026-04-09","2026-04-09","2026-04-10","2026-04-10","2026-04-10","2026-04-10","2026-04-11","2026-04-12","2026-04-12","2026-04-13","2026-04-13","2026-04-14","2026-04-15","2026-04-15","2026-04-15","2026-04-16","2026-04-16","2026-04-17","2026-04-17","2026-04-18","2026-04-19","2026-04-20","2026-04-21","2026-04-21","2026-04-22","2026-04-22","2026-04-23","2026-04-24","2026-04-24","2026-04-25","2026-04-25","2026-04-26","2026-04-26","2026-04-27","2026-04-27","2026-04-28","2026-04-30","2026-04-30","2026-05-01","2026-05-02","2026-05-03"];
+
+  var counts = {};
+  postDates.forEach(function (d) {
+    counts[d] = (counts[d] || 0) + 1;
+  });
+
+  var today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  var start = new Date(today);
+  start.setDate(start.getDate() - start.getDay());
+  start.setDate(start.getDate() - 51 * 7);
+
+  var container = document.getElementById('graph-all');
+
+  function toLocalDateStr(dt) {
+    var y = dt.getFullYear();
+    var m = String(dt.getMonth() + 1).padStart(2, '0');
+    var day = String(dt.getDate()).padStart(2, '0');
+    return y + '-' + m + '-' + day;
+  }
+
+  for (var w = 0; w < 52; w++) {
+    var col = document.createElement('div');
+    col.className = 'til-graph-col';
+    for (var d = 0; d < 7; d++) {
+      var date = new Date(start);
+      date.setDate(start.getDate() + w * 7 + d);
+      var dateStr = toLocalDateStr(date);
+      var count = counts[dateStr] || 0;
+      var cell = document.createElement('div');
+      cell.className = 'til-cell til-cell--' + Math.min(count, 4);
+      cell.title = dateStr + (count > 0 ? ' (' + count + ')' : '');
+      col.appendChild(cell);
+    }
+    container.appendChild(col);
+  }
+})();
+</script>
+
+
+<h2>Daily Logs</h2>
+
+
+<ul class="devlog-list">
+  
+  <li>2026-05-03 ｜ <a href="/devlog/devlog/daily-log/%EC%98%A4%EB%8A%98%20%ED%95%B4%EB%82%B8%20%EA%B2%83(2026-05-03)/">오늘 해낸 것</a></li>
+  
+  <li>2026-05-02 ｜ <a href="/devlog/devlog/daily-log/%EC%98%A4%EB%8A%98%20%ED%95%B4%EB%82%B8%20%EA%B2%83(2026-05-02)/">오늘 해낸 것</a></li>
+  
+  <li>2026-05-01 ｜ <a href="/devlog/devlog/daily-log/%EC%98%A4%EB%8A%98%20%ED%95%B4%EB%82%B8%20%EA%B2%83(2026-05-01)/">오늘 해낸 것</a></li>
+  
+  <li>2026-04-30 ｜ <a href="/devlog/devlog/TIL/Nomad%20Coder/AI%20%EA%B8%B0%EC%B4%88%20%ED%83%84%ED%83%84%20%ED%81%B4%EB%9F%BD/8.%20Events&Objects/">노마드코더 AI 기초 탄탄 클럽 #8 Events&Objects</a></li>
+  
+  <li>2026-04-30 ｜ <a href="/devlog/devlog/daily-log/%EC%98%A4%EB%8A%98%20%ED%95%B4%EB%82%B8%20%EA%B2%83(2026-04-30)/">오늘 해낸 것</a></li>
+  
+</ul>
+
+<a class="devlog-toggle" href="/today-i-learn/">더보기 ▾</a>
+
+
+<hr />
+
+<h2>Dev Logs</h2>
+
+
+<ul class="devlog-list">
+  
+  <li>2026-04-26 ｜ <a href="/devlog/apps/Duplicate%20Finder/%EC%A4%91%EB%B3%B5%EB%90%9C%20%ED%8C%8C%EC%9D%BC%20%EC%B0%BE%EA%B8%B0%20Duplicate%20Finder%209/">중복된 파일 찾기 Duplicate Finder 9</a></li>
+  
+  <li>2026-04-10 ｜ <a href="/devlog/apps/Duplicate%20Finder/%EC%A4%91%EB%B3%B5%EB%90%9C%20%ED%8C%8C%EC%9D%BC%20%EC%B0%BE%EA%B8%B0%20Duplicate%20Finder%208/">중복된 파일 찾기 Duplicate Finder 8</a></li>
+  
+  <li>2026-03-30 ｜ <a href="/devlog/apps/Duplicate%20Finder/%EC%A4%91%EB%B3%B5%EB%90%9C%20%ED%8C%8C%EC%9D%BC%20%EC%B0%BE%EA%B8%B0%20Duplicate%20Finder%207/">중복된 파일 찾기 Duplicate Finder 7</a></li>
+  
+  <li>2026-03-29 ｜ <a href="/devlog/apps/Duplicate%20Finder/%EC%A4%91%EB%B3%B5%EB%90%9C%20%ED%8C%8C%EC%9D%BC%20%EC%B0%BE%EA%B8%B0%20Duplicate%20Finder%206/">중복된 파일 찾기 Duplicate Finder 6</a></li>
+  
+  <li>2026-03-28 ｜ <a href="/devlog/apps/Duplicate%20Finder/%EC%A4%91%EB%B3%B5%EB%90%9C%20%ED%8C%8C%EC%9D%BC%20%EC%B0%BE%EA%B8%B0%20Duplicate%20Finder%205/">중복된 파일 찾기 Duplicate Finder 5</a></li>
+  
+</ul>
+
+<a class="devlog-toggle" href="/devlog/">더보기 ▾</a>
+
+
+<hr />
+
+<h2>Apps</h2>
+
+
+
+<div class="apps-showcase">
+  <div class="apps-slider-track">
+    
+    <div class="apps-card">
+      <div class="apps-card-inner">
+        <div class="apps-card-front">
+          <img src="/assets/images/duplicate-finder.png" alt="중복된 파일 찾기 Duplicate Finder" loading="lazy" onerror="this.style.display='none'">
+          <span class="apps-card-name">중복된 파일 찾기 Duplicate Finder</span>
+        </div>
+        <div class="apps-card-back">
+          <a class="apps-card-btn" href="/devlog/apps/Duplicate%20Finder/%EC%A4%91%EB%B3%B5%EB%90%9C%20%ED%8C%8C%EC%9D%BC%20%EC%B0%BE%EA%B8%B0%20Duplicate%20Finder%200/">자세히 보기 →</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="apps-card">
+      <div class="apps-card-inner">
+        <div class="apps-card-front">
+          <img src="/assets/images/pdf-editor.png" alt="PDF Editor" loading="lazy" onerror="this.style.display='none'">
+          <span class="apps-card-name">PDF Editor</span>
+        </div>
+        <div class="apps-card-back">
+          <a class="apps-card-btn" href="/devlog/apps/PDF%20Editor/">자세히 보기 →</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="apps-card">
+      <div class="apps-card-inner">
+        <div class="apps-card-front">
+          <img src="/assets/images/image-converter.png" alt="이미지 변환기 Image Converter" loading="lazy" onerror="this.style.display='none'">
+          <span class="apps-card-name">이미지 변환기 Image Converter</span>
+        </div>
+        <div class="apps-card-back">
+          <a class="apps-card-btn" href="/devlog/apps/Image%20Converter/">자세히 보기 →</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="apps-card">
+      <div class="apps-card-inner">
+        <div class="apps-card-front">
+          <img src="/assets/images/simple-metronome.png" alt="메트로놈 Simple Metronome" loading="lazy" onerror="this.style.display='none'">
+          <span class="apps-card-name">메트로놈 Simple Metronome</span>
+        </div>
+        <div class="apps-card-back">
+          <a class="apps-card-btn" href="/devlog/apps/%EB%A9%94%ED%8A%B8%EB%A1%9C%EB%86%88%20Simple%20Metronome/%EB%A9%94%ED%8A%B8%EB%A1%9C%EB%86%88%20Simple%20Metronome%200/">자세히 보기 →</a>
+        </div>
+      </div>
+    </div>
+    
+    
+    <div class="apps-card" aria-hidden="true">
+      <div class="apps-card-inner">
+        <div class="apps-card-front">
+          <img src="/assets/images/duplicate-finder.png" alt="" loading="lazy" onerror="this.style.display='none'">
+          <span class="apps-card-name">중복된 파일 찾기 Duplicate Finder</span>
+        </div>
+        <div class="apps-card-back">
+          <a class="apps-card-btn" href="/devlog/apps/Duplicate%20Finder/%EC%A4%91%EB%B3%B5%EB%90%9C%20%ED%8C%8C%EC%9D%BC%20%EC%B0%BE%EA%B8%B0%20Duplicate%20Finder%200/">자세히 보기 →</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="apps-card" aria-hidden="true">
+      <div class="apps-card-inner">
+        <div class="apps-card-front">
+          <img src="/assets/images/pdf-editor.png" alt="" loading="lazy" onerror="this.style.display='none'">
+          <span class="apps-card-name">PDF Editor</span>
+        </div>
+        <div class="apps-card-back">
+          <a class="apps-card-btn" href="/devlog/apps/PDF%20Editor/">자세히 보기 →</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="apps-card" aria-hidden="true">
+      <div class="apps-card-inner">
+        <div class="apps-card-front">
+          <img src="/assets/images/image-converter.png" alt="" loading="lazy" onerror="this.style.display='none'">
+          <span class="apps-card-name">이미지 변환기 Image Converter</span>
+        </div>
+        <div class="apps-card-back">
+          <a class="apps-card-btn" href="/devlog/apps/Image%20Converter/">자세히 보기 →</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="apps-card" aria-hidden="true">
+      <div class="apps-card-inner">
+        <div class="apps-card-front">
+          <img src="/assets/images/simple-metronome.png" alt="" loading="lazy" onerror="this.style.display='none'">
+          <span class="apps-card-name">메트로놈 Simple Metronome</span>
+        </div>
+        <div class="apps-card-back">
+          <a class="apps-card-btn" href="/devlog/apps/%EB%A9%94%ED%8A%B8%EB%A1%9C%EB%86%88%20Simple%20Metronome/%EB%A9%94%ED%8A%B8%EB%A1%9C%EB%86%88%20Simple%20Metronome%200/">자세히 보기 →</a>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+
+<hr />
+
+<h2>Videos</h2>
+
+<ul class="post-list home-list" id="list-videos">
+    
+  <li class="home-video">
+    <a class="home-video-link" href="/devlog/ue5/Number%20Run/Unreal%20Engine%205%20Dev%20Log%2010%20%E2%80%95%20Number%20Run%200/">
+      <img
+        class="home-thumb"
+        src="https://i.ytimg.com/vi/a-SI0Rz9B8w/hqdefault.jpg"
+        alt="YouTube thumbnail"
+        loading="lazy"
+      />
+      <div class="home-video-text">
+        <div class="home-date post-meta">
+          2026-02-06
+        </div>
+        <div class="home-title">Unreal Engine 5 Dev Log 10 ― Number Run</div>
+      </div>
+    </a>
+  </li>
+  
+  <li class="home-video">
+    <a class="home-video-link" href="/devlog/ue5/%EA%B0%80%EC%9C%84%EB%B0%94%EC%9C%84%EB%B3%B4/Unreal%20Engine%205%20Dev%20Log%209%20%E2%80%95%20%EA%B0%80%EC%9C%84%EB%B0%94%EC%9C%84%EB%B3%B4%200/">
+      <img
+        class="home-thumb"
+        src="https://i.ytimg.com/vi/mGDfCV_GyjQ/hqdefault.jpg"
+        alt="YouTube thumbnail"
+        loading="lazy"
+      />
+      <div class="home-video-text">
+        <div class="home-date post-meta">
+          2026-01-24
+        </div>
+        <div class="home-title">Unreal Engine 5 Dev Log 9 ― 가위바위보</div>
+      </div>
+    </a>
+  </li>
+  
+  <li class="home-video">
+    <a class="home-video-link" href="/devlog/ue5/Unreal%20Engine%205%20Dev%20Log%207%20%E2%80%95%20%EB%A6%AC%EB%93%AC%EA%B2%8C%EC%9E%84,%20%EB%B6%88%EA%BD%83%EB%86%80%EC%9D%B4%20%EA%B7%B8%EB%A6%AC%EA%B3%A0%20%EC%95%BC%EA%B2%BD/">
+      <img
+        class="home-thumb"
+        src="https://i.ytimg.com/vi/rDfp-p8g3R0/hqdefault.jpg"
+        alt="YouTube thumbnail"
+        loading="lazy"
+      />
+      <div class="home-video-text">
+        <div class="home-date post-meta">
+          2025-11-30
+        </div>
+        <div class="home-title">Unreal Engine 5 Dev Log 7 ― 리듬게임, 불꽃놀이 그리고 야경</div>
+      </div>
+    </a>
+  </li>
+  
+  <li class="home-video">
+    <a class="home-video-link" href="/devlog/ue5/Unreal%20Engine%205%20Dev%20Log%206%20%E2%80%95%20%EC%9B%A8%EB%94%A9%20%EC%98%81%EC%83%81%20%EC%9D%B8%ED%8A%B8%EB%A1%9C%20%EC%A0%9C%EC%9E%91%EA%B8%B0%20(UE5%20+%20Blender)/">
+      <img
+        class="home-thumb"
+        src="https://i.ytimg.com/vi/spik3FuBHJ8/hqdefault.jpg"
+        alt="YouTube thumbnail"
+        loading="lazy"
+      />
+      <div class="home-video-text">
+        <div class="home-date post-meta">
+          2025-10-04
+        </div>
+        <div class="home-title">Unreal Engine 5 Dev Log 6 ― 웨딩 영상 인트로 제작기 (UE5 + Blender)</div>
+      </div>
+    </a>
+  </li>
+  
+  <li class="home-video">
+    <a class="home-video-link" href="/devlog/ue5/Unreal%20Engine%205%20Dev%20Log%205%20%E2%80%95%20%EB%A1%9C%EA%B7%B8%EC%8A%A4%ED%86%A4%20%EC%9D%80%ED%96%89%20%EB%A3%A9%EB%8E%81(%EB%B9%84%20%EC%98%A4%EB%8A%94%20%EC%83%81%EA%B0%80%20%EB%82%AE%E2%86%92%EB%B0%A4)/">
+      <img
+        class="home-thumb"
+        src="https://i.ytimg.com/vi/5iGeL8S5PHo/hqdefault.jpg"
+        alt="YouTube thumbnail"
+        loading="lazy"
+      />
+      <div class="home-video-text">
+        <div class="home-date post-meta">
+          2025-09-30
+        </div>
+        <div class="home-title">Unreal Engine 5 Dev Log 5 ― 로그스톤 은행 룩뎁(비 오는 상가 낮→밤)</div>
+      </div>
+    </a>
+  </li>
+  
+  <li class="home-video devlog-extra-item" hidden>
+    <a class="home-video-link" href="/devlog/ue5/Unreal%20Engine%205%20Dev%20Log%204%20%E2%80%95%20%EC%9A%B0%EB%A6%AC%20%EB%8F%99%EB%84%A4%20%EB%A7%8C%EB%93%A4%EA%B8%B0%20%EB%8F%84%EC%A0%84%EA%B8%B0%20!/">
+      <img
+        class="home-thumb"
+        src="https://i.ytimg.com/vi/40FEFY3NUw4/hqdefault.jpg"
+        alt="YouTube thumbnail"
+        loading="lazy"
+      />
+      <div class="home-video-text">
+        <div class="home-date post-meta">
+          2025-09-15
+        </div>
+        <div class="home-title">Unreal Engine 5 Dev Log 4 ― 우리 동네 만들기 도전기 !</div>
+      </div>
+    </a>
+  </li>
+  
+  <li class="home-video devlog-extra-item" hidden>
+    <a class="home-video-link" href="/devlog/ue5/Unreal%20Engine%205%20Dev%20Log%203%20%E2%80%95%20%EC%A0%84%EC%9E%90%20%ED%94%BC%EC%95%84%EB%85%B8%20+%20MIDI%20=%20%EC%86%8C%EB%A6%AC%EC%99%80%20%EB%B9%9B%EC%9C%BC%EB%A1%9C%20%EB%B0%98%EC%9D%91%ED%95%98%EB%8A%94%20UE5%20%ED%94%BC%EC%95%84%EB%85%B8/">
+      <img
+        class="home-thumb"
+        src="https://i.ytimg.com/vi/Z8psLvewAE8/hqdefault.jpg"
+        alt="YouTube thumbnail"
+        loading="lazy"
+      />
+      <div class="home-video-text">
+        <div class="home-date post-meta">
+          2025-09-09
+        </div>
+        <div class="home-title">Unreal Engine 5 Dev Log 3 ― 전자 피아노 + MIDI = 소리와 빛으로 반응하는 UE5 피아노</div>
+      </div>
+    </a>
+  </li>
+  
+  <li class="home-video devlog-extra-item" hidden>
+    <a class="home-video-link" href="/devlog/ue5/Unreal%20Engine%205%20Dev%20Log%202%20%E2%80%95%20%EC%8B%9C%EB%84%A4%EB%A7%88%ED%8B%B1(Portal%20Exit)/">
+      <img
+        class="home-thumb"
+        src="https://i.ytimg.com/vi/8hCDR3biZro/hqdefault.jpg"
+        alt="YouTube thumbnail"
+        loading="lazy"
+      />
+      <div class="home-video-text">
+        <div class="home-date post-meta">
+          2025-08-30
+        </div>
+        <div class="home-title">Unreal Engine 5 Dev Log 2 ― 시네마틱(Portal Exit)</div>
+      </div>
+    </a>
+  </li>
+  
+  <li class="home-video devlog-extra-item" hidden>
+    <a class="home-video-link" href="/devlog/ue5/Unreal%20Engine%205%20Dev%20Log%201%20%E2%80%95%20HelloWorld,%20%EC%96%B8%EB%A6%AC%EC%96%BC%EA%B3%BC%20%EC%B2%AB%20%EB%8C%80%EB%A9%B4/">
+      <img
+        class="home-thumb"
+        src="https://i.ytimg.com/vi/DV_3clCPYXw/hqdefault.jpg"
+        alt="YouTube thumbnail"
+        loading="lazy"
+      />
+      <div class="home-video-text">
+        <div class="home-date post-meta">
+          2025-08-28
+        </div>
+        <div class="home-title">Unreal Engine 5 Dev Log 1 ― HelloWorld, 언리얼과 첫 대면</div>
+      </div>
+    </a>
+  </li>
+   
+  <button class="devlog-toggle" data-list="list-videos">더보기 ▾</button>
+   
+</ul>
+
+<script>
+  document.querySelectorAll(".apps-card:not([aria-hidden])").forEach((card) => {
+    card.addEventListener("click", (e) => {
+      if (e.target.closest(".apps-card-btn")) return;
+      card.classList.toggle("flipped");
+    });
+  });
+
+  document.addEventListener("click", (e) => {
+    const btn = e.target.closest(".devlog-toggle");
+    if (!btn || !btn.dataset.list) return;
+    const list = document.getElementById(btn.dataset.list);
+    if (!list) return;
+    const extras = list.querySelectorAll(".devlog-extra-item");
+    const isOpen = btn.getAttribute("aria-expanded") === "true";
+    if (isOpen) {
+      extras.forEach((li) => li.setAttribute("hidden", ""));
+      btn.setAttribute("aria-expanded", "false");
+      btn.textContent = "더보기 ▾";
+    } else {
+      extras.forEach((li) => li.removeAttribute("hidden"));
+      btn.setAttribute("aria-expanded", "true");
+      btn.textContent = "접기 ▴";
+    }
+  });
+</script>
+</div>
+
+      </div>
+    </main><footer class="site-footer">
+  <div class="wrapper">
+    <div class="footer-inner">
+      <div class="footer-left">
+        <div class="footer-contact">
+          <span class="post-meta"
+            ><i class="fa-solid fa-envelope"></i> kimlog0415@gmail.com</span
+          >
+          <span class="post-meta">｜</span>
+          <span class="post-meta"
+            ><a href="https://www.youtube.com/@kimlog0415"
+              ><i class="fa-brands fa-youtube" style="color: #ff0335"></i>
+              YouTube</a
+            ></span
+          >
+          <span class="post-meta">｜</span>
+          <span class="post-meta"
+            ><a href="/feed.xml"><i class="fa-solid fa-rss"></i> RSS</a></span
+          >
+        </div>
+        <div class="footer-copy post-meta">
+          &copy; 2026 김로그의 우당탕탕 ｜
+          <a href="/privacy-policy/">Privacy Policy</a>
+        </div>
+      </div>
+      <div class="footer-bmc">
+        <a href="/contact/" class="support-btn">☕ 후원하기</a>
+      </div>
+    </div>
+  </div>
+</footer>
+</body>
+
+</html>
