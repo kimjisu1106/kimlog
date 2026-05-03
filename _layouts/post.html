@@ -72,19 +72,19 @@ layout: default
     {% if page.project and series_total > 1 %}
     <hr>
     <h2>Series: {{ page.project_name | default: page.project }}</h2>
-    <ul class="devlog-list series-list">
-      {% for item in series_posts %}
-      <li{% if item.url == page.url %} class="series-current"{% endif %}>
-        <span class="series-num">{{ forloop.index }}</span>
-        {{ item.date | date: "%Y-%m-%d" }} ｜
-        {% if item.url == page.url %}
-        <strong>{{ item.title }}</strong><span class="series-reading">읽는 중</span>
-        {% else %}
-        <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
-        {% endif %}
-      </li>
-      {% endfor %}
-    </ul>
+    <div class="series-list-card">
+      <div class="series-cards{% if series_total > 10 %} series-scrollable{% endif %}">
+        {% for item in series_posts %}
+        <a class="series-card{% if item.url == page.url %} series-current{% endif %}" href="{{ item.url | relative_url }}">
+          <span class="series-num">{{ forloop.index }}</span>
+          <span class="series-card-date post-meta">{{ item.date | date: "%Y-%m-%d" }}</span>
+          <span class="series-sep">｜</span>
+          <span class="series-card-title">{{ item.title }}</span>
+          {% if item.url == page.url %}<span class="series-reading">읽는 중</span>{% endif %}
+        </a>
+        {% endfor %}
+      </div>
+    </div>
     {% endif %}
 
   </div>
