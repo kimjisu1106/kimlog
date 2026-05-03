@@ -196,6 +196,7 @@
 
 .apps-slider-track {
   display: flex;
+  width: max-content;
   animation: apps-slide 24s linear infinite;
 }
 
