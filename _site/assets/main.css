@@ -830,35 +830,94 @@ table {
 /* Series Posts */
 .series-summary {
   border-left: 3px solid var(--border-color);
-  padding: 10px 16px;
+  padding: 18px 16px;
   margin-bottom: 24px;
   border-radius: 0 8px 8px 0;
   font-size: 14px;
   color: var(--muted); }
 
-.series-num {
-  color: var(--muted);
-  font-size: 12px;
-  margin-right: 4px; }
+.series-list-card {
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  padding: 4px 0; }
 
-.series-current {
-  font-weight: 600; }
+.series-cards {
+  display: flex;
+  flex-direction: column; }
+
+.series-scrollable {
+  max-height: 520px;
+  overflow-y: auto;
+  padding-right: 6px;
+  scrollbar-width: thin;
+  scrollbar-color: #2a7ae4 transparent; }
+
+.series-scrollable::-webkit-scrollbar {
+  width: 4px; }
+
+.series-scrollable::-webkit-scrollbar-track {
+  background: transparent; }
+
+.series-scrollable::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #5b9ef5, #1a5fbb);
+  border-radius: 20px; }
+
+.series-scrollable::-webkit-scrollbar-button {
+  display: none;
+  height: 0; }
+
+.series-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background 0.15s; }
+
+.series-card:hover {
+  background: var(--devlog-hover); }
+
+.series-card.series-current {
+  background: rgba(42, 122, 228, 0.06); }
+
+.series-card + .series-card {
+  border-top: 1px solid var(--border-color); }
+
+.series-num {
+  font-size: 12px;
+  color: var(--muted);
+  min-width: 18px;
+  text-align: right;
+  flex-shrink: 0; }
+
+.series-card-date {
+  font-size: 13px;
+  flex-shrink: 0; }
+
+.series-sep {
+  color: var(--muted);
+  flex-shrink: 0; }
+
+.series-card-title {
+  font-weight: 600;
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex: 1;
+  min-width: 0; }
+
+.series-card.series-current .series-card-title {
+  color: #2a7ae4; }
 
 .series-reading {
-  font-size: 12px;
-  background: #111;
+  font-size: 11px;
+  background: #2a7ae4;
   color: #fff;
-  padding: 2px 7px;
-  border-radius: 4px;
-  margin-left: 6px;
-  vertical-align: middle;
-  position: relative;
-  top: -1px; }
+  padding: 2px 8px;
+  border-radius: 20px;
+  flex-shrink: 0; }
 
-@media (prefers-color-scheme: dark) {
-  .series-reading {
-    background: #eee;
-    color: #111; } }
 .devlog-summary {
   display: flex;
   align-items: center;
