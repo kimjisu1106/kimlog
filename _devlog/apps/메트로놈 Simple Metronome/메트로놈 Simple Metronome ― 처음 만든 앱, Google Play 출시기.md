@@ -11,8 +11,8 @@ video_id:
 app_url: https://play.google.com/store/apps/details?id=io.github.kimjisu1106.simplemetronome
 status: finished
 tags:
-  - AndroidStudio
   - Kotlin
+  - Android-Studio
 ---
 ## 1. 왜 만들었는가
 
