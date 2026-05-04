@@ -1,0 +1,303 @@
+#newTool,
+#newTool * {
+  box-sizing: border-box;
+}
+#newTool {
+  font-family: system-ui, sans-serif;
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 0 16px;
+}
+#newTool h1 {
+  font-size: 22px;
+  margin: 0 0 10px;
+}
+#newTool .box {
+  border: 1px solid #ddd;
+  padding: 16px;
+  border-radius: 12px;
+  background: #fff;
+}
+#newTool label {
+  display: block;
+  margin: 0 0 10px;
+  font-weight: 900;
+}
+#newTool .hint {
+  color: #666;
+  font-size: 13px;
+  margin-top: 8px;
+  line-height: 1.4;
+}
+#newTool .small {
+  font-size: 12px;
+  color: #777;
+}
+#newTool .hidden {
+  display: none !important;
+}
+
+/* Dropzone */
+#newTool .drop {
+  border: 1px dashed #ddd;
+  border-radius: 12px;
+  cursor: pointer;
+  text-align: center;
+  padding: 18px;
+}
+#newTool .drop.hasFiles {
+  cursor: default;
+  text-align: left;
+  padding: 14px;
+  border-style: solid;
+}
+#newTool .drop.isOver {
+  border-color: #111;
+}
+#newTool .fileInput {
+  display: none;
+}
+
+/* Buttons */
+#newTool button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 6px;
+  cursor: pointer;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background: #fff;
+}
+#newTool button:hover {
+  background: #f5f5f5;
+}
+#newTool button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+#newTool .btnMini {
+  width: auto !important;
+  padding: 8px 10px !important;
+  margin: 0 !important;
+  border-radius: 10px;
+  white-space: nowrap;
+}
+#newTool .btnMini:active {
+  transform: translateY(1px);
+}
+#newTool .btnPrimary {
+  font-weight: 900;
+}
+#newTool .btn-top {
+  margin-top: 12px;
+}
+#newTool .btn-sub {
+  margin-top: 10px;
+}
+
+/* Panel header */
+#newTool .topRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+#newTool .btnRow {
+  display: flex;
+  gap: 10px;
+}
+#newTool .warn {
+  color: #c00;
+  font-weight: 800;
+  margin-left: 8px;
+}
+
+/* Quality selector */
+#newTool .qualityRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+#newTool .qualityLabel {
+  font-size: 13px;
+  font-weight: 700;
+  color: #444;
+  white-space: nowrap;
+}
+#newTool .qualityBtns {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+#newTool .btnQuality {
+  width: auto !important;
+  padding: 6px 14px !important;
+  margin: 0 !important;
+  border-radius: 20px;
+  font-size: 13px;
+  border: 1px solid #ddd;
+  background: #fff;
+  cursor: pointer;
+}
+#newTool .btnQuality:hover {
+  background: #f5f5f5;
+}
+#newTool .btnQuality.active {
+  background: #111;
+  color: #fff;
+  border-color: #111;
+}
+
+/* Actions bar */
+#newTool .actionsBar {
+  margin-top: 12px;
+}
+
+/* PDF list */
+#newTool .pdfList {
+  display: grid;
+  gap: 8px;
+}
+#newTool .pdfItem {
+  border: 1px solid #eee;
+  border-radius: 12px;
+  padding: 12px;
+  background: #fff;
+}
+#newTool .pdfTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+}
+#newTool .pdfName {
+  font-weight: 700;
+  font-size: 13px;
+  overflow-wrap: anywhere;
+  word-break: normal;
+  flex: 1;
+}
+#newTool .pdfMeta {
+  font-size: 12px;
+  color: #666;
+  white-space: nowrap;
+}
+#newTool .pdfActions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  margin-top: 8px;
+}
+#newTool .btnDanger {
+  border-color: #f0c1c1;
+}
+
+/* Loading */
+#newTool .box-center {
+  text-align: center;
+}
+#newTool .loadingTitle {
+  font-weight: 900;
+}
+#newTool .progressWrap {
+  margin-top: 14px;
+}
+#newTool .step-hint {
+  margin-top: 10px;
+}
+#newTool .bar-wrap {
+  height: 10px;
+  border: 1px solid #ddd;
+  border-radius: 999px;
+  overflow: hidden;
+}
+#newTool .bar {
+  height: 100%;
+  width: 0%;
+  background: #111;
+  transition: width 0.3s;
+}
+#newTool .spinner {
+  width: 28px;
+  height: 28px;
+  margin: 0 auto 10px;
+  border: 3px solid #ddd;
+  border-top-color: #111;
+  border-radius: 50%;
+  animation: spin 0.9s linear infinite;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Done */
+#newTool .doneTitle {
+  font-weight: 900;
+  margin-bottom: 8px;
+}
+
+/* Modal */
+#newTool .modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+}
+#newTool .modalDim {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+}
+#newTool .modalBox {
+  position: relative;
+  max-width: 820px;
+  max-height: 90vh;
+  margin: 40px auto;
+  background: #fff;
+  border-radius: 14px;
+  padding: 14px;
+  border: 1px solid #eee;
+  overflow-y: auto;
+}
+#newTool .modalTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+#newTool .modalTitleText {
+  font-weight: 900;
+}
+#newTool .modalMeta {
+  font-size: 12px;
+  color: #555;
+  line-height: 1.35;
+}
+#newTool .modalBody {
+  margin-top: 10px;
+}
+#newTool .preview-hint {
+  margin-top: 8px;
+}
+#previewCanvas {
+  width: 100%;
+  height: auto;
+  border: 1px solid #eee;
+  border-radius: 12px;
+}
+
+@media (max-width: 520px) {
+  #newTool .pdfTop {
+    flex-direction: column;
+  }
+  #newTool .qualityRow {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
