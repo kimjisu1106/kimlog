@@ -150,98 +150,117 @@
       
     
 
-    <ol>
+    <ul>
   <li>카테고리를 받아서 <code class="language-plaintext highlighter-rouge">_cat</code>에 넣고 post가 해당 categories를 포함하는지 검사한다. 포함되면 <code class="language-plaintext highlighter-rouge">graph_posts</code>에 devlog에서 해당되는 posts를 넣고, 포함되는게 없으면 devlog 전체 출력</li>
-</ol>
+</ul>
 
-<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% if include.category %} 
 
-  
-  
+  {% assign _cat = include.category %}
+  
+  {% assign graph_posts = site.devlog | where_exp: "p", "p.categories contains _cat" %}
+  
+{% else %}
 
+  {% assign graph_posts = site.devlog %}
+  
+{% endif %}
 </code></pre></div></div>
 
-<ol>
-  <li>graph의 id 생성. 카테고리를 받아서 <code class="language-plaintext highlighter-rouge">graph_id</code>에 넣고 기본값은 “all”로 지정. ex) category가 “ue5”면 id는 “graph-ue5”, 없으면 “graph-all”
-```liquid</li>
-</ol>
+<ul>
+  <li>graph의 id 생성. 카테고리를 받아서 <code class="language-plaintext highlighter-rouge">graph_id</code>에 넣고 기본값은 “all”로 지정. ex) category가 “ue5”면 id는 “graph-ue5”, 없으면 “graph-all”</li>
+</ul>
 
-<div class="til-graph" id="graph-all"></div>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-3. graph_posts에서 날짜만 추출해서 JS 배열로 만든다. Jekyll이 빌드 시점에 렌더링 → 결과는 `["2026-03-28", "2026-03-27", ...]` 형태
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% assign graph_id = include.category | default: "all" %}
 
-```JavaScript
-(function () {
-  var postDates = ["2025-08-05","2025-08-19","2025-08-21","2025-08-26","2025-08-28","2025-08-30","2025-09-09","2025-09-15","2025-09-30","2025-10-04","2025-11-30","2025-12-14","2025-12-14","2025-12-15","2025-12-16","2025-12-17","2025-12-27","2025-12-28","2026-01-03","2026-01-10","2026-01-17","2026-01-24","2026-01-24","2026-01-24","2026-01-25","2026-01-27","2026-01-29","2026-01-31","2026-02-06","2026-02-06","2026-02-07","2026-02-09","2026-02-15","2026-02-17","2026-02-17","2026-02-20","2026-02-21","2026-02-22","2026-02-24","2026-03-12","2026-03-13","2026-03-14","2026-03-14","2026-03-14","2026-03-14","2026-03-14","2026-03-15","2026-03-15","2026-03-16","2026-03-20","2026-03-20","2026-03-21","2026-03-21","2026-03-22","2026-03-22","2026-03-22","2026-03-22","2026-03-23","2026-03-23","2026-03-24","2026-03-24","2026-03-25","2026-03-26","2026-03-26","2026-03-27","2026-03-27","2026-03-28","2026-03-28","2026-03-28","2026-03-28","2026-03-28","2026-03-28","2026-03-29","2026-03-29","2026-03-30","2026-03-30","2026-04-02","2026-04-04","2026-04-04","2026-04-06","2026-04-06","2026-04-06","2026-04-06","2026-04-07","2026-04-08","2026-04-08","2026-04-09","2026-04-09","2026-04-09","2026-04-09","2026-04-10","2026-04-10","2026-04-10","2026-04-10","2026-04-11","2026-04-12","2026-04-12","2026-04-13","2026-04-13","2026-04-14","2026-04-15","2026-04-15","2026-04-15","2026-04-16","2026-04-16","2026-04-17","2026-04-17","2026-04-18","2026-04-19","2026-04-20","2026-04-21","2026-04-21","2026-04-22","2026-04-22","2026-04-23","2026-04-24","2026-04-24","2026-04-25","2026-04-25","2026-04-26","2026-04-26","2026-04-27","2026-04-27","2026-04-28","2026-04-30","2026-04-30","2026-05-01","2026-05-02","2026-05-03"];
+&lt;div class="til-graph" id="graph-{{ graph_id }}"&gt;&lt;/div&gt;
 </code></pre></div></div>
 
-<ol>
-  <li>날짜별 포스트 수를 counts 객체에 저장한다. <code class="language-plaintext highlighter-rouge">ex) { "2026-03-28": 2, "2026-03-27": 1 }</code>
-    <pre><code class="language-JavaScript">  var counts = {};
-  postDates.forEach(function (d) {
-    counts[d] = (counts[d] || 0) + 1;
-  });
-</code></pre>
-  </li>
-  <li>날짜만 필요하니까 시간을 00:00:00으로 초기화
-```JavaScript
-  var today = new Date();</li>
-</ol>
+<ul>
+  <li>graph_posts에서 날짜만 추출해서 JS 배열로 만든다. Jekyll이 빌드 시점에 렌더링 → 결과는 <code class="language-plaintext highlighter-rouge">["2026-03-28", "2026-03-27", ...]</code> 형태</li>
+</ul>
 
-<p>  today.setHours(0, 0, 0, 0);</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-6. 그래프 시작일 계산: 오늘이 속한 주의 일요일에서 51주 전 → 총 52주(364일)치 그래프
-  
-```JavaScript
-  var start = new Date(today);
-  start.setDate(start.getDate() - start.getDay());
-  start.setDate(start.getDate() - 51 * 7);
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(function () {
+  var postDates = [{% for post in graph_posts %}"{{ post.date | date: "%Y-%m-%d" }}"{% unless forloop.last %},{% endunless %}{% endfor %}];
 </code></pre></div></div>
 
-<ol>
-  <li>graph_id에 해당하는 div를 가져온다
-    <pre><code class="language-JavaScript">  var container = document.getElementById('graph-all');
-</code></pre>
-  </li>
-  <li>Date 객체를 “YYYY-MM-DD” 형식의 문자열로 변환. counts의 키와 형식을 맞추기 위해 사용
-    <pre><code class="language-JavaScript">  function toLocalDateStr(dt) {
-    var y = dt.getFullYear();
-    var m = String(dt.getMonth() + 1).padStart(2, '0');
-    var day = String(dt.getDate()).padStart(2, '0');
-    return y + '-' + m + '-' + day;
+<ul>
+  <li>날짜별 포스트 수를 counts 객체에 저장한다. <code class="language-plaintext highlighter-rouge">ex) { "2026-03-28": 2, "2026-03-27": 1 }</code></li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  var counts = {};
+  postDates.forEach(function (d) {
+    counts[d] = (counts[d] || 0) + 1;
+  });
+</code></pre></div></div>
+
+<ul>
+  <li>날짜만 필요하니까 시간을 00:00:00으로 초기화</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  var today = new Date();
+
+  today.setHours(0, 0, 0, 0);
+</code></pre></div></div>
+
+<ul>
+  <li>그래프 시작일 계산: 오늘이 속한 주의 일요일에서 51주 전 → 총 52주(364일)치 그래프</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  var start = new Date(today);
+  start.setDate(start.getDate() - start.getDay());
+  start.setDate(start.getDate() - 51 * 7);
+</code></pre></div></div>
+
+<ul>
+  <li>graph_id에 해당하는 div를 가져온다</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  var container = document.getElementById('graph-{{ graph_id }}');
+</code></pre></div></div>
+
+<ul>
+  <li>Date 객체를 “YYYY-MM-DD” 형식의 문자열로 변환. counts의 키와 형식을 맞추기 위해 사용</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  function toLocalDateStr(dt) {
+    var y = dt.getFullYear();
+    var m = String(dt.getMonth() + 1).padStart(2, '0');
+    var day = String(dt.getDate()).padStart(2, '0');
+    return y + '-' + m + '-' + day;
   }
-</code></pre>
-  </li>
-  <li>52열(주) x 7행(요일) 그리드 생성
-```JavaScript
-  for (var w = 0; w &lt; 52; w++) {
-    var col = document.createElement(‘div’);
-    col.className = ‘til-graph-col’;
-    for (var d = 0; d &lt; 7; d++) {
-   
-    <h1 id="해당-셀의-날짜-계산">해당 셀의 날짜 계산</h1>
-    <p>      var date = new Date(start);
-      date.setDate(start.getDate() + w * 7 + d);
-      var dateStr = toLocalDateStr(date);</p>
-  </li>
-</ol>
+</code></pre></div></div>
 
-<h1 id="해당-날짜의-포스트-수-없으면-0">해당 날짜의 포스트 수 (없으면 0)</h1>
-<p>      var count = counts[dateStr] || 0;</p>
+<ul>
+  <li>52열(주) x 7행(요일) 그리드 생성</li>
+</ul>
 
-<h1 id="셀-생성-count에-따라-클래스를-다르게-부여-04">셀 생성. count에 따라 클래스를 다르게 부여 (0~4)</h1>
-<h1 id="css에서-til-cell0--til-cell4-로-색깔-정의">CSS에서 til-cell–0 ~ til-cell–4 로 색깔 정의</h1>
-<p>      var cell = document.createElement(‘div’);
-      cell.className = ‘til-cell til-cell–’ + Math.min(count, 4);</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  for (var w = 0; w &lt; 52; w++) {
+    var col = document.createElement('div');
+    col.className = 'til-graph-col';
+    for (var d = 0; d &lt; 7; d++) {
+    
+      // 해당 셀의 날짜 계산
+      var date = new Date(start);
+      date.setDate(start.getDate() + w * 7 + d);
+      var dateStr = toLocalDateStr(date);
 
-<h1 id="마우스-호버-시-날짜와-포스트-수-표시">마우스 호버 시 날짜와 포스트 수 표시</h1>
-<p>      cell.title = dateStr + (count &gt; 0 ? ‘ (‘ + count + ‘)’ : ‘’);
-      col.appendChild(cell);
-    }
-    container.appendChild(col);
-  }</p>
+      // 해당 날짜의 포스트 수 (없으면 0)
+      var count = counts[dateStr] || 0;
 
-<p>```</p>
+      // 셀 생성. count에 따라 클래스를 다르게 부여 (0~4) 
+      // CSS에서 til-cell--0 ~ til-cell--4 로 색깔 정의
+      var cell = document.createElement('div');
+      cell.className = 'til-cell til-cell--' + Math.min(count, 4);
+
+      // 마우스 호버 시 날짜와 포스트 수 표시
+      cell.title = dateStr + (count &gt; 0 ? ' (' + count + ')' : '');
+      col.appendChild(cell);
+    }
+    container.appendChild(col);
+  }
+
+</code></pre></div></div>
 
 
     
