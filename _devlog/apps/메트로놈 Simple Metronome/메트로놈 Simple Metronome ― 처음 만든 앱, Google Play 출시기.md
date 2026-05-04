@@ -10,6 +10,9 @@ project_name: 메트로놈 Simple Metronome
 video_id:
 app_url: https://play.google.com/store/apps/details?id=io.github.kimjisu1106.simplemetronome
 status: finished
+tags:
+  - AndroidStudio
+  - Kotlin
 ---
 ## 1. 왜 만들었는가
 
@@ -42,6 +45,7 @@ status: finished
 이 때 챗지를 "더 많이 생각하는 모드"로 바꾸었다.
 
 ---
+
 ##  3. 핵심 기능들
 
 1. Rotate 지원  
@@ -70,6 +74,7 @@ status: finished
 덕분에 다양한 박자 연습이 가능해졌다.
 
 ---
+
 ##  5. Play Store 등록
 
 8월 초, 비공개 테스트가 끝나자마자 바로 프로덕션에 올렸다.  
@@ -83,6 +88,7 @@ status: finished
 이 모든 과정이 신기했다.
 
 ---
+
 ## 6. 마무리
 
 드디어, 내가 만든 앱이 Google Play에 올라갔다.  
