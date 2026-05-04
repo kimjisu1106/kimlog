@@ -10,6 +10,9 @@ project_name: 메트로놈 Simple Metronome
 video_id:
 app_url: https://play.google.com/store/apps/details?id=io.github.kimjisu1106.simplemetronome
 status: finished
+tags:
+  - Android-Studio
+  - Kotlin
 ---
 ## 1. 마지막 BPM 기억하기 (Book Mark)
 
