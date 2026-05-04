@@ -8,11 +8,19 @@ permalink: /apps/
 
 <h2>Projects</h2>
 
-{% assign posts = site.devlog
+{% assign _all = site.devlog
   | where_exp: "p", "p.categories contains 'apps'"
   | where_exp: "p", "p.categories contains 'summary'"
   | where_exp: "p", "p.project"
   | sort: "date" | reverse %}
+{% assign _finished = _all | where: "status", "finished" %}
+{% assign _wip = "" | split: "" %}
+{% for p in _all %}
+  {% unless p.status == "finished" %}
+    {% assign _wip = _wip | push: p %}
+  {% endunless %}
+{% endfor %}
+{% assign posts = _finished | concat: _wip %}
 
 {% if posts.size == 0 %}
 <p>아직 글이 없습니다.</p>
