@@ -27,6 +27,7 @@ status:
 ```
 
 2. graph의 id 생성. 카테고리를 받아서 `graph_id`에 넣고 기본값은 "all"로 지정. ex) category가 "ue5"면 id는 "graph-ue5", 없으면 "graph-all"
+
 ```liquid
 {% assign graph_id = include.category | default: "all" %}
 
@@ -41,6 +42,7 @@ status:
 ```
 
 4. 날짜별 포스트 수를 counts 객체에 저장한다. `ex) { "2026-03-28": 2, "2026-03-27": 1 }`
+
 ```JavaScript
   var counts = {};
   postDates.forEach(function (d) {
@@ -49,6 +51,7 @@ status:
 ```
 
 5. 날짜만 필요하니까 시간을 00:00:00으로 초기화
+
 ```JavaScript
   var today = new Date();
 
@@ -64,11 +67,13 @@ status:
 ```
 
   7. graph_id에 해당하는 div를 가져온다
+
 ```JavaScript
   var container = document.getElementById('graph-{{ graph_id }}');
 ```
 
   8. Date 객체를 "YYYY-MM-DD" 형식의 문자열로 변환. counts의 키와 형식을 맞추기 위해 사용
+
 ```JavaScript
   function toLocalDateStr(dt) {
     var y = dt.getFullYear();
@@ -78,7 +83,8 @@ status:
   }
 ```
 
-  8. 52열(주) x 7행(요일) 그리드 생성
+  9. 52열(주) x 7행(요일) 그리드 생성
+
 ```JavaScript
   for (var w = 0; w < 52; w++) {
     var col = document.createElement('div');
