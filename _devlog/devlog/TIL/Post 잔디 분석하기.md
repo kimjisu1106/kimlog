@@ -12,7 +12,7 @@ status:
 ---
 1. 카테고리를 받아서 `_cat`에 넣고 post가 해당 categories를 포함하는지 검사한다. 포함되면 `graph_posts`에 devlog에서 해당되는 posts를 넣고, 포함되는게 없으면 devlog 전체 출력
 
-```liquid
+```
 {% if include.category %} 
 
   {% assign _cat = include.category %}
@@ -28,7 +28,7 @@ status:
 
 2. graph의 id 생성. 카테고리를 받아서 `graph_id`에 넣고 기본값은 "all"로 지정. ex) category가 "ue5"면 id는 "graph-ue5", 없으면 "graph-all"
 
-```liquid
+```
 {% assign graph_id = include.category | default: "all" %}
 
 <div class="til-graph" id="graph-{{ graph_id }}"></div>
@@ -36,14 +36,14 @@ status:
 
 3. graph_posts에서 날짜만 추출해서 JS 배열로 만든다. Jekyll이 빌드 시점에 렌더링 → 결과는 `["2026-03-28", "2026-03-27", ...]` 형태
 
-```JavaScript
+```
 (function () {
   var postDates = [{% for post in graph_posts %}"{{ post.date | date: "%Y-%m-%d" }}"{% unless forloop.last %},{% endunless %}{% endfor %}];
 ```
 
 4. 날짜별 포스트 수를 counts 객체에 저장한다. `ex) { "2026-03-28": 2, "2026-03-27": 1 }`
 
-```JavaScript
+```
   var counts = {};
   postDates.forEach(function (d) {
     counts[d] = (counts[d] || 0) + 1;
@@ -52,7 +52,7 @@ status:
 
 5. 날짜만 필요하니까 시간을 00:00:00으로 초기화
 
-```JavaScript
+```
   var today = new Date();
 
   today.setHours(0, 0, 0, 0);
@@ -60,7 +60,7 @@ status:
 
 6. 그래프 시작일 계산: 오늘이 속한 주의 일요일에서 51주 전 → 총 52주(364일)치 그래프
   
-```JavaScript
+```
   var start = new Date(today);
   start.setDate(start.getDate() - start.getDay());
   start.setDate(start.getDate() - 51 * 7);
@@ -68,13 +68,13 @@ status:
 
   7. graph_id에 해당하는 div를 가져온다
 
-```JavaScript
+```
   var container = document.getElementById('graph-{{ graph_id }}');
 ```
 
   8. Date 객체를 "YYYY-MM-DD" 형식의 문자열로 변환. counts의 키와 형식을 맞추기 위해 사용
 
-```JavaScript
+```
   function toLocalDateStr(dt) {
     var y = dt.getFullYear();
     var m = String(dt.getMonth() + 1).padStart(2, '0');
@@ -85,7 +85,7 @@ status:
 
   9. 52열(주) x 7행(요일) 그리드 생성
 
-```JavaScript
+```
   for (var w = 0; w < 52; w++) {
     var col = document.createElement('div');
     col.className = 'til-graph-col';
