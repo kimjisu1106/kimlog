@@ -1,9 +1,11 @@
 // js/app.js
 
 const MAX_FILES = 20;
-// JPEG quality per compression level
-// text-heavy pages get max(q, 0.75) to avoid blurry text
-const QUALITY_MAP = { high: 0.82, mid: 0.55, low: 0.18 };
+const TEXT_DETECT_PAGES = 3;
+const TEXT_ITEM_THRESHOLD = 120;
+const QUALITIES = [0.82, 0.7, 0.58, 0.48, 0.4, 0.32, 0.26, 0.2, 0.16, 0.12];
+// targetBytes per level: break early when compressed size drops below this
+const TARGET_RATIO = { high: 0.8, mid: 0.5, low: 0.25 };
 
 let files = [];
 let selectedQuality = "high";
@@ -185,30 +187,22 @@ async function compress() {
 
   showView("viewLoading");
 
-  const quality = QUALITY_MAP[selectedQuality] || 0.82;
+  const targetRatio = TARGET_RATIO[selectedQuality] || 0.5;
   const results = [];
 
   for (let fi = 0; fi < files.length; fi++) {
     const f = files[fi];
-    setLoading(
-      `(${fi + 1}/${files.length}) ${f.name}`,
-      (fi / files.length) * 90,
-    );
+    const fileProgress = (sub) =>
+      setLoading(
+        `(${fi + 1}/${files.length}) ${f.name}${sub ? " — " + sub : ""}`,
+        (fi / files.length) * 90,
+      );
+
+    fileProgress("");
 
     try {
-      const compressed = await compressOne(f, quality, (pagePct) => {
-        const base = fi / files.length;
-        const step = 1 / files.length;
-        setLoading(
-          `(${fi + 1}/${files.length}) ${f.name} — ${pagePct}%`,
-          (base + (step * pagePct) / 100) * 90,
-        );
-      });
-      results.push({
-        name: f.name.replace(/\.pdf$/i, "_compressed.pdf"),
-        blob: compressed,
-        original: f.size,
-      });
+      const result = await compressOne(f, targetRatio, fi, files.length);
+      results.push(result);
     } catch (e) {
       results.push({ name: f.name, error: e.message });
     }
@@ -224,7 +218,7 @@ async function compress() {
 
   setLoading("파일 준비 중…", 95);
 
-  if (results.length === 1) {
+  if (successful.length === 1) {
     resultBlob = successful[0].blob;
     resultFilename = successful[0].name;
   } else if (window.JSZip) {
@@ -233,21 +227,24 @@ async function compress() {
     resultBlob = await zip.generateAsync({ type: "blob" });
     resultFilename = "compressed.zip";
   } else {
-    // JSZip 로드 실패 시 첫 번째 파일만 다운로드
     resultBlob = successful[0].blob;
     resultFilename = successful[0].name;
   }
 
   setLoading("완료", 100);
 
-  const totalOriginal = successful.reduce((s, r) => s + r.original, 0);
-  const totalCompressed = resultBlob.size;
-  const ratio = ((1 - totalCompressed / totalOriginal) * 100).toFixed(1);
+  const totalOriginal = successful.reduce((s, r) => s + r.originalSize, 0);
+  const totalOut = resultBlob.size;
+  const ratio = ((1 - totalOut / totalOriginal) * 100).toFixed(1);
+  const skipped = successful.filter((r) => r.skipped).length;
 
   el("doneTitle").textContent =
-    results.length > 1 ? `${successful.length}개 파일 압축 완료` : "압축 완료";
+    successful.length > 1
+      ? `${successful.length}개 파일 완료`
+      : "완료";
   el("doneInfo").innerHTML =
-    `원본: ${formatSize(totalOriginal)} → 압축 후: ${formatSize(totalCompressed)} (${ratio}% 감소)` +
+    `원본: ${formatSize(totalOriginal)} → ${formatSize(totalOut)} (${ratio}% 감소)` +
+    (skipped > 0 ? `<br>${skipped}개 파일은 텍스트/벡터 문서로 판단되어 원본 반환` : "") +
     (results.some((r) => r.error)
       ? `<br><span class="warn">${results.filter((r) => r.error).length}개 실패</span>`
       : "");
@@ -255,52 +252,132 @@ async function compress() {
   showView("viewDone");
 }
 
-async function compressOne(file, quality, onProgress) {
-  const buf = await file.arrayBuffer();
-  const pdfJs = await pdfjsLib.getDocument({ data: buf }).promise;
-  const pageCount = pdfJs.numPages;
-  const outPdf = await PDFLib.PDFDocument.create();
-  const canvas = document.createElement("canvas");
-  const ctx = canvas.getContext("2d");
+async function compressOne(file, targetRatio, fileIndex, fileTotal) {
+  const inputBuf = await file.arrayBuffer();
+  const base = sanitizeBase(file.name.replace(/\.pdf$/i, ""));
 
+  const pdf = await pdfjsLib.getDocument({ data: inputBuf.slice() }).promise;
+
+  // 텍스트 위주 문서면 원본 그대로 반환
+  const textHeavy = await isTextHeavyPdf(pdf);
+  if (textHeavy) {
+    await pdf.destroy?.();
+    setLoading(
+      `스킵: 텍스트 문서 (${fileIndex + 1}/${fileTotal})`,
+      ((fileIndex + 1) / fileTotal) * 90,
+    );
+    return {
+      name: `${base}.original.pdf`,
+      blob: new Blob([inputBuf], { type: "application/pdf" }),
+      originalSize: file.size,
+      skipped: true,
+    };
+  }
+
+  // 모든 페이지를 canvas로 렌더링
+  const pageCount = pdf.numPages;
+  const canvases = [];
   for (let i = 1; i <= pageCount; i++) {
-    onProgress(Math.round((i / pageCount) * 100));
-
-    const page = await pdfJs.getPage(i);
+    setLoading(
+      `렌더링 중… (${fileIndex + 1}/${fileTotal}) ${i}/${pageCount}p`,
+      (fileIndex / fileTotal + (i / pageCount) * 0.4 / fileTotal) * 90,
+    );
+    const page = await pdf.getPage(i);
     const vp = page.getViewport({ scale: 2.0 });
+    const canvas = document.createElement("canvas");
     canvas.width = vp.width;
     canvas.height = vp.height;
-
+    const ctx = canvas.getContext("2d");
     ctx.fillStyle = "#ffffff";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     await page.render({ canvasContext: ctx, viewport: vp }).promise;
+    await page.cleanup?.();
+    canvases.push(canvas);
+  }
+  await pdf.destroy?.();
 
-    // text-heavy pages get higher quality to avoid blurry text
-    const textContent = await page.getTextContent();
-    const pageQuality =
-      textContent.items.length > 150 ? Math.max(quality, 0.75) : quality;
+  const targetBytes = file.size * targetRatio;
+  let bestBytes = Infinity;
+  let bestPdfBytes = null;
 
-    const dataUrl = canvas.toDataURL("image/jpeg", pageQuality);
-    const jpgBytes = dataUrlToBytes(dataUrl);
-    const img = await outPdf.embedJpg(jpgBytes);
+  // 품질을 순서대로 시도, 목표 크기 이하가 되면 조기 종료
+  for (let qi = 0; qi < QUALITIES.length; qi++) {
+    const q = QUALITIES[qi];
+    setLoading(
+      `압축 중… (${fileIndex + 1}/${fileTotal}) 품질=${q.toFixed(2)}`,
+      (fileIndex / fileTotal + (0.4 + qi / QUALITIES.length * 0.5) / fileTotal) * 90,
+    );
 
-    // output at half the render scale = original dimensions
-    const w = vp.width / 2;
-    const h = vp.height / 2;
-    const outPage = outPdf.addPage([w, h]);
-    outPage.drawImage(img, { x: 0, y: 0, width: w, height: h });
+    const pdfDoc = await PDFLib.PDFDocument.create();
+    for (const canvas of canvases) {
+      const jpgBytes = await canvasToJpegBytes(canvas, q);
+      const img = await pdfDoc.embedJpg(jpgBytes);
+      const w = canvas.width * 0.75;
+      const h = canvas.height * 0.75;
+      const page = pdfDoc.addPage([w, h]);
+      page.drawImage(img, { x: 0, y: 0, width: w, height: h });
+    }
+
+    const outBytes = await pdfDoc.save();
+    const size = outBytes.byteLength;
+    if (size < bestBytes) {
+      bestBytes = size;
+      bestPdfBytes = outBytes;
+    }
+    if (size <= targetBytes) break;
   }
 
-  const bytes = await outPdf.save();
-  return new Blob([bytes], { type: "application/pdf" });
+  // 압축 결과가 원본보다 크면 원본 반환
+  if (bestBytes >= file.size) {
+    return {
+      name: `${base}.original.pdf`,
+      blob: new Blob([inputBuf], { type: "application/pdf" }),
+      originalSize: file.size,
+      skipped: true,
+    };
+  }
+
+  return {
+    name: `${base}.compressed.pdf`,
+    blob: new Blob([bestPdfBytes], { type: "application/pdf" }),
+    originalSize: file.size,
+    skipped: false,
+  };
 }
 
-function dataUrlToBytes(dataUrl) {
-  const b64 = dataUrl.split(",")[1];
-  const bin = atob(b64);
-  const bytes = new Uint8Array(bin.length);
-  for (let i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
-  return bytes;
+async function isTextHeavyPdf(pdf) {
+  const n = Math.min(pdf.numPages, TEXT_DETECT_PAGES);
+  if (n <= 0) return false;
+
+  let total = 0;
+  for (let i = 1; i <= n; i++) {
+    const page = await pdf.getPage(i);
+    const tc = await page.getTextContent({ disableCombineTextItems: false });
+    total += (tc.items || []).reduce((acc, it) => {
+      const s = it && it.str ? String(it.str).trim() : "";
+      return acc + (s ? 1 : 0);
+    }, 0);
+    await page.cleanup?.();
+  }
+
+  return total / n >= TEXT_ITEM_THRESHOLD;
+}
+
+function canvasToJpegBytes(canvas, quality) {
+  return new Promise((resolve) => {
+    canvas.toBlob(
+      async (blob) => {
+        const buf = await blob.arrayBuffer();
+        resolve(new Uint8Array(buf));
+      },
+      "image/jpeg",
+      quality,
+    );
+  });
+}
+
+function sanitizeBase(name) {
+  return name.replace(/[^\w\-_.]/g, "_");
 }
 
 function setLoading(step, pct) {
