@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Unreal Engine 5 Dev Log 2 ― 시네마틱(Portal Exit) | 김로그의 우당탕탕</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Unreal Engine 5 Dev Log 2 ― 시네마틱(Portal Exit)" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="도입" />
+<meta property="og:description" content="도입" />
+<link rel="canonical" href="http://localhost:4000/devlog/ue5/Unreal%20Engine%205%20Dev%20Log%202%20%E2%80%95%20%EC%8B%9C%EB%84%A4%EB%A7%88%ED%8B%B1(Portal%20Exit)/" />
+<meta property="og:url" content="http://localhost:4000/devlog/ue5/Unreal%20Engine%205%20Dev%20Log%202%20%E2%80%95%20%EC%8B%9C%EB%84%A4%EB%A7%88%ED%8B%B1(Portal%20Exit)/" />
+<meta property="og:site_name" content="김로그의 우당탕탕" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2025-08-30T00:00:00+09:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Unreal Engine 5 Dev Log 2 ― 시네마틱(Portal Exit)" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-30T00:00:00+09:00","datePublished":"2025-08-30T00:00:00+09:00","description":"도입","headline":"Unreal Engine 5 Dev Log 2 ― 시네마틱(Portal Exit)","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/devlog/ue5/Unreal%20Engine%205%20Dev%20Log%202%20%E2%80%95%20%EC%8B%9C%EB%84%A4%EB%A7%88%ED%8B%B1(Portal%20Exit)/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/profile.png"}},"url":"http://localhost:4000/devlog/ue5/Unreal%20Engine%205%20Dev%20Log%202%20%E2%80%95%20%EC%8B%9C%EB%84%A4%EB%A7%88%ED%8B%B1(Portal%20Exit)/"}</script>
+<!-- End Jekyll SEO tag -->
+<meta property="og:image" content="http://localhost:4000/assets/images/profile.png" />
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="김로그의 우당탕탕" /><meta name="google-site-verification" content="R-IPOkDo6YoQGFHmV7mEX98FuuLCx1eUM98m3RETbnM" />
+  <meta name="google-adsense-account" content="ca-pub-2560235080070689">
+  <link rel="icon" type="image/png" href="/assets/images/profile.png">
+  <link rel="icon" type="image/x-icon" href="/assets/images/profile.ico">
+  <link rel="shortcut icon" href="/assets/images/profile.ico">
+  <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "727df4dd0ca343b1be0ffd30ba969676"}'></script>
+</head>
+<body><header class="site-header" role="banner">
+  <div class="wrapper">
+    <a class="site-title" rel="author" href="/">김로그의 우당탕탕</a>
+
+    <nav class="site-nav">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+      <label for="nav-trigger">
+        <span class="menu-icon">
+          <svg viewBox="0 0 18 15" width="18px" height="15px">
+            <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </span>
+      </label>
+
+      <div class="trigger">
+        
+          
+          
+          <a class="page-link" href="/devlog/">Dev Log</a>
+          
+        
+          
+          
+          <a class="page-link" href="/ue5/">Unreal Engine 5</a>
+          
+        
+          
+          
+          <a class="page-link" href="/apps/">Apps</a>
+          
+        
+          
+          
+          <a class="page-link" href="/today-i-learn/">TIL</a>
+          
+        
+          
+          
+          <a class="page-link" href="/contact/">Contact</a>
+          
+        
+        <a class="page-link search-icon-link" href="/search/" aria-label="검색">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"/>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+        </a>
+      </div>
+    </nav>
+  </div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Unreal Engine 5 Dev Log 2 ― 시네마틱(Portal Exit)</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2025-08-30T00:00:00+09:00" itemprop="datePublished">
+        2025-08-30
+      </time>
+    </p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+
+    
+
+    
+    <a class="app-card" href="https://www.youtube.com/watch?v=8hCDR3biZro" target="_blank" rel="noopener noreferrer">
+      <img class="app-card-thumb" src="https://i.ytimg.com/vi/8hCDR3biZro/hqdefault.jpg" alt="Unreal Engine 5 Dev Log 2 ― 시네마틱(Portal Exit)">
+      <div class="app-card-info">
+        <span class="app-card-name">시네마틱(Portal Exit)</span>
+        <span class="app-card-link">YouTube에서 보기 ↗</span>
+      </div>
+    </a>
+    
+
+    
+      
+      
+      
+      
+      
+      
+
+      
+    
+
+    <h2 id="도입">도입</h2>
+
+<p>언리얼엔진 5로 시네마틱 영상 만드는 튜토리얼이 있길래 따라 해봤다.<br />
+작성일 기준 5일 전에 올라온 따끈따끈한 영상.<br />
+그동안 보던 건 대부분 1~2년 전 튜토리얼이라 메뉴나 용어가 조금씩 달라 헷갈렸는데,<br />
+이번엔 최신 버전이라 그런 피로감이 없어서 반가웠다.</p>
+
+<p>튜토리얼 주제는 Portal Exit 컨셉 애니메이션이었고,<br />
+사용된 애니메이션은 현재 무료로 다운로드 가능했다.<br />
+결론부터 말하면…<br />
+7시간 작업해서 26초짜리 영상을 만들었다!</p>
+
+<hr />
+<h2 id="오늘-좋았던-포인트">오늘 좋았던 포인트</h2>
+
+<ol>
+  <li>시네마틱을 만든다고 꼭 ‘시네마’ 프리셋으로 시작하지 않아도 된다는 것</li>
+  <li>마네킹에 캐릭터를 입히는 법을 조금은 알 것 같아졌다는 것</li>
+  <li>“언리얼로 만든 영상이 이렇게 멋질 수 있구나” 하는 충격</li>
+</ol>
+
+<hr />
+<h2 id="사용한-리소스">사용한 리소스</h2>
+
+<ol>
+  <li>캐릭터
+    <ol>
+      <li>Player: Erika Archer (Mixamo)<br />
+ → 원래는 검사 캐릭터를 쓰고 싶었는데, 옷차림이 너무 헐벗어서 결국 전부 껴입은 궁수로 선택 😂</li>
+      <li>Villain: Maw J Laygo (Mixamo)<br />
+ → 화면을 압도할 만큼 거대한 보스 같은 느낌이 좋아서 골랐다.</li>
+    </ol>
+  </li>
+  <li>애니메이션
+    <ol>
+      <li>Player: Portal Exit (Narrative Motion)</li>
+      <li>Villain: <em>Mutant Roaring</em> (Mixamo)</li>
+    </ol>
+  </li>
+  <li>컨셉: RPG 보스전 인트로 씬</li>
+</ol>
+
+<hr />
+<h2 id="작업-과정-요약">작업 과정 요약</h2>
+
+<ol>
+  <li>프로젝트 생성
+    <ol>
+      <li>게임 모드 3인칭 시점으로 시작. 기본 마네킹이 있어서 편리했다.</li>
+    </ol>
+  </li>
+  <li>머테리얼 초기화
+    <ol>
+      <li>처음엔 배경을 멋지게 꾸며볼까 했다가, 이번엔 카메라 연출이 더 중요하다 생각해 결국 튜토리얼처럼 다 벗김.</li>
+    </ol>
+  </li>
+  <li>플레이어 배치 &amp; 애니메이션 적용
+    <ol>
+      <li>애니메이션 입히는 게 서툴렀는데 “리타겟팅”이란 기능을 알게 됐다.</li>
+      <li>적용하고 보니 틀어짐 없이 잘 들어맞아 만족.</li>
+    </ol>
+  </li>
+  <li>빌런 배치 &amp; 스케일 조절
+    <ol>
+      <li>CAM02로 전환될 때 화면을 압도하는 느낌이 나오도록 크게 확대.</li>
+    </ol>
+  </li>
+  <li>카메라 연출
+    <ol>
+      <li>두 대의 카메라로 포커스 전환.</li>
+      <li>배경은 흐리고 캐릭터에 집중하도록 Focus 세팅.</li>
+      <li>AE나 Cubase처럼 키프레임 찍는 방식이라 금방 익숙해졌다.</li>
+    </ol>
+  </li>
+  <li>Portal 제작 (나이아가라)
+    <ol>
+      <li>여러 레퍼런스 참고해서 테두리만 남는 포털 제작.</li>
+      <li>색상은 VLAST CI 컬러인 핑크(#DB1D64).</li>
+      <li>가운데는 거울 대신 ‘호수(Lake)’ 머테리얼을 적용해서 불투명하게 처리.</li>
+      <li>Player가 비치면서도 바로 Villain이 드러나지 않아 오히려 더 괜찮았다.</li>
+    </ol>
+  </li>
+  <li>빌런 포효 + 연기
+    <ol>
+      <li>스타터킷 Smoke 사용.</li>
+      <li>원래는 불/얼음도 고민했지만 캐릭터 외형과 맞지 않아 Smoke로 결정.</li>
+      <li>아쉬운 건 퍼지면서 사라지는 연출이 잘 안 됐다는 점. (Opacity 공부 필요!)</li>
+    </ol>
+  </li>
+  <li>사운드 작업
+    <ol>
+      <li>포털: 스파클러 같은 소리 (wind라는 이름이 붙어 있었음 😅)</li>
+      <li>Player: 발소리, 옷 터는 소리</li>
+      <li>Villain: 발구르기 쿵, Roar + 트림 소리(!) 합성 → 속도를 늦춰 Pitch 낮추기</li>
+      <li>BGM: 점점 커지다가 Villain이 비춰지는 타이밍에 빵!</li>
+      <li>언리얼 내부 믹스는 제한적이었지만 생각보다 자연스럽게 섞여서 놀랐다.</li>
+    </ol>
+  </li>
+</ol>
+
+<hr />
+<h2 id="아쉬운-점--다음에-해보고-싶은-것">아쉬운 점 &amp; 다음에 해보고 싶은 것</h2>
+
+<ol>
+  <li>Opacity 조절을 몰라서 포털/연기 사라지는 연출이 어색했다.</li>
+  <li>Villain의 발구르기에 맞춰 크랙이나 카메라 흔들림을 넣었다면 더 좋았을 것.</li>
+  <li>사운드에서 Reverb, Pan, EQ 같은 디테일을 언리얼 안에서 다루는 방법을 익히고 싶다.</li>
+</ol>
+
+<hr />
+<h2 id="오늘의-결론">오늘의 결론</h2>
+
+<p>26초 영상이지만, “나도 언리얼로 이렇게 연출할 수 있다”는 걸 직접 경험한 게 가장 큰 수확이었다.<br />
+멀미와 아쉬움은 남았지만, 만족감이 더 크다.</p>
+
+
+    
+    <hr>
+    
+<div class="yt-wrap">
+  <iframe
+    src="https://www.youtube.com/embed/8hCDR3biZro"
+    allowfullscreen>
+  </iframe>
+</div>
+
+
+    
+
+    
+
+  </div>
+
+  <a class="u-url" href="/devlog/ue5/Unreal%20Engine%205%20Dev%20Log%202%20%E2%80%95%20%EC%8B%9C%EB%84%A4%EB%A7%88%ED%8B%B1(Portal%20Exit)/" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer">
+  <div class="wrapper">
+    <div class="footer-inner">
+      <div class="footer-left">
+        <div class="footer-contact">
+          <span class="post-meta"
+            ><i class="fa-solid fa-envelope"></i> kimlog0415@gmail.com</span
+          >
+          <span class="post-meta">｜</span>
+          <span class="post-meta"
+            ><a href="https://www.youtube.com/@kimlog0415"
+              ><i class="fa-brands fa-youtube" style="color: #ff0335"></i>
+              YouTube</a
+            ></span
+          >
+          <span class="post-meta">｜</span>
+          <span class="post-meta"
+            ><a href="/feed.xml"><i class="fa-solid fa-rss"></i> RSS</a></span
+          >
+        </div>
+        <div class="footer-copy post-meta">
+          &copy; 2026 김로그의 우당탕탕 ｜
+          <a href="/privacy-policy/">Privacy Policy</a>
+        </div>
+      </div>
+      <div class="footer-bmc">
+        <a href="/contact/" class="support-btn">☕ 후원하기</a>
+      </div>
+    </div>
+  </div>
+</footer>
+</body>
+
+</html>
