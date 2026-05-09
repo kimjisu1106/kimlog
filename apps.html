@@ -8,20 +8,38 @@ permalink: /apps/
 
 <h2>Projects</h2>
 
-{% assign posts = site.devlog
+{% assign _all = site.devlog
   | where_exp: "p", "p.categories contains 'apps'"
   | where_exp: "p", "p.categories contains 'summary'"
   | where_exp: "p", "p.project"
   | sort: "date" | reverse %}
+{% assign _finished = _all | where: "status", "finished" %}
+{% assign _wip = "" | split: "" %}
+{% for p in _all %}
+  {% unless p.status == "finished" %}
+    {% assign _wip = _wip | push: p %}
+  {% endunless %}
+{% endfor %}
+{% assign posts = _finished | concat: _wip %}
 
 {% if posts.size == 0 %}
 <p>아직 글이 없습니다.</p>
 {% else %}
-<ul class="devlog-list">
+<div class="apps-shelf">
   {% for post in posts %}
-  <li>{{ post.date | date: "%Y-%m-%d" }} ｜ <a href="{{ post.url | relative_url }}">{{ post.project_name | default: post.title }}</a>{% if post.status == 'finished' %} <span class="devlog-badge">✅</span>{% endif %}</li>
+  <div class="apps-card{% if post.status == 'finished' %} finished{% endif %}">
+    <div class="apps-card-inner">
+      <div class="apps-card-front">
+        <img src="{{ '/assets/images/' | append: post.project | append: '.png' | relative_url }}" alt="{{ post.project_name | default: post.title }}" loading="lazy" onerror="this.style.display='none'">
+        <span class="apps-card-name">{{ post.project_name | default: post.title }}</span>
+      </div>
+      <div class="apps-card-back">
+        <a class="apps-card-btn" href="{{ post.url | relative_url }}">자세히 보기 →</a>
+      </div>
+    </div>
+  </div>
   {% endfor %}
-</ul>
+</div>
 {% endif %}
 
 <hr>
@@ -47,3 +65,12 @@ permalink: /apps/
   {% endfor %}
 </ul>
 {% endif %}
+
+<script>
+  document.querySelectorAll(".apps-shelf .apps-card").forEach((card) => {
+    card.addEventListener("click", (e) => {
+      if (e.target.closest(".apps-card-btn")) return;
+      card.classList.toggle("flipped");
+    });
+  });
+</script>
