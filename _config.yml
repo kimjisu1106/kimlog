@@ -3,6 +3,8 @@ url: "https://kimlog.pages.dev"
 description: "KIMLOG―Need, Learn and Build"
 logo: /assets/images/profile.png
 future: true
+exclude:
+  - "**/draft-*.md"
 theme: minima
 plugins:
   - jekyll-feed
