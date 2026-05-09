@@ -28,4 +28,4 @@ status: finished
 
 1. 가위바위보 WBP 및 로직 보강
 
-![](/assets/images/for-posts/ue5-20260125_01.png)
+![](/assets/images/for-posts/ue5-20260125_01.webp)

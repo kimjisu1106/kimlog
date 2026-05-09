@@ -37,6 +37,6 @@ status:
 1. 가챠 이벤트(시네마틱) 구현
 
 
-![](/assets/images/for-posts/ue5-20251228_01.png)
-![](/assets/images/for-posts/ue5-20251228_02.png)
-![](/assets/images/for-posts/ue5-20251228_03.png)
+![](/assets/images/for-posts/ue5-20251228_01.webp)
+![](/assets/images/for-posts/ue5-20251228_02.webp)
+![](/assets/images/for-posts/ue5-20251228_03.webp)

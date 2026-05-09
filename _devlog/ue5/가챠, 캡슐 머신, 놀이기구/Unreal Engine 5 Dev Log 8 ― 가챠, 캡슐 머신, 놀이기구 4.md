@@ -38,4 +38,4 @@ status:
 
 1. Pull Btn 위에서 특정 버튼(Spacebar 등)을 누르면 가챠 이벤트(시네마틱) 실행.
 
-![](/assets/images/for-posts/ue5-20251217_01.png)
+![](/assets/images/for-posts/ue5-20251217_01.webp)

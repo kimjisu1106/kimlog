@@ -18,8 +18,8 @@ status:
     2. 에디터 실행 방법 설명
     3. 기본 단축키 설명
 2. [실습]화면에 글자 출력하기
-	![](/assets/images/for-posts/ue5-20251227_01.png)
-	![](/assets/images/for-posts/ue5-20251227_02.png)
+	![](/assets/images/for-posts/ue5-20251227_01.webp)
+	![](/assets/images/for-posts/ue5-20251227_02.webp)
 
 ---
 

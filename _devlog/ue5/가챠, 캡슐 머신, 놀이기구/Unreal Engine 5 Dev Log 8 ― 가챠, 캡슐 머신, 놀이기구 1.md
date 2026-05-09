@@ -28,5 +28,5 @@ status:
 1. UE5에 asset 배치하기
 
 
-![](/assets/images/for-posts/ue5-20251214_01.png)
-![](/assets/images/for-posts/ue5-20251214_02.png)
+![](/assets/images/for-posts/ue5-20251214_01.webp)
+![](/assets/images/for-posts/ue5-20251214_02.webp)
