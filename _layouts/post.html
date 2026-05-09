@@ -36,61 +36,56 @@ layout: default
     </a>
     {% endif %}
 
-    {{ content }}
+    {% if page.project %}
+      {% assign _all = site.devlog | where_exp: "p", "p.project == page.project" | sort: "date" %}
+      {% assign _summary = _all | where_exp: "p", "p.categories contains 'summary'" %}
+      {% assign _rest = "" | split: "" %}
+      {% for _p in _all %}
+        {% unless _p.categories contains 'summary' %}
+          {% assign _rest = _rest | push: _p %}
+        {% endunless %}
+      {% endfor %}
+      {% assign series_posts = _summary | concat: _rest %}
+      {% assign series_total = series_posts.size %}
 
-    {% assign current_project = page.project %}
-    {% assign related = site.devlog
-      | where_exp: "p", "p.project == current_project"
-      | sort: "date" %}
+      {% if series_total > 1 %}
+        {% assign series_index = 0 %}
+        {% for p in series_posts %}
+          {% if p.url == page.url %}
+            {% assign series_index = forloop.index %}
+            {% break %}
+          {% endif %}
+        {% endfor %}
+        <div class="series-summary">
+          이 글은 <strong>{{ page.project_name | default: page.project }}</strong> 시리즈의 <strong>{{ series_index }}번째</strong> 기록입니다. (총 {{ series_total }}개)
+        </div>
+      {% endif %}
+    {% endif %}
+
+    {{ content }}
 
     {% if page.video_id %}
     <hr>
     {% include youtube.html id=page.video_id %}
     {% endif %}
 
-    {% assign related_sorted = related | sort: "date" | reverse %}
-    {% assign related_others = "" | split: "" %}
-    {% for item in related_sorted %}
-      {% unless item.url == page.url %}
-        {% assign related_others = related_others | push: item %}
-      {% endunless %}
-    {% endfor %}
-
-    {% if related_others.size > 0 %}
+    {% if page.project and series_total > 1 %}
     <hr>
-    <h2>Related Posts</h2>
-    <ul class="devlog-list" id="related-list">
-      {% for item in related_others %}
-      <li{% if forloop.index > 5 %} hidden class="devlog-extra-item"{% endif %}>
-        {{ item.date | date: "%Y-%m-%d" }} ｜
-        <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
-      </li>
-      {% endfor %}
-    </ul>
-    {% if related_others.size > 5 %}
-    <button class="devlog-toggle" data-list="related-list">↓ 더보기 ({{ related_others.size | minus: 5 }}개)</button>
+    <h2>Series: {{ page.project_name | default: page.project }}</h2>
+    <div class="series-list-card">
+      <div class="series-cards{% if series_total > 10 %} series-scrollable{% endif %}">
+        {% for item in series_posts %}
+        <a class="series-card{% if item.url == page.url %} series-current{% endif %}" href="{{ item.url | relative_url }}">
+          <span class="series-num">{{ forloop.index }}</span>
+          <span class="series-card-date post-meta">{{ item.date | date: "%Y-%m-%d" }}</span>
+          <span class="series-sep">｜</span>
+          <span class="series-card-title">{{ item.title }}</span>
+          {% if item.url == page.url %}<span class="series-reading">읽는 중</span>{% endif %}
+        </a>
+        {% endfor %}
+      </div>
+    </div>
     {% endif %}
-    {% endif %}
-
-    <script>
-      document.addEventListener("click", function(e) {
-        var btn = e.target.closest(".devlog-toggle");
-        if (!btn || !btn.dataset.list) return;
-        var list = document.getElementById(btn.dataset.list);
-        if (!list) return;
-        var extras = list.querySelectorAll(".devlog-extra-item");
-        var isOpen = btn.getAttribute("aria-expanded") === "true";
-        if (isOpen) {
-          extras.forEach(function(li) { li.setAttribute("hidden", ""); });
-          btn.setAttribute("aria-expanded", "false");
-          btn.textContent = "↓ 더보기 (" + extras.length + "개)";
-        } else {
-          extras.forEach(function(li) { li.removeAttribute("hidden"); });
-          btn.setAttribute("aria-expanded", "true");
-          btn.textContent = "↑ 접기";
-        }
-      });
-    </script>
 
   </div>
 
