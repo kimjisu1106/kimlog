@@ -10,6 +10,9 @@ project_name: 메트로놈 Simple Metronome
 video_id:
 app_url: https://play.google.com/store/apps/details?id=io.github.kimjisu1106.simplemetronome
 status: finished
+tags:
+  - Kotlin
+  - Android-Studio
 ---
 ## 1. 왜 만들었는가
 
@@ -31,17 +34,18 @@ status: finished
 
 2025년 6월 초, 처음 만든 버전은 소리 간격이 불안정했다. 그래도 이때 앱 아이콘과 메인 컬러 팔레트는 정했다.
 
-- Teal: #00797F
-- Dark Charcoal: #1E1F22
-- Light Gray: #D7D7D7
-- Pink Accent: #FF1763
+- Teal: `#00797F`
+- Dark Charcoal: `#1E1F22`
+- Light Gray: `#D7D7D7`
+- Pink Accent: `#FF1763`
 
-검정 대신 짙은 차콜을 쓴 이유는 완전 검정은 오히려 눈이 아프기도 했고, 2시간동안 화면이 켜져있어야 하니 악보에 집중하기 위함이었다. #1E1F22는 내가 사용하던 Android Studio 코드 편집기 배경색이었다.
+검정 대신 짙은 차콜을 쓴 이유는 완전 검정은 오히려 눈이 아프기도 했고, 2시간동안 화면이 켜져있어야 하니 악보에 집중하기 위함이었다. `#1E1F22`는 내가 사용하던 Android Studio 코드 편집기 배경색이었다.
 
 하지만 타이밍 문제는 해결되지 않았고, 결국 6월 말 프로젝트를 갈아엎었다.
 이 때 챗지를 "더 많이 생각하는 모드"로 바꾸었다.
 
 ---
+
 ##  3. 핵심 기능들
 
 1. Rotate 지원  
@@ -70,6 +74,7 @@ status: finished
 덕분에 다양한 박자 연습이 가능해졌다.
 
 ---
+
 ##  5. Play Store 등록
 
 8월 초, 비공개 테스트가 끝나자마자 바로 프로덕션에 올렸다.  
@@ -83,6 +88,7 @@ status: finished
 이 모든 과정이 신기했다.
 
 ---
+
 ## 6. 마무리
 
 드디어, 내가 만든 앱이 Google Play에 올라갔다.  
