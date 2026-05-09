@@ -17,19 +17,19 @@ status:
     1. 반복문
         1. 중첩: 반복문 안에 반복문을 사용하는 것  
             
-		![](/assets/images/for-posts/ue5-20260110_01.png)
-		![](/assets/images/for-posts/ue5-20260110_02.png)
+		![](/assets/images/for-posts/ue5-20260110_01.webp)
+		![](/assets/images/for-posts/ue5-20260110_02.webp)
             
         2. Break(제어)
     2. 함수
     3. 배열(자료구조)
 2. 블루프린트 클래스: 재사용 및 확장이 가능. 레벨 블루프린트와 달리 특정 레벨에 종속되지 않음. 상속 가능.
 3. [실습] 중첩 반복문 활용(구구단 출력하기)  
-		![](/assets/images/for-posts/ue5-20260110_03.png)
-		![](/assets/images/for-posts/ue5-20260110_04.png)
+		![](/assets/images/for-posts/ue5-20260110_03.webp)
+		![](/assets/images/for-posts/ue5-20260110_04.webp)
 4. [실습] 구구단 출력 변경하기  
-		![](/assets/images/for-posts/ue5-20260110_05.png)
-		![](/assets/images/for-posts/ue5-20260110_06.png)
+		![](/assets/images/for-posts/ue5-20260110_05.webp)
+		![](/assets/images/for-posts/ue5-20260110_06.webp)
 5. [실습] 구구단 출력 결과값을 캐싱 처리, 함수  
     ```
     ArrCachedResults(배열 변수)  
@@ -40,13 +40,13 @@ status:
     입력값이 5인 경우 출력값  
     결과(5단의 결과값만 출력(단, 연산은 없다. 캐싱된 결과값에서 가져온다))
     ```
-	![](/assets/images/for-posts/ue5-20260110_07.png)
-	![](/assets/images/for-posts/ue5-20260110_08.png)
-	![](/assets/images/for-posts/ue5-20260110_09.png)
-	![](/assets/images/for-posts/ue5-20260110_10.png)
+	![](/assets/images/for-posts/ue5-20260110_07.webp)
+	![](/assets/images/for-posts/ue5-20260110_08.webp)
+	![](/assets/images/for-posts/ue5-20260110_09.webp)
+	![](/assets/images/for-posts/ue5-20260110_10.webp)
 
 입력값이 8인 경우
-	![](/assets/images/for-posts/ue5-20260110_11.png)
+	![](/assets/images/for-posts/ue5-20260110_11.webp)
 
 ---
 
