@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Unreal Engine 5 Dev Log 4 ― 우리 동네 만들기 도전기 ! | 김로그의 우당탕탕</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Unreal Engine 5 Dev Log 4 ― 우리 동네 만들기 도전기 !" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="요약 퇴근길에 본 분홍 구름 하늘 + 버스가 스쳐가는 교차로를 UE5로 재현. 제작 소요시간 약 18시간." />
+<meta property="og:description" content="요약 퇴근길에 본 분홍 구름 하늘 + 버스가 스쳐가는 교차로를 UE5로 재현. 제작 소요시간 약 18시간." />
+<link rel="canonical" href="http://localhost:4000/devlog/ue5/Unreal%20Engine%205%20Dev%20Log%204%20%E2%80%95%20%EC%9A%B0%EB%A6%AC%20%EB%8F%99%EB%84%A4%20%EB%A7%8C%EB%93%A4%EA%B8%B0%20%EB%8F%84%EC%A0%84%EA%B8%B0%20!/" />
+<meta property="og:url" content="http://localhost:4000/devlog/ue5/Unreal%20Engine%205%20Dev%20Log%204%20%E2%80%95%20%EC%9A%B0%EB%A6%AC%20%EB%8F%99%EB%84%A4%20%EB%A7%8C%EB%93%A4%EA%B8%B0%20%EB%8F%84%EC%A0%84%EA%B8%B0%20!/" />
+<meta property="og:site_name" content="김로그의 우당탕탕" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2025-09-15T00:00:00+09:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Unreal Engine 5 Dev Log 4 ― 우리 동네 만들기 도전기 !" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-09-15T00:00:00+09:00","datePublished":"2025-09-15T00:00:00+09:00","description":"요약 퇴근길에 본 분홍 구름 하늘 + 버스가 스쳐가는 교차로를 UE5로 재현. 제작 소요시간 약 18시간.","headline":"Unreal Engine 5 Dev Log 4 ― 우리 동네 만들기 도전기 !","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/devlog/ue5/Unreal%20Engine%205%20Dev%20Log%204%20%E2%80%95%20%EC%9A%B0%EB%A6%AC%20%EB%8F%99%EB%84%A4%20%EB%A7%8C%EB%93%A4%EA%B8%B0%20%EB%8F%84%EC%A0%84%EA%B8%B0%20!/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/profile.png"}},"url":"http://localhost:4000/devlog/ue5/Unreal%20Engine%205%20Dev%20Log%204%20%E2%80%95%20%EC%9A%B0%EB%A6%AC%20%EB%8F%99%EB%84%A4%20%EB%A7%8C%EB%93%A4%EA%B8%B0%20%EB%8F%84%EC%A0%84%EA%B8%B0%20!/"}</script>
+<!-- End Jekyll SEO tag -->
+<meta property="og:image" content="http://localhost:4000/assets/images/profile.png" />
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="김로그의 우당탕탕" /><meta name="google-site-verification" content="R-IPOkDo6YoQGFHmV7mEX98FuuLCx1eUM98m3RETbnM" />
+  <meta name="google-adsense-account" content="ca-pub-2560235080070689">
+  <link rel="icon" type="image/png" href="/assets/images/profile.png">
+  <link rel="icon" type="image/x-icon" href="/assets/images/profile.ico">
+  <link rel="shortcut icon" href="/assets/images/profile.ico">
+  <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "727df4dd0ca343b1be0ffd30ba969676"}'></script>
+</head>
+<body><header class="site-header" role="banner">
+  <div class="wrapper">
+    <a class="site-title" rel="author" href="/">김로그의 우당탕탕</a>
+
+    <nav class="site-nav">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+      <label for="nav-trigger">
+        <span class="menu-icon">
+          <svg viewBox="0 0 18 15" width="18px" height="15px">
+            <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </span>
+      </label>
+
+      <div class="trigger">
+        
+          
+          
+          <a class="page-link" href="/devlog/">Dev Log</a>
+          
+        
+          
+          
+          <a class="page-link" href="/ue5/">Unreal Engine 5</a>
+          
+        
+          
+          
+          <a class="page-link" href="/apps/">Apps</a>
+          
+        
+          
+          
+          <a class="page-link" href="/today-i-learn/">TIL</a>
+          
+        
+          
+          
+          <a class="page-link" href="/contact/">Contact</a>
+          
+        
+        <a class="page-link search-icon-link" href="/search/" aria-label="검색">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"/>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+        </a>
+      </div>
+    </nav>
+  </div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Unreal Engine 5 Dev Log 4 ― 우리 동네 만들기 도전기 !</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2025-09-15T00:00:00+09:00" itemprop="datePublished">
+        2025-09-15
+      </time>
+    </p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+
+    
+
+    
+    <a class="app-card" href="https://www.youtube.com/watch?v=40FEFY3NUw4" target="_blank" rel="noopener noreferrer">
+      <img class="app-card-thumb" src="https://i.ytimg.com/vi/40FEFY3NUw4/hqdefault.jpg" alt="Unreal Engine 5 Dev Log 4 ― 우리 동네 만들기 도전기 !">
+      <div class="app-card-info">
+        <span class="app-card-name">우리 동네 만들기</span>
+        <span class="app-card-link">YouTube에서 보기 ↗</span>
+      </div>
+    </a>
+    
+
+    
+      
+      
+      
+      
+      
+      
+
+      
+    
+
+    <h2 id="요약">요약</h2>
+<p>퇴근길에 본 분홍 구름 하늘 + 버스가 스쳐가는 교차로를 UE5로 재현.
+제작 소요시간 약 18시간.</p>
+
+<hr />
+
+<h2 id="제작-동기">제작 동기</h2>
+
+<p>퇴근길에 본 하늘이 인상적이었다. 버스도 타이밍 좋게 지나가서 “움직임 있는 볼거리까지” 완벽다.
+원본 영상을 기준 삼아, 눈에 보이는 요소들을 가능한 한 재현하는 것이 이번 프로젝트의 목표였다.</p>
+
+<hr />
+
+<h2 id="목표-설정">목표 설정</h2>
+
+<p>작업기간: 2025-09-13 ~ 2025-09-14(18h)
+목표:</p>
+<ol>
+  <li>도시 레이아웃(마켓 에셋 사용해보기 + 프리미티브)</li>
+  <li>간판/조명</li>
+  <li>전광판(Media Plate)</li>
+  <li>하늘(SkyAtmosphere + Volumetric Cloud)</li>
+</ol>
+
+<hr />
+<h2 id="주요-작업">주요 작업</h2>
+
+<p>실제 작업 순서
+블로킹 &gt; 카메라 위치 설정 &gt; 자동차 움직임 설정 &gt; 하늘 &gt; 오브제 에셋 교체 &gt; 조명과 간판, 전광판 &gt; 기타 디테일</p>
+
+<ol>
+  <li>도시 환경 구축
+    <ul>
+      <li>블로킹: Cube로 건물, 지하철 출구, 차량 등 오브제 자리 잡기 → 실제 영상+네이버 지도 치수로 스케일 근사치 적용
+        <ul>
+          <li>층고: ~3m/층(천장고 2.5 + 구조 0.5)</li>
+        </ul>
+      </li>
+      <li>에셋 교체: 무료 City building/Vehicle 에셋을 스케일 재조정해 교체
+        <ul>
+          <li>일부 건물은 외관 리모델링하듯 외벽에 Static Mesh를 덧씌워 수정</li>
+          <li>지하철 출구는 유료 퀄리티 에셋 대신 프리미티브를 이용해 직접 간이 모델링(곡선→직선 대체)</li>
+        </ul>
+      </li>
+      <li>간판: 흰 텍스트 PNG를 Static Mesh 머티리얼로 적용, BaseColor/Emissive 조정</li>
+      <li>버스 반사 간판: 시야에서 벗어난 간판이 큐브 모양으로 반사되는 문제 발생 → Static Mesh로 글자를 직접 만들고 액터 병합하여 임시 모델링 후 BaseColor/Emissive 설정
+  문제 해결을 위해 한 것
+      1) Reflection 처럼 보이는 Mesh 배치했으나 버스 곡면 반사까지는 구현되지 않음 → 실패
+      2) Planar Reflection → 동일한 문제 발생. 실패
+      3) 결국 모델링 → 적용</li>
+      <li>전광판: MediaPlate + 영상. 밝기가 밝아 Material Instance EmissiveColor를 조절했다(VectorParameter * ScalarParameter)
+        <ul>
+          <li>분홍색 영상에 적힌 문구 개인적인 재미 요소 :)
+            <ul>
+              <li>print(“김로그의 네번째 영상.”)</li>
+              <li>console.log(“KimLog’s 4th Video.”);</li>
+              <li>fun main() {println(“워니, 사랑해.”)}</li>
+              <li>print(“I love you, My sweet potato.”)</li>
+              <li>console.log(‘Unreal Engine Dev Log with 챗지.’);</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>시퀀서
+    <ol>
+      <li>카메라: 하늘에서 틸 다운으로 하강, 줌만 미세 조정</li>
+      <li>차량 애니메이션: 직진(양방향) + 우회전(이동/회전)</li>
+      <li>전광판 타이밍: Media Plate 두 개를 컷 포인트에 맞춰 재생</li>
+      <li>오디오: 이번엔 DAW(Logic pro)에서 완성 후 import</li>
+    </ol>
+  </li>
+  <li>하늘 구현
+    <ol>
+      <li>SkyAtmosphere + VolumetricCloud + Directional Light + Fog</li>
+      <li>내가 분석한 하늘
+        <ol>
+          <li>시간대는 19시 경.</li>
+          <li>배경 약간 흐린 하늘색. 그러나 밝은 편.</li>
+          <li>태양의 위치는 화면 기준 오른쪽 아래 큰 건물 뒷편.</li>
+          <li>태양의 고도가 낮아졌으니 구름 상단은 흐린 흰색+푸른빛 보라 하단은 태양에 의한 분홍+오렌지</li>
+          <li>구름은 높고 가볍게 살짝 뭉쳐진. 하늘의 7-80%정도의 비중</li>
+        </ol>
+      </li>
+      <li>구현된 하늘
+        <ol>
+          <li>하늘은 약간 하늘 색. 예상보단 어두운. : 건물이 원하는 만큼 어두워지게 하려다보니 좀 더 어두워짐</li>
+          <li>태양의 위치는 화면 기준 우측 하단. 그러나 건물 뒷편까지는 아니고 건물과 건물 사이에 비치게 배치됨.</li>
+          <li>구름 상부와 하부 색깔 차이가원하는 만큼 표현되지 않음.</li>
+          <li>구름 양과 높이는 비슷.</li>
+        </ol>
+      </li>
+      <li>구름의 양과 태양의 고도는 비슷했지만, 구름 디테일과 하늘 밝기가 아쉬움</li>
+    </ol>
+  </li>
+  <li>렌더링
+    <ol>
+      <li>Movie Render Queue에서 노출이 지나치게 낮게 나와<br />
+ → 이번은 Sequencer Render로 출력(Logic에서 오디오 교체 할 예정이므로, mov)</li>
+    </ol>
+  </li>
+  <li>오디오/영상 편집
+    <ol>
+      <li>Logic Pro: 교차로 앰비언스, 버스 도어/주행, 세단 패닝</li>
+      <li>Vegas Pro: 작업 화면 타임랩스 간단 컷/속도 조절</li>
+    </ol>
+  </li>
+</ol>
+
+<hr />
+<h2 id="배운점">배운점</h2>
+
+<ol>
+  <li>세부 디테일이 결과 퀄리티를 좌우한다.</li>
+  <li>하늘이 어두워졌으니 차량 라이트가 들어가도 좋았을 것 같다</li>
+  <li>오디오에 사람소리가 있으니 인물이 배치되었어야 한다.</li>
+  <li>하늘 구현이 까다롭다.</li>
+  <li>에디터 내 조작과 화면 이동에 익숙해졌다.</li>
+  <li>VectorParameter와 ScalarParameter 활용법에 익숙해졌다.</li>
+  <li>메모리 관리와 맵 재활용 방법을 학습할 필요성을 느꼈다.</li>
+</ol>
+
+
+    
+    <hr>
+    
+<div class="yt-wrap">
+  <iframe
+    src="https://www.youtube.com/embed/40FEFY3NUw4"
+    allowfullscreen>
+  </iframe>
+</div>
+
+
+    
+
+    
+
+  </div>
+
+  <a class="u-url" href="/devlog/ue5/Unreal%20Engine%205%20Dev%20Log%204%20%E2%80%95%20%EC%9A%B0%EB%A6%AC%20%EB%8F%99%EB%84%A4%20%EB%A7%8C%EB%93%A4%EA%B8%B0%20%EB%8F%84%EC%A0%84%EA%B8%B0%20!/" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer">
+  <div class="wrapper">
+    <div class="footer-inner">
+      <div class="footer-left">
+        <div class="footer-contact">
+          <span class="post-meta"
+            ><i class="fa-solid fa-envelope"></i> kimlog0415@gmail.com</span
+          >
+          <span class="post-meta">｜</span>
+          <span class="post-meta"
+            ><a href="https://www.youtube.com/@kimlog0415"
+              ><i class="fa-brands fa-youtube" style="color: #ff0335"></i>
+              YouTube</a
+            ></span
+          >
+          <span class="post-meta">｜</span>
+          <span class="post-meta"
+            ><a href="/feed.xml"><i class="fa-solid fa-rss"></i> RSS</a></span
+          >
+        </div>
+        <div class="footer-copy post-meta">
+          &copy; 2026 김로그의 우당탕탕 ｜
+          <a href="/privacy-policy/">Privacy Policy</a>
+        </div>
+      </div>
+      <div class="footer-bmc">
+        <a href="/contact/" class="support-btn">☕ 후원하기</a>
+      </div>
+    </div>
+  </div>
+</footer>
+</body>
+
+</html>
