@@ -10,6 +10,8 @@ project_name: 코드시트 ChordSheet
 video_id:
 app_url:
 status:
+tags:
+  - Flutter
 ---
 ## 요약
 
