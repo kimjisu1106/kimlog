@@ -1,17 +1,29 @@
 ﻿<footer class="site-footer">
-  <div class="wrapper"><div class="footer-inner">
-    <div class="footer-left">
-      <div class="footer-contact">
-        <span class="post-meta">📧 kimlog0415@gmail.com</span>
-        <span class="post-meta">｜</span>
-        <span class="post-meta">▶️ <a href="https://www.youtube.com/@kimlog0415">YouTube</a></span>
+  <div class="wrapper">
+    <div class="footer-inner">
+      <div class="footer-left">
+        <div class="footer-contact">
+          <span class="post-meta"
+            ><i class="fa-solid fa-envelope"></i> kimlog0415@gmail.com</span
+          >
+          <span class="post-meta">｜</span>
+          <span class="post-meta"
+            ><a href="https://www.youtube.com/@kimlog0415"
+              ><i class="fa-brands fa-youtube" style="color: #ff0335"></i>
+              YouTube</a
+            ></span
+          >
+          <span class="post-meta">｜</span>
+          <span class="post-meta"
+            ><a href="/feed.xml"><i class="fa-solid fa-rss"></i> RSS</a></span
+          >
+        </div>
+        <div class="footer-copy post-meta">
+          &copy; {{ site.time | date: "%Y" }} {{ site.title }} ｜
+          <a href="/privacy-policy/">Privacy Policy</a>
+        </div>
       </div>
-      <div class="footer-copy post-meta">
-        &copy; {{ site.time | date: "%Y" }} {{ site.title }} ｜
-        <a href="/privacy-policy/">Privacy Policy</a>
-      </div>
-    </div>
-    <div class="footer-bmc">
+      <div class="footer-bmc">
         <a href="/contact/" class="support-btn">☕ 후원하기</a>
       </div>
     </div>
