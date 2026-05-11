@@ -8,8 +8,10 @@ project: today-i-learn
 project_name: Today I Learn
 video_id:
 app_url:
-status:
-tags:
+
+  - Flutter
+  - Dart
+  - Drift
 ---
 **`insertOnConflictUpdate` vs `DoUpdate(target: ...)`**
 
