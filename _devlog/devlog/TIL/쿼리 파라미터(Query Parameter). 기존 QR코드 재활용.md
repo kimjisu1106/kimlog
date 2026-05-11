@@ -9,6 +9,8 @@ project_name: Today I Learn
 video_id:
 app_url:
 status:
+tags:
+  - Web
 ---
 회사 ERP 시설물 대장 개발 중, 시설물에 이미 붙어있는 QR코드를 교체하지 않고 재활용할 수 있는 방법 발견.
 

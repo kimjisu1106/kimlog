@@ -9,6 +9,9 @@ project_name: Today I Learn
 video_id:
 app_url:
 status:
+tags:
+  - Jekyll
+  - Ruby
 ---
 Jekyll은 기본적으로 **kramdown**으로 마크다운을 파싱한다.  
 그런데 kramdown만으로는 GitHub Flavored Markdown(GFM)의 일부 문법을 처리하지 못한다.

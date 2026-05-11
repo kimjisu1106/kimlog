@@ -11,6 +11,9 @@ project_name: Hello World
 video_id: DV_3clCPYXw
 app_url:
 status: finished
+tags:
+  - UE5
+  - Blueprints
 ---
 ## 오늘 한 일
 

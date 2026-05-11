@@ -11,6 +11,9 @@ project_name: 전자 피아노 + MIDI
 video_id: Z8psLvewAE8
 app_url:
 status: finished
+tags:
+  - UE5
+  - Blueprints
 ---
 ## 요약
 

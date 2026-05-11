@@ -11,6 +11,9 @@ project_name: 시네마틱(Portal Exit)
 video_id: 8hCDR3biZro
 app_url:
 status: finished
+tags:
+  - UE5
+  - Blueprints
 ---
 ## 도입
 

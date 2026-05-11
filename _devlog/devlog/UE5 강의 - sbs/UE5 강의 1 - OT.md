@@ -10,6 +10,8 @@ project_name: UnrealEngine5 Class
 video_id:
 app_url:
 status:
+tags:
+  - UE5
 ---
 ## 오늘 한 일
 

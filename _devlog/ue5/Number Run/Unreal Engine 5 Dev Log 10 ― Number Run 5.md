@@ -10,6 +10,9 @@ project_name: Number Run BluePrint
 video_id: a-SI0Rz9B8w
 app_url:
 status: finished
+tags:
+  - UE5
+  - Blueprints
 ---
 ## 오늘 한 일
 
