@@ -12,7 +12,7 @@ status:
 tags:
   - Python
   - Django
-  - Google Sheets
+  - Google-Sheets
 ---
 ## 문제
 
