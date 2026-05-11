@@ -12,6 +12,10 @@ app_url:
   - Flutter
   - Dart
   - Drift
+tags:
+  - Flutter
+  - Dart
+  - Drift
 ---
 **`insertOnConflictUpdate` vs `DoUpdate(target: ...)`**
 

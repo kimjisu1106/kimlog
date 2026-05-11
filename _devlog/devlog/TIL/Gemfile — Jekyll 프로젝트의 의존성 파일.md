@@ -9,6 +9,9 @@ project_name: Today I Learn
 video_id:
 app_url:
 status:
+tags:
+  - Jekyll
+  - Ruby
 ---
 Jekyll은 Ruby로 만들어진 정적 사이트 생성기다.  
 Ruby 프로젝트는 어떤 라이브러리(gem)를 어떤 버전으로 쓸지 **Gemfile**에 명시한다.

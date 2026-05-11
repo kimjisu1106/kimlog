@@ -9,6 +9,10 @@ project_name: Today I Learn
 video_id:
 app_url:
 status:
+tags:
+  - Python
+  - Django
+  - Google Sheets
 ---
 ## 문제
 

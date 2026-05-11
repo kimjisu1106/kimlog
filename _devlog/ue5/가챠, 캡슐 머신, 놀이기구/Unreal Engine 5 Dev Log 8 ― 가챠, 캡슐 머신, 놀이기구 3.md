@@ -10,6 +10,9 @@ project_name: Gacha Machine
 video_id:
 app_url:
 status:
+tags:
+  - UE5
+  - Blueprints
 ---
 ## 오늘 한 일
 

@@ -10,6 +10,9 @@ project_name: PDF 용량 줄이기
 app_url: /apps/pdf-compressor/index.html
 video_id:
 status: finished
+tags:
+  - JavaScript
+  - PDF
 ---
 디자이너가 포트폴리오 PDF를 제출할 때 용량 제한에 걸리는 경우가 종종 있다. 브라우저에서 바로 PDF 용량을 줄여주는 도구가 필요해서 만들었다.
 

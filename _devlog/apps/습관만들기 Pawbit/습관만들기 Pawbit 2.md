@@ -14,6 +14,11 @@ app_url:
   - Dart
   - Drift
   - Riverpod
+tags:
+  - Flutter
+  - Dart
+  - Drift
+  - Riverpod
 ---
 ## 오늘 한 일
 

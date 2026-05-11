@@ -9,6 +9,10 @@ project_name: Today I Learn
 video_id:
 app_url:
 status:
+tags:
+  - Django
+  - Python
+  - Security
 ---
 아침에 GeekNews를 보고 Django로 개발중인 서비스 보안 점검을 했다.
 

@@ -9,6 +9,8 @@ project_name: Today I Learn
 video_id:
 app_url:
 status:
+tags:
+  - Python
 ---
 `subprocess.Popen(f'explorer /select,"{filepath}"')`
 

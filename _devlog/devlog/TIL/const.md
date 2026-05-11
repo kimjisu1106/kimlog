@@ -9,6 +9,8 @@ project_name: Today I Learn
 video_id:
 app_url:
 status:
+tags:
+  - Programming
 ---
 Constant의 줄임말. "변하지 않는 것"
 

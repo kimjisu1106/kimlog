@@ -13,6 +13,9 @@ app_url:
   - Flutter
   - Dart
   - Drift
+tags:
+  - Flutter
+  - Dart
 ---
 ## 오늘 한 일
 

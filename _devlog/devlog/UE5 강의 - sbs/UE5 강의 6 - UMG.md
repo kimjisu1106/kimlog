@@ -10,6 +10,10 @@ project_name: UnrealEngine5 Class
 video_id: mGDfCV_GyjQ
 app_url:
 status:
+tags:
+  - UE5
+  - Blueprints
+  - UMG
 ---
 ## 오늘 한 일
 

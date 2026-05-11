@@ -9,6 +9,9 @@ app_url: /apps/image-converter/index.html
 project: image-converter
 project_name: 이미지 변환기 Image Converter
 status: finished
+tags:
+  - Python
+  - Tkinter
 ---
 ## 요약
 

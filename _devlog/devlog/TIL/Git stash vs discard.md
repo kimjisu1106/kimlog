@@ -9,6 +9,8 @@ project_name: Today I Learn
 video_id:
 app_url:
 status:
+tags:
+  - Git
 ---
 원고를 적는 Obsidian도 Sync 중이라 노트북과 데스크톱의 git hub에서 종종 충돌이 발생된다.
 Changes를 지난번에 Discard했다가 원고를 날렸던 경험이 있어서 이번에는 Stash하고 Restore했다.

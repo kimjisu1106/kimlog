@@ -9,6 +9,8 @@ project_name: Today I Learn
 video_id:
 app_url:
 status:
+tags:
+  - English
 ---
 - **I might try it** = 할 수도 있고 아닐 수도 있고
 - **I'll try it** = 할게 (의지 있음)
