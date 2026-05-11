@@ -9,6 +9,8 @@ project_name: Today I Learn
 video_id:
 app_url:
 status:
+tags:
+  - C++
 ---
 변수에 어떤 종류의 데이터를 저장할지 미리 정해주는 것. C++는 변수를 만들 때 반드시 자료형을 선언해야 한다.
 

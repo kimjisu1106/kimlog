@@ -9,6 +9,9 @@ project_name: Today I Learn
 video_id:
 app_url:
 status:
+tags:
+  - Jekyll
+  - JavaScript
 ---
 - 카테고리를 받아서 `_cat`에 넣고 post가 해당 categories를 포함하는지 검사한다. 포함되면 `graph_posts`에 devlog에서 해당되는 posts를 넣고, 포함되는게 없으면 devlog 전체 출력
 

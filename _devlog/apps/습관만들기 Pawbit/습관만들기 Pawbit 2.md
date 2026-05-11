@@ -9,8 +9,16 @@ project: habit-tracker
 project_name: 습관만들기 Pawbit
 video_id:
 app_url:
-status:
+
+  - Flutter
+  - Dart
+  - Drift
+  - Riverpod
 tags:
+  - Flutter
+  - Dart
+  - Drift
+  - Riverpod
 ---
 ## 오늘 한 일
 

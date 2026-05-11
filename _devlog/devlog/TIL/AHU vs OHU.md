@@ -9,6 +9,8 @@ project_name: Today I Learn
 video_id:
 app_url:
 status:
+tags:
+  - Engineering
 ---
 **AHU (Air Handling Unit)**
 실내 공기를 Return(흡입) → 필터링/냉난방 처리 → Supply(급기) 순으로 순환시키는 공조 시스템. 내부 공기를 재사용하기 때문에 에너지 효율이 높음.

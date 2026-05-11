@@ -9,6 +9,8 @@ project_name: Today I Learn
 video_id:
 app_url:
 status:
+tags:
+  - Programming
 ---
 프레임워크나 라이브러리마다 미리 약속해둔 설정 키.
 

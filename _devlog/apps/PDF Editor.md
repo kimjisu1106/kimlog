@@ -10,6 +10,9 @@ project: pdf-editor
 project_name: PDF Editor
 video_id:
 status: finished
+tags:
+  - JavaScript
+  - PDF
 ---
 ## 요약
 

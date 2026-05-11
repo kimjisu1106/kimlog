@@ -10,6 +10,9 @@ project_name: Rock Paper Scissors
 video_id: mGDfCV_GyjQ
 app_url:
 status: finished
+tags:
+  - UE5
+  - Blueprints
 ---
 ## 요약
 

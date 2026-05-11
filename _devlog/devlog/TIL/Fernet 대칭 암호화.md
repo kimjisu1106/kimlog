@@ -9,6 +9,9 @@ project_name: Today I Learn
 video_id:
 app_url:
 status:
+tags:
+  - Python
+  - Security
 ---
 ### 대칭 암호화
 

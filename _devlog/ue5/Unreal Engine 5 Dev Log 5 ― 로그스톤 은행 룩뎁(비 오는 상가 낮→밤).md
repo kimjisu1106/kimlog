@@ -11,6 +11,9 @@ project_name: 로그스톤 은행
 video_id: 5iGeL8S5PHo
 app_url:
 status: finished
+tags:
+  - UE5
+  - Blueprints
 ---
 ## 요약
 

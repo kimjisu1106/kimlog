@@ -9,6 +9,9 @@ project_name: Today I Learn
 video_id:
 app_url:
 status:
+tags:
+  - Python
+  - Tkinter
 ---
 PaddingX, PaddingY의 줄임말.
 Tkinter 위젯 간 여백을 조절할 때 사용.

@@ -10,6 +10,8 @@ project_name: Today I Learn
 video_id:
 app_url:
 status:
+tags:
+  - C++
 ---
 C++은 컴파일을 위에서 아래로 단일 방향으로 하기 때문에 함수 사용 시 선언부와 정의부가 존재한다. 나중에 이런 함수가 나올거라고 미리 알려주는 것.
 

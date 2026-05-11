@@ -9,6 +9,8 @@ project_name:
 video_id:
 app_url:
 status:
+tags:
+  - Programming
 ---
 ## DSL (Domain Specific Language)
 

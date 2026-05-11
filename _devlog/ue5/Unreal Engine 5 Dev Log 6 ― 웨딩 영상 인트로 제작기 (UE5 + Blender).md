@@ -11,6 +11,10 @@ project_name: 웨딩 영상 인트로
 video_id: spik3FuBHJ8
 app_url:
 status: finished
+tags:
+  - UE5
+  - Blueprints
+  - Blender
 ---
 ## 요약
 

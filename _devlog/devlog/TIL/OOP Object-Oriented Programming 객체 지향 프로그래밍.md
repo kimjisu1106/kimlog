@@ -9,6 +9,9 @@ project_name: Today I Learn
 video_id:
 app_url:
 status:
+tags:
+  - OOP
+  - Programming
 ---
 클래스(객체의 설계도) 별로 객체를 만들도록 하는 프로그래밍.
 회사 툴 만들면서 이미 Django에서 Model로 사용 중이던 개념.

@@ -9,6 +9,9 @@ project_name: Today I Learn
 video_id:
 app_url:
 status:
+tags:
+  - Python
+  - Algorithm
 ---
 ### MD5 (완전 동일 탐지)
 
