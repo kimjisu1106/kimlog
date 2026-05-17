@@ -252,20 +252,20 @@ Minima 기본 post layout을 오버라이드. 세 가지 기능이 자동으로 
 
 - [x] **Series Posts 강화**: Related Posts → Series 목록으로 개편 완료
   - 날짜 오름차순 + 번호 + 현재 포스트 "읽는 중" 뱃지 + 상단 요약 박스
-- [ ] **Suggested Posts**: 같은 category + 다른 project의 summary 포스트 최하단 노출
+- [x] **Suggested Posts**: 같은 category + 다른 project의 summary 포스트 최하단 노출
 - [x] **Meta Description**: `jekyll-seo-tag`가 자동 처리 (page.description → page.excerpt → site.description). frontmatter 명세에 `description` 필드 추가 완료
 - [x] **RSS 아이콘**: footer 또는 `<head>`에 `/feed.xml` 링크 추가 (`jekyll-feed` 이미 설치됨)
 
 ### 중간 (HTML/CSS/JS 작업)
 
 - [x] **Tags frontmatter**: 전체 `_devlog/**/*.md` 포스트에 `tags:` 필드 추가 완료
-- [ ] **Tags 필터 UI**: 검색/TIL 페이지에 클라이언트 JS 태그 필터 구현 (태그 페이지 자동생성은 `jekyll-archives` 플러그인 필요)
+- [x] **Tags 필터 UI**: TIL 페이지에 클라이언트 JS 태그 chip 필터 구현
 - [x] **Apps 카드 그리드**: `index.html` Apps 섹션 → 리퀴드 글래스 flip 슬라이더로 전환
   - 앞면: 이미지 + 앱 이름 / 뒷면: 설명 + 바로가기 버튼 (hover/click 플립)
   - 무한 루프 CSS 슬라이더, hover 시 `animation-play-state: paused`
   - 모바일: 애니메이션 없이 wrap 그리드, aria-hidden 복사본 숨김
 - [x] **검색 버그 수정**: fetch 완료 전 타이핑 시 빈 결과, null title/date/content TypeError 수정
-- [ ] **Lazy Loading**: 포스트 본문 이미지에 `loading="lazy"` 전역 적용
+- [x] **Lazy Loading**: 포스트 본문 이미지에 `loading="lazy"` 전역 적용
 
 ### 공수 미정
 
