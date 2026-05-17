@@ -4,6 +4,11 @@ layout: home
 
 {% include contribution-graph.html %}
 
+<div class="wordcloud-wrap">
+  <p class="post-meta wordcloud-label">최근 1년 태그</p>
+  <canvas id="tag-cloud"></canvas>
+</div>
+
 <h2>Daily Logs</h2>
 
 {% assign all_tils = site.devlog | where_exp: "p", "p.categories contains 'today-i-learn'" | sort: "date" | reverse %}
@@ -100,6 +105,52 @@ layout: home
 </ul>
 
 <script>
+  function loadWordCloud(cb) {
+    var s = document.createElement('script');
+    s.src = 'https://cdn.jsdelivr.net/npm/wordcloud@1.2.2/src/wordcloud2.js';
+    s.onload = cb;
+    s.onerror = function() {
+      var s2 = document.createElement('script');
+      s2.src = 'https://unpkg.com/wordcloud@1.2.2/src/wordcloud2.js';
+      s2.onload = cb;
+      document.head.appendChild(s2);
+    };
+    document.head.appendChild(s);
+  }
+
+  loadWordCloud(function() {
+    fetch('/search.json')
+      .then(function(r) { return r.json(); })
+      .then(function(posts) {
+        var now = new Date();
+        var yearAgo = new Date(now.getFullYear() - 1, now.getMonth(), now.getDate());
+        var freq = {};
+        posts.forEach(function(p) {
+          if (!p.tags || !p.date) return;
+          if (new Date(p.date) < yearAgo) return;
+          p.tags.forEach(function(tag) { freq[tag] = (freq[tag] || 0) + 1; });
+        });
+        var list = Object.entries(freq).sort(function(a, b) { return b[1] - a[1]; }).slice(0, 60);
+        if (!list.length) return;
+        var maxFreq = list[0][1];
+        var canvas = document.getElementById('tag-cloud');
+        var w = canvas.parentElement.offsetWidth;
+        canvas.width = w;
+        canvas.height = Math.round(Math.min(200, Math.max(120, w * 0.3)));
+        var colors = ['#2a7ae4', '#5b9ef5', '#40a9a0', '#e86b5f', '#f5a623', '#7c5cfc'];
+        WordCloud(canvas, {
+          list: list,
+          gridSize: Math.round(w / 60),
+          weightFactor: function(n) { return Math.max(13, (n / maxFreq) * 52); },
+          fontFamily: 'sans-serif',
+          color: function() { return colors[Math.floor(Math.random() * colors.length)]; },
+          backgroundColor: 'transparent',
+          rotateRatio: 0,
+          shrinkToFit: true,
+        });
+      });
+  });
+
   document.querySelectorAll(".apps-card:not([aria-hidden])").forEach((card) => {
     card.addEventListener("click", (e) => {
       if (e.target.closest(".apps-card-btn")) return;
