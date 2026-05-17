@@ -150,8 +150,6 @@
   font-weight: 700;
 }
 
-.home-date {
-}
 
 /* Video row */
 .home-video {
@@ -816,6 +814,20 @@ hr {
   align-items: center;
   padding: 0 4px;
   vertical-align: middle;
+}
+
+.wordcloud-wrap {
+  margin-bottom: 32px;
+}
+
+.wordcloud-label {
+  margin-bottom: 8px;
+}
+
+#tag-cloud {
+  display: block;
+  width: 100%;
+  cursor: default;
 }
 
 .search-wrap {
