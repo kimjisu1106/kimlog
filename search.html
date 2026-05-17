@@ -31,8 +31,8 @@ permalink: /search/
 
     const matched = posts
       .filter(p =>
-        p.title.toLowerCase().includes(q) ||
-        p.content.toLowerCase().includes(q)
+        (p.title || '').toLowerCase().includes(q) ||
+        (p.content || '').toLowerCase().includes(q)
       )
       .sort((a, b) => b.date.localeCompare(a.date));
 
