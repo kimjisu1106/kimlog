@@ -15,17 +15,19 @@ permalink: /search/
   const results = document.getElementById('search-results');
   const empty = document.getElementById('search-empty');
   let posts = [];
+  let ready = false;
 
-  fetch('/search.json')
-    .then(r => r.json())
-    .then(data => { posts = data; });
-
-  input.addEventListener('input', () => {
+  function runSearch() {
     const q = input.value.trim().toLowerCase();
     results.innerHTML = '';
     empty.hidden = true;
 
     if (q.length < 1) return;
+
+    if (!ready) {
+      results.innerHTML = '<li class="post-meta">검색 인덱스 로딩 중...</li>';
+      return;
+    }
 
     const matched = posts
       .filter(p =>
@@ -52,5 +54,15 @@ permalink: /search/
       `;
       results.appendChild(li);
     });
-  });
+  }
+
+  fetch('/search.json')
+    .then(r => r.json())
+    .then(data => {
+      posts = data;
+      ready = true;
+      runSearch();
+    });
+
+  input.addEventListener('input', runSearch);
 </script>
