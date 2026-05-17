@@ -34,7 +34,7 @@ permalink: /search/
         (p.title || '').toLowerCase().includes(q) ||
         (p.content || '').toLowerCase().includes(q)
       )
-      .sort((a, b) => b.date.localeCompare(a.date));
+      .sort((a, b) => (b.date || '').localeCompare(a.date || ''));
 
     if (matched.length === 0) {
       empty.hidden = false;
