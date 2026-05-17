@@ -246,7 +246,7 @@ Minima 기본 post layout을 오버라이드. 세 가지 기능이 자동으로 
 - 인라인 `<style>`, `style=""` 속성이 추가되지 않았는지 확인한다 (모든 스타일은 `assets/main.scss`에만 작성).
 - `<script>` 내 `eval()` 또는 동적 코드 실행이 없는지 확인한다.
 
-## 개발 백로그
+## 해야 할 일
 
 ### 낮음 (Liquid/CSS 수정)
 
@@ -258,11 +258,13 @@ Minima 기본 post layout을 오버라이드. 세 가지 기능이 자동으로 
 
 ### 중간 (HTML/CSS/JS 작업)
 
-- [ ] **태그 기능**: frontmatter `tags` 추가 + 클라이언트 JS 태그 필터 (태그 페이지 자동생성은 `jekyll-archives` 플러그인 필요)
+- [x] **Tags frontmatter**: 전체 `_devlog/**/*.md` 포스트에 `tags:` 필드 추가 완료
+- [ ] **Tags 필터 UI**: 검색/TIL 페이지에 클라이언트 JS 태그 필터 구현 (태그 페이지 자동생성은 `jekyll-archives` 플러그인 필요)
 - [x] **Apps 카드 그리드**: `index.html` Apps 섹션 → 리퀴드 글래스 flip 슬라이더로 전환
   - 앞면: 이미지 + 앱 이름 / 뒷면: 설명 + 바로가기 버튼 (hover/click 플립)
   - 무한 루프 CSS 슬라이더, hover 시 `animation-play-state: paused`
   - 모바일: 애니메이션 없이 wrap 그리드, aria-hidden 복사본 숨김
+- [x] **검색 버그 수정**: fetch 완료 전 타이핑 시 빈 결과, null title/date/content TypeError 수정
 - [ ] **Lazy Loading**: 포스트 본문 이미지에 `loading="lazy"` 전역 적용
 
 ### 공수 미정
