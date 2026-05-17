@@ -45,9 +45,9 @@ devlog.html          # Dev Log 목록 페이지 (모든 devlog 포스트, 날짜
 til.html             # TIL 목록 페이지 (contribution graph + project별 그룹핑)
 ue5.html             # UE5 페이지 (contribution graph + Projects/Dev Log)
 apps.html            # Apps 페이지 (contribution graph + Projects/Dev Log)
-index.html           # 홈 (contribution graph + Daily Logs + Dev Logs + Apps + Videos)
+index.html           # 홈 (contribution graph + 태그 워드클라우드 + Daily Logs + Dev Logs + Apps + Videos)
 search.html          # 검색 페이지 (클라이언트 사이드 전문 검색)
-search.json          # 빌드 시 생성되는 검색 인덱스 (제목 + 본문)
+search.json          # 빌드 시 생성되는 검색 인덱스 (제목 + 본문 + tags)
 contact.html         # Contact 페이지 (이메일, YouTube, PayPal/카카오페이 후원)
 privacy-policy.html  # Privacy Policy (범용, 영/한, Google AdSense 조항 포함)
 .gitignore           # **/draft-*.md 제외
@@ -266,6 +266,9 @@ Minima 기본 post layout을 오버라이드. 세 가지 기능이 자동으로 
   - 모바일: 애니메이션 없이 wrap 그리드, aria-hidden 복사본 숨김
 - [x] **검색 버그 수정**: fetch 완료 전 타이핑 시 빈 결과, null title/date/content TypeError 수정
 - [x] **Lazy Loading**: 포스트 본문 이미지에 `loading="lazy"` 전역 적용
+- [x] **태그 워드클라우드**: `index.html` 히트맵 아래에 최근 1년 태그 빈도 워드클라우드 추가
+  - `wordcloud2.js` (jsdelivr → unpkg fallback), `search.json`의 `tags` 필드 활용
+  - 빈도 상위 60개, 13~52px 가중치, 매 렌더링마다 랜덤 컬러
 
 ### 공수 미정
 
