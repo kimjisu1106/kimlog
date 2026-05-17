@@ -5,30 +5,40 @@ layout: home
 {% include contribution-graph.html %}
 
 <div class="wordcloud-wrap">
-  <p class="post-meta wordcloud-label">최근 1년 태그</p>
   <canvas id="tag-cloud"></canvas>
+  <p class="post-meta wordcloud-label">최근 1년 태그</p>
 </div>
 
 <h2>Daily Logs</h2>
 
-{% assign all_tils = site.devlog | where_exp: "p", "p.categories contains 'today-i-learn'" | sort: "date" | reverse %}
+{% assign all_tils = site.devlog | where_exp: "p", "p.categories contains
+'today-i-learn'" | sort: "date" | reverse %}
 <ul class="devlog-list">
   {% for post in all_tils limit: 5 %}
-  <li>{{ post.date | date: "%Y-%m-%d" }} ｜ <a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
+  <li>
+    {{ post.date | date: "%Y-%m-%d" }} ｜
+    <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+  </li>
   {% endfor %}
 </ul>
 {% if all_tils.size > 5 %}
-<a class="devlog-toggle" href="{{ '/today-i-learn/' | relative_url }}">더보기 ▾</a>
+<a class="devlog-toggle" href="{{ '/today-i-learn/' | relative_url }}"
+  >더보기 ▾</a
+>
 {% endif %}
 
 <hr />
 
 <h2>Dev Logs</h2>
 
-{% assign all_devlogs = site.devlog | where_exp: "p", "p.categories contains 'devlog'" | sort: "date" | reverse %}
+{% assign all_devlogs = site.devlog | where_exp: "p", "p.categories contains
+'devlog'" | sort: "date" | reverse %}
 <ul class="devlog-list">
   {% for post in all_devlogs limit: 5 %}
-  <li>{{ post.date | date: "%Y-%m-%d" }} ｜ <a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
+  <li>
+    {{ post.date | date: "%Y-%m-%d" }} ｜
+    <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+  </li>
   {% endfor %}
 </ul>
 {% if all_devlogs.size > 5 %}
@@ -39,8 +49,9 @@ layout: home
 
 <h2>Apps</h2>
 
-{% assign apps = site.devlog | where_exp: "p", "p.categories contains 'summary'" | where_exp: "p", "p.app_url" | sort: "date" | reverse %}
-{% if apps.size == 0 %}
+{% assign apps = site.devlog | where_exp: "p", "p.categories contains 'summary'"
+| where_exp: "p", "p.app_url" | sort: "date" | reverse %} {% if apps.size == 0
+%}
 <p>No apps yet.</p>
 {% else %}
 <div class="apps-showcase">
@@ -49,24 +60,41 @@ layout: home
     <div class="apps-card">
       <div class="apps-card-inner">
         <div class="apps-card-front">
-          <img src="{{ '/assets/images/' | append: post.project | append: '.png' | relative_url }}" alt="{{ post.project_name | default: post.title }}" loading="lazy" onerror="this.style.display='none'">
-          <span class="apps-card-name">{{ post.project_name | default: post.title }}</span>
+          <img
+            src="{{ '/assets/images/' | append: post.project | append: '.png' | relative_url }}"
+            alt="{{ post.project_name | default: post.title }}"
+            loading="lazy"
+            onerror="this.style.display = 'none'"
+          />
+          <span class="apps-card-name"
+            >{{ post.project_name | default: post.title }}</span
+          >
         </div>
         <div class="apps-card-back">
-          <a class="apps-card-btn" href="{{ post.url | relative_url }}">자세히 보기 →</a>
+          <a class="apps-card-btn" href="{{ post.url | relative_url }}"
+            >자세히 보기 →</a
+          >
         </div>
       </div>
     </div>
-    {% endfor %}
-    {% for post in apps %}
+    {% endfor %} {% for post in apps %}
     <div class="apps-card" aria-hidden="true">
       <div class="apps-card-inner">
         <div class="apps-card-front">
-          <img src="{{ '/assets/images/' | append: post.project | append: '.png' | relative_url }}" alt="" loading="lazy" onerror="this.style.display='none'">
-          <span class="apps-card-name">{{ post.project_name | default: post.title }}</span>
+          <img
+            src="{{ '/assets/images/' | append: post.project | append: '.png' | relative_url }}"
+            alt=""
+            loading="lazy"
+            onerror="this.style.display = 'none'"
+          />
+          <span class="apps-card-name"
+            >{{ post.project_name | default: post.title }}</span
+          >
         </div>
         <div class="apps-card-back">
-          <a class="apps-card-btn" href="{{ post.url | relative_url }}">자세히 보기 →</a>
+          <a class="apps-card-btn" href="{{ post.url | relative_url }}"
+            >자세히 보기 →</a
+          >
         </div>
       </div>
     </div>
@@ -80,10 +108,18 @@ layout: home
 <h2>Videos</h2>
 
 <ul class="post-list home-list" id="list-videos">
-  {% assign vids = site.devlog | where_exp: "p", "p.video_id" | where_exp: "p", "p.categories contains 'summary'" | sort: "date" | reverse %} {% if vids.size == 0 %}
+  {% assign vids = site.devlog | where_exp: "p", "p.video_id" | where_exp: "p",
+  "p.categories contains 'summary'" | sort: "date" | reverse %} {% if vids.size
+  == 0 %}
   <p>No videos yet.</p>
   {% else %} {% for post in vids %}
-  <li class="home-video{% if forloop.index > 5 %} devlog-extra-item{% endif %}"{% if forloop.index > 5 %} hidden{% endif %}>
+  <li
+    class="home-video{% if forloop.index > 5 %} devlog-extra-item{% endif %}"
+    {%
+    if
+    forloop.index
+  >
+    5 %} hidden{% endif %}>
     <a class="home-video-link" href="{{ post.url | relative_url }}">
       <img
         class="home-thumb"
@@ -106,45 +142,68 @@ layout: home
 
 <script>
   function loadWordCloud(cb) {
-    var s = document.createElement('script');
-    s.src = 'https://cdn.jsdelivr.net/npm/wordcloud@1.2.2/src/wordcloud2.js';
+    var s = document.createElement("script");
+    s.src = "https://cdn.jsdelivr.net/npm/wordcloud@1.2.2/src/wordcloud2.js";
     s.onload = cb;
-    s.onerror = function() {
-      var s2 = document.createElement('script');
-      s2.src = 'https://unpkg.com/wordcloud@1.2.2/src/wordcloud2.js';
+    s.onerror = function () {
+      var s2 = document.createElement("script");
+      s2.src = "https://unpkg.com/wordcloud@1.2.2/src/wordcloud2.js";
       s2.onload = cb;
       document.head.appendChild(s2);
     };
     document.head.appendChild(s);
   }
 
-  loadWordCloud(function() {
-    fetch('/search.json')
-      .then(function(r) { return r.json(); })
-      .then(function(posts) {
+  loadWordCloud(function () {
+    fetch("/search.json")
+      .then(function (r) {
+        return r.json();
+      })
+      .then(function (posts) {
         var now = new Date();
-        var yearAgo = new Date(now.getFullYear() - 1, now.getMonth(), now.getDate());
+        var yearAgo = new Date(
+          now.getFullYear() - 1,
+          now.getMonth(),
+          now.getDate(),
+        );
         var freq = {};
-        posts.forEach(function(p) {
+        posts.forEach(function (p) {
           if (!p.tags || !p.date) return;
           if (new Date(p.date) < yearAgo) return;
-          p.tags.forEach(function(tag) { freq[tag] = (freq[tag] || 0) + 1; });
+          p.tags.forEach(function (tag) {
+            freq[tag] = (freq[tag] || 0) + 1;
+          });
         });
-        var list = Object.entries(freq).sort(function(a, b) { return b[1] - a[1]; }).slice(0, 60);
+        var list = Object.entries(freq)
+          .sort(function (a, b) {
+            return b[1] - a[1];
+          })
+          .slice(0, 60);
         if (!list.length) return;
         var maxFreq = list[0][1];
-        var canvas = document.getElementById('tag-cloud');
+        var canvas = document.getElementById("tag-cloud");
         var w = canvas.parentElement.offsetWidth;
         canvas.width = w;
         canvas.height = Math.round(Math.min(200, Math.max(120, w * 0.3)));
-        var colors = ['#2a7ae4', '#5b9ef5', '#40a9a0', '#e86b5f', '#f5a623', '#7c5cfc'];
+        var colors = [
+          "#2a7ae4",
+          "#5b9ef5",
+          "#40a9a0",
+          "#e86b5f",
+          "#f5a623",
+          "#7c5cfc",
+        ];
         WordCloud(canvas, {
           list: list,
           gridSize: Math.round(w / 60),
-          weightFactor: function(n) { return Math.max(13, (n / maxFreq) * 52); },
-          fontFamily: 'sans-serif',
-          color: function() { return colors[Math.floor(Math.random() * colors.length)]; },
-          backgroundColor: 'transparent',
+          weightFactor: function (n) {
+            return Math.max(13, (n / maxFreq) * 52);
+          },
+          fontFamily: "sans-serif",
+          color: function () {
+            return colors[Math.floor(Math.random() * colors.length)];
+          },
+          backgroundColor: "transparent",
           rotateRatio: 0,
           shrinkToFit: true,
         });

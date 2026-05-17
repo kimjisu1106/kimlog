@@ -1,0 +1,53 @@
+<h2 id="오늘-한-일">오늘 한 일</h2>
+
+<ul>
+  <li>홈 화면 &amp; 잔고 표시 개선
+    <ul>
+      <li>HomeScreen 사용자의 포인트/조각(piece) 잔고가 변할 때마다 화면에 바로 반영되도록 고침</li>
+      <li><code class="language-plaintext highlighter-rouge">StatelessWidget</code> → <code class="language-plaintext highlighter-rouge">ConsumerWidget</code> 전환해서 데이터 변화 시 즉시 반영</li>
+      <li><code class="language-plaintext highlighter-rouge">pieceBalanceProvider</code>, <code class="language-plaintext highlighter-rouge">pointBalanceProvider</code>를 <code class="language-plaintext highlighter-rouge">game_providers.dart</code>로 분리해 홈/체크인 화면이 같은 프로바이더를 공유해 데이터 변화 시 즉시 반영</li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">habit_dao</code> 보강
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">PointLedger</code>를 <code class="language-plaintext highlighter-rouge">@DriftAccessor</code>에 추가, build_runner 재실행</li>
+      <li><code class="language-plaintext highlighter-rouge">upsertCheckIn</code> 버그 수정: <code class="language-plaintext highlighter-rouge">insertOnConflictUpdate</code> → <code class="language-plaintext highlighter-rouge">DoUpdate(target: [habitId, date])</code> — PK가 아닌 custom unique key로 conflict 감지</li>
+      <li><code class="language-plaintext highlighter-rouge">watchPointBalance</code>, <code class="language-plaintext highlighter-rouge">getPointBalance</code> 추가해서 포인트 잔고를 실시간으로 지켜보고 가져옴</li>
+      <li><code class="language-plaintext highlighter-rouge">watchCheckInsForDateRange</code> 추가 (주간 헤더용 한 방 쿼리)</li>
+    </ul>
+  </li>
+  <li>체크인 주간 캘린더 헤더
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">ConsumerStatefulWidget</code>으로 전환, <code class="language-plaintext highlighter-rouge">_selectedDate</code> 로컬 상태</li>
+      <li><code class="language-plaintext highlighter-rouge">_weekCheckInsProvider</code>: 오늘 ±3일 범위를 스트림 1개로 구독 (7번 쿼리 안 하고)</li>
+      <li><code class="language-plaintext highlighter-rouge">habitsForDateProvider.family</code>: 날짜 파라미터로 그 날의 HabitWithStatus 목록 반환</li>
+      <li><code class="language-plaintext highlighter-rouge">_WeekHeader</code> + <code class="language-plaintext highlighter-rouge">_DonutDay</code> + <code class="language-plaintext highlighter-rouge">_DonutPainter</code> (CustomPainter): 도넛 링 작성</li>
+      <li>오늘/어제만 편집 가능, 이전 날짜는 타일 opacity 60% + onTap null</li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<h2 id="막힌-부분">막힌 부분</h2>
+
+<ul>
+  <li>complete된 것을 다시 눌렀을 때 꿈 조각이 있음에도 complete 해제가 안됨(complete 해제할 경우 얻은 꿈조각 1개 반환하게 해둠. 따라서 0 이하면 반환이 안되는게 맞고 그 경우 알람 뜨게 함). custom unique key를 사용하는데 <code class="language-plaintext highlighter-rouge">insertOnConflicUpdate</code> 방식이 적용되어 생긴 문제. <code class="language-plaintext highlighter-rouge">Doupdate</code>로 해결.
+    <ul>
+      <li>custom unique key를 사용하는 이유: 같은 습관이 같은 날 복수로 생성되는 것을 막기 위함.</li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<h2 id="다음에-할-일">다음에 할 일</h2>
+
+<ul>
+  <li>습관 item detail 페이지</li>
+  <li>monthly: calendar, yearly: 잔디(히트맵) 구현</li>
+  <li>DogCareLog DAO + 강아지 상태 계산 로직 (경과일 기반)</li>
+  <li>홈 화면 케어 버튼 동작 연결 (밥/산책/목욕 → PointLedger 차감)</li>
+  <li>퍼즐/숲속 화면 (easy 난이도, 그림 선택 → 조각 채우기)</li>
+  <li>미래 날짜 체크인 허용 문제 고민하기 — 현재 <code class="language-plaintext highlighter-rouge">_isEditable</code>은 <code class="language-plaintext highlighter-rouge">diff &gt;= 0</code>(오늘 포함)으로만 체크.</li>
+</ul>
