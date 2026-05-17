@@ -89,5 +89,44 @@ layout: default
 
   </div>
 
+    {% assign _suggest_cat = "" %}
+    {% for _cat in page.categories %}
+      {% unless _cat == "devlog" or _cat == "summary" or _cat == "today-i-learn" %}
+        {% assign _suggest_cat = _cat %}
+        {% break %}
+      {% endunless %}
+    {% endfor %}
+    {% if _suggest_cat != "" %}
+      {% assign _suggested = site.devlog
+        | where_exp: "p", "p.categories contains _suggest_cat"
+        | where_exp: "p", "p.categories contains 'summary'"
+        | where_exp: "p", "p.project != page.project"
+        | sort: "date" | reverse %}
+      {% if _suggested.size > 0 %}
+      <hr>
+      <h2>이런 글도 있어요</h2>
+      <ul class="devlog-list devlog-suggested">
+        {% for sp in _suggested limit: 4 %}
+        <li>
+          {{ sp.date | date: "%Y-%m-%d" }} ｜
+          <a href="{{ sp.url | relative_url }}">{{ sp.project_name | default: sp.title }}</a>
+        </li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+    {% endif %}
+
   <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
 </article>
+
+<script>
+  document.querySelectorAll('.post-content img').forEach(function(img) {
+    img.setAttribute('loading', 'lazy');
+  });
+</script>
+
+<script>
+  document.querySelectorAll('.post-content img').forEach(function(img) {
+    img.setAttribute('loading', 'lazy');
+  });
+</script>

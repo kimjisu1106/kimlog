@@ -10,13 +10,29 @@ permalink: /today-i-learn/
 {% if posts.size == 0 %}
 <p>아직 글이 없습니다.</p>
 {% else %}
+
+{% assign _all_tags = "" | split: "" %}
+{% for post in posts %}
+  {% if post.tags %}
+    {% assign _all_tags = _all_tags | concat: post.tags %}
+  {% endif %}
+{% endfor %}
+{% assign _unique_tags = _all_tags | uniq | sort %}
+
+<div class="tag-filter">
+  <button class="tag-chip active" data-tag="">전체</button>
+  {% for tag in _unique_tags %}
+  <button class="tag-chip" data-tag="{{ tag }}">{{ tag }}</button>
+  {% endfor %}
+</div>
+
 {% assign groups = posts | group_by: "project" %}
 {% for group in groups %}
 {% assign first = group.items | first %}
 {% assign project_title = first.project_name | default: group.name %}
 {% assign gid = group.name | replace: " ", "-" | downcase %}
 
-<details open class="devlog-group">
+<details open class="devlog-group" data-group>
   <summary class="devlog-summary">
     <h3 class="devlog-title">{{ project_title }}</h3>
     <span class="devlog-meta">({{ group.items.size }} posts)</span>
@@ -24,7 +40,7 @@ permalink: /today-i-learn/
 
   <ul class="devlog-list" id="list-{{ gid }}">
     {% for post in group.items %}
-    <li {% if forloop.index > 5 %}hidden class="devlog-extra-item"{% endif %}>{{ post.date | date: "%Y-%m-%d" }} ｜
+    <li {% if forloop.index > 5 %}hidden class="devlog-extra-item"{% endif %} data-tags="{{ post.tags | join: ',' }}">{{ post.date | date: "%Y-%m-%d" }} ｜
       <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
     </li>
     {% endfor %}
@@ -42,15 +58,32 @@ permalink: /today-i-learn/
 
 <script>
   document.addEventListener("click", (e) => {
+    const chip = e.target.closest(".tag-chip");
+    if (chip) {
+      document.querySelectorAll(".tag-chip").forEach((c) => c.classList.remove("active"));
+      chip.classList.add("active");
+      const tag = chip.dataset.tag;
+
+      document.querySelectorAll("[data-group]").forEach((group) => {
+        const items = group.querySelectorAll("li[data-tags]");
+        let visible = 0;
+        items.forEach((li) => {
+          const tags = li.dataset.tags ? li.dataset.tags.split(",") : [];
+          const match = !tag || tags.includes(tag);
+          li.hidden = !match;
+          if (match) visible++;
+        });
+        group.hidden = visible === 0;
+      });
+      return;
+    }
+
     const btn = e.target.closest(".devlog-toggle");
     if (!btn) return;
-
     const list = document.getElementById(btn.dataset.list);
     if (!list) return;
-
     const extras = list.querySelectorAll(".devlog-extra-item");
     const isOpen = btn.getAttribute("aria-expanded") === "true";
-
     if (isOpen) {
       extras.forEach((li) => li.setAttribute("hidden", ""));
       btn.setAttribute("aria-expanded", "false");
