@@ -1,0 +1,7 @@
+<p><strong><code class="language-plaintext highlighter-rouge">insertOnConflictUpdate</code> vs <code class="language-plaintext highlighter-rouge">DoUpdate(target: ...)</code></strong></p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">insertOnConflictUpdate</code>는 PK 충돌만 감지함. custom unique key (<code class="language-plaintext highlighter-rouge">habitId, date</code>)로는 충돌을 못 잡고 INSERT를 시도 → SQLite unique constraint 예외 발생.</li>
+  <li>해결: <code class="language-plaintext highlighter-rouge">DoUpdate((old) =&gt; ..., target: [col1, col2])</code>로 충돌 감지 대상을 명시.</li>
+  <li>Django의 <code class="language-plaintext highlighter-rouge">get_or_create</code> → <code class="language-plaintext highlighter-rouge">update</code> 패턴과 달리, Drift(SQLite)는 insert-on-conflict 방식이라 충돌 기준 컬럼을 직접 지정해야 함.</li>
+</ul>

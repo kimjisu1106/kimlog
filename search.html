@@ -5,7 +5,7 @@ permalink: /search/
 ---
 
 <div class="search-wrap">
-  <input class="search-input" type="text" id="search-input" placeholder="검색어를 입력하세요..." autofocus>
+  <input class="search-input" type="text" id="search-input" placeholder="검색어를 입력하세요...">
   <ul class="devlog-list" id="search-results"></ul>
   <p class="search-empty post-meta" id="search-empty" hidden>검색 결과가 없습니다.</p>
 </div>
@@ -15,24 +15,26 @@ permalink: /search/
   const results = document.getElementById('search-results');
   const empty = document.getElementById('search-empty');
   let posts = [];
+  let ready = false;
 
-  fetch('/search.json')
-    .then(r => r.json())
-    .then(data => { posts = data; });
-
-  input.addEventListener('input', () => {
+  function runSearch() {
     const q = input.value.trim().toLowerCase();
     results.innerHTML = '';
     empty.hidden = true;
 
     if (q.length < 1) return;
 
+    if (!ready) {
+      results.innerHTML = '<li class="post-meta">검색 인덱스 로딩 중...</li>';
+      return;
+    }
+
     const matched = posts
       .filter(p =>
-        p.title.toLowerCase().includes(q) ||
-        p.content.toLowerCase().includes(q)
+        (p.title || '').toLowerCase().includes(q) ||
+        (p.content || '').toLowerCase().includes(q)
       )
-      .sort((a, b) => b.date.localeCompare(a.date));
+      .sort((a, b) => (b.date || '').localeCompare(a.date || ''));
 
     if (matched.length === 0) {
       empty.hidden = false;
@@ -41,7 +43,7 @@ permalink: /search/
 
     matched.forEach(p => {
       const li = document.createElement('li');
-      const idx = p.content.toLowerCase().indexOf(q);
+      const idx = (p.content || '').toLowerCase().indexOf(q);
       const snippet = idx >= 0
         ? '…' + p.content.slice(Math.max(0, idx - 40), idx + 80) + '…'
         : '';
@@ -52,5 +54,15 @@ permalink: /search/
       `;
       results.appendChild(li);
     });
-  });
+  }
+
+  fetch('/search.json')
+    .then(r => r.json())
+    .then(data => {
+      posts = data;
+      ready = true;
+      runSearch();
+    });
+
+  input.addEventListener('input', runSearch);
 </script>

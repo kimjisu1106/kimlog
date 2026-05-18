@@ -150,8 +150,6 @@
   font-weight: 700;
 }
 
-.home-date {
-}
 
 /* Video row */
 .home-video {
@@ -307,21 +305,9 @@
 }
 
 @media (max-width: 640px) {
-  .apps-slider-track {
-    animation: none;
-    flex-wrap: wrap;
-    gap: 12px;
-    justify-content: center;
-  }
-
   .apps-card {
-    margin-right: 0;
-    width: 150px;
-    height: 210px;
-  }
-
-  .apps-card[aria-hidden="true"] {
-    display: none;
+    width: 140px;
+    height: 200px;
   }
 }
 
@@ -399,6 +385,39 @@
    ========================================================= */
 .devlog-group {
   margin-bottom: 32px;
+}
+
+.tag-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 24px;
+}
+
+.tag-chip {
+  padding: 3px 10px;
+  border: 1px solid var(--btn-border);
+  border-radius: 12px;
+  background: none;
+  font-size: 13px;
+  cursor: pointer;
+  color: var(--muted);
+  transition: background 0.15s, color 0.15s;
+}
+
+.tag-chip:hover {
+  background: var(--border-color);
+}
+
+.tag-chip.active {
+  background: var(--btn-border);
+  color: #fff;
+}
+
+@media (prefers-color-scheme: dark) {
+  .tag-chip.active {
+    color: #111;
+  }
 }
 
 .devlog-toggle {
@@ -783,6 +802,21 @@ hr {
   align-items: center;
   padding: 0 4px;
   vertical-align: middle;
+}
+
+.wordcloud-wrap {
+  margin-bottom: 32px;
+}
+
+.wordcloud-label {
+  margin-bottom: 8px;
+  text-align: right;
+}
+
+#tag-cloud {
+  display: block;
+  width: 100%;
+  cursor: default;
 }
 
 .search-wrap {

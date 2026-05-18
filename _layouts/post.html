@@ -87,7 +87,43 @@ layout: default
     </div>
     {% endif %}
 
+    {% assign _suggest_cat = "" %}
+    {% for _cat in page.categories %}
+      {% unless _cat == "devlog" or _cat == "summary" or _cat == "today-i-learn" %}
+        {% assign _suggest_cat = _cat %}
+        {% break %}
+      {% endunless %}
+    {% endfor %}
+    {% if _suggest_cat != "" %}
+      {% assign _suggested = site.devlog
+        | where_exp: "p", "p.categories contains _suggest_cat"
+        | where_exp: "p", "p.categories contains 'summary'"
+        | where_exp: "p", "p.project != page.project"
+        | sort: "date" | reverse %}
+      {% if _suggested.size > 0 %}
+      <hr>
+      <h2>Suggested Posts</h2>
+      <div class="series-list-card">
+        <div class="series-cards">
+          {% for sp in _suggested limit: 4 %}
+          <a class="series-card" href="{{ sp.url | relative_url }}">
+            <span class="series-card-date post-meta">{{ sp.date | date: "%Y-%m-%d" }}</span>
+            <span class="series-sep">｜</span>
+            <span class="series-card-title">{{ sp.project_name | default: sp.title }}</span>
+          </a>
+          {% endfor %}
+        </div>
+      </div>
+      {% endif %}
+    {% endif %}
+
   </div>
 
   <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
 </article>
+
+<script>
+  document.querySelectorAll('.post-content img').forEach(function(img) {
+    img.setAttribute('loading', 'lazy');
+  });
+</script>

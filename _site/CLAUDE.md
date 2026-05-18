@@ -45,9 +45,9 @@ devlog.html          # Dev Log 목록 페이지 (모든 devlog 포스트, 날짜
 til.html             # TIL 목록 페이지 (contribution graph + project별 그룹핑)
 ue5.html             # UE5 페이지 (contribution graph + Projects/Dev Log)
 apps.html            # Apps 페이지 (contribution graph + Projects/Dev Log)
-index.html           # 홈 (contribution graph + Daily Logs + Dev Logs + Apps + Videos)
+index.html           # 홈 (contribution graph + 태그 워드클라우드 + Daily Logs + Dev Logs + Apps + Videos)
 search.html          # 검색 페이지 (클라이언트 사이드 전문 검색)
-search.json          # 빌드 시 생성되는 검색 인덱스 (제목 + 본문)
+search.json          # 빌드 시 생성되는 검색 인덱스 (제목 + 본문 + tags)
 contact.html         # Contact 페이지 (이메일, YouTube, PayPal/카카오페이 후원)
 privacy-policy.html  # Privacy Policy (범용, 영/한, Google AdSense 조항 포함)
 .gitignore           # **/draft-*.md 제외
@@ -207,6 +207,14 @@ Minima 기본 post layout을 오버라이드. 세 가지 기능이 자동으로 
 - API 키, 토큰 등 민감 정보를 `_config.yml`, HTML, Liquid 템플릿에 하드코딩하지 않는다.
 - 외부 서비스 연동 시 환경 변수 또는 GitHub Secrets를 사용한다.
 
+### 포스트 내용 공개 범위 검토 📝
+
+포스트를 새로 작성하거나 daily-log를 커밋할 때 아래를 확인한다.
+
+- **회사 내부 정보**: 조직 운영 방식, 내부 시스템 구조, 팀원 개인 정보가 포함되어 있지 않은지 확인한다. "Django에서 이렇게 구현했다" 수준은 괜찮지만 "우리 회사는 이런 방식으로 운영된다" 수준은 주의한다.
+- **개인 정보**: 전화번호, 주소, 타인의 이름 등이 포함되지 않도록 한다.
+- **작성 원칙**: 회사 업무 관련 기록은 **기술적으로 배운 것** 위주로 남기고, 구체적인 비즈니스 로직이나 조직 정보는 생략하거나 일반화한다.
+
 ### 외부 호출 검토 🌐
 
 - 외부 URL(`href`, `src`, `app_url`)이 의도된 링크인지 확인한다.
@@ -238,29 +246,30 @@ Minima 기본 post layout을 오버라이드. 세 가지 기능이 자동으로 
 - 인라인 `<style>`, `style=""` 속성이 추가되지 않았는지 확인한다 (모든 스타일은 `assets/main.scss`에만 작성).
 - `<script>` 내 `eval()` 또는 동적 코드 실행이 없는지 확인한다.
 
-## 개발 백로그
+## 해야 할 일
 
 ### 낮음 (Liquid/CSS 수정)
 
 - [x] **Series Posts 강화**: Related Posts → Series 목록으로 개편 완료
   - 날짜 오름차순 + 번호 + 현재 포스트 "읽는 중" 뱃지 + 상단 요약 박스
-- [ ] **Suggested Posts**: 같은 category + 다른 project의 summary 포스트 최하단 노출
+- [x] **Suggested Posts**: 같은 category + 다른 project의 summary 포스트 최하단 노출
 - [x] **Meta Description**: `jekyll-seo-tag`가 자동 처리 (page.description → page.excerpt → site.description). frontmatter 명세에 `description` 필드 추가 완료
 - [x] **RSS 아이콘**: footer 또는 `<head>`에 `/feed.xml` 링크 추가 (`jekyll-feed` 이미 설치됨)
 
 ### 중간 (HTML/CSS/JS 작업)
 
-- [ ] **태그 기능**: frontmatter `tags` 추가 + 클라이언트 JS 태그 필터 (태그 페이지 자동생성은 `jekyll-archives` 플러그인 필요)
+- [x] **Tags frontmatter**: 전체 `_devlog/**/*.md` 포스트에 `tags:` 필드 추가 완료
+- [x] **Tags 필터 UI**: TIL 페이지에 클라이언트 JS 태그 chip 필터 구현
 - [x] **Apps 카드 그리드**: `index.html` Apps 섹션 → 리퀴드 글래스 flip 슬라이더로 전환
   - 앞면: 이미지 + 앱 이름 / 뒷면: 설명 + 바로가기 버튼 (hover/click 플립)
   - 무한 루프 CSS 슬라이더, hover 시 `animation-play-state: paused`
   - 모바일: 애니메이션 없이 wrap 그리드, aria-hidden 복사본 숨김
-- [ ] **Lazy Loading**: 포스트 본문 이미지에 `loading="lazy"` 전역 적용
+- [x] **검색 버그 수정**: fetch 완료 전 타이핑 시 빈 결과, null title/date/content TypeError 수정
+- [x] **Lazy Loading**: 포스트 본문 이미지에 `loading="lazy"` 전역 적용
+- [x] **태그 워드클라우드**: `index.html` 히트맵 아래에 최근 1년 태그 빈도 워드클라우드 추가
+  - `wordcloud2.js` (jsdelivr → unpkg fallback), `search.json`의 `tags` 필드 활용
+  - 빈도 상위 60개, 13~52px 가중치, 매 렌더링마다 랜덤 컬러
 
 ### 공수 미정
 
 - [ ] **라이브 데모 위젯**: 앱별 핵심 알고리즘 웹 위젯화 (앱마다 개별 작업)
-
-### 다음에 할 일
-
-- 목록들 series처럼 카드형식 목록으로 수정하기
