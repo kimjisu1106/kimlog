@@ -305,21 +305,9 @@
 }
 
 @media (max-width: 640px) {
-  .apps-slider-track {
-    animation: none;
-    flex-wrap: wrap;
-    gap: 12px;
-    justify-content: center;
-  }
-
   .apps-card {
-    margin-right: 0;
-    width: 150px;
-    height: 210px;
-  }
-
-  .apps-card[aria-hidden="true"] {
-    display: none;
+    width: 140px;
+    height: 200px;
   }
 }
 
