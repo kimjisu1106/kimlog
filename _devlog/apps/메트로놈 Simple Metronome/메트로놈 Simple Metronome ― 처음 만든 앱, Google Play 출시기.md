@@ -3,7 +3,7 @@ layout: post
 title: 메트로놈 Simple Metronome ― 처음 만든 앱, Google Play 출시기
 date: 2025-08-19
 categories:
-  - devlog
+  - log
   - apps
 project: simple-metronome
 project_name: 메트로놈 Simple Metronome

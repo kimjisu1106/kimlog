@@ -3,7 +3,7 @@ layout: post
 title: Unreal Engine 5 Dev Log 3 ― 전자 피아노 + MIDI = 소리와 빛으로 반응하는 UE5 피아노
 date: 2025-09-09
 categories:
-  - devlog
+  - log
   - ue5
   - summary
 project: midi-piano

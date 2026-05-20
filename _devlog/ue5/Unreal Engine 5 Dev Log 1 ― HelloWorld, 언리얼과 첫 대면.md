@@ -3,7 +3,7 @@ layout: post
 title: Unreal Engine 5 Dev Log 1 ― HelloWorld, 언리얼과 첫 대면
 date: 2025-08-28
 categories:
-  - devlog
+  - log
   - ue5
   - summary
 project: hello-world

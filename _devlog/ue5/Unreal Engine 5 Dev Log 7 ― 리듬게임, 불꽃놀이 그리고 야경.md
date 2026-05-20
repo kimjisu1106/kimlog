@@ -3,7 +3,7 @@ layout: post
 title: Unreal Engine 5 Dev Log 7 ― 리듬게임, 불꽃놀이 그리고 야경
 date: 2025-11-30
 categories:
-  - devlog
+  - log
   - ue5
   - summary
 project: rhythm-game-firework

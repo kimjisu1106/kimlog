@@ -3,7 +3,7 @@ layout: post
 title: 습관만들기 Pawbit 4
 date: 2026-05-09
 categories:
-  - devlog
+  - log
   - apps
 project: habit-tracker
 project_name: 습관만들기 Pawbit

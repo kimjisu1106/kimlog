@@ -3,7 +3,7 @@ layout: post
 title: 중복된 파일 찾기 Duplicate Finder 6
 date: 2026-03-29
 categories:
-  - devlog
+  - log
   - apps
 project: duplicate-finder
 project_name: 중복된 파일 찾기 Duplicate Finder

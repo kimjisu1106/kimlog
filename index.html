@@ -32,7 +32,7 @@ layout: home
 <h2>Dev Logs</h2>
 
 {% assign all_devlogs = site.devlog | where_exp: "p", "p.categories contains
-'devlog'" | sort: "date" | reverse %}
+'log'" | sort: "date" | reverse %}
 <ul class="devlog-list">
   {% for post in all_devlogs limit: 5 %}
   <li>

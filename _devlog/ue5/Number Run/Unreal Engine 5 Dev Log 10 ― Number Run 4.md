@@ -3,7 +3,7 @@ layout: post
 title: Unreal Engine 5 Dev Log 10 ― Number Run 4
 date: 2026-02-20
 categories:
-  - devlog
+  - log
   - ue5
 project: number-run
 project_name: Number Run BluePrint

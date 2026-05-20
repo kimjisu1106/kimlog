@@ -3,7 +3,7 @@ layout: post
 title: Unreal Engine 5 Dev Log 4 ― 우리 동네 만들기 도전기 !
 date: 2025-09-15
 categories:
-  - devlog
+  - log
   - ue5
   - summary
 project: my-first-simcity

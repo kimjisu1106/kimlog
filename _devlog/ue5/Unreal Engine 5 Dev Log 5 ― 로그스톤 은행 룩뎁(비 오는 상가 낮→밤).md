@@ -3,7 +3,7 @@ layout: post
 title: Unreal Engine 5 Dev Log 5 ― 로그스톤 은행 룩뎁(비 오는 상가 낮→밤)
 date: 2025-09-30
 categories:
-  - devlog
+  - log
   - ue5
   - summary
 project: logstone-bank

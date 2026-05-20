@@ -89,7 +89,7 @@ layout: default
 
     {% assign _suggest_cat = "" %}
     {% for _cat in page.categories %}
-      {% unless _cat == "devlog" or _cat == "summary" or _cat == "today-i-learn" %}
+      {% unless _cat == "log" or _cat == "summary" or _cat == "today-i-learn" %}
         {% assign _suggest_cat = _cat %}
         {% break %}
       {% endunless %}

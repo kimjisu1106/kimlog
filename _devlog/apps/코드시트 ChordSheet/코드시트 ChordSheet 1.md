@@ -3,7 +3,7 @@ layout: post
 title: 코드시트 ChordSheet 1
 date: 2026-03-14
 categories:
-  - devlog
+  - log
   - apps
 project: chord-sheet
 project_name: 코드시트 ChordSheet

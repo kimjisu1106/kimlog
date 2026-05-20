@@ -3,7 +3,7 @@ layout: post
 title: Unreal Engine 5 Dev Log 2 ― 시네마틱(Portal Exit)
 date: 2025-08-30
 categories:
-  - devlog
+  - log
   - ue5
   - summary
 project: cinematic-portal-exit
