@@ -3,7 +3,7 @@ layout: post
 title: Fantastic Fortune ― 후루루후루루(판타스틱포츈 Diana's Character Song)
 date: 2017-04-17
 categories:
-  - audio
+  - music-cover
   - summary
 project: fantastic-fortune
 project_name: Fantastic Fortune

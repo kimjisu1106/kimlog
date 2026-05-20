@@ -3,10 +3,11 @@ layout: post
 title: Princess Maker 2 ― Naming song (프린세스메이커2 이름지을 때 나오는 배경음악 피아노 연주곡)
 date: 2017-04-03
 categories:
-  - audio
+  - music-cover
   - summary
-project: music-cover
-project_name: Music Cover
+  -  
+project: princess-maker-2
+project_name: Princess Maker 2
 video_id: 93GmzP6iuqM
 app_url:
 status: finished

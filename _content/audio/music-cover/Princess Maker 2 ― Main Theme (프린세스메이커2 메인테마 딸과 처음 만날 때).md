@@ -3,10 +3,10 @@ layout: post
 title: Princess Maker 2 ― Main Theme (프린세스메이커2 메인테마 딸과 처음 만날 때)
 date: 2017-04-04
 categories:
-  - audio
+  - music-cover
   - summary
-project: music-cover
-project_name: Music Cover
+project: princess-maker-2
+project_name: Princess Maker 2
 video_id: yF2vIZGXcWo
 app_url:
 status: finished

@@ -8,42 +8,55 @@ permalink: /audio/
 
 <h2>Works</h2>
 
-{% assign works = site.content | where_exp: "p", "p.categories contains 'audio'"
-| where_exp: "p", "p.categories contains 'summary'" | sort: "date" | reverse %}
-{% if works.size == 0 %}
+{% assign works = site.content
+  | where_exp: "p", "p.path contains '/audio/'"
+  | where_exp: "p", "p.categories contains 'summary'"
+  | sort: "date" | reverse %}
+{% assign work_groups = works | group_by: "project" %}
+
+{% if work_groups.size == 0 %}
 <p>아직 글이 없습니다.</p>
 {% else %}
-<div class="audio-works">
-  {% for post in works %}
-  <a class="audio-card" href="{{ post.url | relative_url }}">
-    <div class="audio-thumb-wrap">
-      {% if post.video_id %}
-      <img src="https://i.ytimg.com/vi/{{ post.video_id }}/mqdefault.jpg" alt="{{ post.title }}" loading="lazy">
-      {% endif %}
-    </div>
-    <div class="audio-card-info">
-      <span class="audio-card-title">{{ post.project_name | default: post.title }}</span>
-      <span class="post-meta">{{ post.date | date: "%Y-%m-%d" }}</span>
-    </div>
-  </a>
+  {% for group in work_groups %}
+  {% assign first = group.items | first %}
+  {% assign path_parts = first.path | split: "/" %}
+  {% assign subfolder_slug = path_parts[2] %}
+  {% if subfolder_slug == "music-cover" %}{% assign subfolder_label = "Music Cover" %}
+  {% elsif subfolder_slug == "original" %}{% assign subfolder_label = "Original" %}
+  {% else %}{% assign subfolder_label = subfolder_slug | replace: "-", " " %}{% endif %}
+  <h3>{{ subfolder_label }} | {{ first.project_name | default: group.name }}</h3>
+  <div class="audio-works">
+    {% for post in group.items %}
+    <a class="audio-card" href="{{ post.url | relative_url }}">
+      <div class="audio-thumb-wrap">
+        {% if post.video_id %}
+        <img src="https://i.ytimg.com/vi/{{ post.video_id }}/mqdefault.jpg" alt="{{ post.title }}" loading="lazy">
+        {% endif %}
+      </div>
+      <div class="audio-card-info">
+        <span class="audio-card-title">{{ post.title }}</span>
+        <span class="post-meta">{{ post.date | date: "%Y-%m-%d" }}</span>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
   {% endfor %}
-</div>
 {% endif %}
 
-<hr />
+<hr>
 <h2>Log</h2>
 
-{% assign audio_logs = site.content | where_exp: "p", "p.categories contains
-'audio'" | where_exp: "p", "p.categories contains 'log'" | sort: "date" |
-reverse %} {% if audio_logs.size == 0 %}
+{% assign audio_logs = site.content
+  | where_exp: "p", "p.path contains '/audio/'"
+  | where_exp: "p", "p.categories contains 'log'"
+  | sort: "date" | reverse %}
+
+{% if audio_logs.size == 0 %}
 <p>아직 글이 없습니다.</p>
 {% else %}
 <ul class="devlog-list">
   {% for post in audio_logs %}
-  <li>
-    {{ post.date | date: "%Y-%m-%d" }} ｜
-    <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-  </li>
+  <li>{{ post.date | date: "%Y-%m-%d" }} ｜ <a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
   {% endfor %}
 </ul>
 {% endif %}
