@@ -55,6 +55,11 @@
         
           
           
+          <a class="page-link" href="/audio/">Audio</a>
+          
+        
+          
+          
           <a class="page-link" href="/apps/">Apps</a>
           
         
@@ -91,7 +96,7 @@
 
 
 
-<div class="til-graph" id="graph-devlog"></div>
+<div class="til-graph" id="graph-log"></div>
 
 <script>
 (function () {
@@ -109,7 +114,7 @@
   start.setDate(start.getDate() - start.getDay());
   start.setDate(start.getDate() - 51 * 7);
 
-  var container = document.getElementById('graph-devlog');
+  var container = document.getElementById('graph-log');
 
   function toLocalDateStr(dt) {
     var y = dt.getFullYear();

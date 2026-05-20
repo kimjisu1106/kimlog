@@ -37,7 +37,7 @@ layout: default
     {% endif %}
 
     {% if page.project %}
-      {% assign _all = site.devlog | where_exp: "p", "p.project == page.project" | sort: "date" %}
+      {% assign _all = site.content | where_exp: "p", "p.project == page.project" | sort: "date" %}
       {% assign _summary = _all | where_exp: "p", "p.categories contains 'summary'" %}
       {% assign _rest = "" | split: "" %}
       {% for _p in _all %}
@@ -95,7 +95,7 @@ layout: default
       {% endunless %}
     {% endfor %}
     {% if _suggest_cat != "" %}
-      {% assign _suggested = site.devlog
+      {% assign _suggested = site.content
         | where_exp: "p", "p.categories contains _suggest_cat"
         | where_exp: "p", "p.categories contains 'summary'"
         | where_exp: "p", "p.project != page.project"

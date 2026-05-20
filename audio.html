@@ -8,7 +8,7 @@ permalink: /audio/
 
 <h2>Works</h2>
 
-{% assign works = site.devlog | where_exp: "p", "p.categories contains 'audio'"
+{% assign works = site.content | where_exp: "p", "p.categories contains 'audio'"
 | where_exp: "p", "p.categories contains 'summary'" | sort: "date" | reverse %}
 {% if works.size == 0 %}
 <p>아직 글이 없습니다.</p>
@@ -33,7 +33,7 @@ permalink: /audio/
 <hr />
 <h2>Log</h2>
 
-{% assign audio_logs = site.devlog | where_exp: "p", "p.categories contains
+{% assign audio_logs = site.content | where_exp: "p", "p.categories contains
 'audio'" | where_exp: "p", "p.categories contains 'log'" | sort: "date" |
 reverse %} {% if audio_logs.size == 0 %}
 <p>아직 글이 없습니다.</p>

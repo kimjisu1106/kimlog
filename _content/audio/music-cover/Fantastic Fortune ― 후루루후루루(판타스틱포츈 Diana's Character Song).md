@@ -5,8 +5,8 @@ date: 2017-04-17
 categories:
   - audio
   - summary
-project: music-cover
-project_name: Music Cover
+project: fantastic-fortune
+project_name: Fantastic Fortune
 video_id: tk7Jy0CeSrE
 app_url:
 status: finished

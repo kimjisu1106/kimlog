@@ -11,9 +11,9 @@ plugins:
   - jekyll-redirect-from
   - jekyll-sitemap
 collections:
-  devlog:
+  content:
     output: true
-    permalink: /devlog/:path/
+    permalink: /:path/
 header_pages:
   - devlog.html
   - ue5.html

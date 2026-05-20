@@ -5,8 +5,8 @@ date: 2017-04-07
 categories:
   - audio
   - summary
-project: music-cover
-project_name: Music Cover
+project: princess-maker-2
+project_name: Princess Maker 2
 video_id: UdUQSKD8n5I
 app_url:
 status: finished

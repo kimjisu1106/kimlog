@@ -6,7 +6,7 @@ permalink: /devlog/
 
 {% include contribution-graph.html category="log" %}
 
-{% assign all_posts = site.devlog | where_exp: "p", "p.categories contains 'log'" | sort: "date" | reverse %}
+{% assign all_posts = site.content | where_exp: "p", "p.categories contains 'log'" | sort: "date" | reverse %}
 {% assign groups = all_posts | group_by: "project" %}
 
 {% if groups.size == 0 %}

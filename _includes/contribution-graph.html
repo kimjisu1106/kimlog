@@ -1,8 +1,8 @@
 {% if include.category %}
   {% assign _cat = include.category %}
-  {% assign graph_posts = site.devlog | where_exp: "p", "p.categories contains _cat" %}
+  {% assign graph_posts = site.content | where_exp: "p", "p.categories contains _cat" %}
 {% else %}
-  {% assign graph_posts = site.devlog %}
+  {% assign graph_posts = site.content %}
 {% endif %}
 
 {% assign graph_id = include.category | default: "all" %}

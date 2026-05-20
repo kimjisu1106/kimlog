@@ -8,7 +8,7 @@ permalink: /apps/
 
 <h2>Projects</h2>
 
-{% assign _all = site.devlog
+{% assign _all = site.content
   | where_exp: "p", "p.categories contains 'apps'"
   | where_exp: "p", "p.categories contains 'summary'"
   | where_exp: "p", "p.project"
@@ -45,7 +45,7 @@ permalink: /apps/
 <hr>
 <h2>Dev Log</h2>
 
-{% assign items = site.devlog
+{% assign items = site.content
   | sort: "date"
   | reverse %}
 {% assign devlog_posts = "" | split: "" %}
