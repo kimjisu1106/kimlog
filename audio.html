@@ -29,10 +29,11 @@ permalink: /audio/
 {% endif %}
 
 <hr>
-<h2>Dev Log</h2>
+<h2>Log</h2>
 
 {% assign audio_logs = site.devlog
   | where_exp: "p", "p.categories contains 'audio'"
+  | where_exp: "p", "p.categories contains 'log'"
   | sort: "date" | reverse %}
 
 {% if audio_logs.size == 0 %}
