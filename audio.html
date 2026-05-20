@@ -1,0 +1,46 @@
+---
+layout: page
+title: Audio
+permalink: /audio/
+---
+
+{% include contribution-graph.html category="audio" %}
+
+<h2>Works</h2>
+
+{% assign works = site.devlog
+  | where_exp: "p", "p.categories contains 'audio'"
+  | where_exp: "p", "p.categories contains 'summary'"
+  | sort: "date" | reverse %}
+
+{% if works.size == 0 %}
+<p>아직 글이 없습니다.</p>
+{% else %}
+<!-- TODO: 카드 레이아웃으로 교체 예정 -->
+<ul class="devlog-list">
+  {% for post in works %}
+  <li>
+    {{ post.date | date: "%Y-%m-%d" }} ｜
+    <a href="{{ post.url | relative_url }}">{{ post.project_name | default: post.title }}</a>
+    {% if post.status == 'finished' %}<span class="devlog-badge">✅</span>{% endif %}
+  </li>
+  {% endfor %}
+</ul>
+{% endif %}
+
+<hr>
+<h2>Dev Log</h2>
+
+{% assign audio_logs = site.devlog
+  | where_exp: "p", "p.categories contains 'audio'"
+  | sort: "date" | reverse %}
+
+{% if audio_logs.size == 0 %}
+<p>아직 글이 없습니다.</p>
+{% else %}
+<ul class="devlog-list">
+  {% for post in audio_logs %}
+  <li>{{ post.date | date: "%Y-%m-%d" }} ｜ <a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
+  {% endfor %}
+</ul>
+{% endif %}

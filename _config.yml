@@ -17,6 +17,7 @@ collections:
 header_pages:
   - devlog.html
   - ue5.html
+  - audio.html
   - apps.html
   - til.html
   - contact.html
