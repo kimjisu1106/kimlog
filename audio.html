@@ -13,19 +13,21 @@ permalink: /audio/
 {% if works.size == 0 %}
 <p>아직 글이 없습니다.</p>
 {% else %}
-<!-- TODO: 카드 레이아웃으로 교체 예정 -->
-<ul class="devlog-list">
+<div class="audio-works">
   {% for post in works %}
-  <li>
-    {{ post.date | date: "%Y-%m-%d" }} ｜
-    <a href="{{ post.url | relative_url }}"
-      >{{ post.project_name | default: post.title }}</a
-    >
-    {% if post.status == 'finished' %}<span class="devlog-badge">✅</span>{%
-    endif %}
-  </li>
+  <a class="audio-card" href="{{ post.url | relative_url }}">
+    <div class="audio-thumb-wrap">
+      {% if post.video_id %}
+      <img src="https://i.ytimg.com/vi/{{ post.video_id }}/mqdefault.jpg" alt="{{ post.title }}" loading="lazy">
+      {% endif %}
+    </div>
+    <div class="audio-card-info">
+      <span class="audio-card-title">{{ post.project_name | default: post.title }}</span>
+      <span class="post-meta">{{ post.date | date: "%Y-%m-%d" }}</span>
+    </div>
+  </a>
   {% endfor %}
-</ul>
+</div>
 {% endif %}
 
 <hr />
