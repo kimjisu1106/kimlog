@@ -6,10 +6,8 @@ permalink: /audio/
 
 {% include contribution-graph.html category="audio" %}
 
-<h2>Works</h2>
-
 {% assign works = site.content
-  | where_exp: "p", "p.path contains '/audio/'"
+  | where_exp: "p", "p.categories contains 'audio'"
   | where_exp: "p", "p.categories contains 'summary'"
   | sort: "date" | reverse %}
 {% assign work_groups = works | group_by: "project" %}
@@ -41,22 +39,4 @@ permalink: /audio/
     {% endfor %}
   </div>
   {% endfor %}
-{% endif %}
-
-<hr>
-<h2>Log</h2>
-
-{% assign audio_logs = site.content
-  | where_exp: "p", "p.path contains '/audio/'"
-  | where_exp: "p", "p.categories contains 'log'"
-  | sort: "date" | reverse %}
-
-{% if audio_logs.size == 0 %}
-<p>아직 글이 없습니다.</p>
-{% else %}
-<ul class="devlog-list">
-  {% for post in audio_logs %}
-  <li>{{ post.date | date: "%Y-%m-%d" }} ｜ <a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
-  {% endfor %}
-</ul>
 {% endif %}
