@@ -4,6 +4,7 @@ title: 동요 ― 할아버지의 낡은 시계 (for Soprano recorder)
 date: 2023-07-10
 categories:
   - music-cover
+  - summary
 project: reflatmusic
 project_name: Recorder Cover
 video_id: y-TT4KQ0OTA
