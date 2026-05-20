@@ -4,7 +4,7 @@ title: Audio
 permalink: /audio/
 ---
 
-{% include contribution-graph.html category="audio" %}
+{% include contribution-graph.html path="audio" %}
 
 {% assign works = site.content
   | where_exp: "p", "p.path contains 'audio'"

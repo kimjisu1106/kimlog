@@ -1,11 +1,13 @@
-{% if include.category %}
+{% if include.path %}
+  {% assign graph_posts = site.content | where_exp: "p", "p.path contains include.path" %}
+{% elsif include.category %}
   {% assign _cat = include.category %}
   {% assign graph_posts = site.content | where_exp: "p", "p.categories contains _cat" %}
 {% else %}
   {% assign graph_posts = site.content %}
 {% endif %}
 
-{% assign graph_id = include.category | default: "all" %}
+{% assign graph_id = include.path | default: include.category | default: "all" %}
 
 <div class="til-graph" id="graph-{{ graph_id }}"></div>
 
