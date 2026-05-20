@@ -22,21 +22,23 @@ permalink: /audio/
   {% if subfolder_slug == "music-cover" %}{% assign subfolder_label = "Music Cover" %}
   {% elsif subfolder_slug == "original" %}{% assign subfolder_label = "Original" %}
   {% else %}{% assign subfolder_label = subfolder_slug | replace: "-", " " %}{% endif %}
-  <h3>{{ subfolder_label }} | {{ first.project_name | default: group.name }}</h3>
-  <div class="audio-works">
-    {% for post in group.items %}
-    <a class="audio-card" href="{{ post.url | relative_url }}">
-      <div class="audio-thumb-wrap">
-        {% if post.video_id %}
-        <img src="https://i.ytimg.com/vi/{{ post.video_id }}/mqdefault.jpg" alt="{{ post.title }}" loading="lazy">
-        {% endif %}
-      </div>
-      <div class="audio-card-info">
-        <span class="audio-card-title">{{ post.title }}</span>
-        <span class="post-meta">{{ post.date | date: "%Y-%m-%d" }}</span>
-      </div>
-    </a>
-    {% endfor %}
+  <div class="audio-group">
+    <h3>{{ subfolder_label }} | {{ first.project_name | default: group.name }}</h3>
+    <div class="audio-works">
+      {% for post in group.items %}
+      <a class="audio-card" href="{{ post.url | relative_url }}">
+        <div class="audio-thumb-wrap">
+          {% if post.video_id %}
+          <img src="https://i.ytimg.com/vi/{{ post.video_id }}/mqdefault.jpg" alt="{{ post.title }}" loading="lazy">
+          {% endif %}
+        </div>
+        <div class="audio-card-info">
+          <span class="audio-card-title">{{ post.title }}</span>
+          <span class="post-meta">{{ post.date | date: "%Y-%m-%d" }}</span>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
   </div>
   {% endfor %}
 {% endif %}
