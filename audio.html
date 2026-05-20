@@ -7,7 +7,7 @@ permalink: /audio/
 {% include contribution-graph.html category="audio" %}
 
 {% assign works = site.content
-  | where_exp: "p", "p.categories contains 'audio'"
+  | where_exp: "p", "p.path contains 'audio'"
   | where_exp: "p", "p.categories contains 'summary'"
   | sort: "date" | reverse %}
 {% assign work_groups = works | group_by: "project" %}
