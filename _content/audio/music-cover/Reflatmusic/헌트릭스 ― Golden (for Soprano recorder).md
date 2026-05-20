@@ -1,6 +1,6 @@
 ---
 layout: post
-title: HUNTR/X ― Golden
+title: HUNTR/X ― Golden (for Soprano recorder)
 date: 2026-02-28
 categories:
   - music-cover
