@@ -8,10 +8,7 @@ project: today-i-learn
 project_name: Today I Learn
 video_id:
 app_url:
-
-  - Flutter
-  - Dart
-  - Drift
+status:
 tags:
   - Flutter
   - Dart
