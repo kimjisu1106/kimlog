@@ -10,7 +10,7 @@ video_id:
 app_url:
 status:
 tags:
-  - C++
+  - Cpp
 ---
 요약: 함수에 변수를 넘길 때 뭘 넘기냐.
 
