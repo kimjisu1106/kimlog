@@ -255,7 +255,7 @@ Minima 기본 post layout을 오버라이드. 세 가지 기능이 자동으로 
 2. **No Closing Colons** — 응답 마지막에 콜론(`:`)으로 끝나는 문장 금지. "파일을 수정했습니다:" → "파일을 수정했습니다."
 3. **Existing Docs Are Enough** — CLAUDE.md(아키텍처/규칙)와 `memory/`(맥락 메모리)로 충분. 별도 context-notes.md나 작업별 계획 파일 생성 금지. 큰 작업에서 TodoWrite로 진행 상황 추적하는 것은 허용.
 4. **Check Errors Carefully** — 에러 메시지를 끝까지 읽을 것. 빠른 추측 수정 금지 — 원인을 파악한 뒤 고칠 것.
-5. **Commit On Request Only** — 사용자가 명시적으로 요청할 때만 git commit & push. 코드 변경 후 자동 커밋 금지.
+5. **Auto Commit** — 코드 CRUD(생성·수정·삭제)가 발생하면 작업 완료 후 자동으로 git commit & push. 보안 검사 통과 후 수행.
 
 ## 해야 할 일
 
