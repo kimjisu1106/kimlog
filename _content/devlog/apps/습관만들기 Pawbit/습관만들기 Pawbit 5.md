@@ -11,6 +11,9 @@ video_id:
 app_url:
 status:
 tags:
+  - Dart
+  - Flutter
+  - Drift
 ---
 ## 오늘 한 일
 
