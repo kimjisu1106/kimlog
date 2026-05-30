@@ -11,6 +11,9 @@ video_id: vxKyth_LZMU
 app_url: https://kimlog0415.github.io/pokewalk/
 status: finished
 tags:
+  - React
+  - JavaScript
+  - CSS
 ---
 ## 요약
 
