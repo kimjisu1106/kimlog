@@ -53,6 +53,3 @@ tags:
 - BGM / SFX (씬별 배경음 + 효과음, AI 생성)
 - GitHub Actions 자동 배포
 
----
-
-## 결과

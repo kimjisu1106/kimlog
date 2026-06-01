@@ -10,6 +10,8 @@ video_id:
 app_url:
 status:
 tags:
+  - Jekyll
+  - Markdown
 ---
 **파서(Parser)** 는 텍스트를 읽고 의미 있는 구조로 변환하는 프로그램.
 

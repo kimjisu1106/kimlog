@@ -10,6 +10,8 @@ video_id:
 app_url:
 status:
 tags:
+  - Flutter
+  - Dart
 ---
 ## `StreamProvider.family`의 record 타입 키
 
