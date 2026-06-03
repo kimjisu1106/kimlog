@@ -1,5 +1,20 @@
 # KimLog - GitHub Pages Blog
 
+## 작업 원칙 (Working Principles)
+
+1. **Think Before Coding** — 코드 작성 전에 요청을 완전히 이해할 것. 모호하면 먼저 질문.
+2. **Simplicity First** — 필요한 것만 구현. 추측성 기능 추가 금지. 더 나은 방향이 있으면 제안은 할 수 있음. 단, 그럴경우 사용자 comfirm 필요.
+3. **Surgical Changes** — 요청된 부분만 수정. 무관한 리팩토링·포맷팅 금지.
+4. **Verify Before Declare Done** — "완료"라고 말하기 전에 변경사항이 실제로 작동하는지 확인. 서버를 실행해야 알 수 있는 문제는 "서버 실행 후 확인 필요"라고 명시.
+5. **No Closing Colons** — 응답 마지막에 콜론(`:`)으로 끝나는 문장 금지. "파일을 수정했습니다:" 같은 표현 → "파일을 수정했습니다."
+6. **No Speculative Features** — 요청하지 않은 validation, fallback, error handling 추가 금지. 내부 코드와 프레임워크 보장은 신뢰할 것.
+7. **Existing Docs Are Enough** — 이 프로젝트는 CLAUDE.md(아키텍처/URL/모델 문서)와 `memory/`(맥락 메모리)가 있음. 별도 context-notes.md나 작업별 계획 파일 생성 금지. 큰 작업에서 TodoWrite로 진행 상황 추적하는 것은 허용.
+8. **Check Errors Carefully** — 에러 메시지를 끝까지 읽을 것. 빠른 추측 수정 금지 — 원인을 파악한 뒤 고칠 것. 테스트가 없으므로 서버 실행 시 오류가 없는지 수동으로 확인.
+9. **Comments: Why Only** — 코드 주석은 WHY(숨겨진 제약, 미묘한 불변식, 버그 우회)만. WHAT 설명 금지. 잘 이름 붙인 식별자가 이미 설명함.
+10. **End-of-Turn Summary** — 응답 끝에 무엇을 했는지 간결하게 요약할 것(학습 목적). 변경 파일·핵심 변경 내용·확인 필요 사항 순으로.
+11. **CSS Consistency** — 모든 스타일은 `assets/main.scss`에만 작성. 인라인 `<style>` 블록, `style=""` 속성 금지. 색상은 CSS 변수 사용(`--border-color`, `--muted` 등). 다크모드는 `prefers-color-scheme` 오버라이드로.
+12. **Auto Commit** — 코드 CRUD(생성·수정·삭제)가 발생하면 작업 완료 후 자동으로 git commit & push. 보안 검사 통과 후 수행.
+
 ## Project Overview
 
 Obsidian으로 마크다운 문서를 작성 → 이 vault 폴더가 git 추적됨 → GitHub Desktop 또는 Claude Code로 commit & push → Cloudflare 배포되는 Jekyll 블로그.
@@ -248,14 +263,6 @@ Minima 기본 post layout을 오버라이드. 세 가지 기능이 자동으로 
 - Liquid 템플릿에 난독화된 코드나 의미 불명의 문자열이 없는지 확인한다.
 - 인라인 `<style>`, `style=""` 속성이 추가되지 않았는지 확인한다 (모든 스타일은 `assets/main.scss`에만 작성).
 - `<script>` 내 `eval()` 또는 동적 코드 실행이 없는지 확인한다.
-
-## 작업 원칙 (Working Principles)
-
-1. **Verify Before Declare Done** — "완료"라고 말하기 전에 변경사항이 실제로 작동하는지 확인. Jekyll 서버를 실행해야 알 수 있는 문제(`_config.yml` 변경, 새 collection 등)는 "서버 재시작 후 확인 필요"라고 명시.
-2. **No Closing Colons** — 응답 마지막에 콜론(`:`)으로 끝나는 문장 금지. "파일을 수정했습니다:" → "파일을 수정했습니다."
-3. **Existing Docs Are Enough** — CLAUDE.md(아키텍처/규칙)와 `memory/`(맥락 메모리)로 충분. 별도 context-notes.md나 작업별 계획 파일 생성 금지. 큰 작업에서 TodoWrite로 진행 상황 추적하는 것은 허용.
-4. **Check Errors Carefully** — 에러 메시지를 끝까지 읽을 것. 빠른 추측 수정 금지 — 원인을 파악한 뒤 고칠 것.
-5. **Auto Commit** — 코드 CRUD(생성·수정·삭제)가 발생하면 작업 완료 후 자동으로 git commit & push. 보안 검사 통과 후 수행.
 
 ## 해야 할 일
 
