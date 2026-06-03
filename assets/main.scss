@@ -340,6 +340,16 @@
   }
 }
 
+@media (max-width: 640px) {
+  .apps-shelf {
+    gap: 8px;
+  }
+  .apps-shelf .apps-card {
+    width: calc(50% - 4px);
+    height: 200px;
+  }
+}
+
 /* =========================================================
    TIL contribution graph
    ========================================================= */
