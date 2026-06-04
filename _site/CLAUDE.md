@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-Obsidian으로 마크다운 문서를 작성 → 이 vault 폴더가 git 추적됨 → GitHub Desktop 또는 Claude Code로 commit & push → Netlify에 배포되는 Jekyll 블로그.
+Obsidian으로 마크다운 문서를 작성 → 이 vault 폴더가 git 추적됨 → GitHub Desktop 또는 Claude Code로 commit & push → Cloudflare 배포되는 Jekyll 블로그.
 
 ## Stack
 
@@ -248,6 +248,14 @@ Minima 기본 post layout을 오버라이드. 세 가지 기능이 자동으로 
 - Liquid 템플릿에 난독화된 코드나 의미 불명의 문자열이 없는지 확인한다.
 - 인라인 `<style>`, `style=""` 속성이 추가되지 않았는지 확인한다 (모든 스타일은 `assets/main.scss`에만 작성).
 - `<script>` 내 `eval()` 또는 동적 코드 실행이 없는지 확인한다.
+
+## 작업 원칙 (Working Principles)
+
+1. **Verify Before Declare Done** — "완료"라고 말하기 전에 변경사항이 실제로 작동하는지 확인. Jekyll 서버를 실행해야 알 수 있는 문제(`_config.yml` 변경, 새 collection 등)는 "서버 재시작 후 확인 필요"라고 명시.
+2. **No Closing Colons** — 응답 마지막에 콜론(`:`)으로 끝나는 문장 금지. "파일을 수정했습니다:" → "파일을 수정했습니다."
+3. **Existing Docs Are Enough** — CLAUDE.md(아키텍처/규칙)와 `memory/`(맥락 메모리)로 충분. 별도 context-notes.md나 작업별 계획 파일 생성 금지. 큰 작업에서 TodoWrite로 진행 상황 추적하는 것은 허용.
+4. **Check Errors Carefully** — 에러 메시지를 끝까지 읽을 것. 빠른 추측 수정 금지 — 원인을 파악한 뒤 고칠 것.
+5. **Auto Commit** — 코드 CRUD(생성·수정·삭제)가 발생하면 작업 완료 후 자동으로 git commit & push. 보안 검사 통과 후 수행.
 
 ## 해야 할 일
 

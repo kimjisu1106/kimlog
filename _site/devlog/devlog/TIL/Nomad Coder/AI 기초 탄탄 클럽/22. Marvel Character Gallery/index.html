@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-TNJZ56S6');</script>
+  <!-- End Google Tag Manager -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>노마드코더 AI 기초 탄탄 클럽 #22 Marvel Character Gallery | 김로그의 우당탕탕</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="노마드코더 AI 기초 탄탄 클럽 #22 Marvel Character Gallery" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="노마드코더에서 수강 가능한 풀스택 웹 기초를 6주만에 훑는 챌린지. 해당 강의: ReactJS로 영화 웹 서비스 만들기 #22는 React(JS)로 Marvel Character Gallery 만들기" />
+<meta property="og:description" content="노마드코더에서 수강 가능한 풀스택 웹 기초를 6주만에 훑는 챌린지. 해당 강의: ReactJS로 영화 웹 서비스 만들기 #22는 React(JS)로 Marvel Character Gallery 만들기" />
+<link rel="canonical" href="http://localhost:4000/devlog/devlog/TIL/Nomad%20Coder/AI%20%EA%B8%B0%EC%B4%88%20%ED%83%84%ED%83%84%20%ED%81%B4%EB%9F%BD/22.%20Marvel%20Character%20Gallery/" />
+<meta property="og:url" content="http://localhost:4000/devlog/devlog/TIL/Nomad%20Coder/AI%20%EA%B8%B0%EC%B4%88%20%ED%83%84%ED%83%84%20%ED%81%B4%EB%9F%BD/22.%20Marvel%20Character%20Gallery/" />
+<meta property="og:site_name" content="김로그의 우당탕탕" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2026-05-22T00:00:00+09:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="노마드코더 AI 기초 탄탄 클럽 #22 Marvel Character Gallery" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-05-22T00:00:00+09:00","datePublished":"2026-05-22T00:00:00+09:00","description":"노마드코더에서 수강 가능한 풀스택 웹 기초를 6주만에 훑는 챌린지. 해당 강의: ReactJS로 영화 웹 서비스 만들기 #22는 React(JS)로 Marvel Character Gallery 만들기","headline":"노마드코더 AI 기초 탄탄 클럽 #22 Marvel Character Gallery","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/devlog/devlog/TIL/Nomad%20Coder/AI%20%EA%B8%B0%EC%B4%88%20%ED%83%84%ED%83%84%20%ED%81%B4%EB%9F%BD/22.%20Marvel%20Character%20Gallery/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/profile.png"}},"url":"http://localhost:4000/devlog/devlog/TIL/Nomad%20Coder/AI%20%EA%B8%B0%EC%B4%88%20%ED%83%84%ED%83%84%20%ED%81%B4%EB%9F%BD/22.%20Marvel%20Character%20Gallery/"}</script>
+<!-- End Jekyll SEO tag -->
+<meta property="og:image" content="http://localhost:4000/assets/images/profile.png" />
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="김로그의 우당탕탕" /><meta name="google-site-verification" content="R-IPOkDo6YoQGFHmV7mEX98FuuLCx1eUM98m3RETbnM" />
+  <meta name="google-adsense-account" content="ca-pub-2560235080070689">
+  <link rel="icon" type="image/png" href="/assets/images/profile.png">
+  <link rel="shortcut icon" href="/assets/images/profile.png">
+  <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "727df4dd0ca343b1be0ffd30ba969676"}'></script>
+</head>
+<body>
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TNJZ56S6"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) --><header class="site-header" role="banner">
+  <div class="wrapper">
+    <a class="site-title" rel="author" href="/">김로그의 우당탕탕</a>
+
+    <nav class="site-nav">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+      <label for="nav-trigger">
+        <span class="menu-icon">
+          <svg viewBox="0 0 18 15" width="18px" height="15px">
+            <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+          </svg>
+        </span>
+      </label>
+
+      <div class="trigger">
+        
+          
+          
+          <a class="page-link" href="/devlog/">Dev Log</a>
+          
+        
+          
+          
+          <a class="page-link" href="/ue5/">Unreal Engine 5</a>
+          
+        
+          
+          
+          <a class="page-link" href="/audio/">Audio</a>
+          
+        
+          
+          
+          <a class="page-link" href="/apps/">Apps</a>
+          
+        
+          
+          
+          <a class="page-link" href="/today-i-learn/">TIL</a>
+          
+        
+          
+          
+          <a class="page-link" href="/contact/">Contact</a>
+          
+        
+        <a class="page-link search-icon-link" href="/search/" aria-label="검색">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"/>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+        </a>
+      </div>
+    </nav>
+  </div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">노마드코더 AI 기초 탄탄 클럽 #22 Marvel Character Gallery</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2026-05-22T00:00:00+09:00" itemprop="datePublished">
+        2026-05-22
+      </time>
+    </p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+
+    
+
+    
+
+    
+      
+      
+      
+      
+      
+      
+
+      
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            
+            
+        <div class="series-summary">
+          이 글은 <strong>노마드코더 - AI 기초 탄탄 클럽</strong> 시리즈의 <strong>13번째</strong> 기록입니다. (총 13개)
+        </div>
+      
+    
+
+    <p>노마드코더에서 수강 가능한 풀스택 웹 기초를 6주만에 훑는 챌린지.
+해당 강의: ReactJS로 영화 웹 서비스 만들기
+<code class="language-plaintext highlighter-rouge">#22</code>는 React(JS)로 Marvel Character Gallery 만들기</p>
+
+<hr />
+
+<h2 id="챌린지-목표">챌린지 목표</h2>
+
+<ul>
+  <li>Marvel API, React, 그리고 React Router를 사용하여 아래와 같은 2개의 페이지가 있는 앱을 만드세요.</li>
+  <li>Home Page (<code class="language-plaintext highlighter-rouge">/</code>): 마블 캐릭터의 리스트를 보여주세요.</li>
+  <li>Details Page (<code class="language-plaintext highlighter-rouge">/character/:id</code>): 각 캐릭터의 디테일 페이지를 보여주세요.</li>
+  <li>마블 캐릭터 리스트를 받을 수 있는 API : <code class="language-plaintext highlighter-rouge">https://marvel-proxy.nomadcoders.workers.dev/v1/public/characters?limit=50&amp;orderBy=modified&amp;series=24229,1058,2023</code></li>
+  <li>각 캐릭터의 디테일을 받을 수 있는 API : <code class="language-plaintext highlighter-rouge">https://marvel-proxy.nomadcoders.workers.dev/v1/public/characters/:id</code> (replace :id for a real number ID)</li>
+</ul>
+
+<hr />
+
+<h2 id="챌린지-조건">챌린지 조건</h2>
+
+<ul>
+  <li>블루프린트에는 React 그리고 React Router 가 설치되어있습니다.</li>
+  <li><code class="language-plaintext highlighter-rouge">useEffect</code>, <code class="language-plaintext highlighter-rouge">fetch</code>, <code class="language-plaintext highlighter-rouge">Link</code> 그리고 <code class="language-plaintext highlighter-rouge">useParams</code> 사용하세요.</li>
+</ul>
+
+<hr />
+
+<h3 id="동적-데이터-정렬-data-sorting">동적 데이터 정렬 (Data Sorting)</h3>
+
+<ul>
+  <li>API가 정렬을 지원하지 않을 때 프론트엔드에서 직접 정렬하는 법.</li>
+  <li><code class="language-plaintext highlighter-rouge">Array.sort()</code>와 <code class="language-plaintext highlighter-rouge">String.localeCompare()</code>를 사용하여 문자열을 알파벳 순으로 정렬. <code class="language-plaintext highlighter-rouge">sort()</code>는 원본 배열을 직접 변경(in-place)하므로 새 변수에 할당하지 않아도 됨.</li>
+</ul>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">sortedCharacters</span> <span class="o">=</span> <span class="nx">json</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">results</span><span class="p">.</span><span class="nx">sort</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="o">=&gt;</span>
+  <span class="nx">a</span><span class="p">.</span><span class="nx">name</span><span class="p">.</span><span class="nx">localeCompare</span><span class="p">(</span><span class="nx">b</span><span class="p">.</span><span class="nx">name</span><span class="p">)</span>
+<span class="p">);</span>
+<span class="nx">setCharacters</span><span class="p">(</span><span class="nx">sortedCharacters</span><span class="p">);</span>
+</code></pre></div></div>
+
+<hr />
+
+<h3 id="리액트-라우터와-동적-경로-dynamic-routing">리액트 라우터와 동적 경로 (Dynamic Routing)</h3>
+
+<ul>
+  <li>URL 파라미터를 활용하여 상세 페이지 구현.</li>
+  <li><code class="language-plaintext highlighter-rouge">useParams</code> 훅으로 주소창의 <code class="language-plaintext highlighter-rouge">:id</code> 값을 추출하고, 이를 기반으로 상세 API 호출. <code class="language-plaintext highlighter-rouge">useEffect</code>의 dependency array에 <code class="language-plaintext highlighter-rouge">[id]</code>를 넣어야 id가 바뀔 때 재요청됨.</li>
+  <li>동일한 <code class="language-plaintext highlighter-rouge">Detail.jsx</code> 컴포넌트 하나로 모든 캐릭터의 상세 페이지 처리 가능.</li>
+</ul>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="p">{</span> <span class="nx">id</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">useParams</span><span class="p">();</span>
+
+<span class="nx">useEffect</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">fetchDetail</span> <span class="o">=</span> <span class="k">async</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">fetch</span><span class="p">(</span>
+      <span class="s2">`https://marvel-proxy.nomadcoders.workers.dev/v1/public/characters/</span><span class="p">${</span><span class="nx">id</span><span class="p">}</span><span class="s2">`</span>
+    <span class="p">);</span>
+    <span class="kd">const</span> <span class="nx">json</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+    <span class="nx">setCharacter</span><span class="p">(</span><span class="nx">json</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+    <span class="nx">setIsLoading</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+  <span class="p">};</span>
+  <span class="nx">fetchDetail</span><span class="p">();</span>
+<span class="p">},</span> <span class="p">[</span><span class="nx">id</span><span class="p">]);</span>
+</code></pre></div></div>
+
+<hr />
+
+<h3 id="css-호버-인터랙션-카드-뒤집기-효과">CSS 호버 인터랙션 (카드 뒤집기 효과)</h3>
+
+<p>진짜 3D flip (카드 전체가 회전)이 아니라, 세 가지 효과를 조합한 방식:</p>
+
+<ol>
+  <li>이미지만 <code class="language-plaintext highlighter-rouge">rotateY(180deg)</code> 회전 → 뒤집히는 느낌 연출</li>
+  <li>카드 앞면 <code class="language-plaintext highlighter-rouge">filter: brightness(0.2)</code> → 어둡게 페이드</li>
+  <li>카드 뒷면 <code class="language-plaintext highlighter-rouge">opacity: 0 → 1</code> 전환 → 텍스트 fade in</li>
+</ol>
+
+<p><code class="language-plaintext highlighter-rouge">perspective</code>, <code class="language-plaintext highlighter-rouge">transform-style: preserve-3d</code>, <code class="language-plaintext highlighter-rouge">backface-visibility: hidden</code>은 3D 공간 컨텍스트를 만들어주는 역할.</p>
+
+<ul>
+  <li>hover를 부모(<code class="language-plaintext highlighter-rouge">.card-container</code>)에 걸어두면, 자식 요소들(<code class="language-plaintext highlighter-rouge">.card-front</code>, <code class="language-plaintext highlighter-rouge">.card-back</code>, <code class="language-plaintext highlighter-rouge">.character-img</code>)을 각각 개별 제어할 수 있어서 유연함.</li>
+</ul>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.card-container</span><span class="nd">:hover</span> <span class="nc">.character-img</span> <span class="p">{</span>
+  <span class="nl">transform</span><span class="p">:</span> <span class="n">rotateY</span><span class="p">(</span><span class="m">180deg</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="nc">.card-container</span><span class="nd">:hover</span> <span class="nc">.card-front</span> <span class="p">{</span>
+  <span class="nl">filter</span><span class="p">:</span> <span class="n">brightness</span><span class="p">(</span><span class="m">0.2</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="nc">.card-container</span><span class="nd">:hover</span> <span class="nc">.card-back</span> <span class="p">{</span>
+  <span class="nl">opacity</span><span class="p">:</span> <span class="m">1</span><span class="p">;</span>
+  <span class="nl">transition</span><span class="p">:</span> <span class="n">opacity</span> <span class="m">1s</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<ul>
+  <li>처음에 <code class="language-plaintext highlighter-rouge">opacity: 100</code>으로 작성했는데, <code class="language-plaintext highlighter-rouge">opacity</code>의 유효 범위는 <code class="language-plaintext highlighter-rouge">0~1</code>. 브라우저가 1로 clamp 해줘서 동작은 했지만 비표준. <code class="language-plaintext highlighter-rouge">opacity: 1</code>로 수정 함.</li>
+</ul>
+
+<hr />
+
+<h3 id="레이아웃-안정화-layout-stability">레이아웃 안정화 (Layout Stability)</h3>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">.card-front</code>와 <code class="language-plaintext highlighter-rouge">.card-back</code>을 <code class="language-plaintext highlighter-rouge">position: absolute</code>로 겹쳐 쌓을 때, <code class="language-plaintext highlighter-rouge">display: flex</code> + <code class="language-plaintext highlighter-rouge">align-items: center</code> + <code class="language-plaintext highlighter-rouge">justify-content: center</code>로 내부 요소 정렬.</li>
+  <li><code class="language-plaintext highlighter-rouge">box-sizing: border-box</code> 전역 적용으로 padding 포함 너비 계산 혼선 방지.</li>
+</ul>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">*</span> <span class="p">{</span>
+  <span class="nl">box-sizing</span><span class="p">:</span> <span class="n">border-box</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.card-front</span><span class="o">,</span>
+<span class="nc">.card-back</span> <span class="p">{</span>
+  <span class="nl">position</span><span class="p">:</span> <span class="nb">absolute</span><span class="p">;</span>
+  <span class="nl">top</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
+  <span class="nl">left</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
+  <span class="nl">width</span><span class="p">:</span> <span class="m">100%</span><span class="p">;</span>
+  <span class="nl">height</span><span class="p">:</span> <span class="m">100%</span><span class="p">;</span>
+  <span class="nl">display</span><span class="p">:</span> <span class="n">flex</span><span class="p">;</span>
+  <span class="nl">flex-direction</span><span class="p">:</span> <span class="n">column</span><span class="p">;</span>
+  <span class="nl">align-items</span><span class="p">:</span> <span class="nb">center</span><span class="p">;</span>
+  <span class="nl">justify-content</span><span class="p">:</span> <span class="n">flex-start</span><span class="p">;</span>
+  <span class="nl">padding</span><span class="p">:</span> <span class="m">10px</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><img src="/assets/images/for-posts/n_20260522_01.webp" alt="" /></p>
+
+
+    
+
+    
+    <hr>
+    <h2>Series: 노마드코더 - AI 기초 탄탄 클럽</h2>
+    <div class="series-list-card">
+      <div class="series-cards series-scrollable">
+        
+        <a class="series-card" href="/devlog/devlog/TIL/Nomad%20Coder/AI%20%EA%B8%B0%EC%B4%88%20%ED%83%84%ED%83%84%20%ED%81%B4%EB%9F%BD/3.%20Position%20&%20Pseudo%20Selector/">
+          <span class="series-num">1</span>
+          <span class="series-card-date post-meta">2026-04-22</span>
+          <span class="series-sep">｜</span>
+          <span class="series-card-title">노마드코더 AI 기초 탄탄 클럽 #3 Position & Pseudo Selector</span>
+          
+        </a>
+        
+        <a class="series-card" href="/devlog/devlog/TIL/Nomad%20Coder/AI%20%EA%B8%B0%EC%B4%88%20%ED%83%84%ED%83%84%20%ED%81%B4%EB%9F%BD/4.%20Playlist%20Layout/">
+          <span class="series-num">2</span>
+          <span class="series-card-date post-meta">2026-04-24</span>
+          <span class="series-sep">｜</span>
+          <span class="series-card-title">노마드코더 AI 기초 탄탄 클럽 #4 Playlist Layout</span>
+          
+        </a>
+        
+        <a class="series-card" href="/devlog/devlog/TIL/Nomad%20Coder/AI%20%EA%B8%B0%EC%B4%88%20%ED%83%84%ED%83%84%20%ED%81%B4%EB%9F%BD/5.%20Books%20Layout/">
+          <span class="series-num">3</span>
+          <span class="series-card-date post-meta">2026-04-25</span>
+          <span class="series-sep">｜</span>
+          <span class="series-card-title">노마드코더 AI 기초 탄탄 클럽 #5 Books Layout</span>
+          
+        </a>
+        
+        <a class="series-card" href="/devlog/devlog/TIL/Nomad%20Coder/AI%20%EA%B8%B0%EC%B4%88%20%ED%83%84%ED%83%84%20%ED%81%B4%EB%9F%BD/6.%20Music%20Player/">
+          <span class="series-num">4</span>
+          <span class="series-card-date post-meta">2026-04-27</span>
+          <span class="series-sep">｜</span>
+          <span class="series-card-title">노마드코더 AI 기초 탄탄 클럽 #6 Music Player</span>
+          
+        </a>
+        
+        <a class="series-card" href="/devlog/devlog/TIL/Nomad%20Coder/AI%20%EA%B8%B0%EC%B4%88%20%ED%83%84%ED%83%84%20%ED%81%B4%EB%9F%BD/8.%20Events&Objects/">
+          <span class="series-num">5</span>
+          <span class="series-card-date post-meta">2026-04-30</span>
+          <span class="series-sep">｜</span>
+          <span class="series-card-title">노마드코더 AI 기초 탄탄 클럽 #8 Events&Objects</span>
+          
+        </a>
+        
+        <a class="series-card" href="/devlog/devlog/TIL/Nomad%20Coder/AI%20%EA%B8%B0%EC%B4%88%20%ED%83%84%ED%83%84%20%ED%81%B4%EB%9F%BD/10.%20JS%20Casino/">
+          <span class="series-num">6</span>
+          <span class="series-card-date post-meta">2026-05-03</span>
+          <span class="series-sep">｜</span>
+          <span class="series-card-title">노마드코더 AI 기초 탄탄 클럽 #10 JS Casino</span>
+          
+        </a>
+        
+        <a class="series-card" href="/devlog/devlog/TIL/Nomad%20Coder/AI%20%EA%B8%B0%EC%B4%88%20%ED%83%84%ED%83%84%20%ED%81%B4%EB%9F%BD/11.%20Christmas%20Clock/">
+          <span class="series-num">7</span>
+          <span class="series-card-date post-meta">2026-05-04</span>
+          <span class="series-sep">｜</span>
+          <span class="series-card-title">노마드코더 AI 기초 탄탄 클럽 #11 Christmas Clock</span>
+          
+        </a>
+        
+        <a class="series-card" href="/devlog/devlog/TIL/Nomad%20Coder/AI%20%EA%B8%B0%EC%B4%88%20%ED%83%84%ED%83%84%20%ED%81%B4%EB%9F%BD/12.%20Random%20Gradient/">
+          <span class="series-num">8</span>
+          <span class="series-card-date post-meta">2026-05-05</span>
+          <span class="series-sep">｜</span>
+          <span class="series-card-title">노마드코더 AI 기초 탄탄 클럽 #12 Random Gradient</span>
+          
+        </a>
+        
+        <a class="series-card" href="/devlog/devlog/TIL/Nomad%20Coder/AI%20%EA%B8%B0%EC%B4%88%20%ED%83%84%ED%83%84%20%ED%81%B4%EB%9F%BD/15.%20%EA%B3%84%EC%82%B0%EA%B8%B0%20C++%20vs%20Python/">
+          <span class="series-num">9</span>
+          <span class="series-card-date post-meta">2026-05-09</span>
+          <span class="series-sep">｜</span>
+          <span class="series-card-title">노마드코더 AI 기초 탄탄 클럽 #15 계산기 C++ vs Python</span>
+          
+        </a>
+        
+        <a class="series-card" href="/devlog/devlog/TIL/Nomad%20Coder/AI%20%EA%B8%B0%EC%B4%88%20%ED%83%84%ED%83%84%20%ED%81%B4%EB%9F%BD/16.%20For%20Loop%20with%20Python/">
+          <span class="series-num">10</span>
+          <span class="series-card-date post-meta">2026-05-10</span>
+          <span class="series-sep">｜</span>
+          <span class="series-card-title">노마드코더 AI 기초 탄탄 클럽 #16 For Loop with Python</span>
+          
+        </a>
+        
+        <a class="series-card" href="/devlog/devlog/TIL/Nomad%20Coder/AI%20%EA%B8%B0%EC%B4%88%20%ED%83%84%ED%83%84%20%ED%81%B4%EB%9F%BD/18.%20React%20Calculator/">
+          <span class="series-num">11</span>
+          <span class="series-card-date post-meta">2026-05-14</span>
+          <span class="series-sep">｜</span>
+          <span class="series-card-title">노마드코더 AI 기초 탄탄 클럽 #18 React Calculator</span>
+          
+        </a>
+        
+        <a class="series-card" href="/devlog/devlog/TIL/Nomad%20Coder/AI%20%EA%B8%B0%EC%B4%88%20%ED%83%84%ED%83%84%20%ED%81%B4%EB%9F%BD/19.%20Pokemon%20Gallery/">
+          <span class="series-num">12</span>
+          <span class="series-card-date post-meta">2026-05-16</span>
+          <span class="series-sep">｜</span>
+          <span class="series-card-title">노마드코더 AI 기초 탄탄 클럽 #19 Pokemon Gallery</span>
+          
+        </a>
+        
+        <a class="series-card series-current" href="/devlog/devlog/TIL/Nomad%20Coder/AI%20%EA%B8%B0%EC%B4%88%20%ED%83%84%ED%83%84%20%ED%81%B4%EB%9F%BD/22.%20Marvel%20Character%20Gallery/">
+          <span class="series-num">13</span>
+          <span class="series-card-date post-meta">2026-05-22</span>
+          <span class="series-sep">｜</span>
+          <span class="series-card-title">노마드코더 AI 기초 탄탄 클럽 #22 Marvel Character Gallery</span>
+          <span class="series-reading">읽는 중</span>
+        </a>
+        
+      </div>
+    </div>
+    
+
+    
+    
+      
+    
+    
+
+  </div>
+
+  <a class="u-url" href="/devlog/devlog/TIL/Nomad%20Coder/AI%20%EA%B8%B0%EC%B4%88%20%ED%83%84%ED%83%84%20%ED%81%B4%EB%9F%BD/22.%20Marvel%20Character%20Gallery/" hidden></a>
+</article>
+
+<script>
+  document.querySelectorAll('.post-content img').forEach(function(img) {
+    img.setAttribute('loading', 'lazy');
+  });
+</script>
+
+      </div>
+    </main><footer class="site-footer">
+  <div class="wrapper">
+    <div class="footer-inner">
+      <div class="footer-left">
+        <div class="footer-contact">
+          <span class="post-meta"
+            ><i class="fa-solid fa-envelope"></i> kimlog0415@gmail.com</span
+          >
+          <span class="post-meta">｜</span>
+          <span class="post-meta"
+            ><a href="https://www.youtube.com/@kimlog0415"
+              ><i class="fa-brands fa-youtube" style="color: #ff0335"></i>
+              YouTube</a
+            ></span
+          >
+          <span class="post-meta">｜</span>
+          <span class="post-meta"
+            ><a href="/feed.xml"><i class="fa-solid fa-rss"></i> RSS</a></span
+          >
+        </div>
+        <div class="footer-copy post-meta">
+          &copy; 2026 김로그의 우당탕탕 ｜
+          <a href="/privacy-policy/">Privacy Policy</a>
+        </div>
+      </div>
+      <div class="footer-bmc">
+        <a href="/contact/" class="support-btn">☕ 후원하기</a>
+      </div>
+    </div>
+  </div>
+</footer>
+</body>
+
+</html>
