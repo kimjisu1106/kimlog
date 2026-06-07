@@ -11,7 +11,8 @@
       "Bash(python3 -c \"import sys; [print\\(repr\\(l.rstrip\\(\\)\\)\\) for l in sys.stdin if 'Pawbit' in l]\")",
       "Bash(cd \"c:\\\\Users\\\\JISU\\\\Documents\\\\Jisu's Obsidian\\\\Github\\\\kimlog0415.github.io\" && rm _add_tags.py _missing_tags.txt _tags_log.txt)",
       "Bash(git pull *)",
-      "Bash(git stash *)"
+      "Bash(git stash *)",
+      "Bash(mv \"_content/devlog/devlog/daily-log/draft-오늘 해낸 것\\(2026-06-03\\).md\" \"_content/devlog/devlog/daily-log/오늘 해낸 것\\(2026-06-03\\).md\")"
     ],
     "additionalDirectories": [
       "C:\\Users\\JISU\\Documents\\Jisu''''s Obsidian\\Github\\kimlog0415.github.io",
