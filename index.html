@@ -11,7 +11,7 @@ layout: home
 
 <h2>Daily Logs</h2>
 
-{% assign all_tils = site.devlog | where_exp: "p", "p.categories contains
+{% assign all_tils = site.content | where_exp: "p", "p.categories contains
 'today-i-learn'" | sort: "date" | reverse %}
 <ul class="devlog-list">
   {% for post in all_tils limit: 5 %}
@@ -31,8 +31,8 @@ layout: home
 
 <h2>Dev Logs</h2>
 
-{% assign all_devlogs = site.devlog | where_exp: "p", "p.categories contains
-'devlog'" | sort: "date" | reverse %}
+{% assign all_devlogs = site.content | where_exp: "p", "p.categories contains
+'log'" | sort: "date" | reverse %}
 <ul class="devlog-list">
   {% for post in all_devlogs limit: 5 %}
   <li>
@@ -49,7 +49,7 @@ layout: home
 
 <h2>Apps</h2>
 
-{% assign apps = site.devlog | where_exp: "p", "p.categories contains 'summary'"
+{% assign apps = site.content | where_exp: "p", "p.categories contains 'summary'"
 | where_exp: "p", "p.app_url" | sort: "date" | reverse %} {% if apps.size == 0
 %}
 <p>No apps yet.</p>
@@ -108,7 +108,7 @@ layout: home
 <h2>Videos</h2>
 
 <ul class="post-list home-list" id="list-videos">
-  {% assign vids = site.devlog | where_exp: "p", "p.video_id" | where_exp: "p",
+  {% assign vids = site.content | where_exp: "p", "p.video_id" | where_exp: "p",
   "p.categories contains 'summary'" | sort: "date" | reverse %} {% if vids.size
   == 0 %}
   <p>No videos yet.</p>

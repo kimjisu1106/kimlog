@@ -8,7 +8,7 @@ permalink: /ue5/
 
 <h2>Projects</h2>
 
-{% assign posts = site.devlog
+{% assign posts = site.content
   | where_exp: "p", "p.categories contains 'ue5'"
   | where_exp: "p", "p.categories contains 'summary'"
   | where_exp: "p", "p.project"
@@ -27,13 +27,13 @@ permalink: /ue5/
 <hr>
 <h2>Dev Log</h2>
 
-{% assign items = site.devlog
+{% assign items = site.content
   | sort: "date"
   | reverse %}
 {% assign devlog_posts = "" | split: "" %}
 {% for post in items %}
   {% assign cats = post.categories | join: "," | downcase %}
-  {% if cats contains "devlog" and cats contains "ue5" %}
+  {% if cats contains "log" and cats contains "ue5" %}
     {% assign devlog_posts = devlog_posts | push: post %}
   {% endif %}
 {% endfor %}
