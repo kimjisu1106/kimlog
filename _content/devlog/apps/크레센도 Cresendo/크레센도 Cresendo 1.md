@@ -4,7 +4,7 @@ title: 크레센도 Cresendo 1
 date: 2026-06-06
 categories:
   - apps
-  - summary
+  - log
 project: cresendo
 project_name: 크레센도 Cresendo
 video_id:
