@@ -5,7 +5,7 @@ date: 2026-06-06
 categories:
   - apps
   - log
-project: cresendo
+project: crescendo
 project_name: 크레센도 Crescendo
 video_id:
 app_url:
