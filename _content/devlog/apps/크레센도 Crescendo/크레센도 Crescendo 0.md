@@ -1,12 +1,12 @@
 ---
 layout: post
-title: 크레센도 Cresendo
+title: 크레센도 Crescendo
 date: 2026-06-06
 categories:
   - apps
   - summary
 project: cresendo
-project_name: 크레센도 Cresendo
+project_name: 크레센도 Crescendo
 video_id:
 app_url:
 status:

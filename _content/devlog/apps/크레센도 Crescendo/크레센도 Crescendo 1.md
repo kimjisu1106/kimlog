@@ -1,12 +1,12 @@
 ---
 layout: post
-title: 크레센도 Cresendo 1
+title: 크레센도 Crescendo 1
 date: 2026-06-06
 categories:
   - apps
   - log
 project: cresendo
-project_name: 크레센도 Cresendo
+project_name: 크레센도 Crescendo
 video_id:
 app_url:
 status:
@@ -17,7 +17,7 @@ tags:
 ---
 ## 오늘 한 일
 
-- Cresendo MVP 제작
+- Crescendo MVP 제작
 	- 게임 아이디어 설정 및 캐릭터 설계
 		- PLAVE의 Dash와 Born Savage 뮤비를 보며 캐릭터 분석
 	- M0 Phaser4+Vite+TS 부트, 빈 GameScene, Cloudflare Pages 자동배포

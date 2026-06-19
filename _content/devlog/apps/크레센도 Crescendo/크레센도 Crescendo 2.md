@@ -1,12 +1,12 @@
 ---
 layout: post
-title: 크레센도 Cresendo 2
+title: 크레센도 Crescendo 2
 date: 2026-06-07
 categories:
   - apps
   - log
 project: cresendo
-project_name: 크레센도 Cresendo
+project_name: 크레센도 Crescendo
 video_id:
 app_url:
 status:
@@ -18,7 +18,7 @@ tags:
 ---
 ## 오늘 한 일
 
-- Cresendo
+- Crescendo
 	- 캐릭터 애니 제작 파이프라인 구축(VRoid+Blender+Mixamo)
 		- 이유: 일관성 유지 및 노가다 최소화 🌟
 	- BootScene 로딩바
