@@ -925,3 +925,7 @@ hr {
   font-size: 13px;
   line-height: 1.5;
 }
+
+.adfit-web { display: block; }
+.adfit-mobile { display: none; }
+@media (max-width: 767px) { .adfit-web { display: none; } .adfit-mobile { display: block; } }
