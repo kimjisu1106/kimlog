@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Flutter 에서 퍼즐 셀 구현
+title: 습관만들기 Pawbit TIL 2
 date: 2026-05-10
 categories:
   - today-i-learn

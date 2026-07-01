@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Flutter 앱 개발 — DB부터 상태관리까지
+title: 습관만들기 Pawbit TIL 1
 date: 2026-05-05
 categories:
   - today-i-learn
