@@ -1,4 +1,4 @@
-﻿---
+---
 layout: post
 title: 크레센도 Crescendo 6
 date: 2026-06-11

@@ -1,4 +1,4 @@
-﻿---
+---
 layout: post
 title: 습관만들기 Pawbit 9
 date: 2026-06-23

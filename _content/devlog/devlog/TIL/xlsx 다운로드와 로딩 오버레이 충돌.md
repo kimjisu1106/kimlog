@@ -1,4 +1,4 @@
-﻿---
+---
 layout: post
 title: xlsx 다운로드와 로딩 오버레이 충돌
 date: 2026-05-20
