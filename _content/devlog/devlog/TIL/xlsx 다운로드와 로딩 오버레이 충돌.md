@@ -37,14 +37,14 @@ document.addEventListener('click', function(e) {
 다운로드 링크에 `data-no-loading` 속성 추가.
 
 ```html
-{%- raw -%}
+{% raw %}
 <a href="{% url 'export_xlsx' obj.pk %}"
    class="btn btn-sm btn-outline-secondary"
    data-no-loading>
   <i class="bi bi-file-earmark-excel me-1">
   </i>Excel
 </a>
-{%- endraw -%}
+{% endraw %}
 ```
 
 `data-no-loading`이 있으면 핸들러가 early return 해서 오버레이를 띄우지 않는다.
