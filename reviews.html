@@ -13,7 +13,12 @@ permalink: /reviews/
       <div class="sticky-card">
         <p class="sticky-comment">{{ review.comment }}</p>
         <div class="sticky-meta">
-          {% if review.author %}<span class="sticky-author">— {{ review.author }}</span>{% endif %}
+          {% if review.author %}
+          <span class="sticky-author">—
+            {% assign first_char = review.author | slice: 0 %}
+            {% if first_char == '@' %}{{ review.author | slice: 0, 4 }}*{% else %}{{ review.author | slice: 0, 2 }}*{% endif %}
+          </span>
+          {% endif %}
           {% if review.project %}<span class="sticky-project">{{ review.project }}</span>{% endif %}
           {% if review.source %}<span class="sticky-source">{{ review.source }}</span>{% endif %}
         </div>
