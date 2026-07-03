@@ -19,7 +19,8 @@ permalink: /reviews/
             {% if first_char == '@' %}{{ review.author | slice: 0, 4 }}*{% else %}{{ review.author | slice: 0, 2 }}*{% endif %}
           </span>
           {% endif %}
-          {% if review.project %}<span class="sticky-project">{{ review.project }}</span>{% endif %}
+          {% assign display_project = review.project_name | default: review.project %}
+          {% if display_project %}<span class="sticky-project">{{ display_project }}</span>{% endif %}
           {% if review.source %}<span class="sticky-source">{{ review.source }}</span>{% endif %}
         </div>
       </div>
