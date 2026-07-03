@@ -14,6 +14,8 @@ collections:
   content:
     output: true
     permalink: /:path/
+  reviews:
+    output: false
 header_pages:
   - devlog.html
   - ue5.html
