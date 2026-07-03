@@ -14,6 +14,7 @@
 10. **End-of-Turn Summary** — 응답 끝에 무엇을 했는지 간결하게 요약할 것(학습 목적). 변경 파일·핵심 변경 내용·확인 필요 사항 순으로.
 11. **CSS Consistency** — 모든 스타일은 `assets/main.scss`에만 작성. 인라인 `<style>` 블록, `style=""` 속성 금지. 색상은 CSS 변수 사용(`--border-color`, `--muted` 등). 다크모드는 `prefers-color-scheme` 오버라이드로.
 12. **Auto Commit** — 코드 CRUD(생성·수정·삭제)가 발생하면 작업 완료 후 자동으로 git commit & push. 보안 검사 통과 후 수행.
+13. **TIL 작성 전 기술 포인트 확인** — TIL을 작성하기 전에 해당 작업에서 사용된 중요 기술 포인트 목록을 먼저 사용자에게 제시하고, 어떤 항목을 기록할지 직접 선택하게 할 것. Claude Code가 코드를 작성하기 때문에 사용자가 어떤 기술이 쓰였는지 모를 수 있음 — 선택 과정 자체가 학습임.
 
 ## Project Overview
 
