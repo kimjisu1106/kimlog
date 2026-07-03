@@ -643,13 +643,27 @@
   word-break: break-word;
 }
 
+.sticky-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 8px;
+  margin-top: auto;
+}
+
 .sticky-meta {
   display: flex;
   flex-direction: column;
   gap: 2px;
   font-size: 12px;
   color: rgba(0, 0, 0, 0.6);
-  margin-top: auto;
+}
+
+.sticky-date {
+  font-size: 11px;
+  color: rgba(0, 0, 0, 0.4);
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .sticky-author {

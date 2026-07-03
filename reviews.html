@@ -12,16 +12,19 @@ permalink: /reviews/
       {% for review in sorted_reviews %}
       <div class="sticky-card">
         <p class="sticky-comment">{{ review.comment }}</p>
-        <div class="sticky-meta">
-          {% if review.author %}
-          <span class="sticky-author">—
-            {% assign first_char = review.author | slice: 0 %}
-            {% if first_char == '@' %}{{ review.author | slice: 0, 4 }}*{% else %}{{ review.author | slice: 0, 2 }}*{% endif %}
-          </span>
-          {% endif %}
-          {% assign display_project = review.project_name | default: review.project %}
-          {% if display_project %}<span class="sticky-project">{{ display_project }}</span>{% endif %}
-          {% if review.source %}<span class="sticky-source">{{ review.source }}</span>{% endif %}
+        <div class="sticky-bottom">
+          <div class="sticky-meta">
+            {% if review.author %}
+            <span class="sticky-author">—
+              {% assign first_char = review.author | slice: 0 %}
+              {% if first_char == '@' %}{{ review.author | slice: 0, 4 }}*{% else %}{{ review.author | slice: 0, 2 }}*{% endif %}
+            </span>
+            {% endif %}
+            {% assign display_project = review.project_name | default: review.project %}
+            {% if display_project %}<span class="sticky-project">{{ display_project }}</span>{% endif %}
+            {% if review.source %}<span class="sticky-source">{{ review.source }}</span>{% endif %}
+          </div>
+          {% if review.date %}<span class="sticky-date">{{ review.date | date: "%Y.%m.%d" }}</span>{% endif %}
         </div>
       </div>
       {% endfor %}
