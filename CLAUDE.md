@@ -291,7 +291,8 @@ Minima 기본 post layout을 오버라이드. 세 가지 기능이 자동으로 
 ## 이미지 관리
 
 - **포스트 본문 이미지는 `assets/images/for-posts/`에 저장** (Tistory/Kakao CDN 등 외부 CDN 사용 금지 — hotlink 차단으로 표시 안 됨)
-- 마크다운 경로는 반드시 절대경로 사용: `![](/assets/images/for-posts/파일명.png)`
+- 이미지 포맷은 WebP로 변환해서 저장 (용량 절감)
+- 마크다운 경로는 반드시 절대경로 사용: `![](/assets/images/for-posts/파일명.webp)`
   - 상대경로(`assets/...`)는 Obsidian 미리보기에서는 보이지만 웹에서 깨짐
   - 절대경로(`/assets/...`)는 Obsidian 미리보기에서 안 보이지만 웹에서 정상 표시
 - GitHub repo 용량 제한: 단일 파일 100MB 이하, 전체 권장 1GB 이하 (스크린샷 위주면 수년간 문제없음)
