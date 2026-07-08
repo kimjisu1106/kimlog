@@ -2,6 +2,7 @@
 layout: post
 title: 코드시트 ChordSheet
 date: 2026-03-14
+description: "교회 반주자를 위한 코드 차트 작성·키 전조 Android 앱을 Claude Code로 기획·구현한 프로젝트 소개."
 categories:
   - summary
   - apps

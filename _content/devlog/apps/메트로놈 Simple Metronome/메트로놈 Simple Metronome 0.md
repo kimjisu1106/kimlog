@@ -2,6 +2,7 @@
 layout: post
 title: 메트로놈 Simple Metronome
 date: 2025-08-05
+description: "광고 없는 심플 안드로이드 메트로놈 앱을 직접 기획해 Google Play에 출시한 과정 기록."
 categories:
   - summary
   - apps

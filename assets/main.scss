@@ -797,6 +797,16 @@ hr {
   font-weight: 700;
 }
 
+.footer-icon {
+  width: 14px;
+  height: 14px;
+  vertical-align: -2px;
+}
+
+.footer-icon--yt {
+  color: #ff0335;
+}
+
 /* =========================================================
    About (contact page)
    ========================================================= */
@@ -909,7 +919,7 @@ hr {
 #tag-cloud {
   display: block;
   width: 100%;
-  cursor: default;
+  cursor: pointer;
 }
 
 /* =========================================================

@@ -2,6 +2,7 @@
 layout: post
 title: PDF Editor
 date: 2026-02-17
+description: "광고 없이, 서버 업로드 없이 브라우저에서 PDF 페이지 삭제·순서 변경·추출·합치기를 처리하는 무료 PDF 편집기 제작기."
 categories:
   - apps
   - summary

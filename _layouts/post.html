@@ -93,7 +93,7 @@ layout: default
           <span class="series-num">{{ forloop.index }}</span>
           <span class="series-card-date post-meta">{{ item.date | date: "%Y-%m-%d" }}</span>
           <span class="series-sep">｜</span>
-          <span class="series-card-title">{{ item.title }}</span>
+          <span class="series-card-title">{{ item.short_title | default: item.title }}</span>
           {% if item.url == page.url %}<span class="series-reading">읽는 중</span>{% endif %}
         </a>
         {% endfor %}

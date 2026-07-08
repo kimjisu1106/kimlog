@@ -2,6 +2,7 @@
 layout: post
 title: 동요 ― 할아버지의 낡은 시계 (for Soprano recorder)
 date: 2023-07-10
+description: "동요 ― 할아버지의 낡은 시계 — 소프라노 리코더 커버 연주 영상."
 categories:
   - music-cover
   - summary

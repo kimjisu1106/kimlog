@@ -2,6 +2,7 @@
 layout: post
 title: 우효 ― 민들레 (for Alto recorder)
 date: 2025-07-05
+description: "우효 ― 민들레 — 알토 리코더 커버 연주 영상."
 categories:
   - music-cover
   - summary

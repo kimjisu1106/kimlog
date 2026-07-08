@@ -2,6 +2,7 @@
 layout: post
 title: 습관만들기 Pawbit
 date: 2026-05-05
+description: "버려진 강아지를 돌보며 습관을 만드는 Flutter 습관 트래커 앱, 습관만들기 Pawbit 프로젝트 소개."
 categories:
   - apps
   - summary

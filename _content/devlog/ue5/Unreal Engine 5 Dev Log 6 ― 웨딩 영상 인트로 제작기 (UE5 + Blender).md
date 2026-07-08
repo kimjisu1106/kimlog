@@ -2,6 +2,7 @@
 layout: post
 title: Unreal Engine 5 Dev Log 6 ― 웨딩 영상 인트로 제작기 (UE5 + Blender)
 date: 2025-10-04
+description: "Blender 카드·풍선 글씨 제작과 UE5 카메라 무빙·MRQ 렌더로 완성한 40초 웨딩 영상 인트로 제작기."
 categories:
   - log
   - ue5

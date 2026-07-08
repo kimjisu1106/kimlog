@@ -2,6 +2,7 @@
 layout: post
 title: 소리꽃 KeyBloom
 date: 2026-07-03
+description: "MIDI 파일로 88건반 연주와 파티클 이펙트를 피워내고 16:9 영상으로 저장하는 브라우저 비주얼라이저, 소리꽃 KeyBloom 프로젝트 소개."
 categories:
   - apps
   - summary

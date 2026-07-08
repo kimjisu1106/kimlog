@@ -2,6 +2,7 @@
 layout: post
 title: 로제 ROSÉ & Bruno Mars ― APT. (for Alto recorder)
 date: 2025-02-26
+description: "로제 ROSÉ & Bruno Mars ― APT. — 알토 리코더 커버 연주 영상."
 categories:
   - music-cover
   - summary

@@ -2,6 +2,7 @@
 layout: post
 title: Unreal Engine 5 Dev Log 3 ― 전자 피아노 + MIDI = 소리와 빛으로 반응하는 UE5 피아노
 date: 2025-09-09
+description: "전자 피아노의 MIDI 신호로 UE5 88건반의 사운드와 발광을 실시간 트리거하는 프로토타입 제작기."
 categories:
   - log
   - ue5

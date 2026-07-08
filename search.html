@@ -17,6 +17,9 @@ permalink: /search/
   let posts = [];
   let ready = false;
 
+  const initQ = new URLSearchParams(location.search).get('q');
+  if (initQ) input.value = initQ;
+
   function runSearch() {
     const q = input.value.trim().toLowerCase();
     results.innerHTML = '';

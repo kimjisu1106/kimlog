@@ -2,6 +2,7 @@
 layout: post
 title: Unreal Engine 5 Dev Log 4 ― 우리 동네 만들기 도전기 !
 date: 2025-09-15
+description: "퇴근길에 본 분홍 구름 하늘과 버스가 스쳐가는 교차로를 UE5로 재현한 우리 동네 만들기 도전기."
 categories:
   - log
   - ue5

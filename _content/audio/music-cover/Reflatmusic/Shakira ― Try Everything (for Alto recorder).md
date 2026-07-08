@@ -2,6 +2,7 @@
 layout: post
 title: Shakira ― Try Everything (for Alto recorder)
 date: 2024-09-10
+description: "Shakira ― Try Everything — 알토 리코더 커버 연주 영상."
 categories:
   - music-cover
   - summary

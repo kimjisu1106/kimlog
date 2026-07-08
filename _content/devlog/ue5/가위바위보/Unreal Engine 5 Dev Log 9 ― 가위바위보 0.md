@@ -2,6 +2,7 @@
 layout: post
 title: Unreal Engine 5 Dev Log 9 ― 가위바위보
 date: 2026-01-24
+description: "UE5 UMG로 버튼 입력·판정 로직·애니메이션을 갖춘 가위바위보 게임 머신 2D 미니게임 구현기."
 categories:
   - ue5
   - summary

@@ -2,6 +2,7 @@
 layout: post
 title: 크레센도 Crescendo
 date: 2026-06-06
+description: "붙잡힌 멤버를 구출할수록 BGM 스템이 한 겹씩 쌓이는 어댑티브 사운드 2D 픽셀아트 횡스크롤 액션, 크레센도 Crescendo 프로젝트 소개."
 categories:
   - apps
   - summary

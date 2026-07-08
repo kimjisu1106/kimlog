@@ -2,6 +2,7 @@
 layout: post
 title: 중복된 파일 찾기 Duplicate Finder
 date: 2026-03-22
+description: "MD5 해시와 pHash 2단계 스캔으로 중복·유사 파일을 찾아 휴지통으로 안전하게 정리하는 Python Tkinter 데스크탑 앱 개발기."
 categories:
   - summary
   - apps
