@@ -1019,6 +1019,12 @@ hr {
   line-height: 1.5;
 }
 
+.search-snippet mark {
+  background: transparent;
+  color: inherit;
+  font-weight: 700;
+}
+
 .adfit-web { display: block; }
 .adfit-mobile { display: none; }
 @media (max-width: 767px) { .adfit-web { display: none; } .adfit-mobile { display: block; } }
