@@ -12,7 +12,16 @@
       "Bash(cd \"c:\\\\Users\\\\JISU\\\\Documents\\\\Jisu's Obsidian\\\\Github\\\\kimlog0415.github.io\" && rm _add_tags.py _missing_tags.txt _tags_log.txt)",
       "Bash(git pull *)",
       "Bash(git stash *)",
-      "Bash(mv \"_content/devlog/devlog/daily-log/draft-오늘 해낸 것\\(2026-06-03\\).md\" \"_content/devlog/devlog/daily-log/오늘 해낸 것\\(2026-06-03\\).md\")"
+      "Bash(mv \"_content/devlog/devlog/daily-log/draft-오늘 해낸 것\\(2026-06-03\\).md\" \"_content/devlog/devlog/daily-log/오늘 해낸 것\\(2026-06-03\\).md\")",
+      "Read(//c/Users/JISU/Documents/VSCode/SimpleMetronome/**)",
+      "Read(//c/Users/JISU/Documents/VSCode/SimpleMetronome/app/src/main/res/layout/**)",
+      "PowerShell($env:JAVA_HOME = \"C:\\\\Program Files\\\\Android\\\\Android Studio\\\\jbr\"; .\\\\gradlew.bat assembleDebug --console=plain 2>&1 | Select-Object -Last 12)",
+      "PowerShell(Set-Location \"c:\\\\Users\\\\JISU\\\\Documents\\\\VSCode\\\\SimpleMetronome\"; $env:JAVA_HOME = \"C:\\\\Program Files\\\\Android\\\\Android Studio\\\\jbr\"; .\\\\gradlew.bat assembleDebug --console=plain 2>&1 | Select-Object -Last 12)",
+      "Bash(python -)",
+      "Bash(curl -s -X POST http://localhost:8787/__noop)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:8787/api/timeline)",
+      "Bash(break)",
+      "Bash(python hae_fill.py --apply)"
     ],
     "additionalDirectories": [
       "C:\\Users\\JISU\\Documents\\Jisu''''s Obsidian\\Github\\kimlog0415.github.io",
