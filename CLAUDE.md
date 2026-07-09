@@ -15,6 +15,7 @@
 11. **CSS Consistency** — 모든 스타일은 `assets/main.scss`에만 작성. 인라인 `<style>` 블록, `style=""` 속성 금지. 색상은 CSS 변수 사용(`--border-color`, `--muted` 등). 다크모드는 `prefers-color-scheme` 오버라이드로.
 12. **Auto Commit** — 코드 CRUD(생성·수정·삭제)가 발생하면 작업 완료 후 자동으로 git commit & push. 보안 검사 통과 후 수행.
 13. **TIL 작성 전 기술 포인트 확인** — TIL을 작성하기 전에 해당 작업에서 사용된 기술 포인트 목록을 빠짐없이 사용자에게 제시하고, 어떤 항목을 기록할지 직접 선택하게 할 것. "중요한 것만" 추리지 말고 사소한 것도 포함해서 전부 나열한다. Claude Code가 코드를 작성하기 때문에 사용자가 어떤 기술이 쓰였는지 모를 수 있음 — 선택 과정 자체가 학습임.
+14. **Description 필수** — 새 포스트(draft 포함)를 작성할 때 frontmatter에 `description`을 1문장으로 반드시 넣을 것. 본문 내용을 요약하며, 검색 결과 스니펫·SNS 공유 카드에 그대로 노출됨. 비우면 첫 문단이 자동 추출되는데 헤딩으로 시작하는 devlog는 스니펫 품질이 나쁨.
 
 ## Project Overview
 
