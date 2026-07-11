@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 메트로놈 Simple Metronome 9
-date: 2026-07-10
+date: 2026-07-11
 categories:
   - log
   - apps
@@ -10,77 +10,69 @@ project_name: 메트로놈 Simple Metronome
 video_id:
 app_url: https://play.google.com/store/apps/details?id=io.github.kimjisu1106.simplemetronome
 status: finished
-description: 지금 BPM·박자표·사운드 설정을 이름 붙여 저장하고 탭 한 번으로 불러오는 프리셋 기능을 붙이고, 잘 안 쓰던 BPM 기억 기능은 걷어냈다.
+description: 인디케이터 점/발자국 선택·첫 실행 사용법 안내·영한 다국어를 붙이고, 슬라이더·박자표·Play 배치를 다듬고, 태블릿에서 광고가 네비바에 가리던 문제를 고쳐 v1.13으로 출시 준비를 마쳤다.
 tags:
   - Android-Studio
   - Kotlin
 ---
 ## 오늘 한 일
 
-- 프리셋 저장·불러오기 — 지금 BPM·박자표·사운드·하이햇을 이름 붙여 저장, 행 탭으로 그대로 복원
-- 같은 이름으로 저장하면 덮어쓰기(확인 후), 행마다 💾 버튼으로 이름 재입력 없이 갱신, 🗑로 삭제
-- 프리셋을 `SharedPreferences`에 JSON 배열로 저장, 목록 행은 코드로 동적 생성
-- 프리셋 섹션을 설정 드로어 맨 아래로 이동(개수가 늘 수 있어서), 저장은 헤더 우측 ➕ 버튼으로
-- 프리셋과 역할이 겹치던 BPM 기억 기능 제거, 미사용 리소스·스타일·의존성 정리(클린코드)
+- 인디케이터 모양 선택 — 설정에서 점(기본)/발자국 택1 (무료)
+- 첫 실행 사용법 안내 — 첫 실행 때 한 번 카드로, 이후엔 설정의 "사용 방법"으로 언제든
+- 설정 헤더 정리 — 전체폭 "화면 회전"·"사용 방법" 버튼을 헤더 우측 아이콘 2개로
+- 레이아웃 다듬기 — 슬라이더 트랙·핸들 키움, 세로 ± 줄을 Play 줄 폭에 맞춰 슬라이더 늘림, 가로는 박자표를 ± 줄로 올림, 세로 Play 높이를 박자표 박스에 맞춤
+- 태블릿에서 광고가 하단 네비바에 가리던 문제 수정
+- 영어/한국어 다국어 — 기본 영어 + `values-ko`, 기기 언어 자동 전환(`localeConfig`로 앱별 언어도)
+- 미사용 문자열 정리 후 v1.13(versionCode 13) 릴리스 빌드 → Google Play 프로덕션 출시 시작, 스토어 스크린샷 새로 교체
 
 ---
 
 ## 막힌 부분
 
-### 덮어쓸 때마다 이름을 다시 치는 게 번거로움
+### 태블릿에서만 광고가 하단 네비바에 가림
 
-처음엔 "같은 이름으로 저장하면 덮어쓰기"만 넣었는데, 덮어쓰려면 매번 저장 다이얼로그를 열어 같은 이름을 또 입력해야 했다. 목록 행마다 💾 버튼을 두고, 그 행의 `index`를 그대로 `commitPreset`에 넘겨 이름 입력 단계를 건너뛰게 했다.
+가로일 때 하단 인셋을 `if (isLandscape) 0`으로 무조건 눌러버린 게 문제였다. "가로 = 네비바가 옆에 있다"는 가정인데, 휴대폰은 맞지만 태블릿은 가로에서도 하단 네비바가 그대로 있어서 광고가 그 밑에 깔렸다. 특수 케이스를 없애고 시스템이 주는 `bars.bottom`을 그대로 믿으니 둘 다 알아서 맞았다 — 휴대폰 가로는 네비바가 우측이라 `bars.bottom == 0`(광고 바닥에 붙음), 태블릿 가로는 네비바 높이만큼 광고가 위로 올라간다.
 
 ```kotlin
-// idx >= 0이면 그 자리에 덮어쓰기, 아니면 맨 위에 새로 추가
-private fun commitPreset(name: String, bpm: Int, idx: Int) {
-    val date = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
-    val p = Preset(name, date, bpm, viewModel.numerator, viewModel.denominator, soundMode, hihatSubs)
-    if (idx >= 0) presets[idx] = p else presets.add(0, p)
-    savePresets()
-    rebuildPresetList()
-}
-
-// 행 💾 버튼 — 이름 재입력 없이 그 행 index로 덮어쓰기
-row.findViewById<ImageView>(R.id.presetOverwrite).setOnClickListener {
-    AlertDialog.Builder(this)
-        .setMessage(getString(R.string.preset_overwrite, p.name))
-        .setPositiveButton("Confirm") { _, _ -> commitPreset(p.name, viewModel.currentBpm.value ?: 60, index) }
-        .setNegativeButton("Cancel", null)
-        .show()
+ViewCompat.setOnApplyWindowInsetsListener(binding.contentRoot) { v, insets ->
+    val bars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+    v.updatePadding(top = bars.top, left = bars.left, right = bars.right, bottom = bars.bottom)
+    insets
 }
 ```
 
-### 프리셋을 통째로 저장하기
+### 세로 Play 버튼이 박자표 박스보다 짧아 보임
 
-프리셋은 개수가 유동적이라 키를 하나씩 만들기 어렵다. `data class`를 `org.json`으로 직렬화해 배열 문자열 하나로 저장하고, 읽을 땐 역직렬화한다.
+Play를 `layout_height="match_parent"`로 뒀는데도 박자표보다 짧았다. `MaterialButton`의 기본 `insetTop/insetBottom`이 각각 6dp라, 뷰는 줄 높이를 채워도 그려지는 배경은 위아래 12dp 안쪽으로 들어가서다. 인셋을 0으로 없애니 배경이 줄 높이(=박자표 높이)를 꽉 채웠다.
 
-```kotlin
-private fun savePresets() {
-    val arr = JSONArray()
-    presets.forEach { p ->
-        arr.put(JSONObject().apply {
-            put("name", p.name); put("date", p.date); put("bpm", p.bpm)
-            put("num", p.num); put("den", p.den); put("sound", p.sound); put("hihat", p.hihat)
-        })
-    }
-    prefs.edit().putString(KEY_PRESETS, arr.toString()).apply()
-}
+```xml
+<com.google.android.material.button.MaterialButton
+    android:id="@+id/btnToggle"
+    android:layout_height="match_parent"
+    android:insetTop="0dp"
+    android:insetBottom="0dp"
+    ... />
 ```
 
-저장 항목은 연주 설정(bpm·박자표·사운드·하이햇)만 — 테마·플래시 같은 전역 설정은 넣지 않았다.
+여기서 줄 높이가 박자표 높이가 되는 건, 가로 `LinearLayout`이 `wrap_content` 높이일 때 `match_parent` 자식(Play)은 높이 계산에서 빠지고, `wrap_content` 형제 중 가장 큰 것(박자표)이 줄 높이를 정하기 때문이다.
 
-### 잘 안 쓰는 기능 걷어내기 (BPM 기억)
+### 슬라이더가 얇고 짧음
 
-BPM 기억 스위치는 "마지막 BPM을 저장했다가 다시 켤 때 복원"인데, 프리셋이 생기면서 역할이 겹쳤다. 필드·`companion` 상수·`prefs` 저장·스위치 리스너·저장 함수까지 한 번에 제거했다. 저장 버튼도 전체폭 버튼을 없애고 헤더 우측 ➕ `ImageView`로 바꿨는데, `id`(`btnSavePreset`)를 유지해서 `setOnClickListener` 핸들러는 그대로 뒀다.
+트랙은 커스텀 드로어블 없이 `min/maxHeight`로 두껍게, 핸들은 `oval` 셰이프 드로어블의 `<size>`로 키우고, 슬라이더 폭은 `0dp` + `weight`로 아래 Play 줄과 같은 폭이 되게 늘렸다.
 
-### 첫 박 저지연 재시도 → 되돌림
-
-매 마디 첫 박이 작게 들리는 걸 다시 잡아보려 `AudioTrack`에 `PERFORMANCE_MODE_LOW_LATENCY`를 걸어봤지만 체감 차이가 없어 되돌렸다. PCM 데이터의 gain은 동일해서, 재생 경로 밖(기기 오디오 후처리)의 문제로 잠정 결론짓고 미해결로 유지한다.
+```xml
+<SeekBar
+    android:layout_width="0dp"
+    android:layout_weight="1"
+    android:minHeight="12dp"
+    android:maxHeight="12dp"
+    android:thumb="@drawable/seekbar_thumb"
+    android:thumbTint="?attr/mtAccent" />
+```
 
 ---
 
 ## 다음에 할 일
 
-- 릴리스 준비 (versionCode 올리고 aab 빌드·업로드, 스크린샷 갱신)
-- "첫 박 작게 들림" 실기기 녹음으로 재조사 (헤드폰 vs 스피커)
+- 프로덕션 검토 통과 대기 + 출시 후 크래시·리뷰 모니터링, 태블릿 실기기 확인
+- 백그라운드 재생(포그라운드 서비스 + 알림) — 태블릿에 악보 켜두고 트는 시나리오

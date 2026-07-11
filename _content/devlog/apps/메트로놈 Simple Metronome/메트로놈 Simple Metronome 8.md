@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 메트로놈 Simple Metronome 8
-date: 2026-07-09
+date: 2026-07-10
 categories:
   - log
   - apps
@@ -10,72 +10,77 @@ project_name: 메트로놈 Simple Metronome
 video_id:
 app_url: https://play.google.com/store/apps/details?id=io.github.kimjisu1106.simplemetronome
 status: finished
-description: 흩어진 설정을 우측 슬라이드 드로어로 통합하고 메인 화면을 미니멀하게 개편했으며, 박자표 슬라이딩 피커·가로 2단 레이아웃·드럼 비트 사운드·비트 플래시를 붙였다.
+description: 지금 BPM·박자표·사운드 설정을 이름 붙여 저장하고 탭 한 번으로 불러오는 프리셋 기능을 붙이고, 잘 안 쓰던 BPM 기억 기능은 걷어냈다.
 tags:
   - Android-Studio
   - Kotlin
 ---
 ## 오늘 한 일
 
-- 흩어진 설정을 우측 슬라이드 드로어(`DrawerLayout`) 하나로 통합 (테마·BPM 기억·사운드·플래시·화면 회전)
-- 메인 화면 미니멀 개편 — BPM 히어로 + 템포 이름, 원형 −/+ 버튼, 발자국 기준선
-- 박자표 탭 → 분자/분모 2줄 슬라이딩 피커(가로 `RecyclerView` + `LinearSnapHelper`)
-- 가로모드 좌(발자국)/우(컨트롤) 2단 — 회전 시 재생성되게 `configChanges`에서 orientation 제거, 상태는 ViewModel로 유지
-- 사운드에 드럼 비트(코드 합성 kick/snare/hihat) + 하이햇 8/16, 비트 플래시(화면·토치)
+- 프리셋 저장·불러오기 — 지금 BPM·박자표·사운드·하이햇을 이름 붙여 저장, 행 탭으로 그대로 복원
+- 같은 이름으로 저장하면 덮어쓰기(확인 후), 행마다 💾 버튼으로 이름 재입력 없이 갱신, 🗑로 삭제
+- 프리셋을 `SharedPreferences`에 JSON 배열로 저장, 목록 행은 코드로 동적 생성
+- 프리셋 섹션을 설정 드로어 맨 아래로 이동(개수가 늘 수 있어서), 저장은 헤더 우측 ➕ 버튼으로
+- 프리셋과 역할이 겹치던 BPM 기억 기능 제거, 미사용 리소스·스타일·의존성 정리(클린코드)
 
 ---
 
 ## 막힌 부분
 
-### 슬라이딩 피커에서 현재 값을 정확히 가운데로
+### 덮어쓸 때마다 이름을 다시 치는 게 번거로움
 
-`scrollToPositionWithOffset(index, offset)`의 offset 기준이 헷갈려 계속 어긋났다(현재 값이 아니라 엉뚱한 값이 가운데). 추정을 버리고, 대칭 패딩이면 스크롤 0에서 0번이 중앙이라는 점을 이용해 목표 스크롤을 `index × 아이템폭`으로 잡아 이동한 뒤 실제 아이템 뷰 중심으로 미세 보정했다.
+처음엔 "같은 이름으로 저장하면 덮어쓰기"만 넣었는데, 덮어쓰려면 매번 저장 다이얼로그를 열어 같은 이름을 또 입력해야 했다. 목록 행마다 💾 버튼을 두고, 그 행의 `index`를 그대로 `commitPreset`에 넘겨 이름 입력 단계를 건너뛰게 했다.
 
 ```kotlin
-val pad = ((rv.width - itemW) / 2).coerceAtLeast(0)
-rv.setPadding(pad, 0, pad, 0)
-rv.doOnPreDraw {
-    rv.scrollBy(index * itemW - rv.computeHorizontalScrollOffset(), 0)
-    rv.post {
-        rv.findViewHolderForAdapterPosition(index)?.let { vh ->
-            rv.scrollBy((vh.itemView.left + vh.itemView.right) / 2 - rv.width / 2, 0)
-        }
-    }
+// idx >= 0이면 그 자리에 덮어쓰기, 아니면 맨 위에 새로 추가
+private fun commitPreset(name: String, bpm: Int, idx: Int) {
+    val date = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
+    val p = Preset(name, date, bpm, viewModel.numerator, viewModel.denominator, soundMode, hihatSubs)
+    if (idx >= 0) presets[idx] = p else presets.add(0, p)
+    savePresets()
+    rebuildPresetList()
+}
+
+// 행 💾 버튼 — 이름 재입력 없이 그 행 index로 덮어쓰기
+row.findViewById<ImageView>(R.id.presetOverwrite).setOnClickListener {
+    AlertDialog.Builder(this)
+        .setMessage(getString(R.string.preset_overwrite, p.name))
+        .setPositiveButton("Confirm") { _, _ -> commitPreset(p.name, viewModel.currentBpm.value ?: 60, index) }
+        .setNegativeButton("Cancel", null)
+        .show()
 }
 ```
 
-### 재생 중 설정을 바꾸면 첫 박이 어긋남
+### 프리셋을 통째로 저장하기
 
-BPM·박자표·사운드를 재생 중 바꾸면 소리와 발자국의 첫 박이 밀렸다. 두 가지였다 — (1) 미터가 같은 값으로 바뀌면(예 4/4→4/8) 재시작이 스킵돼 인디케이터만 리셋됨 → 미터 변경 땐 강제 재시작. (2) 옛 `AudioTrack`의 지연된 위치 콜백이 인디케이터를 밀어냄 → 재생 세대 토큰으로 옛 콜백 무시.
+프리셋은 개수가 유동적이라 키를 하나씩 만들기 어렵다. `data class`를 `org.json`으로 직렬화해 배열 문자열 하나로 저장하고, 읽을 땐 역직렬화한다.
 
 ```kotlin
-private var playToken = 0
-// playPattern에서
-val token = ++playToken
-at.setPlaybackPositionUpdateListener(object : AudioTrack.OnPlaybackPositionUpdateListener {
-    override fun onPeriodicNotification(t: AudioTrack) {
-        runOnUiThread { if (token == playToken) highlightNextIndicator() }  // 최신 세대만
+private fun savePresets() {
+    val arr = JSONArray()
+    presets.forEach { p ->
+        arr.put(JSONObject().apply {
+            put("name", p.name); put("date", p.date); put("bpm", p.bpm)
+            put("num", p.num); put("den", p.den); put("sound", p.sound); put("hihat", p.hihat)
+        })
     }
-    override fun onMarkerReached(t: AudioTrack) {}
-})
+    prefs.edit().putString(KEY_PRESETS, arr.toString()).apply()
+}
 ```
 
-### 컴파운드 박자 드럼 하이햇 정렬
+저장 항목은 연주 설정(bpm·박자표·사운드·하이햇)만 — 테마·플래시 같은 전역 설정은 넣지 않았다.
 
-6/8은 한 박이 8분음표 3개인데 하이햇을 박당 2/4로 균등 분할하니 그리드에서 어긋났다. 컴파운드면 3·6, 단순박이면 2·4로.
+### 잘 안 쓰는 기능 걷어내기 (BPM 기억)
 
-```kotlin
-val eighthPerBeat = if (subsPerBeat == 3) 3 else 2   // 컴파운드는 박당 8분 3개
-val hats = if (hihatSubs == 4) eighthPerBeat * 2 else eighthPerBeat
-```
+BPM 기억 스위치는 "마지막 BPM을 저장했다가 다시 켤 때 복원"인데, 프리셋이 생기면서 역할이 겹쳤다. 필드·`companion` 상수·`prefs` 저장·스위치 리스너·저장 함수까지 한 번에 제거했다. 저장 버튼도 전체폭 버튼을 없애고 헤더 우측 ➕ `ImageView`로 바꿨는데, `id`(`btnSavePreset`)를 유지해서 `setOnClickListener` 핸들러는 그대로 뒀다.
 
-### 첫 박이 둘째 박보다 작게 들림 (미해결)
+### 첫 박 저지연 재시도 → 되돌림
 
-메트로놈·드럼 둘 다 매 마디 첫 박이 작게 들렸다. 버퍼상 gain은 동일해서 데이터 문제는 아니었다. 시작 anti-pop 페이드를 의심해 무음 리드인을 넣고, 루프 경계 페이드를 의심해 `MODE_STATIC` 루프를 `MODE_STREAM` 연속 write로 바꿔봤지만 그대로였다. 기기 오디오 후처리로 의심하고 일단 미해결로 기록.
+매 마디 첫 박이 작게 들리는 걸 다시 잡아보려 `AudioTrack`에 `PERFORMANCE_MODE_LOW_LATENCY`를 걸어봤지만 체감 차이가 없어 되돌렸다. PCM 데이터의 gain은 동일해서, 재생 경로 밖(기기 오디오 후처리)의 문제로 잠정 결론짓고 미해결로 유지한다.
 
 ---
 
 ## 다음에 할 일
 
-- "첫 박 작게 들림" 실기기 로그·출력 녹음으로 재조사 (헤드폰 vs 스피커 비교)
-- 릴리스 준비 (versionCode 올리고 aab 빌드·업로드)
+- 릴리스 준비 (versionCode 올리고 aab 빌드·업로드, 스크린샷 갱신)
+- "첫 박 작게 들림" 실기기 녹음으로 재조사 (헤드폰 vs 스피커)
