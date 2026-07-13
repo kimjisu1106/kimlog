@@ -9,7 +9,7 @@ project: simple-metronome
 project_name: 메트로놈 Simple Metronome
 video_id:
 app_url: https://play.google.com/store/apps/details?id=io.github.kimjisu1106.simplemetronome
-status:
+status: finished
 tags:
   - Android-Studio
   - Kotlin
