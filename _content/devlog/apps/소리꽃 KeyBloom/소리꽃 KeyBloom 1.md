@@ -7,7 +7,7 @@ categories:
   - log
 project: key-bloom
 project_name: 소리꽃 KeyBloom
-video_id:
+video_id: https://youtu.be/FBdnxXNMLvk
 app_url:
 status:
 tags:
