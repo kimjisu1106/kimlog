@@ -7,7 +7,7 @@ categories:
   - log
 project: key-bloom
 project_name: 소리꽃 KeyBloom
-video_id:
+video_id: FBdnxXNMLvk
 app_url: https://keybloom.pages.dev
 status:
 description: 아침에 만든 합성음을 실제 피아노 샘플로 갈아엎고, 서스테인·소리 고르기·백그라운드 재생을 다듬은 뒤 크레딧·영어·도움말·광고까지 붙여 무료 버전을 Cloudflare에 배포한 기록.

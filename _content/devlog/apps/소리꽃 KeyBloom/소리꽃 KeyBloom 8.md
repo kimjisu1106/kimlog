@@ -7,7 +7,7 @@ categories:
   - log
 project: key-bloom
 project_name: 소리꽃 KeyBloom
-video_id:
+video_id: FBdnxXNMLvk
 app_url: https://keybloom.pages.dev
 status:
 description: 파티클과 건반의 색 모드를 5종으로 통일하고, 노트마다 지정 팔레트에서 직전 색을 뺀 한 색을 쓰는 팔레트 모드를 넣은 기록.
