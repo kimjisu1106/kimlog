@@ -8,7 +8,7 @@ categories:
 project: key-bloom
 project_name: 소리꽃 KeyBloom
 video_id: FBdnxXNMLvk
-app_url:
+app_url: https://keybloom.pages.dev
 status:
 description: 무료 출시를 목표로 4K 유료 잠금·Ctrl+S 덮어쓰기 저장·오디오 자동 복원·광고 자리를 넣고, 건반 색 규칙까지 파티클과 맞춘 기록.
 tags:

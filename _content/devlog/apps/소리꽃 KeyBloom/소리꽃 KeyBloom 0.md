@@ -9,7 +9,7 @@ categories:
 project: key-bloom
 project_name: 소리꽃 KeyBloom
 video_id: https://youtu.be/FBdnxXNMLvk
-app_url:
+app_url: https://keybloom.pages.dev
 status:
 tags:
   - JavaScript

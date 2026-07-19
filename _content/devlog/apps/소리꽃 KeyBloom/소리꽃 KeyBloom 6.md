@@ -8,7 +8,7 @@ categories:
 project: key-bloom
 project_name: 소리꽃 KeyBloom
 video_id: FBdnxXNMLvk
-app_url:
+app_url: https://keybloom.pages.dev
 status:
 description: 토네이도보다 좁고 높게 도는 나선 기둥과 좌우로 헤엄쳐 오르는 물고기 유영, 파티클 모션 2종을 추가하고 튜닝한 기록.
 tags:

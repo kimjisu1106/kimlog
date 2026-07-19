@@ -8,7 +8,7 @@ categories:
 project: key-bloom
 project_name: 소리꽃 KeyBloom
 video_id:
-app_url:
+app_url: https://keybloom.pages.dev
 status:
 description: 화면을 실시간 녹화하던 내보내기를 프레임 단위 오프라인 렌더로 바꿔 고화질 MP4를 뽑고, 얇던 합성음을 배음 합성 피아노 소리로 바꾼 기록.
 tags:
