@@ -1,0 +1,4 @@
+---
+layout: none
+---
+[{% for post in site.content %}{"date":{{ post.date | date: "%Y-%m-%d" | jsonify }},"tags":{{ post.tags | jsonify }}}{% unless forloop.last %},{% endunless %}{% endfor %}]

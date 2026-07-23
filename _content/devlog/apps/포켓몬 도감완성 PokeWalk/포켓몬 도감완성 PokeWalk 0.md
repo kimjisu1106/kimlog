@@ -2,6 +2,7 @@
 layout: post
 title: 포켓몬 도감완성 PokeWalk
 date: 2026-05-30
+description: "1세대 포켓몬 151마리 도감 완성을 목표로 하는 React 방치형 탐험 게임, 포켓몬 도감완성 PokeWalk 프로젝트 소개."
 categories:
   - apps
   - summary

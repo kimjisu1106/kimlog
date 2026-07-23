@@ -2,6 +2,7 @@
 layout: post
 title: Fantastic Fortune ― 후루루후루루(판타스틱포츈 Diana's Character Song)
 date: 2017-04-17
+description: "Fantastic Fortune ― 후루루후루루(판타스틱포츈 Diana's Character Song) 커버 연주 영상."
 categories:
   - music-cover
   - summary

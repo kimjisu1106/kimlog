@@ -2,6 +2,7 @@
 layout: post
 title: Unreal Engine 5 Dev Log 7 ― 리듬게임, 불꽃놀이 그리고 야경
 date: 2025-11-30
+description: "리듬 판정, 불꽃 패턴, 야경 연출을 하나의 시스템으로 연결한 105시간 UE5 프로젝트 — BP, DataTable, Niagara, Sequencer 실전 사용기."
 categories:
   - log
   - ue5

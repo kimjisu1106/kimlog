@@ -2,6 +2,7 @@
 layout: post
 title: Unreal Engine 5 Dev Log 8 ― 가챠, 캡슐 머신, 놀이기구
 date: 2025-12-14
+description: "UE5로 가챠 캡슐 머신과 놀이기구를 구현하는 인터랙션·연출 프로젝트 기록."
 categories:
   - summary
   - ue5

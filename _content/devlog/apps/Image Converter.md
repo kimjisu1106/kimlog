@@ -2,6 +2,7 @@
 layout: post
 title: 이미지 변환기 Image Converter
 date: 2026-02-09
+description: "서버 업로드 없이 브라우저에서 JPG·PNG·WebP 변환과 해상도·화질 조절, 최대 50장 일괄 ZIP 다운로드를 지원하는 이미지 변환 도구."
 categories:
   - apps
   - summary

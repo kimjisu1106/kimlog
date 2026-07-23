@@ -2,6 +2,7 @@
 layout: post
 title: Unreal Engine 5 Dev Log 5 ― 로그스톤 은행 룩뎁(비 오는 상가 낮→밤)
 date: 2025-09-30
+description: "은행 파사드를 낮에서 비 오는 밤으로 전환하는 UE5 룩데브 실습 — Megascans 재질, 나이아가라 비, 젖음 머티리얼, MRQ 렌더."
 categories:
   - log
   - ue5

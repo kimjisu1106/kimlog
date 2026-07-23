@@ -2,6 +2,7 @@
 layout: post
 title: 나야 (It's me)
 date: 2017-06-12
+description: "자작곡 ― 나야 (It's me). 직접 만든 곡의 기록."
 categories:
   - original
   - summary

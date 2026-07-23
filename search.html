@@ -10,59 +10,83 @@ permalink: /search/
   <p class="search-empty post-meta" id="search-empty" hidden>검색 결과가 없습니다.</p>
 </div>
 
-<script>
+<script type="module">
   const input = document.getElementById('search-input');
   const results = document.getElementById('search-results');
   const empty = document.getElementById('search-empty');
-  let posts = [];
-  let ready = false;
+  const MAX_RESULTS = 50;
 
-  function runSearch() {
-    const q = input.value.trim().toLowerCase();
+  const initQ = new URLSearchParams(location.search).get('q');
+  if (initQ) input.value = initQ;
+
+  let pagefind = null;
+  let legacyPosts = null;
+
+  try {
+    pagefind = await import('/pagefind/pagefind.js');
+    pagefind.init();
+  } catch (e) {
+    // Pagefind 인덱스가 없는 환경(빌드 커맨드 미적용·로컬 serve)에서는 기존 전문 검색으로
+    legacyPosts = await fetch('/search.json').then(r => r.json());
+  }
+
+  function renderItems(items) {
     results.innerHTML = '';
-    empty.hidden = true;
-
-    if (q.length < 1) return;
-
-    if (!ready) {
-      results.innerHTML = '<li class="post-meta">검색 인덱스 로딩 중...</li>';
-      return;
-    }
-
-    const matched = posts
-      .filter(p =>
-        (p.title || '').toLowerCase().includes(q) ||
-        (p.content || '').toLowerCase().includes(q)
-      )
-      .sort((a, b) => (b.date || '').localeCompare(a.date || ''));
-
-    if (matched.length === 0) {
-      empty.hidden = false;
-      return;
-    }
-
-    matched.forEach(p => {
+    empty.hidden = items.length > 0;
+    items.forEach(p => {
       const li = document.createElement('li');
-      const idx = (p.content || '').toLowerCase().indexOf(q);
-      const snippet = idx >= 0
-        ? '…' + p.content.slice(Math.max(0, idx - 40), idx + 80) + '…'
-        : '';
       li.innerHTML = `
-        <span class="post-meta">${p.date}</span> ｜
+        <span class="post-meta">${p.date || ''}</span> ｜
         <a href="${p.url}">${p.title}</a>
-        ${snippet ? `<p class="search-snippet post-meta">${snippet}</p>` : ''}
+        ${p.snippet ? `<p class="search-snippet post-meta">${p.snippet}</p>` : ''}
       `;
       results.appendChild(li);
     });
   }
 
-  fetch('/search.json')
-    .then(r => r.json())
-    .then(data => {
-      posts = data;
-      ready = true;
-      runSearch();
-    });
+  async function runPagefind(q) {
+    const search = await pagefind.debouncedSearch(q);
+    if (search === null) return; // 더 최신 입력이 있어 무효화된 검색
+    const items = await Promise.all(
+      search.results.slice(0, MAX_RESULTS).map(r => r.data())
+    );
+    renderItems(items.map(d => ({
+      date: d.meta.date,
+      url: d.url,
+      title: d.meta.title,
+      snippet: d.excerpt,
+    })));
+  }
+
+  function runLegacy(q) {
+    const matched = legacyPosts
+      .filter(p =>
+        (p.title || '').toLowerCase().includes(q) ||
+        (p.content || '').toLowerCase().includes(q)
+      )
+      .sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+    renderItems(matched.map(p => {
+      const idx = (p.content || '').toLowerCase().indexOf(q);
+      return {
+        date: p.date,
+        url: p.url,
+        title: p.title,
+        snippet: idx >= 0 ? '…' + p.content.slice(Math.max(0, idx - 40), idx + 80) + '…' : '',
+      };
+    }));
+  }
+
+  function runSearch() {
+    const q = input.value.trim().toLowerCase();
+    if (q.length < 1) {
+      results.innerHTML = '';
+      empty.hidden = true;
+      return;
+    }
+    if (pagefind) runPagefind(q);
+    else runLegacy(q);
+  }
 
   input.addEventListener('input', runSearch);
+  runSearch();
 </script>

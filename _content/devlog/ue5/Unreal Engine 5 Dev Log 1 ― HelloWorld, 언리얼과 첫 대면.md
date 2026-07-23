@@ -2,6 +2,7 @@
 layout: post
 title: Unreal Engine 5 Dev Log 1 ― HelloWorld, 언리얼과 첫 대면
 date: 2025-08-28
+description: "언리얼 엔진 5 설치부터 첫 캐릭터 배치, 튜토리얼 첫걸음까지 — UE5 입문 첫날의 기록."
 categories:
   - log
   - ue5

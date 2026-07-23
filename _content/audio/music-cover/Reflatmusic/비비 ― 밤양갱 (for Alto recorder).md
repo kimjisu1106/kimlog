@@ -2,6 +2,7 @@
 layout: post
 title: 비비 ― 밤양갱 (for Alto recorder)
 date: 2024-05-23
+description: "비비 ― 밤양갱 — 알토 리코더 커버 연주 영상."
 categories:
   - music-cover
   - summary

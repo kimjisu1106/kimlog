@@ -2,6 +2,7 @@
 layout: post
 title: 거제 야호! RUN Geoje Yaho! Run
 date: 2026-06-03
+description: "멤버 메이가 서울에서 거제까지 400km를 달리는 팬메이드 밈 게임 — Vanilla JS + Canvas 2D 원버튼 픽셀 러너 제작기."
 categories:
   - apps
   - summary

@@ -2,6 +2,7 @@
 layout: post
 title: 벼랑 위의 포뇨 ― 벼랑 위의 포뇨 (for Soprano recorder)
 date: 2023-11-28
+description: "벼랑 위의 포뇨 ― 벼랑 위의 포뇨 — 소프라노 리코더 커버 연주 영상."
 categories:
   - music-cover
   - summary

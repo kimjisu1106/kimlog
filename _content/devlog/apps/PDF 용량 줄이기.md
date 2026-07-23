@@ -2,6 +2,7 @@
 layout: post
 title: PDF 용량 줄이기
 date: 2026-02-11
+description: "브라우저에서 바로 PDF 용량을 줄이는 무료 도구. 이미지 위주 포트폴리오 PDF에 효과적이며 텍스트 문서는 자동으로 원본을 유지한다."
 categories:
   - apps
   - summary

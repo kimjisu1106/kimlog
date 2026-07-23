@@ -2,6 +2,7 @@
 layout: post
 title: 동요 ― 넌 할 수 있어라고 말해주세요 (for Alto recorder)
 date: 2023-06-15
+description: "동요 ― 넌 할 수 있어라고 말해주세요 — 알토 리코더 커버 연주 영상."
 categories:
   - music-cover
   - summary

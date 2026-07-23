@@ -2,6 +2,7 @@
 layout: post
 title: 탑현 ― 호랑수월가 (for Kalimba)
 date: 2024-01-14
+description: "탑현 ― 호랑수월가 — 칼림바 커버 연주 영상."
 categories:
   - music-cover
   - summary

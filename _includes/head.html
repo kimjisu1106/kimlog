@@ -10,9 +10,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   {%- seo -%}
-  <meta property="og:image" content="{{ '/assets/images/profile.png' | absolute_url }}" />
+  {%- capture _og_path %}/assets/images/{{ page.project }}.png{% endcapture -%}
+  {%- assign _og_file = site.static_files | where: "path", _og_path | first -%}
+  <meta property="og:image" content="{{ _og_file.path | default: '/assets/images/profile.png' | absolute_url }}" />
   <link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
   {%- feed_meta -%}
   {%- if jekyll.environment == 'production' and site.google_analytics -%}
     {%- include google-analytics.html -%}

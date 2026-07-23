@@ -2,6 +2,7 @@
 layout: post
 title: 우효 ― 민들레 (for Soprano recorder)
 date: 2025-07-14
+description: "우효 ― 민들레 — 소프라노 리코더 커버 연주 영상."
 categories:
   - music-cover
   - summary

@@ -41,7 +41,7 @@ permalink: /today-i-learn/
   <ul class="devlog-list" id="list-{{ gid }}">
     {% for post in group.items %}
     <li {% if forloop.index > 5 %}hidden class="devlog-extra-item"{% endif %} data-tags="{{ post.tags | join: ',' }}">{{ post.date | date: "%Y-%m-%d" }} ｜
-      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      <a href="{{ post.url | relative_url }}">{{ post.short_title | default: post.title }}</a>
     </li>
     {% endfor %}
   </ul>

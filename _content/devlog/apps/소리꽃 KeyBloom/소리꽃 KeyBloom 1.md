@@ -1,0 +1,45 @@
+---
+layout: post
+title: 소리꽃 KeyBloom 1
+date: 2026-07-03
+categories:
+  - apps
+  - log
+project: key-bloom
+project_name: 소리꽃 KeyBloom
+video_id: FBdnxXNMLvk
+app_url: https://keybloom.pages.dev
+status:
+tags:
+  - JavaScript
+  - TypeScript
+  - WebAPI
+---
+## 오늘 한 일
+
+- 소리꽃 KeyBloom MVP 제작
+	- 환경 셋업 — Vite + TypeScript + Canvas 2D, 설계 원칙(건반 로직/렌더 분리, 상대좌표, 파티클 로직/모양 분리)을 폴더 경계로 반영
+	- MIDI 파싱(@tonejs/midi) + 여러 트랙 병합/선택 UI
+	- 88건반 렌더 + 재생 타이밍에 눌림 동기화, 좌표는 화면 비례(fraction)로 두고 픽셀 변환은 렌더 단계에서만
+	- 파티클 모션을 데이터 주도로 — 모션마다 물리값(속도·중력·감쇠·좌우 흔들림·수명)으로 환원하고 update는 하나의 제네릭 물리로 통일. 피어오름·방사형 개화·상승 후 흐트러짐·나선형(토네이도)·분수 추가
+	- 불꽃(폭죽)은 2단계 — 노트당 포탄이 솟았다가 정점에서 터져 방사형 불똥을 뿌리고 낙하
+	- 색 = velocity 편향 랜덤 lerp(세게 칠수록 max 색 쪽), 모양 다중 선택(랜덤), 광택(스페큘러 하이라이트 + 광택 높으면 가산 글로우)
+	- 오디오 — 사용자 오디오 파일 있으면 시작점 맞춰 싱크 재생, 없으면 오실레이터 합성음
+	- 대량 파티클 렌더 최적화 — 파티클마다 fillText 대신 미리 색 틴트한 스프라이트를 drawImage
+	- 영상 저장 — canvas.captureStream + MediaRecorder로 WebM 추출, 해상도(720/1080/2160)·배경(블랙/투명)·오디오 옵션
+
+---
+
+## 막힌 부분
+
+- 개수를 최대로 올리면 밀집 구간에서 버벅였다 — 원인은 파티클마다 `ctx.font` 재설정 + `fillText`(글리프 렌더)가 비쌌던 것. 모양·색을 미리 스프라이트로 구워 `drawImage`로 찍는 방식으로 바꿔 크게 개선(미세한 버벅임은 남아 다음 과제로)
+- 나선형이 처음엔 회전이 너무 빨랐다 — 흔들림 주파수를 낮추되, 회전만 줄이면 위로 가는 양도 줄어 보여 상승 속도는 따로 올려 분리
+- 선명도 슬라이더가 방향이 반대로 되어 있었다 — `jitter = 1 - 선명도`로 짰다가, 실제 체감과 맞게 `jitter = 선명도`로 뒤집음
+
+---
+
+## 다음에 할 일
+
+- 성능 최적화 — 밀집 구간 버벅임. 파티클 update/렌더 병목 프로파일링, note-on·눌림 계산을 O(N)/frame에서 정렬 노트 커서로 줄이기 등
+- 큐(Cue) 기능 — 타임라인 특정 지점부터 색·모양 등 파라미터를 다르게 적용하는 구간별 오버라이드
+- Cloudflare Pages 배포

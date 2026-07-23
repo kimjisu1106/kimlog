@@ -2,6 +2,7 @@
 layout: post
 title: Unreal Engine 5 Dev Log 10 ― Number Run
 date: 2026-02-06
+description: "숫자 선택으로 진행하는 미니 레이스 게임 Number Run — Blueprint·UMG·시퀀스로 Actor와 카메라를 동기화한 UE5 프로젝트."
 categories:
   - ue5
   - summary
