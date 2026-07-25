@@ -33,6 +33,14 @@ Obsidian으로 마크다운 문서를 작성 → 이 vault 폴더가 git 추적�
 - Ruby 버전 `3.2.2`로 고정 (`.ruby-version`) — Ruby 3.4는 safe_yaml 호환 문제 있음
 - Cloudflare Pages 빌드 커맨드: `bundle exec jekyll build && npx pagefind --site _site` — Pagefind가 빌드 후 `_site/pagefind/` 검색 인덱스를 생성 (미적용 시 검색 페이지는 search.json fallback으로 동작)
 
+### 인코딩 — 한글 깨짐 방지 (Windows)
+
+이 환경은 Windows PowerShell 5.1이라 기본 인코딩이 CP949다. PowerShell로 한글이 든 인자를 native 명령에 넘기거나(`git commit -m "한글메시지"`) `Out-File`/`Set-Content`로 한글 파일을 쓰면 깨진다. 그래서 아래를 따른다.
+
+- 한글이 든 커밋 메시지는 PowerShell `-m` 금지. Bash 도구 + here-document로 `git commit -F -` 하거나, 메시지를 UTF-8 파일로 쓴 뒤 `git commit -F <파일>`.
+- 파일 생성·수정은 Write/Edit 도구 사용(UTF-8 보장). PowerShell `Out-File`/`Set-Content`로 한글 파일 쓰지 말 것.
+- 한글 파일명·로그 출력이 깨져 보여도 파일이 실제로 깨진 것으로 오판하지 말 것 — 대개 표시 단계의 인코딩 문제다. 실제 파일은 Read 도구로 확인.
+
 ## Structure
 
 ```
