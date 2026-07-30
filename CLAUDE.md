@@ -33,6 +33,14 @@ Obsidian으로 마크다운 문서를 작성 → 이 vault 폴더가 git 추적�
 - Ruby 버전 `3.2.2`로 고정 (`.ruby-version`) — Ruby 3.4는 safe_yaml 호환 문제 있음
 - Cloudflare Pages 빌드 커맨드: `bundle exec jekyll build && npx pagefind --site _site` — Pagefind가 빌드 후 `_site/pagefind/` 검색 인덱스를 생성 (미적용 시 검색 페이지는 search.json fallback으로 동작)
 
+### 인코딩 — 한글 깨짐 방지 (Windows)
+
+이 환경은 Windows PowerShell 5.1이라 기본 인코딩이 CP949다. PowerShell로 한글이 든 인자를 native 명령에 넘기거나(`git commit -m "한글메시지"`) `Out-File`/`Set-Content`로 한글 파일을 쓰면 깨진다. 그래서 아래를 따른다.
+
+- 한글이 든 커밋 메시지는 PowerShell `-m` 금지. Bash 도구 + here-document로 `git commit -F -` 하거나, 메시지를 UTF-8 파일로 쓴 뒤 `git commit -F <파일>`.
+- 파일 생성·수정은 Write/Edit 도구 사용(UTF-8 보장). PowerShell `Out-File`/`Set-Content`로 한글 파일 쓰지 말 것.
+- 한글 파일명·로그 출력이 깨져 보여도 파일이 실제로 깨진 것으로 오판하지 말 것 — 대개 표시 단계의 인코딩 문제다. 실제 파일은 Read 도구로 확인.
+
 ## Structure
 
 ```
@@ -196,6 +204,7 @@ description: "설명" # SEO meta description. 새 포스트는 1문장으로 반
 - 막힌 부분은 코드블록 유무로 형식을 가른다.
   - 기본형(코드 없음): li 형태 — `- 문제 서술` → 하위 들여쓰기 `- 해결: …`(필요시 `- 원인:`·`- 남은 한계:` 등 추가). log는 코드를 TIL로 빼므로 대개 이 형식.
   - 상세형(코드 필요): `### 한 문장 제목` → 문제점/원인/해결 서술 → 코드블록 → (선택) `>` 보충. 코드블록을 li 안에 넣으면 렌더링이 깨지므로 코드가 들어갈 때만 헤딩을 쓴다.
+- `다음에 할 일`은 직전 log에서 이어받아 누적한다. 새 log를 쓸 때 이전 log의 `다음에 할 일` 항목 중 이번에 해결되지 않은 것은 이번 log의 `다음에 할 일`에도 다시 적는다 (해결된 것만 뺀다). 그래야 미룬 일이 로그를 넘길 때마다 사라지지 않고 남는다.
 
 ### summary 포스트 (프로젝트 소개 0번 또는 완결 포스트)
 
@@ -251,6 +260,44 @@ Minima 기본 post layout을 오버라이드. 세 가지 기능이 자동으로 
 - `app_url`로 내부 경로(`/apps/pdf-editor/index.html`) 사용 가능
 - `future: true` — 한국 시간(KST) 기준 당일 포스트가 UTC 기준 미래로 인식되어 누락되는 문제 방지
 - JS에서 날짜 계산 시 `toISOString()` 대신 로컬 날짜 포맷 함수 사용 (KST 오프셋 문제)
+
+## Draft 검수 체크리스트
+
+"~ draft 검수" 요청 시 아래를 순서대로 확인한다. 기계 규칙 위반은 바로 고치고, 판단이 필요한 것(이월 범위 등)은 사용자에게 확인한다. 검수는 draft 파일만 대상이며 커밋하지 않는다(게시는 별도 요청).
+
+### 1. 대상·충돌
+
+- 해당 프로젝트의 draft를 전부 찾는다 (`find _content -iname "draft-*<프로젝트>*"`). draft는 gitignore라 Grep 도구가 건너뛰므로 `find`/bash로 찾을 것.
+- 게시본 최고 번호와 비교해 번호 충돌이 없는지 확인 ([[draft-publish-number-collision]]).
+
+### 2. frontmatter
+
+- `layout: post` 있음 — 없으면 post 레이아웃(스타일·앱카드·관련글)이 통째로 안 붙는다. `_config.yml`에 기본 layout 설정이 없어서 각 글이 반드시 명시해야 함.
+- `description` 1문장 있음 (규칙 14).
+- `categories` 맞음 — log는 `[log, apps]`/`[log, ue5]`, summary는 `[apps, summary]`, TIL·daily는 `[today-i-learn]`.
+
+### 3. 기계 규칙 (바로 고침)
+
+- Bold(`**`) 0개 (코드블록 밖). 코드블록 안에 `**` 없으면 `sed 's/\*\*//g'`로 일괄 제거.
+- "지옥" 등 과장 클리셰 없음 ([[no-hell-cliche-in-posts]]).
+- 문장 끝 콜론(`:`) 없음 (본문. frontmatter YAML 빈 필드는 오탐이니 제외).
+- 코드블록 언어 표기 — 언어 없는 fence는 텍스트 출력이면 ` ```text `로.
+- Liquid 특수문자(`{{ }}`/`{% %}`)가 코드블록에 있으면 `{% raw %}` 처리.
+- 빈 섹션·빈 불릿(`- `) 없음 — 내용 없는 섹션은 섹션째 삭제.
+
+### 4. 구조·내용
+
+- 막힌 부분 형식 — 코드 없으면 li(`- 문제` → `- 해결:`), 코드 있으면 `### 제목` 서술형.
+- 섹션 구조·순서 맞음 (log·summary·daily·TIL 각 규칙).
+- `다음에 할 일` 누적 이월 — 직전 log의 미해결 항목을 다시 적었는지. 빠졌으면 이월(오래 누적돼 판단이 필요하면 사용자에게 확인).
+- 시점 — "요청이 들어왔다/요청받았다"류 코더-수령자 시점 없음. 사용자는 디렉터라 자기가 원한 걸 주문받은 듯 쓰면 안 됨 ([[log-what-why-til-how]]).
+- TIL 가독성 — 전문어·API 첫 등장에 한 줄 풀이, 소제목은 동작 중심 우리말.
+- 민감정보 — 회사 내부정보·타인 개인정보·실제 URL·키 없음.
+
+### 5. 게시 (별도 요청 시)
+
+- `mv -n`으로 `draft-` 제거 (no-clobber, 덮어쓰기 방지).
+- `git add` → Bash 히어독으로 커밋(UTF-8) → push.
 
 ## 보안 검사 (코드 작성 시 필수 확인)
 
