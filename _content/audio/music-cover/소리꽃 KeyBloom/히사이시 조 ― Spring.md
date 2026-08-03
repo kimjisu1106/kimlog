@@ -16,4 +16,5 @@ tags:
   - Piano
   - Cubase
   - LogicPro
+  - KeyBloom
 ---
