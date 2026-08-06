@@ -1,7 +1,7 @@
 ---
 layout: post
 title: LiSA ― 홍련화(귀멸의 칼날)
-date: 2026-07-30
+date: 2026-08-04
 description: LiSA ― 홍련화 커버 연주 영상.
 categories:
   - music-cover
