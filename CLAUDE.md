@@ -263,7 +263,7 @@ Minima 기본 post layout을 오버라이드. 세 가지 기능이 자동으로 
 - og:image: `page.project` 썸네일(`/assets/images/{project}.png`)이 존재하면 그걸, 없으면 profile.png fallback (head.html에서 `site.static_files`로 존재 검사)
 - 아이콘은 인라인 SVG 사용 (Font Awesome CDN 제거됨 — 외부 CSS 의존 금지)
 - `app_url`로 내부 경로(`/apps/pdf-editor/index.html`) 사용 가능
-- `future: true` — 한국 시간(KST) 기준 당일 포스트가 UTC 기준 미래로 인식되어 누락되는 문제 방지
+- `future: false` + `timezone: Asia/Seoul` — 미래 날짜(KST) 포스트는 그 날짜가 지난 뒤의 다음 빌드에서야 노출된다(예약 발행처럼). timezone을 KST로 둬서 UTC 기준으로 판정하다 당일 오전 포스트가 누락되던 문제(9시 전 push)도 사라진다. 정적 사이트라 "시계가 지나면 자동"이 아니라 "지난 뒤 다음 빌드(=다음 push) 때" 뜬다
 - JS에서 날짜 계산 시 `toISOString()` 대신 로컬 날짜 포맷 함수 사용 (KST 오프셋 문제)
 
 ## Draft 검수 체크리스트
