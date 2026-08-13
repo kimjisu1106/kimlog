@@ -80,7 +80,7 @@ search.json          # 빌드 시 생성되는 검색 인덱스 (제목 + 본문
 tags.json            # 빌드 시 생성되는 경량 태그 인덱스 (date + tags만) — 홈 워드클라우드용
 robots.txt           # sitemap.xml 위치 안내
 contact.html         # Contact 페이지 (이메일, YouTube, PayPal/카카오페이 후원)
-privacy-policy.html  # Privacy Policy (범용, 영/한, Google AdSense 조항 포함)
+privacy-policy.html  # LOGSTONE 통합 방침(logstone.net/privacy/)으로 리다이렉트 — 방침 본문은 LogStoneShop clauses.ts에서 관리(여기서 수정 금지). footer도 logstone.net/privacy/ 링크
 .gitignore           # **/draft-*.md 제외
 ```
 
