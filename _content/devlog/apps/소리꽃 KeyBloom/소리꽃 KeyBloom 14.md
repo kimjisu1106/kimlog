@@ -9,7 +9,7 @@ project: key-bloom
 project_name: 소리꽃 KeyBloom
 video_id:
 app_url: https://keybloom.pages.dev
-status:
+status: finished
 description: 네이티브 앱에 자체 광고(하우스 광고)를 붙였다. 온실 GreenHouse가 서빙하는 SDK를 불러와 내 블로그·앱을 홍보하고, 배너 클릭은 시스템 브라우저로 연다. 라이브 모드에서도 광고·시퀀서 영역을 남겨 미리보기 크기를 고정했다.
 tags:
   - TypeScript

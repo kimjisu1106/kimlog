@@ -9,7 +9,7 @@ project: key-bloom
 project_name: 소리꽃 KeyBloom
 video_id:
 app_url: https://keybloom.pages.dev
-status:
+status: finished
 description: 파티클·건반의 광택과 발광을 분리해 발광을 켜기·크기·밝기로 세분하고, 파티클을 발광 영역에 가두는 옵션을 넣었다. 나선형과 나선 기둥을 하나의 "나선"으로 합쳐 회전 반경·퍼짐·코일 간격으로 빚게 만들고, 코일 간격이 상승 속도와 얽히던 걸 공간 회전으로 풀었다.
 tags:
   - TypeScript

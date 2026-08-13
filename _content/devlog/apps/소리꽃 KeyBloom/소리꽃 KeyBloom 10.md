@@ -9,7 +9,7 @@ project: key-bloom
 project_name: 소리꽃 KeyBloom
 video_id:
 app_url: https://keybloom.pages.dev
-status:
+status: finished
 description: 편집툴이 못 읽는 알파 내보내기를 무료에서 잠가 유료 기능으로 정리하고, 좁은 화면 안내와 우측 패널 접기를 붙여 화면을 넓게 쓰게 만든 기록.
 tags:
   - JavaScript

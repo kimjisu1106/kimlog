@@ -9,7 +9,7 @@ project: key-bloom
 project_name: 소리꽃 KeyBloom
 video_id:
 app_url: https://keybloom.pages.dev
-status:
+status: finished
 description: 나선의 높이를 "상승 속도"에서 "도달 목표"로 바꿔 속도와 겹치지 않게 했다. 높이는 어디까지 오를지, 속도는 얼마나 빨리, 수명은 그 둘에서 자동으로 나온다. 꼭대기가 너무 평평하던 걸 파티클별 편차로 풀고, 발광 영역 가두기를 폭·높이 따로 켜게 나눴다.
 tags:
   - TypeScript

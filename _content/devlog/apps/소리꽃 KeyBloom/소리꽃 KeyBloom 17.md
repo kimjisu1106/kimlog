@@ -9,7 +9,7 @@ project: key-bloom
 project_name: 소리꽃 KeyBloom
 video_id:
 app_url: https://keybloom.pages.dev
-status:
+status: finished
 description: 유료화의 뼈대를 세운 날 — 무료·유료를 고정값이 아니라 라이선스로 켜지게 바꾸고, 단건 판매·결제 대행(Creem)으로 방향을 정하고, 라이선스 검증을 안전하게 붙일 구조까지 설계했다.
 tags:
   - TypeScript

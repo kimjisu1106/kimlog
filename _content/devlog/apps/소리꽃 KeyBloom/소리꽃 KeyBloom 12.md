@@ -9,7 +9,7 @@ project: key-bloom
 project_name: 소리꽃 KeyBloom
 video_id:
 app_url: https://keybloom.pages.dev
-status:
+status: finished
 description: KeyBloom을 무료 네이티브 데스크톱 앱으로 만들기 시작한 날 — 웹이 못 하는 저지연 라이브 연주를 위해 오디오만 네이티브로 바꿔 12ms까지 낮추고, 라이브 녹화·메트로놈·저장 흐름을 다듬었다.
 tags:
   - TypeScript

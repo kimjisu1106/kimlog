@@ -9,7 +9,7 @@ project: key-bloom
 project_name: 소리꽃 KeyBloom
 video_id:
 app_url: https://keybloom.pages.dev
-status:
+status: finished
 description: 네이티브 앱의 자잘한 문제들을 잡은 날 — 큐 순서 변경(드래그) 복구, OS 색창이 앱 밖에 뜨던 색 선택기를 앱 안 HSV 팝업(스포이드 포함)으로, 라이브 첫 노트 지연을 시작 로딩에 흡수. 바탕화면 바로가기도 만들었다.
 tags:
   - TypeScript

@@ -9,7 +9,7 @@ project: key-bloom
 project_name: 소리꽃 KeyBloom
 video_id:
 app_url: https://keybloom.pages.dev
-status:
+status: finished
 description: 공연용 기능을 몰아 넣은 날 — 두 번째 화면에 파티클만 띄우는 라이브 출력 창을 만들고, 두 창이 완전히 같게 파티클을 결정적으로 바꾸고, 배경 이미지·저장 위치·단축키 같은 손에 걸리던 것들을 정리했다.
 tags:
   - TypeScript

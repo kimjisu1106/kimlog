@@ -9,7 +9,7 @@ project: key-bloom
 project_name: 소리꽃 KeyBloom
 video_id: FBdnxXNMLvk
 app_url: https://keybloom.pages.dev
-status:
+status: finished
 description: 화면 실시간 녹화를 프레임 단위 오프라인 렌더로 바꿔 고화질 MP4를 뽑고, 합성음을 실제 피아노 샘플로 교체한 뒤 서스테인·크레딧·영어·도움말·광고까지 붙여 무료 버전을 Cloudflare에 배포한 기록.
 tags:
   - JavaScript
