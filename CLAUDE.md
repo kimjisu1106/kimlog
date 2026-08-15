@@ -66,6 +66,7 @@ _layouts/
   post.html          # Minima post layout 오버라이드 (app card, video card, related posts)
 assets/
   main.scss          # 전체 커스텀 CSS (여기에만 스타일 작성)
+  fonts/             # 자체 호스팅 웹폰트 woff2 (Archivo 영문 + Noto Sans KR 한글, 외부 CDN 미사용)
   images/            # profile.ico, profile.png (favicon), {project}.png (앱 썸네일)
                      #   kakaopay-qr.png (카카오페이 QR)
     for-posts/       # 포스트 본문 이미지 (외부 CDN 사용 금지, 로컬 저장 필수)
@@ -101,6 +102,7 @@ privacy-policy.html  # logstone.net/kimlog/privacy/ 로 리다이렉트하는 �
 - `.post-content h3`: `font-weight: 600` (크기는 전역 h3에서 상속)
 - `.devlog-badge`: `vertical-align: middle; position: relative; top: -3px` (✅ 이모지 수직 정렬)
 - 코드블럭 배경색: `#ebebeb` (인라인 백틱 + 코드블럭 공통)
+- 본문 폰트: 영문 `Archivo`, 한글 `Noto Sans KR` — `assets/fonts/` 자체 호스팅 woff2 + `@font-face`, `$base-font-family`를 `@import "minima"` 전에 override. 외부 폰트 CDN 금지(빌드 시 fontsource에서 받아 로컬 저장). 코드블록은 Minima 기본 monospace 유지
 
 ## Link Style Convention
 
