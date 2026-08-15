@@ -1,7 +1,49 @@
 ---
 ---
 
+/* 폰트: 영문 Archivo, 한글 Noto Sans KR (자체 호스팅, 외부 CDN 미사용). @font-face는 import 아래 */
+$base-font-family: "Archivo", "Noto Sans KR", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
 @import "minima";
+
+/* =========================================================
+   Self-hosted webfonts — Archivo (Latin) + Noto Sans KR (Korean)
+   ========================================================= */
+@font-face {
+  font-family: "Archivo";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/assets/fonts/archivo-latin-400-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Archivo";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/assets/fonts/archivo-latin-600-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Archivo";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/assets/fonts/archivo-latin-700-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Noto Sans KR";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/assets/fonts/noto-sans-kr-korean-400-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Noto Sans KR";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/assets/fonts/noto-sans-kr-korean-700-normal.woff2") format("woff2");
+}
 
 /* =========================================================
    CSS Variables (Light mode defaults)
