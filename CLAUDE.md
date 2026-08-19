@@ -375,7 +375,7 @@ Minima 기본 post layout을 오버라이드. 세 가지 기능이 자동으로 
 
 ## 해야 할 일
 
-- [ ] **Astro 이관 (진행 중 — 기능 완료, 디자인·컷오버 대기)**: 기능·URL·SEO 1:1 이관 완료(Phase 1~5, main에 in-place). 남은 것 = 디자인(`/design` 툴) + 컷오버(Phase 7) + Jekyll 잔재 제거(Phase 8). 상세는 아래 "## Astro 이관 현황 & /design 핸드오프".
+- [ ] **⚠️ Astro 이관 — 컷오버 완료, Jekyll 정리(Phase 8)만 남음**: 2026-08-19 프로덕션 컷오버 완료(`kimlog.pages.dev` = Astro). Jekyll 파일은 롤백 안전망으로 며칠 유지 중 → **2026-08-22 이후 정리 예정**(세션 시작 시 이 항목 보이면 사용자에게 "Astro 안정적이면 Jekyll 정리할까요" 물어볼 것). 제거 목록·주의사항은 아래 "## Astro 이관 현황".
 - [ ] **라이브 데모 위젯**: 앱별 핵심 알고리즘 웹 위젯화 (앱마다 개별 작업)
 
 ## Astro 이관 현황 & /design 핸드오프 (2026-08-19)
@@ -389,7 +389,11 @@ Minima 기본 post layout을 오버라이드. 세 가지 기능이 자동으로 
   - 컴포넌트/레이아웃: `src/components/`(Header·Footer·ContributionGraph) · `src/layouts/`(Base·Page·Post) · `src/lib/`(posts·kst·og).
   - 검색: Pagefind(`npm run build` = `astro build && pagefind --site dist`) + `search.json` fallback + `?q=`.
   - 정적: `scripts/copy-static.mjs`가 `assets/{images,fonts}` + 정적앱 3종을 `public/`로 복사(prebuild/predev 자동). `public/assets`·`public/apps`는 gitignore.
-- **미완**: 디자인(CSS 전혀 없음 — 일부러 비워둠, `/design` 몫) · 컷오버 · Jekyll 잔재 제거.
+- **완료(디자인·컷오버, 2026-08-19)**: 개발자/터미널 톤 CSS(`src/styles/global.css` — 자체호스팅 폰트·터미널 그린·모노 라벨·라이트 기본+다크 토글) 적용. **프로덕션 컷오버 완료** — `kimlog.pages.dev`가 Astro로 서빙(Cloudflare 빌드커맨드 `npm run build`, 출력 `dist`). 스테이징 `kimlog-astro` 프로젝트는 삭제됨. 발행 플로우(Obsidian md→push→CI 빌드)·이미지 방식(`assets/images/for-posts/` 절대경로)은 예전과 100% 동일.
+- **⚠️ 남은 일 — Phase 8(Jekyll 잔재 제거), 2026-08-22 이후**: Astro 프로덕션이 며칠 안정적으로 도는 걸 확인한 뒤 정리한다. 그 전까지 Jekyll 파일은 **롤백 안전망**(문제 시 Cloudflare 빌드커맨드를 `bundle exec jekyll build && npx pagefind --site _site`·출력 `_site`로 원복하면 즉시 Jekyll 복귀 — Jekyll 파일이 repo에 있어야 작동). **지금부터 새 작업은 Astro `src/`에서** 하고 Jekyll `*.html`·`_layouts`·`_includes`는 건드리지 말 것.
+  - 제거 대상: `_config.yml`·`_layouts/`·`_includes/`·`_data/`·`Gemfile`·`Gemfile.lock`·`.ruby-version`·`.sass-cache/`·루트 `*.html`(index·devlog·til·ue5·apps·audio·search·contact·reviews·privacy-policy)·루트 `robots.txt`·`search.json`·`tags.json`·`assets/main.scss`.
+  - 유지(Astro가 씀): `_content/`·`_reviews/`·`assets/images`·`assets/fonts`·`apps/{image-converter,pdf-compressor,pdf-editor}`·`src/`·`public/`·`scripts/`·`.nvmrc`·`.gitattributes`.
+  - Phase 8 때 이 CLAUDE.md도 Astro 스택 기준으로 갱신할 것(지금은 Jekyll 병존 기간이라 Jekyll 서술이 다수 남아 있음 — 그 서술은 정리 전까지 무시하고 Astro 기준으로 작업).
 - 로컬 확인: `npm run dev`(http://localhost:4321) 또는 `npm run build && npm run preview`.
 
 ### /design 툴 작업 지시
