@@ -375,5 +375,53 @@ Minima 기본 post layout을 오버라이드. 세 가지 기능이 자동으로 
 
 ## 해야 할 일
 
-- [ ] **Astro 이관 검토**: 블로그를 Astro(JS)로 이관·재디자인하는 계획 있음 — 계획·확정 디자인 방향은 `kimlog-astro/CLAUDE.md` 참조
+- [ ] **Astro 이관 (진행 중 — 기능 완료, 디자인·컷오버 대기)**: 기능·URL·SEO 1:1 이관 완료(Phase 1~5, main에 in-place). 남은 것 = 디자인(`/design` 툴) + 컷오버(Phase 7) + Jekyll 잔재 제거(Phase 8). 상세는 아래 "## Astro 이관 현황 & /design 핸드오프".
 - [ ] **라이브 데모 위젯**: 앱별 핵심 알고리즘 웹 위젯화 (앱마다 개별 작업)
+
+## Astro 이관 현황 & /design 핸드오프 (2026-08-19)
+
+### 현황
+
+- **결정**: Astro(JS) 이관 진행(사용자 승인 2026-08-19). **in-place 전략** — 현 repo(=Obsidian 볼트)에 Astro를 Jekyll과 나란히 두고 `_content`를 그대로 읽는다. 컷오버는 Cloudflare 빌드커맨드 교체(같은 도메인·repo). Jekyll은 컷오버 전까지 프로덕션 유지(`_config.yml` exclude로 Astro 파일 무시).
+- **완료(Phase 1~5, main 커밋)** — 기능·URL·SEO 1:1:
+  - URL: `astro.config.mjs`(trailingSlash always + build.format directory) + `src/content.config.ts`(glob loader, `generateId`로 `_content` 상대경로 verbatim → slugify 금지). dist URL 집합이 `_site`와 **완전 일치(565=565, 대칭차 0)**. 공백·한글·`―`(U+2015)·괄호·이중 `devlog/devlog` 보존.
+  - 페이지(`src/pages/`): 홈·`devlog`·`today-i-learn`·`ue5`·`apps`·`audio`·`contact`·`reviews`·`search`·`privacy-policy`·`[...slug]`(게시글) + `feed.xml`·`sitemap.xml`·`search.json`·`tags.json` 엔드포인트.
+  - 컴포넌트/레이아웃: `src/components/`(Header·Footer·ContributionGraph) · `src/layouts/`(Base·Page·Post) · `src/lib/`(posts·kst·og).
+  - 검색: Pagefind(`npm run build` = `astro build && pagefind --site dist`) + `search.json` fallback + `?q=`.
+  - 정적: `scripts/copy-static.mjs`가 `assets/{images,fonts}` + 정적앱 3종을 `public/`로 복사(prebuild/predev 자동). `public/assets`·`public/apps`는 gitignore.
+- **미완**: 디자인(CSS 전혀 없음 — 일부러 비워둠, `/design` 몫) · 컷오버 · Jekyll 잔재 제거.
+- 로컬 확인: `npm run dev`(http://localhost:4321) 또는 `npm run build && npm run preview`.
+
+### /design 툴 작업 지시
+
+목표: 위 Astro 블로그에 **확정된 개발자/터미널 톤**을 **CSS만으로** 입힌다. 기능·마크업·클래스명·URL은 절대 건드리지 말 것(순수 스타일만).
+
+**읽을 것**
+
+1. `kimlog-astro/CLAUDE.md` — 확정 디자인 방향 + 토큰(라이트/다크 팔레트, 잔디 램프, 모노 스택, radius 7~10px). **스펙 원본.**
+2. 시안 아트팩트 https://claude.ai/code/artifact/6726fe39-8b81-4838-ab0d-00ca7afdc83f — 비주얼 레퍼런스(개발자 톤).
+3. 이 repo의 `assets/main.scss` — 대상 클래스가 전부 이미 스타일된 현재(Jekyll) 톤. 레이아웃 의도·클래스 목록 파악용 → 개발자 톤으로 재작성.
+
+**제약**
+
+- 대상 = **이 repo의 `src/`**(Astro). ⚠️ `kimlog-astro/`(옛 목업, 가짜 데이터)는 손대지 말 것 — 진짜 이관본은 이 repo에 있다.
+- 기능·마크업·클래스명·URL 불변. 순수 CSS만.
+- 라이트 기본 + 다크(`prefers-color-scheme` + `:root[data-theme]` 토글), 색은 토큰으로만.
+- 폰트: 이미 `public/assets/fonts/`에 Archivo(영문)·Noto Sans KR(한글) woff2 자체 호스팅(외부 CDN 금지). `@font-face`로 연결.
+- CSS 넣는 자리: `src/layouts/Base.astro`에 `<slot name="head" />` seam 있음(현재 스타일시트 링크 없음). 전역 CSS(예: `src/styles/global.css`) 만들어 `Base.astro` 프론트매터에서 `import`.
+
+**핵심 클래스 컨트랙트** (전체·정확본은 `assets/main.scss` 참조)
+
+- 헤더/네비: `.site-header .wrapper .site-title .site-nav .nav-trigger .menu-icon .trigger .page-link .search-icon-link`
+- 잔디: `.til-graph .til-graph-col .til-cell .til-cell--0`~`.til-cell--4`
+- 목록/그룹/토글: `.devlog-list .devlog-group .devlog-summary .devlog-title .devlog-badge .devlog-meta .devlog-toggle .devlog-extra-item`
+- TIL 태그필터: `.tag-filter .tag-chip`(`.active`)
+- 앱 카드(flip): `.apps-showcase .apps-slider-track .apps-shelf .apps-card`(`.finished` `.flipped`) `.apps-card-inner/-front/-back/-name/-btn`
+- 홈 비디오: `.home-list .home-video .home-video-link .home-thumb .home-video-text .home-date .home-title`
+- 워드클라우드: `.wordcloud-wrap #tag-cloud .wordcloud-label`
+- 오디오: `.audio-group .audio-works .audio-card .audio-thumb-wrap .audio-card-info .audio-card-title`
+- 리뷰: `.cork-board .sticky-card .sticky-comment .sticky-bottom .sticky-meta .sticky-author .sticky-project .sticky-source .sticky-date`
+- 컨택트: `.about-bio .about-tagline .support-buttons .support-btn .kakao-qr-modal .kakao-qr-box .kakao-qr-close`
+- 게시글: `.post .post-header .post-title .post-meta .post-content .app-card`(`-thumb/-info/-name/-link`) `.series-summary .yt-wrap .adfit-web .adfit-mobile .series-list-card .series-cards`(`.series-scrollable`) `.series-card`(`.series-current`) `.series-num .series-card-date .series-sep .series-card-title .series-reading`
+- 검색: `.search-wrap .search-input .search-empty .search-snippet`
+- 페이지 셸/푸터: `.page-content .wrapper .post-title` / `.site-footer .footer-inner .footer-left .footer-contact .footer-copy .footer-bmc .footer-icon`(`.footer-icon--yt`) `.post-meta`
