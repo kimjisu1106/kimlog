@@ -29,26 +29,27 @@ const devlogPosts = all.filter((p) => lower(p).includes('log') && lower(p).inclu
     projects.length === 0 ? (
       <p>아직 글이 없습니다.</p>
     ) : (
-      <div class="apps-shelf">
+      <div class="app-grid">
         {projects.map((post) => (
-          <div class={`apps-card${post.data.status === 'finished' ? ' finished' : ''}`}>
-            <div class="apps-card-inner">
-              <div class="apps-card-front">
-                <img
-                  src={`/assets/images/${post.data.project}.png`}
-                  alt={post.data.project_name || post.data.title}
-                  loading="lazy"
-                  onerror="this.style.display='none'"
-                />
-                <span class="apps-card-name">{post.data.project_name || post.data.title}</span>
-              </div>
-              <div class="apps-card-back">
-                <a class="apps-card-btn" href={href(post.id)}>
-                  자세히 보기 →
-                </a>
-              </div>
+          <a
+            class={`app-tile${post.data.status === 'finished' ? ' app-tile--finished' : ''}`}
+            href={href(post.id)}
+          >
+            <div class="app-tile-top">
+              <img
+                src={`/assets/images/${post.data.project}.png`}
+                alt={post.data.project_name || post.data.title}
+                loading="lazy"
+                onerror="this.style.display='none'"
+              />
+              <span class="app-tile-name">
+                {post.data.project_name || post.data.title}
+                {post.data.status === 'finished' && <span class="devlog-badge"> ✅</span>}
+              </span>
             </div>
-          </div>
+            {post.data.tags.length > 0 && <span class="app-tile-tag">{post.data.tags.join(' · ')}</span>}
+            <span class="app-tile-go">자세히 보기 →</span>
+          </a>
         ))}
       </div>
     )
@@ -70,12 +71,3 @@ const devlogPosts = all.filter((p) => lower(p).includes('log') && lower(p).inclu
     )
   }
 </Page>
-
-<script>
-  document.querySelectorAll('.apps-shelf .apps-card').forEach((card) => {
-    card.addEventListener('click', (e) => {
-      if ((e.target as HTMLElement).closest('.apps-card-btn')) return;
-      card.classList.toggle('flipped');
-    });
-  });
-</script>

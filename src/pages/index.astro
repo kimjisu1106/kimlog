@@ -7,7 +7,17 @@ import { postDateStr } from '../lib/kst';
 const all = await getPosts();
 const tils = byCategory(all, 'today-i-learn');
 const devlogs = byCategory(all, 'log');
-const apps = all.filter((p) => p.data.categories.includes('summary') && p.data.app_url);
+const appSummaries = all.filter((p) => p.data.categories.includes('summary') && p.data.app_url);
+// "최근 활성" = 같은 project의 최신 글 날짜(all은 날짜 desc라 첫 매치가 최신). 최근순 5개만, 나머지는 더보기.
+const latestOf = (project?: string) => all.find((p) => p.data.project === project)?.data.date;
+const apps = [...appSummaries]
+  .sort((a, b) =>
+    postDateStr(latestOf(b.data.project) ?? b.data.date).localeCompare(
+      postDateStr(latestOf(a.data.project) ?? a.data.date),
+    ),
+  )
+  .slice(0, 5);
+const moreApps = appSummaries.length > 5;
 const videos = all.filter((p) => p.data.video_id && p.data.categories.includes('summary'));
 const href = (id: string) => encodeURI('/' + id + '/');
 ---
@@ -53,49 +63,28 @@ const href = (id: string) => encodeURI('/' + id + '/');
     apps.length === 0 ? (
       <p>No apps yet.</p>
     ) : (
-      <div class="apps-showcase">
-        <div class="apps-slider-track">
-          {apps.map((p) => (
-            <div class="apps-card">
-              <div class="apps-card-inner">
-                <div class="apps-card-front">
-                  <img
-                    src={`/assets/images/${p.data.project}.png`}
-                    alt={p.data.project_name || p.data.title}
-                    loading="lazy"
-                    onerror="this.style.display='none'"
-                  />
-                  <span class="apps-card-name">{p.data.project_name || p.data.title}</span>
-                </div>
-                <div class="apps-card-back">
-                  <a class="apps-card-btn" href={href(p.id)}>
-                    자세히 보기 →
-                  </a>
-                </div>
-              </div>
+      <div class="app-grid">
+        {apps.map((p) => (
+          <a class="app-tile" href={href(p.id)}>
+            <div class="app-tile-top">
+              <img
+                src={`/assets/images/${p.data.project}.png`}
+                alt={p.data.project_name || p.data.title}
+                loading="lazy"
+                onerror="this.style.display='none'"
+              />
+              <span class="app-tile-name">{p.data.project_name || p.data.title}</span>
             </div>
-          ))}
-          {apps.map((p) => (
-            <div class="apps-card" aria-hidden="true">
-              <div class="apps-card-inner">
-                <div class="apps-card-front">
-                  <img
-                    src={`/assets/images/${p.data.project}.png`}
-                    alt=""
-                    loading="lazy"
-                    onerror="this.style.display='none'"
-                  />
-                  <span class="apps-card-name">{p.data.project_name || p.data.title}</span>
-                </div>
-                <div class="apps-card-back">
-                  <a class="apps-card-btn" href={href(p.id)}>
-                    자세히 보기 →
-                  </a>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
+            {p.data.tags.length > 0 && <span class="app-tile-tag">{p.data.tags.join(' · ')}</span>}
+            <span class="app-tile-go">자세히 보기 →</span>
+          </a>
+        ))}
+        {moreApps && (
+          <a class="app-tile app-tile--more" href="/apps/">
+            <span class="app-tile-more">더보기 →</span>
+            <span class="app-tile-tag">전체 앱 보기</span>
+          </a>
+        )}
       </div>
     )
   }
@@ -171,14 +160,6 @@ const href = (id: string) => encodeURI('/' + id + '/');
         },
       });
     });
-
-  // 앱 카드 flip
-  document.querySelectorAll('.apps-card:not([aria-hidden])').forEach((card) => {
-    card.addEventListener('click', (e) => {
-      if ((e.target as HTMLElement).closest('.apps-card-btn')) return;
-      card.classList.toggle('flipped');
-    });
-  });
 
   // 더보기 토글(videos)
   document.addEventListener('click', (e) => {
