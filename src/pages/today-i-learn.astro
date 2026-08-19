@@ -1,14 +1,13 @@
 ---
 import Page from '../layouts/Page.astro';
 import ContributionGraph from '../components/ContributionGraph.astro';
-import { getPosts, byCategory, groupByProject, gid } from '../lib/posts';
+import { getPosts, byCategory, groupByProject, gid, postUrl as href } from '../lib/posts';
 import { postDateStr } from '../lib/kst';
 
 const all = await getPosts();
 const posts = byCategory(all, 'today-i-learn');
 const groups = groupByProject(posts);
 const uniqueTags = [...new Set(posts.flatMap((p) => p.data.tags))].sort();
-const href = (id: string) => encodeURI('/' + id + '/');
 ---
 
 <Page title="TIL">

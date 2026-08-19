@@ -3,6 +3,17 @@ import { isPublished, postDateStr } from './kst';
 
 export type Post = CollectionEntry<'posts'>;
 
+// 게시글 URL — Jekyll과 동일 encodeURI 인코딩(공백·한글·괄호·em-dash 보존).
+export function postUrl(id: string): string {
+  return encodeURI('/' + id + '/');
+}
+
+// categories에 지정 값들을 모두 포함(대소문자 무시). apps/ue5 페이지의 Dev Log 필터용.
+export function hasCatsCI(post: Post, ...cats: string[]): boolean {
+  const lower = post.data.categories.map((c) => c.toLowerCase());
+  return cats.every((c) => lower.includes(c.toLowerCase()));
+}
+
 // 모든 목록 쿼리·getStaticPaths의 단일 choke point.
 // isPublished 필터가 여기 한 곳에 있어야 future:false(KST)가 페이지·목록 모두에 일관 적용된다.
 export async function getPosts(): Promise<Post[]> {

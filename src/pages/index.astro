@@ -1,7 +1,7 @@
 ---
 import Page from '../layouts/Page.astro';
 import ContributionGraph from '../components/ContributionGraph.astro';
-import { getPosts, byCategory } from '../lib/posts';
+import { getPosts, byCategory, postUrl as href } from '../lib/posts';
 import { postDateStr } from '../lib/kst';
 
 const all = await getPosts();
@@ -19,7 +19,6 @@ const apps = [...appSummaries]
   .slice(0, 5);
 const moreApps = appSummaries.length > 5;
 const videos = all.filter((p) => p.data.video_id && p.data.categories.includes('summary'));
-const href = (id: string) => encodeURI('/' + id + '/');
 ---
 
 <Page>

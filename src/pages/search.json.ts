@@ -1,5 +1,5 @@
 import type { APIContext } from 'astro';
-import { getPosts } from '../lib/posts';
+import { getPosts, postUrl } from '../lib/posts';
 import { postDateStr } from '../lib/kst';
 
 // Pagefind fallback 인덱스. url은 Jekyll과 동일 encodeURI 인코딩.
@@ -20,7 +20,7 @@ export async function GET(_context: APIContext) {
   const posts = await getPosts();
   const data = posts.map((p) => ({
     title: p.data.title,
-    url: encodeURI('/' + p.id + '/'),
+    url: postUrl(p.id),
     date: postDateStr(p.data.date),
     tags: p.data.tags,
     content: toText(p.body ?? ''),

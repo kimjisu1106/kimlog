@@ -3,7 +3,7 @@ import Base from './Base.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { render } from 'astro:content';
-import type { Post, SeriesLink } from '../lib/posts';
+import { postUrl as href, type Post, type SeriesLink } from '../lib/posts';
 import { postDateStr } from '../lib/kst';
 
 interface Props {
@@ -16,8 +16,6 @@ const { post, series, suggested } = Astro.props;
 const { data, id } = post;
 const { Content } = await render(post);
 
-// 내부 링크는 Jekyll과 동일 encodeURI 인코딩.
-const href = (pid: string) => encodeURI('/' + pid + '/');
 const displayDate = postDateStr(data.date);
 const xmlDate = `${displayDate}T00:00:00+09:00`;
 const thumb = data.project ? `/assets/images/${data.project}.png` : '';

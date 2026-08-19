@@ -1,12 +1,11 @@
 ---
 import Page from '../layouts/Page.astro';
 import ContributionGraph from '../components/ContributionGraph.astro';
-import { getPosts, byCategory, groupByProject, gid } from '../lib/posts';
+import { getPosts, byCategory, groupByProject, gid, postUrl as href } from '../lib/posts';
 import { postDateStr } from '../lib/kst';
 
 const all = await getPosts();
 const groups = groupByProject(byCategory(all, 'log'));
-const href = (id: string) => encodeURI('/' + id + '/');
 
 function catLabel(cats: string[]): string {
   if (cats.includes('ue5')) return 'Unreal Engine 5';

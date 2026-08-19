@@ -1,18 +1,16 @@
 ---
 import Page from '../layouts/Page.astro';
 import ContributionGraph from '../components/ContributionGraph.astro';
-import { getPosts } from '../lib/posts';
+import { getPosts, hasCatsCI, postUrl as href } from '../lib/posts';
 import { postDateStr } from '../lib/kst';
 
 const all = await getPosts();
-const href = (id: string) => encodeURI('/' + id + '/');
 
 const projects = all.filter(
   (p) =>
     p.data.categories.includes('ue5') && p.data.categories.includes('summary') && p.data.project,
 );
-const lower = (p: (typeof all)[number]) => p.data.categories.map((c) => c.toLowerCase());
-const devlogPosts = all.filter((p) => lower(p).includes('log') && lower(p).includes('ue5'));
+const devlogPosts = all.filter((p) => hasCatsCI(p, 'log', 'ue5'));
 ---
 
 <Page title="Unreal Engine 5">
