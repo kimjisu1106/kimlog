@@ -1,4 +1,5 @@
 ---
+import '../styles/global.css';
 import { ogImage } from '../lib/og';
 
 interface Props {
@@ -61,7 +62,15 @@ const og = ogImage(project);
       defer
       src="https://static.cloudflareinsights.com/beacon.min.js"
       data-cf-beacon='{"token": "727df4dd0ca343b1be0ffd30ba969676"}'></script>
-    {/* 스타일링 seam — Astro CSS(개발자 톤)는 /design 툴이 이후 주입 */}
+    {/* 테마 초기화 — 저장된 선택을 body 렌더 전에 적용(FOUC 방지). 없으면 OS 따라감. */}
+    <script is:inline>
+      (function () {
+        try {
+          var t = localStorage.getItem('theme');
+          if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
+        } catch (e) {}
+      })();
+    </script>
     <slot name="head" />
   </head>
   <body>
