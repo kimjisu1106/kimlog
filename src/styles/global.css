@@ -87,8 +87,8 @@ h1.post-title { font-size:32px; font-weight:700; letter-spacing:-.02em; line-hei
 /* 섹션 헤딩(목록 페이지·홈) — 터미널 아이브로 */
 .page-content > .wrapper > h2 { font-family:var(--mono); font-size:14px; font-weight:500; color:var(--accent); margin:40px 0 14px; letter-spacing:.01em; }
 .page-content > .wrapper > h2::before { content:"# "; color:var(--muted); }
-/* 잔디 바로 뒤 첫 섹션 헤딩은 간격 축소(apps·ue5) — 다른 페이지처럼 붙게 */
-.til-graph + h2 { margin-top:18px; }
+/* 잔디 바로 뒤 요소는 위 여백 0으로 통일(모든 페이지 동일) — h2·리스트·태그필터·워드클라우드 무엇이 와도 붙게. 우선순위를 높여 h2 40px를 이김. */
+.page-content > .wrapper > .til-graph + * { margin-top:0; }
 
 /* ── 잔디 그래프 ── */
 .til-graph { display:flex; gap:2px; justify-content:space-between; padding:14px; background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); overflow-x:auto; scrollbar-width:none; }
