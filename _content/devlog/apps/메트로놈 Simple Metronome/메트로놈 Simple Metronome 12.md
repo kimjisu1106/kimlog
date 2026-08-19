@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 메트로놈 Simple Metronome ― ±5 버튼 탭 영역 키움
+title: 메트로놈 Simple Metronome 12
 date: 2026-08-11
 categories:
   - log

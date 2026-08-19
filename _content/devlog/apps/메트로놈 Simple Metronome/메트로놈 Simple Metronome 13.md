@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 메트로놈 Simple Metronome ― 개인정보처리방침 통합 이전 · v1.15 출시
+title: 메트로놈 Simple Metronome 13
 date: 2026-08-13
 categories:
   - log

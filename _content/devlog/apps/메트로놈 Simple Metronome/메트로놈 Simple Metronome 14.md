@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 메트로놈 Simple Metronome ― 잠금화면 미디어 컨트롤(v1.16)·박별 강박/음소거(v1.17)
+title: 메트로놈 Simple Metronome 14
 date: 2026-08-18
 categories:
   - log

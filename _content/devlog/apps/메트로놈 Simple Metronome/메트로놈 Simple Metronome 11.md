@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 메트로놈 Simple Metronome ― v1.14 심사 제출 (포그라운드 서비스 권한 선언)
+title: 메트로놈 Simple Metronome 11
 date: 2026-08-10
 categories:
   - log
