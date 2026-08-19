@@ -89,7 +89,7 @@ h1.post-title { font-size:32px; font-weight:700; letter-spacing:-.02em; line-hei
 .page-content > .wrapper > h2::before { content:"# "; color:var(--muted); }
 
 /* ── 잔디 그래프 ── */
-.til-graph { display:flex; gap:2px; padding:14px; background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); overflow-x:auto; scrollbar-width:none; }
+.til-graph { display:flex; gap:2px; justify-content:space-between; padding:14px; background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); overflow-x:auto; scrollbar-width:none; }
 .til-graph::-webkit-scrollbar { display:none; }
 .til-graph-col { display:flex; flex-direction:column; gap:2px; }
 .til-cell { width:10px; height:10px; border-radius:2px; background:var(--g0); flex-shrink:0; }
@@ -129,7 +129,7 @@ h1.post-title { font-size:32px; font-weight:700; letter-spacing:-.02em; line-hei
 
 /* ── 앱 카드 — 홈은 자동 슬라이드 캐러셀, hover 시 뒤집힘(터치는 클릭) ── */
 .apps-showcase { overflow:hidden; }
-.apps-slider-track { display:flex; gap:14px; width:max-content; animation:apps-slide 48s linear infinite; }
+.apps-slider-track { display:flex; gap:14px; width:max-content; padding:5px 0; animation:apps-slide 48s linear infinite; }
 .apps-showcase:hover .apps-slider-track { animation-play-state:paused; }
 @keyframes apps-slide { from { transform:translateX(0); } to { transform:translateX(-50%); } }
 .apps-shelf { display:grid; grid-template-columns:repeat(auto-fill,minmax(180px,1fr)); gap:14px; }
