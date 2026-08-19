@@ -140,6 +140,7 @@ h1.post-title { font-size:32px; font-weight:700; letter-spacing:-.02em; line-hei
 .app-tile--more { align-items:center; justify-content:center; text-align:center; gap:4px; border-style:dashed; }
 .app-tile--more:hover { border-color:var(--accent); }
 .app-tile-more { font-family:var(--mono); font-size:15px; font-weight:600; color:var(--accent); }
+.video-more { min-height:150px; cursor:pointer; }
 
 /* ── 홈 비디오 (썸네일 크게, 상단 배치) ── */
 .home-list { list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:18px; }
