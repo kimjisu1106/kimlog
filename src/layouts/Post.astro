@@ -1,0 +1,186 @@
+---
+import Base from './Base.astro';
+import { render } from 'astro:content';
+import type { Post, SeriesLink } from '../lib/posts';
+import { postDateStr } from '../lib/kst';
+
+interface Props {
+  post: Post;
+  series: { items: SeriesLink[]; index: number; total: number };
+  suggested: SeriesLink[];
+}
+
+const { post, series, suggested } = Astro.props;
+const { data, id } = post;
+const { Content } = await render(post);
+
+// 내부 링크는 Jekyll과 동일 encodeURI 인코딩.
+const href = (pid: string) => encodeURI('/' + pid + '/');
+const displayDate = postDateStr(data.date);
+const xmlDate = `${displayDate}T00:00:00+09:00`;
+const thumb = data.project ? `/assets/images/${data.project}.png` : '';
+---
+
+<Base title={data.title} description={data.description} project={data.project} ogType="article">
+  <article
+    class="post h-entry"
+    itemscope
+    itemtype="http://schema.org/BlogPosting"
+    data-pagefind-body
+  >
+    <header class="post-header">
+      <h1 class="post-title p-name" itemprop="name headline">{data.title}</h1>
+      <p class="post-meta">
+        <time
+          class="dt-published"
+          datetime={xmlDate}
+          itemprop="datePublished"
+          data-pagefind-meta="date">{displayDate}</time
+        >
+      </p>
+    </header>
+
+    <div class="post-content e-content" itemprop="articleBody">
+      {
+        data.app_url && (
+          <a
+            class="app-card"
+            href={data.app_url}
+            target="_blank"
+            rel="noopener noreferrer"
+            data-pagefind-ignore
+          >
+            {data.project && (
+              <img
+                class="app-card-thumb"
+                src={thumb}
+                alt={data.project_name || data.project}
+                onerror="this.style.display='none'"
+              />
+            )}
+            <div class="app-card-info">
+              <span class="app-card-name">{data.project_name || data.title}</span>
+              <span class="app-card-link">바로가기 ↗</span>
+            </div>
+          </a>
+        )
+      }
+
+      {
+        data.video_id && (
+          <a
+            class="app-card"
+            href={`https://www.youtube.com/watch?v=${data.video_id}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            data-pagefind-ignore
+          >
+            <img
+              class="app-card-thumb"
+              src={`https://i.ytimg.com/vi/${data.video_id}/hqdefault.jpg`}
+              alt={data.title}
+            />
+            <div class="app-card-info">
+              <span class="app-card-name">{data.project_name || data.title}</span>
+              <span class="app-card-link">YouTube에서 보기 ↗</span>
+            </div>
+          </a>
+        )
+      }
+
+      {
+        series.total > 1 && (
+          <div class="series-summary" data-pagefind-ignore>
+            이 글은 <strong>{data.project_name || data.project}</strong> 시리즈의{' '}
+            <strong>{series.index}번째</strong> 기록입니다. (총 {series.total}개)
+          </div>
+        )
+      }
+
+      <Content />
+
+      {
+        data.video_id && (
+          <>
+            <hr />
+            <div class="yt-wrap">
+              <iframe src={`https://www.youtube.com/embed/${data.video_id}`} allowfullscreen />
+            </div>
+          </>
+        )
+      }
+
+      <div class="adfit-web">
+        <ins
+          class="kakao_ad_area"
+          style="display:none;"
+          data-ad-unit="DAN-eseeNyWWDBquTVAI"
+          data-ad-width="728"
+          data-ad-height="90"></ins>
+      </div>
+      <div class="adfit-mobile">
+        <ins
+          class="kakao_ad_area"
+          style="display:none;"
+          data-ad-unit="DAN-i7W2YzEhUz3zlsI3"
+          data-ad-width="320"
+          data-ad-height="50"></ins>
+      </div>
+      <script type="text/javascript" src="//t1.kakaocdn.net/kas/static/ba.min.js" async is:inline
+      ></script>
+
+      {
+        series.total > 1 && (
+          <>
+            <hr />
+            <h2 data-pagefind-ignore>Series: {data.project_name || data.project}</h2>
+            <div class="series-list-card" data-pagefind-ignore>
+              <div class={`series-cards${series.total > 10 ? ' series-scrollable' : ''}`}>
+                {series.items.map((item, i) => (
+                  <a
+                    class={`series-card${item.current ? ' series-current' : ''}`}
+                    href={href(item.id)}
+                  >
+                    <span class="series-num">{i + 1}</span>
+                    <span class="series-card-date post-meta">{item.date}</span>
+                    <span class="series-sep">｜</span>
+                    <span class="series-card-title">{item.short_title || item.title}</span>
+                    {item.current && <span class="series-reading">읽는 중</span>}
+                  </a>
+                ))}
+              </div>
+            </div>
+          </>
+        )
+      }
+
+      {
+        suggested.length > 0 && (
+          <>
+            <hr />
+            <h2 data-pagefind-ignore>Suggested Posts</h2>
+            <div class="series-list-card" data-pagefind-ignore>
+              <div class="series-cards">
+                {suggested.map((sp) => (
+                  <a class="series-card" href={href(sp.id)}>
+                    <span class="series-card-date post-meta">{sp.date}</span>
+                    <span class="series-sep">｜</span>
+                    <span class="series-card-title">{sp.project_name || sp.title}</span>
+                  </a>
+                ))}
+              </div>
+            </div>
+          </>
+        )
+      }
+    </div>
+
+    <a class="u-url" href={href(id)} hidden></a>
+  </article>
+
+  <script is:inline>
+    document.querySelectorAll('.post-content img').forEach(function (img) {
+      img.setAttribute('loading', 'lazy');
+    });
+  </script>
+</Base>
