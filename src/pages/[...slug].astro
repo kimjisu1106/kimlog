@@ -1,0 +1,28 @@
+---
+import { getPosts } from '../lib/posts';
+import { render } from 'astro:content';
+
+// Phase 1: URL 척추만 검증하는 최소 라우트(디자인·레이아웃은 이후 Phase에서).
+// post.id = _content 상대경로 verbatim → params.slug 슬래시가 경로 구분자로 유지되어
+// trailingSlash 'always' + format 'directory'와 함께 Jekyll permalink를 그대로 재현한다.
+export async function getStaticPaths() {
+  const posts = await getPosts();
+  return posts.map((post) => ({ params: { slug: post.id }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{post.data.title}</title>
+  </head>
+  <body>
+    <h1>{post.data.title}</h1>
+    <Content />
+  </body>
+</html>

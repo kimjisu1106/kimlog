@@ -7,6 +7,15 @@ future: false
 timezone: Asia/Seoul
 exclude:
   - "**/draft-*.md"
+  # Astro 이관 병존 — Jekyll 빌드가 Astro 산출물을 건드리지 않게 제외
+  - node_modules
+  - src
+  - dist
+  - .astro
+  - package.json
+  - package-lock.json
+  - astro.config.mjs
+  - tsconfig.json
 theme: minima
 plugins:
   - jekyll-feed
