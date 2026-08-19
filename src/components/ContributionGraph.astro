@@ -17,7 +17,7 @@ const postDates = list.map((p) => postDateStr(p.data.date));
 const graphId = path || category || 'all';
 ---
 
-<div class="til-graph" id={`graph-${graphId}`}></div>
+<div class="til-graph" id={`graph-${graphId}`}>
 <script define:vars={{ postDates, graphId }}>
   // Jekyll contribution-graph 그대로 — 클라이언트에서 방문자 로컬 날짜(KST) 기준 52주×7일 그리드.
   (function () {
@@ -55,3 +55,4 @@ const graphId = path || category || 'all';
     }
   })();
 </script>
+</div>
