@@ -1,0 +1,78 @@
+---
+import Page from '../layouts/Page.astro';
+import ContributionGraph from '../components/ContributionGraph.astro';
+import { getPosts, byCategory, groupByProject, gid } from '../lib/posts';
+import { postDateStr } from '../lib/kst';
+
+const all = await getPosts();
+const groups = groupByProject(byCategory(all, 'log'));
+const href = (id: string) => encodeURI('/' + id + '/');
+
+function catLabel(cats: string[]): string {
+  if (cats.includes('ue5')) return 'Unreal Engine 5';
+  if (cats.includes('apps') || cats.includes('tools')) return 'Apps';
+  if (cats.includes('android-studio')) return 'Android Studio';
+  return '';
+}
+---
+
+<Page title="Dev Log">
+  <ContributionGraph category="log" />
+
+  {
+    groups.length === 0 ? (
+      <p>아직 글이 없습니다.</p>
+    ) : (
+      groups.map((group) => {
+        const first = group.items[0];
+        const projectTitle = group.project_name || group.name;
+        const label = catLabel(first.data.categories);
+        const listId = `list-${gid(group.name)}`;
+        return (
+          <details open class="devlog-group">
+            <summary class="devlog-summary">
+              <h3 class="devlog-title">
+                {label && `${label} | `}
+                {projectTitle}
+                {first.data.status === 'finished' && <span class="devlog-badge">✅</span>}
+              </h3>
+              <span class="devlog-meta">({group.items.length} posts)</span>
+            </summary>
+            <ul class="devlog-list" id={listId}>
+              {group.items.map((post, i) => (
+                <li hidden={i >= 5} class={i >= 5 ? 'devlog-extra-item' : undefined}>
+                  {postDateStr(post.data.date)} ｜ <a href={href(post.id)}>{post.data.title}</a>
+                </li>
+              ))}
+            </ul>
+            {group.items.length > 5 && (
+              <button type="button" class="devlog-toggle" data-list={listId} aria-expanded="false">
+                ↓ 더보기 ({group.items.length - 5}개)
+              </button>
+            )}
+          </details>
+        );
+      })
+    )
+  }
+</Page>
+
+<script>
+  document.addEventListener('click', (e) => {
+    const btn = (e.target as HTMLElement).closest<HTMLButtonElement>('.devlog-toggle');
+    if (!btn || !btn.dataset.list) return;
+    const list = document.getElementById(btn.dataset.list);
+    if (!list) return;
+    const extras = list.querySelectorAll('.devlog-extra-item');
+    const isOpen = btn.getAttribute('aria-expanded') === 'true';
+    if (isOpen) {
+      extras.forEach((li) => li.setAttribute('hidden', ''));
+      btn.setAttribute('aria-expanded', 'false');
+      btn.textContent = `↓ 더보기 (${extras.length}개)`;
+    } else {
+      extras.forEach((li) => li.removeAttribute('hidden'));
+      btn.setAttribute('aria-expanded', 'true');
+      btn.textContent = '↑ 접기';
+    }
+  });
+</script>

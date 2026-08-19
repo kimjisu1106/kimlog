@@ -1,0 +1,201 @@
+---
+import Page from '../layouts/Page.astro';
+import ContributionGraph from '../components/ContributionGraph.astro';
+import { getPosts, byCategory } from '../lib/posts';
+import { postDateStr } from '../lib/kst';
+
+const all = await getPosts();
+const tils = byCategory(all, 'today-i-learn');
+const devlogs = byCategory(all, 'log');
+const apps = all.filter((p) => p.data.categories.includes('summary') && p.data.app_url);
+const videos = all.filter((p) => p.data.video_id && p.data.categories.includes('summary'));
+const href = (id: string) => encodeURI('/' + id + '/');
+---
+
+<Page>
+  <ContributionGraph />
+
+  <div class="wordcloud-wrap">
+    <canvas id="tag-cloud" role="img" aria-label="최근 1년간 자주 쓴 태그 워드클라우드"></canvas>
+    <p class="post-meta wordcloud-label">최근 1년 태그</p>
+  </div>
+
+  <h2>Daily Logs</h2>
+  <ul class="devlog-list">
+    {
+      tils.slice(0, 5).map((p) => (
+        <li>
+          {postDateStr(p.data.date)} ｜ <a href={href(p.id)}>{p.data.short_title || p.data.title}</a>
+        </li>
+      ))
+    }
+  </ul>
+  {tils.length > 5 && <a class="devlog-toggle" href="/today-i-learn/">더보기 ▾</a>}
+
+  <hr />
+
+  <h2>Dev Logs</h2>
+  <ul class="devlog-list">
+    {
+      devlogs.slice(0, 5).map((p) => (
+        <li>
+          {postDateStr(p.data.date)} ｜ <a href={href(p.id)}>{p.data.title}</a>
+        </li>
+      ))
+    }
+  </ul>
+  {devlogs.length > 5 && <a class="devlog-toggle" href="/devlog/">더보기 ▾</a>}
+
+  <hr />
+
+  <h2>Apps</h2>
+  {
+    apps.length === 0 ? (
+      <p>No apps yet.</p>
+    ) : (
+      <div class="apps-showcase">
+        <div class="apps-slider-track">
+          {apps.map((p) => (
+            <div class="apps-card">
+              <div class="apps-card-inner">
+                <div class="apps-card-front">
+                  <img
+                    src={`/assets/images/${p.data.project}.png`}
+                    alt={p.data.project_name || p.data.title}
+                    loading="lazy"
+                    onerror="this.style.display='none'"
+                  />
+                  <span class="apps-card-name">{p.data.project_name || p.data.title}</span>
+                </div>
+                <div class="apps-card-back">
+                  <a class="apps-card-btn" href={href(p.id)}>
+                    자세히 보기 →
+                  </a>
+                </div>
+              </div>
+            </div>
+          ))}
+          {apps.map((p) => (
+            <div class="apps-card" aria-hidden="true">
+              <div class="apps-card-inner">
+                <div class="apps-card-front">
+                  <img
+                    src={`/assets/images/${p.data.project}.png`}
+                    alt=""
+                    loading="lazy"
+                    onerror="this.style.display='none'"
+                  />
+                  <span class="apps-card-name">{p.data.project_name || p.data.title}</span>
+                </div>
+                <div class="apps-card-back">
+                  <a class="apps-card-btn" href={href(p.id)}>
+                    자세히 보기 →
+                  </a>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    )
+  }
+
+  <hr />
+
+  <h2>Videos</h2>
+  <ul class="post-list home-list" id="list-videos">
+    {
+      videos.length === 0 ? (
+        <p>No videos yet.</p>
+      ) : (
+        videos.map((p, i) => (
+          <li class={`home-video${i >= 5 ? ' devlog-extra-item' : ''}`} hidden={i >= 5}>
+            <a class="home-video-link" href={href(p.id)}>
+              <img
+                class="home-thumb"
+                src={`https://i.ytimg.com/vi/${p.data.video_id}/hqdefault.jpg`}
+                alt="YouTube thumbnail"
+                loading="lazy"
+              />
+              <div class="home-video-text">
+                <div class="home-date post-meta">{postDateStr(p.data.date)}</div>
+                <div class="home-title">{p.data.title}</div>
+              </div>
+            </a>
+          </li>
+        ))
+      )
+    }
+    {videos.length > 5 && <button class="devlog-toggle" data-list="list-videos">더보기 ▾</button>}
+  </ul>
+</Page>
+
+<script>
+  import WordCloud from 'wordcloud';
+
+  fetch('/tags.json')
+    .then((r) => r.json())
+    .then((posts: { date: string; tags: string[] }[]) => {
+      const now = new Date();
+      const yearAgo = new Date(now.getFullYear() - 1, now.getMonth(), now.getDate());
+      const freq: Record<string, number> = {};
+      posts.forEach((p) => {
+        if (!p.tags || !p.date) return;
+        if (new Date(p.date) < yearAgo) return;
+        p.tags.forEach((tag) => {
+          freq[tag] = (freq[tag] || 0) + 1;
+        });
+      });
+      const list = Object.entries(freq)
+        .sort((a, b) => b[1] - a[1])
+        .slice(0, 60);
+      if (!list.length) return;
+      const maxFreq = list[0][1];
+      const canvas = document.getElementById('tag-cloud') as HTMLCanvasElement | null;
+      if (!canvas) return;
+      const w = (canvas.parentElement as HTMLElement).offsetWidth;
+      canvas.width = w;
+      canvas.height = Math.round(Math.min(200, Math.max(120, w * 0.3)));
+      const colors = ['#2a7ae4', '#5b9ef5', '#40a9a0', '#e86b5f', '#f5a623', '#7c5cfc'];
+      WordCloud(canvas, {
+        list,
+        gridSize: Math.round(w / 60),
+        weightFactor: (n: number) => Math.max(13, (n / maxFreq) * 52),
+        fontFamily: 'sans-serif',
+        color: () => colors[Math.floor(Math.random() * colors.length)],
+        backgroundColor: 'transparent',
+        rotateRatio: 0,
+        shrinkToFit: true,
+        click: (item: [string, number]) => {
+          location.href = '/search/?q=' + encodeURIComponent(item[0]);
+        },
+      });
+    });
+
+  // 앱 카드 flip
+  document.querySelectorAll('.apps-card:not([aria-hidden])').forEach((card) => {
+    card.addEventListener('click', (e) => {
+      if ((e.target as HTMLElement).closest('.apps-card-btn')) return;
+      card.classList.toggle('flipped');
+    });
+  });
+
+  // 더보기 토글(videos)
+  document.addEventListener('click', (e) => {
+    const btn = (e.target as HTMLElement).closest<HTMLButtonElement>('.devlog-toggle');
+    if (!btn || !btn.dataset.list) return;
+    const list = document.getElementById(btn.dataset.list);
+    if (!list) return;
+    const extras = list.querySelectorAll('.devlog-extra-item');
+    const isOpen = btn.getAttribute('aria-expanded') === 'true';
+    if (isOpen) {
+      extras.forEach((li) => li.setAttribute('hidden', ''));
+      btn.setAttribute('aria-expanded', 'false');
+      btn.textContent = '더보기 ▾';
+    } else {
+      extras.forEach((li) => li.removeAttribute('hidden'));
+      btn.setAttribute('aria-expanded', 'true');
+      btn.textContent = '접기 ▴';
+    }
+  });
+</script>

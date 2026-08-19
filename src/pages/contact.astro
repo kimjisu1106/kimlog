@@ -1,0 +1,64 @@
+---
+import Page from '../layouts/Page.astro';
+---
+
+<Page title="Contact">
+  <p class="about-bio">
+    음악을 전공한 실용적 빌더.<br />지금은 C++를 학습하며 UE5, Flutter, Python으로 필요한 걸 만들고
+    있습니다.
+  </p>
+  <p class="about-tagline">Need, Learn and Build.</p>
+
+  <hr />
+
+  <p>📧 support@logstone.net</p>
+  <p>
+    ▶️
+    <a href="https://www.youtube.com/@kimlog0415" target="_blank">YouTube @kimlog0415</a>
+  </p>
+
+  <hr />
+
+  <h2>Support</h2>
+  <p>이 블로그가 도움이 됐다면 커피 한 잔 사주세요 ☕</p>
+
+  <div class="support-buttons">
+    <a
+      href="https://www.paypal.com/ncp/payment/RJZFK9X53AD4G"
+      target="_blank"
+      class="support-btn"
+    >
+      🩵 PayPal
+    </a>
+    <button class="support-btn" id="kakao-btn">💛 카카오페이</button>
+  </div>
+
+  <div class="kakao-qr-modal" id="kakao-qr-modal" hidden>
+    <div class="kakao-qr-box">
+      <p>카카오페이 앱으로 스캔해주세요</p>
+      <img src="/assets/images/kakaopay-qr.png" alt="KakaoPay QR" width="180" />
+      <button class="kakao-qr-close" id="kakao-qr-close">닫기</button>
+    </div>
+  </div>
+</Page>
+
+<script>
+  const btn = document.getElementById('kakao-btn');
+  const modal = document.getElementById('kakao-qr-modal') as HTMLElement | null;
+  const closeBtn = document.getElementById('kakao-qr-close');
+  const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+  btn?.addEventListener('click', () => {
+    if (isMobile) {
+      window.location.href = 'https://qr.kakaopay.com/Ej9NoO4uc';
+    } else if (modal) {
+      modal.hidden = false;
+    }
+  });
+  closeBtn?.addEventListener('click', () => {
+    if (modal) modal.hidden = true;
+  });
+  modal?.addEventListener('click', (e) => {
+    if (e.target === modal) modal.hidden = true;
+  });
+</script>

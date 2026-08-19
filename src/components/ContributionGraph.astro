@@ -1,0 +1,57 @@
+---
+import { getPosts, byCategory, byPathPrefix } from '../lib/posts';
+import { postDateStr } from '../lib/kst';
+
+interface Props {
+  category?: string;
+  path?: string;
+}
+
+const { category, path } = Astro.props;
+const all = await getPosts();
+let list = all;
+if (path) list = byPathPrefix(all, path);
+else if (category) list = byCategory(all, category);
+
+const postDates = list.map((p) => postDateStr(p.data.date));
+const graphId = path || category || 'all';
+---
+
+<div class="til-graph" id={`graph-${graphId}`}></div>
+<script define:vars={{ postDates, graphId }}>
+  // Jekyll contribution-graph 그대로 — 클라이언트에서 방문자 로컬 날짜(KST) 기준 52주×7일 그리드.
+  (function () {
+    var counts = {};
+    postDates.forEach(function (d) {
+      counts[d] = (counts[d] || 0) + 1;
+    });
+    var today = new Date();
+    today.setHours(0, 0, 0, 0);
+    var start = new Date(today);
+    start.setDate(start.getDate() - start.getDay());
+    start.setDate(start.getDate() - 51 * 7);
+    var container = document.getElementById('graph-' + graphId);
+    if (!container) return;
+    function toLocalDateStr(dt) {
+      var y = dt.getFullYear();
+      var m = String(dt.getMonth() + 1).padStart(2, '0');
+      var day = String(dt.getDate()).padStart(2, '0');
+      return y + '-' + m + '-' + day;
+    }
+    for (var w = 0; w < 52; w++) {
+      var col = document.createElement('div');
+      col.className = 'til-graph-col';
+      for (var d = 0; d < 7; d++) {
+        var date = new Date(start);
+        date.setDate(start.getDate() + w * 7 + d);
+        var dateStr = toLocalDateStr(date);
+        var count = counts[dateStr] || 0;
+        var cell = document.createElement('div');
+        cell.className = 'til-cell til-cell--' + Math.min(count, 4);
+        cell.title = dateStr + (count > 0 ? ' (' + count + ')' : '');
+        col.appendChild(cell);
+      }
+      container.appendChild(col);
+    }
+  })();
+</script>

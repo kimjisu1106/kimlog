@@ -12,6 +12,45 @@ export async function getPosts(): Promise<Post[]> {
     .sort((a, b) => postDateStr(b.data.date).localeCompare(postDateStr(a.data.date)));
 }
 
+// 목록 페이지용 필터/그룹 헬퍼 — 입력 list는 이미 getPosts()로 날짜 내림차순 정렬된 것.
+export function byCategory(all: Post[], cat: string): Post[] {
+  return all.filter((p) => p.data.categories.includes(cat));
+}
+
+export function byPathPrefix(all: Post[], prefix: string): Post[] {
+  return all.filter((p) => p.id === prefix || p.id.startsWith(prefix + '/'));
+}
+
+// Jekyll group.name replace " ","-" downcase — devlog-list id / toggle data-list 키.
+export function gid(project: string): string {
+  return project.replace(/ /g, '-').toLowerCase();
+}
+
+export interface Group {
+  name: string;
+  project_name?: string;
+  items: Post[];
+}
+
+// Jekyll group_by:"project" 재현 — 첫 등장 순서 유지(입력이 날짜 desc면 최근 프로젝트가 위).
+export function groupByProject(list: Post[]): Group[] {
+  const order: string[] = [];
+  const map = new Map<string, Post[]>();
+  for (const p of list) {
+    const key = p.data.project ?? '';
+    if (!map.has(key)) {
+      map.set(key, []);
+      order.push(key);
+    }
+    map.get(key)!.push(p);
+  }
+  return order.map((name) => ({
+    name,
+    project_name: map.get(name)![0]?.data.project_name,
+    items: map.get(name)!,
+  }));
+}
+
 // props로 넘길 경량 링크(전체 CollectionEntry 직렬화 방지).
 export interface SeriesLink {
   id: string;

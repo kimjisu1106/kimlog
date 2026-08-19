@@ -12,6 +12,10 @@
   },
   "dependencies": {
     "astro": "^5.13.0",
-    "@astrojs/rss": "^4.0.12"
+    "@astrojs/rss": "^4.0.12",
+    "wordcloud": "^1.2.3"
+  },
+  "devDependencies": {
+    "@types/wordcloud": "^1.2.2"
   }
 }

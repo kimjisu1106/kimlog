@@ -1,0 +1,59 @@
+---
+import Page from '../layouts/Page.astro';
+import ContributionGraph from '../components/ContributionGraph.astro';
+import { getPosts, byPathPrefix, groupByProject } from '../lib/posts';
+import { postDateStr } from '../lib/kst';
+
+const all = await getPosts();
+const works = byPathPrefix(all, 'audio').filter((p) => p.data.categories.includes('summary'));
+const groups = groupByProject(works);
+const href = (id: string) => encodeURI('/' + id + '/');
+
+// id = "audio/<subfolder>/..." → 서브폴더 라벨.
+function subfolderLabel(id: string): string {
+  const slug = id.split('/')[1] ?? '';
+  if (slug === 'music-cover') return 'Music Cover';
+  if (slug === 'original') return 'Original';
+  return slug.replace(/-/g, ' ');
+}
+---
+
+<Page title="Audio">
+  <ContributionGraph path="audio" />
+
+  {
+    groups.length === 0 ? (
+      <p>아직 글이 없습니다.</p>
+    ) : (
+      groups.map((group) => {
+        const first = group.items[0];
+        return (
+          <div class="audio-group">
+            <h3>
+              {subfolderLabel(first.id)} | {group.project_name || group.name}
+            </h3>
+            <div class="audio-works">
+              {group.items.map((post) => (
+                <a class="audio-card" href={href(post.id)}>
+                  <div class="audio-thumb-wrap">
+                    {post.data.video_id && (
+                      <img
+                        src={`https://i.ytimg.com/vi/${post.data.video_id}/mqdefault.jpg`}
+                        alt={post.data.title}
+                        loading="lazy"
+                      />
+                    )}
+                  </div>
+                  <div class="audio-card-info">
+                    <span class="audio-card-title">{post.data.title}</span>
+                    <span class="post-meta">{postDateStr(post.data.date)}</span>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+        );
+      })
+    )
+  }
+</Page>

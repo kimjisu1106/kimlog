@@ -1,0 +1,53 @@
+---
+import Page from '../layouts/Page.astro';
+import ContributionGraph from '../components/ContributionGraph.astro';
+import { getPosts } from '../lib/posts';
+import { postDateStr } from '../lib/kst';
+
+const all = await getPosts();
+const href = (id: string) => encodeURI('/' + id + '/');
+
+const projects = all.filter(
+  (p) =>
+    p.data.categories.includes('ue5') && p.data.categories.includes('summary') && p.data.project,
+);
+const lower = (p: (typeof all)[number]) => p.data.categories.map((c) => c.toLowerCase());
+const devlogPosts = all.filter((p) => lower(p).includes('log') && lower(p).includes('ue5'));
+---
+
+<Page title="Unreal Engine 5">
+  <ContributionGraph category="ue5" />
+
+  <h2>Projects</h2>
+  {
+    projects.length === 0 ? (
+      <p>아직 글이 없습니다.</p>
+    ) : (
+      <ul class="devlog-list">
+        {projects.map((post) => (
+          <li>
+            {postDateStr(post.data.date)} ｜{' '}
+            <a href={href(post.id)}>{post.data.project_name || post.data.title}</a>
+            {post.data.status === 'finished' && <span class="devlog-badge">✅</span>}
+          </li>
+        ))}
+      </ul>
+    )
+  }
+
+  <hr />
+  <h2>Dev Log</h2>
+  {
+    devlogPosts.length === 0 ? (
+      <p>아직 글이 없습니다.</p>
+    ) : (
+      <ul class="devlog-list">
+        {devlogPosts.map((post) => (
+          <li>
+            {postDateStr(post.data.date)} ｜ <a href={href(post.id)}>{post.data.title}</a>
+          </li>
+        ))}
+      </ul>
+    )
+  }
+</Page>

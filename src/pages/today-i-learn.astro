@@ -1,0 +1,110 @@
+---
+import Page from '../layouts/Page.astro';
+import ContributionGraph from '../components/ContributionGraph.astro';
+import { getPosts, byCategory, groupByProject, gid } from '../lib/posts';
+import { postDateStr } from '../lib/kst';
+
+const all = await getPosts();
+const posts = byCategory(all, 'today-i-learn');
+const groups = groupByProject(posts);
+const uniqueTags = [...new Set(posts.flatMap((p) => p.data.tags))].sort();
+const href = (id: string) => encodeURI('/' + id + '/');
+---
+
+<Page title="TIL">
+  <ContributionGraph category="today-i-learn" />
+
+  {
+    posts.length === 0 ? (
+      <p>아직 글이 없습니다.</p>
+    ) : (
+      <>
+        <div class="tag-filter">
+          <button class="tag-chip active" data-tag="">
+            전체
+          </button>
+          {uniqueTags.map((tag) => (
+            <button class="tag-chip" data-tag={tag}>
+              {tag}
+            </button>
+          ))}
+        </div>
+
+        {groups.map((group) => {
+          const projectTitle = group.project_name || group.name;
+          const listId = `list-${gid(group.name)}`;
+          return (
+            <details open class="devlog-group" data-group>
+              <summary class="devlog-summary">
+                <h3 class="devlog-title">{projectTitle}</h3>
+                <span class="devlog-meta">({group.items.length} posts)</span>
+              </summary>
+              <ul class="devlog-list" id={listId}>
+                {group.items.map((post, i) => (
+                  <li
+                    hidden={i >= 5}
+                    class={i >= 5 ? 'devlog-extra-item' : undefined}
+                    data-tags={post.data.tags.join(',')}
+                  >
+                    {postDateStr(post.data.date)} ｜{' '}
+                    <a href={href(post.id)}>{post.data.short_title || post.data.title}</a>
+                  </li>
+                ))}
+              </ul>
+              {group.items.length > 5 && (
+                <button
+                  type="button"
+                  class="devlog-toggle"
+                  data-list={listId}
+                  aria-expanded="false"
+                >
+                  ↓ 더보기 ({group.items.length - 5}개)
+                </button>
+              )}
+              <hr />
+            </details>
+          );
+        })}
+      </>
+    )
+  }
+</Page>
+
+<script>
+  document.addEventListener('click', (e) => {
+    const chip = (e.target as HTMLElement).closest<HTMLButtonElement>('.tag-chip');
+    if (chip) {
+      document.querySelectorAll('.tag-chip').forEach((c) => c.classList.remove('active'));
+      chip.classList.add('active');
+      const tag = chip.dataset.tag;
+      document.querySelectorAll<HTMLElement>('[data-group]').forEach((group) => {
+        const items = group.querySelectorAll<HTMLElement>('li[data-tags]');
+        let visible = 0;
+        items.forEach((li) => {
+          const tags = li.dataset.tags ? li.dataset.tags.split(',') : [];
+          const match = !tag || tags.includes(tag);
+          li.hidden = !match;
+          if (match) visible++;
+        });
+        group.hidden = visible === 0;
+      });
+      return;
+    }
+
+    const btn = (e.target as HTMLElement).closest<HTMLButtonElement>('.devlog-toggle');
+    if (!btn || !btn.dataset.list) return;
+    const list = document.getElementById(btn.dataset.list);
+    if (!list) return;
+    const extras = list.querySelectorAll('.devlog-extra-item');
+    const isOpen = btn.getAttribute('aria-expanded') === 'true';
+    if (isOpen) {
+      extras.forEach((li) => li.setAttribute('hidden', ''));
+      btn.setAttribute('aria-expanded', 'false');
+      btn.textContent = `↓ 더보기 (${extras.length}개)`;
+    } else {
+      extras.forEach((li) => li.removeAttribute('hidden'));
+      btn.setAttribute('aria-expanded', 'true');
+      btn.textContent = '↑ 접기';
+    }
+  });
+</script>

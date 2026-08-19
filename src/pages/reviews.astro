@@ -1,0 +1,50 @@
+---
+import Page from '../layouts/Page.astro';
+import { getCollection } from 'astro:content';
+import { postDateStr } from '../lib/kst';
+
+const raw = await getCollection('reviews');
+raw.sort((a, b) => {
+  const da = a.data.date ? postDateStr(a.data.date) : '';
+  const db = b.data.date ? postDateStr(b.data.date) : '';
+  return db.localeCompare(da);
+});
+
+function maskAuthor(author: string): string {
+  return author[0] === '@' ? author.slice(0, 4) + '*' : author.slice(0, 2) + '*';
+}
+
+// passthrough 스키마라 필드가 타입에 없음 — any로 받아 카드 데이터로 가공(가공은 frontmatter에서).
+const cards = raw.map((r) => {
+  const d: any = r.data;
+  return {
+    comment: d.comment as string,
+    author: d.author ? maskAuthor(String(d.author)) : '',
+    project: (d.project_name || d.project || '') as string,
+    source: (d.source || '') as string,
+    date: r.data.date ? postDateStr(r.data.date).replace(/-/g, '.') : '',
+  };
+});
+---
+
+<Page title="Reviews" showTitle={false}>
+  <h1>Reviews</h1>
+
+  <div class="cork-board">
+    {
+      cards.map((c) => (
+        <div class="sticky-card">
+          <p class="sticky-comment">{c.comment}</p>
+          <div class="sticky-bottom">
+            <div class="sticky-meta">
+              {c.author && <span class="sticky-author">— {c.author}</span>}
+              {c.project && <span class="sticky-project">{c.project}</span>}
+              {c.source && <span class="sticky-source">{c.source}</span>}
+            </div>
+            {c.date && <span class="sticky-date">{c.date}</span>}
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</Page>
