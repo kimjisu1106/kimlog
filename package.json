@@ -4,11 +4,14 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "predev": "node scripts/copy-static.mjs",
     "dev": "astro dev",
+    "prebuild": "node scripts/copy-static.mjs",
     "build": "astro build",
     "preview": "astro preview"
   },
   "dependencies": {
-    "astro": "^5.13.0"
+    "astro": "^5.13.0",
+    "@astrojs/rss": "^4.0.12"
   }
 }

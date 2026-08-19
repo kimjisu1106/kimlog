@@ -16,6 +16,8 @@ exclude:
   - package-lock.json
   - astro.config.mjs
   - tsconfig.json
+  - scripts
+  - public
 theme: minima
 plugins:
   - jekyll-feed

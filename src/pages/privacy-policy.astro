@@ -1,0 +1,18 @@
+---
+// 옛 /privacy-policy/ URL 유지(AdSense가 이 주소를 가리킴). logstone.net/kimlog/privacy/로 리다이렉트.
+const target = 'https://logstone.net/kimlog/privacy/';
+---
+
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="refresh" content={`0; url=${target}`} />
+    <title>개인정보처리방침</title>
+    <link rel="canonical" href={target} />
+  </head>
+  <body>
+    <p>개인정보처리방침 페이지로 이동합니다. <a href={target}>여기</a>를 눌러 주세요.</p>
+    <script is:inline set:html={`location.replace(${JSON.stringify(target)});`}></script>
+  </body>
+</html>

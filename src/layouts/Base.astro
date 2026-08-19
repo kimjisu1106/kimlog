@@ -1,0 +1,78 @@
+---
+import { ogImage } from '../lib/og';
+
+interface Props {
+  title?: string;
+  description?: string;
+  project?: string;
+  ogType?: 'website' | 'article';
+}
+
+const SITE = 'https://kimlog.pages.dev';
+const SITE_TITLE = '김로그의 우당탕탕';
+const SITE_DESC = 'KIMLOG―Need, Learn and Build';
+
+const { title, description, project, ogType = 'website' } = Astro.props;
+const pageTitle = title ? `${title} | ${SITE_TITLE}` : SITE_TITLE;
+const desc = description || SITE_DESC;
+const canonical = new URL(Astro.url.pathname, SITE).href;
+const og = ogImage(project);
+---
+
+<!doctype html>
+<html lang="ko">
+  <head>
+    <!-- Google Tag Manager -->
+    <script is:inline>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, 'script', 'dataLayer', 'GTM-TNJZ56S6');
+    </script>
+    <!-- End Google Tag Manager -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={desc} />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:title" content={title || SITE_TITLE} />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:description" content={desc} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content={SITE_TITLE} />
+    <meta property="og:image" content={og} />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title || SITE_TITLE} />
+    <meta name="twitter:description" content={desc} />
+    <link rel="alternate" type="application/rss+xml" title={SITE_TITLE} href="/feed.xml" />
+    <meta name="google-site-verification" content="R-IPOkDo6YoQGFHmV7mEX98FuuLCx1eUM98m3RETbnM" />
+    <meta name="google-adsense-account" content="ca-pub-2560235080070689" />
+    <link rel="icon" type="image/png" href="/assets/images/profile.png" />
+    <link rel="shortcut icon" href="/assets/images/profile.png" />
+    <script
+      is:inline
+      defer
+      src="https://static.cloudflareinsights.com/beacon.min.js"
+      data-cf-beacon='{"token": "727df4dd0ca343b1be0ffd30ba969676"}'></script>
+    {/* 스타일링 seam — Astro CSS(개발자 톤)는 /design 툴이 이후 주입 */}
+    <slot name="head" />
+  </head>
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-TNJZ56S6"
+        height="0"
+        width="0"
+        style="display:none;visibility:hidden"></iframe></noscript
+    >
+    <slot />
+  </body>
+</html>

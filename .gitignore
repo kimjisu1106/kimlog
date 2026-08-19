@@ -6,3 +6,6 @@ _site/
 node_modules/
 dist/
 .astro/
+# public/assets·apps는 copy-static.mjs가 생성(원본은 루트 assets/·apps/)
+public/assets/
+public/apps/
