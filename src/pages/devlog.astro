@@ -8,7 +8,7 @@ const all = await getPosts();
 const groups = groupByProject(byCategory(all, 'log'));
 
 function catLabel(cats: string[]): string {
-  if (cats.includes('ue5')) return 'Unreal Engine 5';
+  if (cats.includes('ue5')) return 'Unreal Engine';
   if (cats.includes('apps') || cats.includes('tools')) return 'Apps';
   if (cats.includes('android-studio')) return 'Android Studio';
   return '';

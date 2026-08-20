@@ -8,7 +8,7 @@ categories:
 project: sandrop
 project_name: Sandrop
 video_id:
-app_url:
+app_url: https://play.google.com/store/apps/details?id=com.kimlog0415.sandrop
 status:
 description: 빈 캔버스에 색 모래를 부어 픽셀아트를 완성하는 모바일 퍼즐. 순환 컨베이어 벨트로 실려 오는 색 바스켓을 탭해 그림을 100% 채우면 클리어된다.
 tags:
