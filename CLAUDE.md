@@ -1,4 +1,4 @@
-# KimLog - GitHub Pages Blog
+# KimLog - Astro Blog
 
 ## 작업 원칙 (Working Principles)
 
@@ -12,28 +12,32 @@
 8. **Check Errors Carefully** — 에러 메시지를 끝까지 읽을 것. 빠른 추측 수정 금지 — 원인을 파악한 뒤 고칠 것. 테스트가 없으므로 서버 실행 시 오류가 없는지 수동으로 확인.
 9. **Comments: Why Only** — 코드 주석은 WHY(숨겨진 제약, 미묘한 불변식, 버그 우회)만. WHAT 설명 금지. 잘 이름 붙인 식별자가 이미 설명함.
 10. **End-of-Turn Summary** — 응답 끝에 무엇을 했는지 간결하게 요약할 것(학습 목적). 변경 파일·핵심 변경 내용·확인 필요 사항 순으로.
-11. **CSS Consistency** — 모든 스타일은 `assets/main.scss`에만 작성. 인라인 `<style>` 블록, `style=""` 속성 금지. 색상은 CSS 변수 사용(`--border-color`, `--muted` 등). 다크모드는 `prefers-color-scheme` 오버라이드로.
+11. **CSS Consistency** — 모든 스타일은 `src/styles/global.css`에만 작성. 인라인 `<style>` 블록, `style=""` 속성 금지. 색상은 CSS 변수(토큰) 사용(`--border-color`, `--muted` 등). 다크모드는 `prefers-color-scheme` + `:root[data-theme]` 오버라이드로.
 12. **Auto Commit** — 코드 CRUD(생성·수정·삭제)가 발생하면 작업 완료 후 자동으로 git commit & push. 보안 검사 통과 후 수행.
 13. **TIL 작성 전 기술 포인트 확인** — TIL을 작성하기 전에 해당 작업에서 사용된 기술 포인트 목록을 빠짐없이 사용자에게 제시하고, 어떤 항목을 기록할지 직접 선택하게 할 것. "중요한 것만" 추리지 말고 사소한 것도 포함해서 전부 나열한다. Claude Code가 코드를 작성하기 때문에 사용자가 어떤 기술이 쓰였는지 모를 수 있음 — 선택 과정 자체가 학습임.
-14. **Description 필수** — 새 포스트(draft 포함)를 작성할 때 frontmatter에 `description`을 1문장으로 반드시 넣을 것. 본문 내용을 요약하며, 검색 결과 스니펫·SNS 공유 카드에 그대로 노출됨. 비우면 첫 문단이 자동 추출되는데 헤딩으로 시작하는 devlog는 스니펫 품질이 나쁨.
+14. **Description 필수** — 새 포스트(draft 포함)를 작성할 때 frontmatter에 `description`을 1문장으로 반드시 넣을 것. 본문 내용을 요약하며, 검색 결과 스니펫·SNS 공유 카드에 그대로 노출됨. 비우면 사이트 기본 설명(`KIMLOG―Need, Learn and Build`)으로 대체된다 — Astro는 Jekyll과 달리 첫 문단 자동 추출을 하지 않으므로 반드시 직접 작성.
 15. **INBOX 확인** — 세션 시작 시 `LogStoneShop/INBOX.md`에서 블로그(kimlog) 관련 open 항목·공지를 확인한다. LogStoneShop과의 정책·URL 조율이 여기서 오간다. 그 파일만 수정하고(코드·조항 직접 수정 금지 — 요청으로 적기), pull 직후 편집·즉시 push로 충돌을 피한다. open 항목은 낸 세션이 자기 소유 질문이면 자기가 close(project→shop 요청은 shop이 close).
 16. **다음에 할 일 알림장** — devlog를 게시할 때, 각 프로젝트 로그의 `다음에 할 일`을 정리해 `LogStoneShop/INBOX.md`에 알림장으로 공지한다. 각 프로젝트 세션이 "아직 안 한 항목은 자기 백로그·다음에 할 일에 기재, 이미 한 항목은 이행 여부 회신"하도록 프로젝트별로 묶어 적는다. INBOX 규칙(그 파일만 수정·pull 직후 편집·즉시 push)을 따른다.
 
 ## Project Overview
 
-Obsidian으로 마크다운 문서를 작성 → 이 vault 폴더가 git 추적됨 → GitHub Desktop 또는 Claude Code로 commit & push → Cloudflare 배포되는 Jekyll 블로그.
+Obsidian으로 마크다운 문서를 작성 → 이 vault 폴더가 git 추적됨 → GitHub Desktop 또는 Claude Code로 commit & push → Cloudflare Pages가 빌드·배포하는 Astro 블로그. 라이브 주소는 `kimlog.pages.dev`.
+
+> 2026-08(19~22) Jekyll(Minima)에서 Astro로 이관·컷오버 완료. URL은 1:1 보존(`_content` 파일 경로 = URL). 발행 플로우와 이미지 방식은 예전과 동일하다. Jekyll 잔재는 2026-08-22 Phase 8에서 전부 제거됨.
 
 ## Stack
 
-- **Jekyll** + **Minima** 테마 (`~> 2.5`)
+- **Astro 5** — Content Collections `glob()` 로더로 `_content` 마크다운을 그대로 읽음
 - **Obsidian** 으로 포스트 작성 (`_content/` 폴더)
-- **Cloudflare** 호스팅
+- **Cloudflare Pages** 호스팅
+- **Node** — `.nvmrc` = 20
 
 ## Git / 배포
 
-- Gemfile 필수 — `jekyll`, `minima`, `base64`, `kramdown-parser-gfm`, 플러그인 포함
-- Ruby 버전 `3.2.2`로 고정 (`.ruby-version`) — Ruby 3.4는 safe_yaml 호환 문제 있음
-- Cloudflare Pages 빌드 커맨드: `bundle exec jekyll build && npx pagefind --site _site` — Pagefind가 빌드 후 `_site/pagefind/` 검색 인덱스를 생성 (미적용 시 검색 페이지는 search.json fallback으로 동작)
+- 의존성은 `package.json` (astro, `@astrojs/rss`, wordcloud; dev: pagefind, `@types/wordcloud`). Ruby/Gemfile 없음.
+- npm 스크립트: `npm run dev`(로컬 http://localhost:4321) · `npm run build`(= `astro build && pagefind --site dist`) · `npm run preview`(빌드 결과 미리보기).
+- `predev`/`prebuild`가 `scripts/copy-static.mjs`를 먼저 돌려 루트 `assets/{images,fonts}`와 정적앱 3종을 `public/`으로 복사한다(`public/assets`·`public/apps`는 gitignore — 원본은 루트).
+- Cloudflare Pages 빌드 커맨드: `npm run build`, 출력 디렉토리 `dist`. Pagefind가 빌드 후 `dist/pagefind/` 검색 인덱스를 생성(미적용 시 검색 페이지는 `/search.json` fallback으로 동작).
 
 ### 인코딩 — 한글 깨짐 방지 (Windows)
 
@@ -46,121 +50,141 @@ Obsidian으로 마크다운 문서를 작성 → 이 vault 폴더가 git 추적�
 ## Structure
 
 ```
-_config.yml          # 사이트 설정 (title, theme, collections, plugins)
-_data/
-  sections.yml       # ue5 / apps 섹션 정의 (include 카테고리 목록)
-_content/            # Jekyll collection (site.content) — 포스트 원본
-  devlog/            # 기존 _devlog 포스트
-    apps/            # 카테고리: apps (구 tools 포함)
-    devlog/          # 카테고리: log (daily-log, TIL 등)
-    ue5/             # 카테고리: ue5
-  audio/             # 카테고리: audio
-    music-cover/     # 커버 연주
-    original/        # 자작곡 (예정)
-_includes/
-  head.html                # Minima head 오버라이드 (favicon, OG, Google Search Console)
-  header.html              # Minima header 오버라이드 (nav + 검색 아이콘)
-  footer.html              # footer 오버라이드 (contact 정보 + /contact/ 후원 링크)
-  youtube.html             # YouTube embed 인클루드
-  contribution-graph.html  # GitHub 잔디 그래프 (category 파라미터 또는 전체)
-_layouts/
-  post.html          # Minima post layout 오버라이드 (app card, video card, related posts)
+astro.config.mjs     # site + trailingSlash:'always' + build.format:'directory' (URL 1:1 보존 핵심)
+package.json         # npm 스크립트·의존성
+.nvmrc               # node 20
+src/
+  content.config.ts  # glob 로더(verbatim generateId, draft 제외) + Zod 스키마; posts·reviews 컬렉션
+  pages/
+    index.astro          # 홈 (잔디 + 태그 워드클라우드 + Daily + Dev Logs + Apps + Videos)
+    devlog.astro         # Dev Log 목록 (categories에 'log', 날짜순 project 그룹핑 + 더보기)
+    today-i-learn.astro  # TIL 목록 (잔디 + 태그칩 필터 + project 그룹 + 더보기)
+    ue5.astro apps.astro # 잔디 + Projects[summary] + Dev Log (apps는 flip 카드·finished 우선)
+    audio.astro          # 오디오 (path=audio, summary works project 그룹)
+    contact.astro        # Contact (이메일·YouTube·PayPal/카카오페이 후원)
+    reviews.astro        # 리뷰 (reviews 컬렉션, 이름 마스킹)
+    search.astro         # 검색 (Pagefind 우선, 없으면 /search.json fallback, ?q= 지원)
+    privacy-policy.astro # logstone.net/kimlog/privacy/ 로 리다이렉트하는 스텁(옛 URL 유지)
+    [...slug].astro      # 게시글 캐치올 라우트 (post.id = 파일경로 → URL)
+    feed.xml.ts          # RSS (@astrojs/rss)
+    sitemap.xml.ts       # 사이트맵 (직접 엔드포인트 — 파일명 /sitemap.xml 고정)
+    search.json.ts       # 검색 인덱스(제목+본문+tags) — Pagefind fallback용
+    tags.json.ts         # 경량 태그 인덱스(date+tags) — 홈 워드클라우드용
+  layouts/
+    Base.astro           # <html> 셸 — head(GTM·GSC·AdSense·CF beacon·favicon·OG·테마초기화) + global.css import
+    Page.astro           # 목록 페이지 셸 (Header + .page-content > .wrapper + Footer)
+    Post.astro           # 게시글 레이아웃 (app/video 카드, AdFit, Series, Suggested)
+  components/
+    Header.astro         # nav + 검색 아이콘
+    Footer.astro         # contact 정보 + /contact/ 후원 링크
+    ContributionGraph.astro  # GitHub 잔디 그래프 (category 파라미터 또는 전체)
+  lib/
+    posts.ts             # getPosts()(단일 choke point) + URL·그룹·시리즈·추천 헬퍼
+    kst.ts               # KST 날짜 유틸 + future:false(isPublished)
+    og.ts                # og:image 선택 ({project}.png 있으면 그거, 없으면 profile.png)
+  styles/
+    global.css           # 전체 커스텀 CSS (여기에만 스타일 작성) — Base.astro에서 import
+scripts/
+  copy-static.mjs        # 루트 assets/apps → public/ 복사 (predev/prebuild 자동)
+public/
+  robots.txt             # sitemap.xml 위치 안내
+  assets/ apps/          # copy-static.mjs가 생성(gitignore) — 원본은 루트 assets/·apps/
+_content/                # 포스트 원본 (Obsidian 볼트)
+  devlog/
+    apps/                # 카테고리: apps (구 tools 포함)
+    devlog/              # 카테고리: log (daily-log, TIL 등)
+    ue5/                 # 카테고리: ue5
+  audio/
+    music-cover/         # 커버 연주
+    original/            # 자작곡 (예정)
+_reviews/                # 리뷰 컬렉션 (개별 라우트 없음)
 assets/
-  main.scss          # 전체 커스텀 CSS (여기에만 스타일 작성)
-  fonts/             # 자체 호스팅 웹폰트 woff2 (Archivo 영문 + Noto Sans KR 한글, 외부 CDN 미사용)
-  images/            # profile.ico, profile.png (favicon), {project}.png (앱 썸네일)
-                     #   kakaopay-qr.png (카카오페이 QR)
-    for-posts/       # 포스트 본문 이미지 (외부 CDN 사용 금지, 로컬 저장 필수)
+  images/                # profile.png (favicon·OG), {project}.png (앱 썸네일), kakaopay-qr.png
+    for-posts/           # 포스트 본문 이미지 (외부 CDN 금지, 로컬 저장 필수)
+  fonts/                 # 자체 호스팅 웹폰트 woff2 (Archivo 영문 + Noto Sans KR 한글)
 apps/
-  pdf-editor/        # PDF Editor 웹앱 정적 파일
-devlog.html          # Dev Log 목록 페이지 (모든 devlog 포스트, 날짜순 project 그룹핑)
-til.html             # TIL 목록 페이지 (contribution graph + project별 그룹핑)
-ue5.html             # UE5 페이지 (contribution graph + Projects/Dev Log)
-apps.html            # Apps 페이지 (contribution graph + Projects/Dev Log)
-index.html           # 홈 (contribution graph + 태그 워드클라우드 + Daily Logs + Dev Logs + Apps + Videos)
-search.html          # 검색 페이지 (Pagefind 우선, 인덱스 없으면 search.json fallback, ?q= 파라미터 지원)
-search.json          # 빌드 시 생성되는 검색 인덱스 (제목 + 본문 + tags) — Pagefind fallback용
-tags.json            # 빌드 시 생성되는 경량 태그 인덱스 (date + tags만) — 홈 워드클라우드용
-robots.txt           # sitemap.xml 위치 안내
-contact.html         # Contact 페이지 (이메일, YouTube, PayPal/카카오페이 후원)
-privacy-policy.html  # logstone.net/kimlog/privacy/ 로 리다이렉트하는 스텁(옛 /privacy-policy/ URL 유지 — AdSense가 이 주소를 가리킴). 방침·약관 본문은 LogStoneShop clauses.ts의 kimlog 제품으로 관리(여기서 수정 금지). footer·웹도구는 logstone.net/kimlog/privacy/·/kimlog/terms/ 링크
-.gitignore           # **/draft-*.md 제외
+  image-converter/ pdf-compressor/ pdf-editor/  # 정적 웹앱 (내부 app_url 대상)
+.gitignore               # **/draft-*.md · node_modules · dist · .astro · public/assets · public/apps 제외
 ```
 
 ## Page File Convention
 
-- 모든 페이지 파일은 `.html` 확장자 사용
-- HTML+Liquid로만 구성 → `.md`로 하면 Markdown 파서가 HTML 구조 훼손할 수 있음
+- 페이지·레이아웃·컴포넌트는 `.astro`, 데이터 엔드포인트는 `.ts`(`feed.xml.ts` 등)
+- 게시글은 개별 파일이 아니라 `[...slug].astro` 캐치올 라우트가 `_content` 파일마다 생성 — 새 포스트는 `.astro`를 만들지 않고 `_content`에 마크다운만 추가하면 됨
+
+## URL 1:1 보존 메커니즘 (건드리면 SEO·AdSense 깨짐)
+
+- URL = `_content` 기준 상대경로(확장자 뺀 것) **그대로**. 폴더 구조가 URL이고 category는 URL과 무관. 공백·한글·괄호·em-dash(`―` U+2015)·이중 `devlog/devlog`·트레일링 슬래시 전부 보존해야 함.
+- `astro.config.mjs`: `trailingSlash:'always'` + `build.format:'directory'`가 Jekyll `permalink: /:path/`를 재현.
+- `src/content.config.ts`: `generateId: ({entry}) => entry.replace(/\.md$/,'')` — **override 필수.** 기본 loader는 경로를 slugify(소문자화·공백/한글 제거)해 URL을 다 깨뜨린다.
+- 모든 내부 링크는 `postUrl(id)`(`lib/posts.ts`)로 생성 — `encodeURI('/' + id + '/')`. category·project 기반 URL 조립 금지.
+
+## Frontmatter 스키마 (`src/content.config.ts`, Zod)
+
+Obsidian frontmatter를 있는 그대로 관용한다. `title`/`date`만 필수. 빈 값(`app_url:`)은 YAML에서 `null`이 되므로 `optStr()`(`nullish→undefined`)·`strArr()`(null·스칼라→배열)로 흡수하고, `.passthrough()`로 스트레이 키에 빌드가 안 깨지게 한다. `categories`·`tags`는 항상 배열로 정규화(`.includes()`로 쿼리 — Jekyll `contains` 재현). `reviews`는 별도 컬렉션(`_reviews`, 라우트 없음).
 
 ## CSS Rules
 
-- **모든 스타일은 `assets/main.scss`에만 작성** (인라인 `<style>` 블록, `style=""` 속성 금지)
+- **모든 스타일은 `src/styles/global.css`에만 작성** (인라인 `<style>` 블록, `style=""` 속성 금지)
 - 단위는 `px` 통일
-- 색상은 CSS 변수 사용 (`--border-color`, `--btn-border`, `--muted`, `--devlog-*` 등)
-- 다크모드: `@media (prefers-color-scheme: dark)` 로 CSS 변수 오버라이드
-- `hr`: `margin-top: 32px; margin-bottom: 32px` 전역 적용
+- 색상은 CSS 변수(토큰) 사용 (`--border-color`, `--btn-border`, `--muted`, `--devlog-*`, `--section-gap` 등)
+- 다크모드: `@media (prefers-color-scheme: dark)` + `:root[data-theme="dark"]` 로 토큰 오버라이드. 라이트 기본, `[data-theme]` 토글이 OS 설정을 이김. FOUC 방지 초기화 스크립트는 `Base.astro` head에 있음(`localStorage.theme`)
+- 잔디 밑 간격 등 섹션 여백은 `--section-gap`(44px, `hr` 여백과 통일) 하나로
 - **전역 heading 크기 고정**: `h1=40px`, `h2=32px`, `h3=24px`
 - `.post-content h3`: `font-weight: 600` (크기는 전역 h3에서 상속)
 - `.devlog-badge`: `vertical-align: middle; position: relative; top: -3px` (✅ 이모지 수직 정렬)
-- 코드블럭 배경색: `#ebebeb` (인라인 백틱 + 코드블럭 공통)
-- 본문 폰트: 영문 `Archivo`, 한글 `Noto Sans KR` — `assets/fonts/` 자체 호스팅 woff2 + `@font-face`, `$base-font-family`를 `@import "minima"` 전에 override. 외부 폰트 CDN 금지(빌드 시 fontsource에서 받아 로컬 저장). 코드블록은 Minima 기본 monospace 유지
+- 본문 폰트: 영문 `Archivo`, 한글 `Noto Sans KR` — `public/assets/fonts/` 자체 호스팅 woff2 + `@font-face`(global.css). 외부 폰트 CDN 금지. 코드블록은 monospace
 
 ## Link Style Convention
 
 - 모든 페이지의 포스트 링크는 `font-weight: 600` 이상
-- Minima의 `.post-link` 클래스는 `display: block` 등 레이아웃 스타일이 붙어 있어 커스텀 레이아웃에서 사용 금지
 
-## Post List Pages (ue5.html, apps.html)
+## Post List Pages (ue5.astro, apps.astro)
 
-상단에 `{% include contribution-graph.html category="..." %}` 후 `<h2>Projects</h2>` + `<h2>Dev Log</h2>` 섹션 구조:
+상단에 `<ContributionGraph category="..." />` 후 `<h2>Projects</h2>` + `<h2>Dev Log</h2>` 섹션 구조:
 
-- Projects 섹션: `categories`에 `summary` 포함된 포스트만 표시, 링크 텍스트는 `project_name | default: title`
+- Projects 섹션: `categories`에 `summary` 포함된 포스트만 표시, 링크 텍스트는 `project_name || title`
 - 완료된 프로젝트는 `status: finished` → `<span class="devlog-badge">✅</span>` 표시
+- 데이터는 `getPosts()` → `hasCatsCI(post, 'log', 'ue5')`(Dev Log)·`categories.includes('summary')`(Projects)로 필터
 
-```html
+```astro
 <ul class="devlog-list">
-  {% for post in posts %}
-  <li>
-    {{ post.date | date: "%Y-%m-%d" }} ｜
-    <a href="{{ post.url | relative_url }}"
-      >{{ post.project_name | default: post.title }}</a
-    >
-    {% if post.status == 'finished' %}<span class="devlog-badge">✅</span>{%
-    endif %}
-  </li>
-  {% endfor %}
+  {devlogPosts.map((post) => (
+    <li>
+      {postDateStr(post.data.date)} ｜ <a href={href(post.id)}>{post.data.title}</a>
+      {post.data.status === 'finished' && <span class="devlog-badge">✅</span>}
+    </li>
+  ))}
 </ul>
 ```
 
-## devlog.html 구조
+## devlog.astro 구조
 
-- 섹션 구분 없이 `categories contains 'log'`인 전체 포스트를 날짜순으로 project 그룹핑
-- h3: `{{ cat_label }} | {{ project_title }}` (cat_label은 ue5/apps 카테고리에서 파생)
-- 상단에 `{% include contribution-graph.html category="log" %}`
+- 섹션 구분 없이 `categories.includes('log')`인 전체 포스트를 `groupByProject`로 날짜순 project 그룹핑
+- h3: `{cat_label} | {project_title}` (cat_label은 ue5→`Unreal Engine`, apps→`Apps`)
+- 상단에 `<ContributionGraph category="log" />`
 
-## DevLog / TIL 더보기 구조 (devlog.html, til.html)
+## DevLog / TIL 더보기 구조 (devlog.astro, today-i-learn.astro)
 
 - 5개 초과 시 6번째부터 `<li hidden class="devlog-extra-item">` 처리
-- 프로젝트 타이틀: `<h3 class="devlog-title">` (h3 태그)
+- 프로젝트 타이틀: `<h3 class="devlog-title">`
 - 버튼: `<button class="devlog-toggle" data-list="list-{gid}">` — 테두리/배경 없는 심플 텍스트
-- JS가 `hidden` attribute를 toggle함
-- `.devlog-group { margin-bottom: 32px }` (project 그룹 간 간격)
-- `.devlog-summary { margin-bottom: 30px }` (summary 아래 간격)
+- 바닐라 JS(`.astro`의 `<script>`)가 `hidden` attribute를 toggle함
+- `.devlog-group { margin-bottom: 32px }` · `.devlog-summary { margin-bottom: 30px }`
 
-## Contribution Graph (`_includes/contribution-graph.html`)
+## Contribution Graph (`src/components/ContributionGraph.astro`)
 
-- `{% include contribution-graph.html category="ue5" %}` 형태로 호출
-- `category` 생략 시 전체 포스트 대상
-- `where_exp: "p", "p.categories contains _cat"` — 배열에 해당 카테고리가 하나라도 포함되면 매칭
+- `<ContributionGraph category="ue5" />` 형태로 호출, `category` 생략 시 전체 포스트 대상
 - 52주 × 7일 그리드, 로컬 시간(KST) 기준으로 날짜 계산 (`toISOString()` 미사용)
+- "오늘"은 빌드 시각 KST 기준(`todayKSTStr`) — 빌드마다 갱신
 - 셀 색상: `til-cell--0`(회색) ~ `til-cell--4`(진초록), 다크모드 자동 대응
 
-## Contact 페이지 (`contact.html`)
+## Contact 페이지 (`contact.astro`)
 
 - 이메일, YouTube 링크
 - PayPal 버튼: 직접 링크
 - 카카오페이 버튼: 모바일 → 딥링크(`qr.kakaopay.com`), 데스크탑 → QR 모달 팝업 (JS `navigator.userAgent` 판별)
-- QR 이미지: `assets/images/kakaopay-qr.png`
+- QR 이미지: `/assets/images/kakaopay-qr.png`
 - footer의 후원하기 버튼 → `/contact/` 로 이동
 
 ## Post Frontmatter
@@ -170,22 +194,21 @@ privacy-policy.html  # logstone.net/kimlog/privacy/ 로 리다이렉트하는 �
 title: "포스트 제목"
 date: 2025-01-01
 categories:
-  - log # log 필수 (URL은 /devlog/... 유지, category 이름만 log)
+  - log # log = Dev Log 목록 노출 기준 (URL은 폴더 경로가 결정, category와 무관)
   - ue5 # 섹션 카테고리 (ue5 | apps | today-i-learn)
   - summary # (선택) 해당 페이지 Projects 섹션에 노출
 status: finished # (선택) finished 이면 완료 뱃지 표시
-project: "프로젝트명" # devlog 그룹핑 기준. related posts 기준
+project: "프로젝트명" # 시리즈·추천글 그룹핑 기준
 project_name: "표시할 이름" # (선택) project와 다른 표시명
 video_id: "YouTube ID" # (선택) summary + video_id 있으면 홈 Videos에 노출
-app_url:
-  "https://..." # (선택) summary + app_url 있으면 홈 Apps 섹션 노출
-  # redirect_to는 jekyll-redirect-from 플러그인과 충돌 → 사용 금지
+app_url: "https://..." # (선택) summary + app_url 있으면 홈 Apps 섹션 노출. 내부 경로(/apps/pdf-editor/index.html)도 가능
 short_title: "짧은 제목" # (선택) 목록에서 title 대신 표시. daily-log처럼 title에 날짜가 붙는 경우 사용
-description: "설명" # SEO meta description. 새 포스트는 1문장으로 반드시 작성 (검색 결과 스니펫·SNS 공유에 쓰임). 없으면 첫 문단 자동 추출 → site.description 순으로 fallback
+description: "설명" # SEO meta description. 새 포스트는 1문장 필수 (비우면 사이트 기본 설명으로 대체 — 첫 문단 자동추출 없음)
 ---
 ```
 
-> draft 파일은 파일명에 `draft-` 접두사를 붙이면 `.gitignore`에 의해 git 추적 제외됨.
+> `layout: post` frontmatter는 이제 선택. Astro는 `[...slug].astro`가 모든 게시글에 Post 레이아웃을 적용하고 이 필드를 읽지 않는다(있어도 무해).
+> draft 파일은 파일명에 `draft-` 접두사를 붙이면 `.gitignore` + 로더 pattern(`!**/draft-*.md`)에 의해 이중으로 제외됨.
 
 ## Post Writing Rules
 
@@ -198,7 +221,6 @@ description: "설명" # SEO meta description. 새 포스트는 1문장으로 반
 - 문장 끝 콜론(`:`) 금지 — "수정했습니다:" → "수정했습니다."
 - 섹션 간 구분은 `---` 사용
 - 코드블록에 언어 명시 필수 (` ```dart`, ` ```js` 등)
-- Liquid 특수문자(`{{ }}`, `{% %}`)가 코드블록 안에 있어도 포함 시 `{% raw %}` / `{% endraw %}` 사용 — `{%- -%}` whitespace modifier 형태 금지
 
 ### devlog (apps / ue5)
 
@@ -246,38 +268,30 @@ description: "설명" # SEO meta description. 새 포스트는 1문장으로 반
 - **게시(블로그 세션)**: 그날의 모든 `draft-오늘 해낸 것(날짜) - *.md`를 섹션별로 합쳐 `오늘 해낸 것(날짜).md`(frontmatter 포함)로 게시하고, 조각들을 삭제한다.
 - **이미 게시된 날짜에 추가할 때**: 조각을 만들지 말고 게시본을 **읽고 자기 블록만 덧붙인다**(전체 새로쓰기 금지).
 
-## Post Layout (`_layouts/post.html`)
+## Post Layout (`src/layouts/Post.astro`)
 
-Minima 기본 post layout을 오버라이드. 세 가지 기능이 자동으로 삽입됨:
+`[...slug].astro` 라우트가 모든 게시글에 자동 적용. 삽입 순서:
 
-**1. App Card (상단)**
+1. **App Card** — `app_url` 있는 포스트에만. `/assets/images/{project}.png` 썸네일 자동 참조(`onerror`로 숨김)
+2. **Video Card** — `video_id` 있는 포스트에만. YouTube 썸네일 자동 참조
+3. **본문**(`<Content />`) → `video_id` 있으면 하단 YouTube embed
+4. **Kakao AdFit** — web `DAN-eseeNyWWDBquTVAI`(728×90) / mobile `DAN-i7W2YzEhUz3zlsI3`(320×50)
+5. **Series** — 같은 `project` 시리즈(summary 먼저·번호·현재 강조·>10 스크롤). `seriesFor`
+6. **Suggested** — 첫 비-(log/summary/til) 카테고리를 공유하는 타 project summary 최신 4개. `suggestedFor`
 
-- `app_url`이 있는 포스트에만 표시
-- `/assets/images/{project}.png` 썸네일 자동 참조
-
-**2. Video Card (상단)**
-
-- `video_id`가 있는 포스트에만 표시
-- YouTube 썸네일 자동 참조
-
-**3. Related Posts (하단)**
-
-- 같은 `project`를 가진 다른 포스트 자동 목록 (category 무관)
-- 현재 포스트 제외, date 내림차순 정렬
-- 1개 이상일 때만 표시, 5개 초과 시 더보기 toggle
-
-> Obsidian 템플릿에서 Related Post Liquid 코드 불필요 — layout에서 자동 처리
+Pagefind 속성: `data-pagefind-body`(article)·`data-pagefind-meta="date"`(time)·`data-pagefind-ignore`(카드·시리즈·추천). Obsidian 마크다운엔 이 레이아웃 코드 불필요 — 자동 처리.
 
 ## Key Constraints
 
-- **호스팅: Cloudflare**, GitHub Pages 아님
-- Minima skin 기능 없음 → 다크모드는 CSS 변수 + `prefers-color-scheme`으로 직접 처리
-- Favicon: `_includes/head.html` 직접 오버라이드 방식 사용 (`custom-head.html` include 방식은 Minima 버전에 따라 불안정)
-- og:image: `page.project` 썸네일(`/assets/images/{project}.png`)이 존재하면 그걸, 없으면 profile.png fallback (head.html에서 `site.static_files`로 존재 검사)
-- 아이콘은 인라인 SVG 사용 (Font Awesome CDN 제거됨 — 외부 CSS 의존 금지)
-- `app_url`로 내부 경로(`/apps/pdf-editor/index.html`) 사용 가능
-- `future: false` + `timezone: Asia/Seoul` — 미래 날짜(KST) 포스트는 그 날짜가 지난 뒤의 다음 빌드에서야 노출된다(예약 발행처럼). timezone을 KST로 둬서 UTC 기준으로 판정하다 당일 오전 포스트가 누락되던 문제(9시 전 push)도 사라진다. 정적 사이트라 "시계가 지나면 자동"이 아니라 "지난 뒤 다음 빌드(=다음 push) 때" 뜬다
-- JS에서 날짜 계산 시 `toISOString()` 대신 로컬 날짜 포맷 함수 사용 (KST 오프셋 문제)
+- **호스팅: Cloudflare Pages**, GitHub Pages 아님
+- 다크모드는 CSS 토큰 + `prefers-color-scheme` + `:root[data-theme]` 토글로 직접 처리(`global.css`)
+- Favicon: `Base.astro` head의 `<link rel="icon" href="/assets/images/profile.png">`
+- og:image: `lib/og.ts` — `assets/images/{project}.png`(소스 존재 검사) 있으면 그걸, 없으면 `profile.png` (site 절대경로)
+- 아이콘은 인라인 SVG 사용 (외부 CSS/CDN 의존 금지)
+- `app_url`로 내부 경로(`/apps/pdf-editor/index.html`) 사용 가능 — 정적앱은 copy-static이 `public/apps/`로 복사
+- **future:false(예약 발행)**: `lib/kst.ts`의 `isPublished`(빌드 시각 KST ≥ 글 날짜)를 `getPosts()`가 단일 choke point로 적용. 정적 사이트라 "시계가 지나면 자동"이 아니라 "지난 뒤 다음 빌드(=다음 push) 때" 뜬다. KST 기준이라 오전 포스트 누락 없음
+- JS/TS에서 날짜 계산 시 `toISOString()` 대신 로컬(UTC 컴포넌트) 날짜 함수 사용 (KST 오프셋 문제)
+- head 트래킹/검증: GTM `GTM-TNJZ56S6`, GSC `R-IPOkDo6…`, AdSense `ca-pub-2560235080070689`, Cloudflare Insights beacon — 모두 `Base.astro` head. 변경 시 주의
 
 ## Draft 검수 체크리스트
 
@@ -290,9 +304,9 @@ Minima 기본 post layout을 오버라이드. 세 가지 기능이 자동으로 
 
 ### 2. frontmatter
 
-- `layout: post` 있음 — 없으면 post 레이아웃(스타일·앱카드·관련글)이 통째로 안 붙는다. `_config.yml`에 기본 layout 설정이 없어서 각 글이 반드시 명시해야 함.
-- `description` 1문장 있음 (규칙 14).
+- `description` 1문장 있음 (규칙 14). 비면 사이트 기본 설명으로 대체되니 필수.
 - `categories` 맞음 — log는 `[log, apps]`/`[log, ue5]`, summary는 `[apps, summary]`, TIL·daily는 `[today-i-learn]`.
+- (`layout: post`는 이제 선택 — 없어도 Post 레이아웃 적용됨)
 
 ### 3. 기계 규칙 (바로 고침)
 
@@ -300,7 +314,6 @@ Minima 기본 post layout을 오버라이드. 세 가지 기능이 자동으로 
 - "지옥" 등 과장 클리셰 없음 ([[no-hell-cliche-in-posts]]).
 - 문장 끝 콜론(`:`) 없음 (본문. frontmatter YAML 빈 필드는 오탐이니 제외).
 - 코드블록 언어 표기 — 언어 없는 fence는 텍스트 출력이면 ` ```text `로.
-- Liquid 특수문자(`{{ }}`/`{% %}`)가 코드블록에 있으면 `{% raw %}` 처리.
 - 빈 섹션·빈 불릿(`- `) 없음 — 내용 없는 섹션은 섹션째 삭제.
 
 ### 4. 구조·내용
@@ -339,7 +352,7 @@ Minima 기본 post layout을 오버라이드. 세 가지 기능이 자동으로 
 
 ### 민감 정보 노출 금지 🔑
 
-- API 키, 토큰 등 민감 정보를 `_config.yml`, HTML, Liquid 템플릿에 하드코딩하지 않는다.
+- API 키, 토큰 등 민감 정보를 소스(`astro.config.mjs`, `src/`, 컴포넌트)에 하드코딩하지 않는다.
 - 외부 서비스 연동 시 환경 변수 또는 GitHub Secrets를 사용한다.
 
 ### 포스트 내용 공개 범위 검토 📝
@@ -348,24 +361,30 @@ Minima 기본 post layout을 오버라이드. 세 가지 기능이 자동으로 
 
 - **회사 내부 정보**: 조직 운영 방식, 내부 시스템 구조, 팀원 개인 정보가 포함되어 있지 않은지 확인한다. "Django에서 이렇게 구현했다" 수준은 괜찮지만 "우리 회사는 이런 방식으로 운영된다" 수준은 주의한다.
 - **개인 정보**: 전화번호, 주소, 타인의 이름 등이 포함되지 않도록 한다.
-- **작성 원칙**: 회사 업무 관련 기록은 **기술적으로 배운 것** 위주로 남기고, 구체적인 비즈니스 로직이나 조직 정보는 생략하거나 일반화한다.
+- **작성 원칙**: 회사 업무 관련 기록은 기술적으로 배운 것 위주로 남기고, 구체적인 비즈니스 로직이나 조직 정보는 생략하거나 일반화한다.
 
 ### 외부 호출 검토 🌐
 
 - 외부 URL(`href`, `src`, `app_url`)이 의도된 링크인지 확인한다.
-- `<script>` 태그로 외부 JS를 로드할 경우 신뢰할 수 있는 출처(CDN 등)인지 확인한다.
-- YouTube 썸네일, 후원 버튼 등 외부 리소스 호출은 허용 (의도된 동작).
+- `<script>` 태그로 외부 JS를 로드할 경우 신뢰할 수 있는 출처(GTM·AdFit·Cloudflare 등 기존 것)인지 확인한다.
+- YouTube 썸네일·embed, 후원 버튼 등 외부 리소스 호출은 허용 (의도된 동작).
 
-### 의존성(플러그인) 검증 📦
+### 의존성 검증 📦
 
-- Jekyll 플러그인은 공식 gem인지 확인한다.
-- `_config.yml`의 플러그인 목록 변경 시 반드시 검토한다.
-- 불필요한 플러그인은 추가하지 않는다.
+- npm 패키지는 공식·신뢰 가능한 것인지 확인한다.
+- `package.json` 의존성 변경 시 반드시 검토한다.
+- 불필요한 의존성은 추가하지 않는다.
 
 ### 파일 I/O 보안 📁
 
 - `_content/` 내 draft 파일은 반드시 `draft-` 접두사를 붙여 `.gitignore`로 제외한다.
 - 민감한 내용이 담긴 포스트가 실수로 git에 포함되지 않도록 확인한다.
+
+### 코드 이상 여부 확인 🕵️
+
+- `.astro`·컴포넌트·엔드포인트에 난독화된 코드나 의미 불명의 문자열이 없는지 확인한다.
+- 인라인 `<style>`, `style=""` 속성이 추가되지 않았는지 확인한다 (모든 스타일은 `src/styles/global.css`에만 작성).
+- `<script>` 내 `eval()` 또는 동적 코드 실행이 없는지 확인한다.
 
 ## 이미지 관리
 
@@ -374,67 +393,9 @@ Minima 기본 post layout을 오버라이드. 세 가지 기능이 자동으로 
 - 마크다운 경로는 반드시 절대경로 사용: `![](/assets/images/for-posts/파일명.webp)`
   - 상대경로(`assets/...`)는 Obsidian 미리보기에서는 보이지만 웹에서 깨짐
   - 절대경로(`/assets/...`)는 Obsidian 미리보기에서 안 보이지만 웹에서 정상 표시
+- 이미지는 루트 `assets/images/`가 원본이고, `copy-static.mjs`가 빌드 전 `public/assets/images/`로 복사해 `/assets/...`로 서빙됨
 - GitHub repo 용량 제한: 단일 파일 100MB 이하, 전체 권장 1GB 이하 (스크린샷 위주면 수년간 문제없음)
-
-### 코드 이상 여부 확인 🕵️
-
-- Liquid 템플릿에 난독화된 코드나 의미 불명의 문자열이 없는지 확인한다.
-- 인라인 `<style>`, `style=""` 속성이 추가되지 않았는지 확인한다 (모든 스타일은 `assets/main.scss`에만 작성).
-- `<script>` 내 `eval()` 또는 동적 코드 실행이 없는지 확인한다.
 
 ## 해야 할 일
 
-- [ ] **⚠️ Astro 이관 — 컷오버 완료, Jekyll 정리(Phase 8)만 남음**: 2026-08-19 프로덕션 컷오버 완료(`kimlog.pages.dev` = Astro). Jekyll 파일은 롤백 안전망으로 며칠 유지 중 → **2026-08-22 이후 정리 예정**(세션 시작 시 이 항목 보이면 사용자에게 "Astro 안정적이면 Jekyll 정리할까요" 물어볼 것). 제거 목록·주의사항은 아래 "## Astro 이관 현황".
 - [ ] **라이브 데모 위젯**: 앱별 핵심 알고리즘 웹 위젯화 (앱마다 개별 작업)
-
-## Astro 이관 현황 & /design 핸드오프 (2026-08-19)
-
-### 현황
-
-- **결정**: Astro(JS) 이관 진행(사용자 승인 2026-08-19). **in-place 전략** — 현 repo(=Obsidian 볼트)에 Astro를 Jekyll과 나란히 두고 `_content`를 그대로 읽는다. 컷오버는 Cloudflare 빌드커맨드 교체(같은 도메인·repo). Jekyll은 컷오버 전까지 프로덕션 유지(`_config.yml` exclude로 Astro 파일 무시).
-- **완료(Phase 1~5, main 커밋)** — 기능·URL·SEO 1:1:
-  - URL: `astro.config.mjs`(trailingSlash always + build.format directory) + `src/content.config.ts`(glob loader, `generateId`로 `_content` 상대경로 verbatim → slugify 금지). dist URL 집합이 `_site`와 **완전 일치(565=565, 대칭차 0)**. 공백·한글·`―`(U+2015)·괄호·이중 `devlog/devlog` 보존.
-  - 페이지(`src/pages/`): 홈·`devlog`·`today-i-learn`·`ue5`·`apps`·`audio`·`contact`·`reviews`·`search`·`privacy-policy`·`[...slug]`(게시글) + `feed.xml`·`sitemap.xml`·`search.json`·`tags.json` 엔드포인트.
-  - 컴포넌트/레이아웃: `src/components/`(Header·Footer·ContributionGraph) · `src/layouts/`(Base·Page·Post) · `src/lib/`(posts·kst·og).
-  - 검색: Pagefind(`npm run build` = `astro build && pagefind --site dist`) + `search.json` fallback + `?q=`.
-  - 정적: `scripts/copy-static.mjs`가 `assets/{images,fonts}` + 정적앱 3종을 `public/`로 복사(prebuild/predev 자동). `public/assets`·`public/apps`는 gitignore.
-- **완료(디자인·컷오버, 2026-08-19)**: 개발자/터미널 톤 CSS(`src/styles/global.css` — 자체호스팅 폰트·터미널 그린·모노 라벨·라이트 기본+다크 토글) 적용. **프로덕션 컷오버 완료** — `kimlog.pages.dev`가 Astro로 서빙(Cloudflare 빌드커맨드 `npm run build`, 출력 `dist`). 스테이징 `kimlog-astro` 프로젝트는 삭제됨. 발행 플로우(Obsidian md→push→CI 빌드)·이미지 방식(`assets/images/for-posts/` 절대경로)은 예전과 100% 동일.
-- **⚠️ 남은 일 — Phase 8(Jekyll 잔재 제거), 2026-08-22 이후**: Astro 프로덕션이 며칠 안정적으로 도는 걸 확인한 뒤 정리한다. 그 전까지 Jekyll 파일은 **롤백 안전망**(문제 시 Cloudflare 빌드커맨드를 `bundle exec jekyll build && npx pagefind --site _site`·출력 `_site`로 원복하면 즉시 Jekyll 복귀 — Jekyll 파일이 repo에 있어야 작동). **지금부터 새 작업은 Astro `src/`에서** 하고 Jekyll `*.html`·`_layouts`·`_includes`는 건드리지 말 것.
-  - 제거 대상: `_config.yml`·`_layouts/`·`_includes/`·`_data/`·`Gemfile`·`Gemfile.lock`·`.ruby-version`·`.sass-cache/`·루트 `*.html`(index·devlog·til·ue5·apps·audio·search·contact·reviews·privacy-policy)·루트 `robots.txt`·`search.json`·`tags.json`·`assets/main.scss`.
-  - 유지(Astro가 씀): `_content/`·`_reviews/`·`assets/images`·`assets/fonts`·`apps/{image-converter,pdf-compressor,pdf-editor}`·`src/`·`public/`·`scripts/`·`.nvmrc`·`.gitattributes`.
-  - Phase 8 때 이 CLAUDE.md도 Astro 스택 기준으로 갱신할 것(지금은 Jekyll 병존 기간이라 Jekyll 서술이 다수 남아 있음 — 그 서술은 정리 전까지 무시하고 Astro 기준으로 작업).
-- 로컬 확인: `npm run dev`(http://localhost:4321) 또는 `npm run build && npm run preview`.
-
-### /design 툴 작업 지시
-
-목표: 위 Astro 블로그에 **확정된 개발자/터미널 톤**을 **CSS만으로** 입힌다. 기능·마크업·클래스명·URL은 절대 건드리지 말 것(순수 스타일만).
-
-**읽을 것**
-
-1. `kimlog-astro/CLAUDE.md` — 확정 디자인 방향 + 토큰(라이트/다크 팔레트, 잔디 램프, 모노 스택, radius 7~10px). **스펙 원본.**
-2. 시안 아트팩트 https://claude.ai/code/artifact/6726fe39-8b81-4838-ab0d-00ca7afdc83f — 비주얼 레퍼런스(개발자 톤).
-3. 이 repo의 `assets/main.scss` — 대상 클래스가 전부 이미 스타일된 현재(Jekyll) 톤. 레이아웃 의도·클래스 목록 파악용 → 개발자 톤으로 재작성.
-
-**제약**
-
-- 대상 = **이 repo의 `src/`**(Astro). ⚠️ `kimlog-astro/`(옛 목업, 가짜 데이터)는 손대지 말 것 — 진짜 이관본은 이 repo에 있다.
-- 기능·마크업·클래스명·URL 불변. 순수 CSS만.
-- 라이트 기본 + 다크(`prefers-color-scheme` + `:root[data-theme]` 토글), 색은 토큰으로만.
-- 폰트: 이미 `public/assets/fonts/`에 Archivo(영문)·Noto Sans KR(한글) woff2 자체 호스팅(외부 CDN 금지). `@font-face`로 연결.
-- CSS 넣는 자리: `src/layouts/Base.astro`에 `<slot name="head" />` seam 있음(현재 스타일시트 링크 없음). 전역 CSS(예: `src/styles/global.css`) 만들어 `Base.astro` 프론트매터에서 `import`.
-
-**핵심 클래스 컨트랙트** (전체·정확본은 `assets/main.scss` 참조)
-
-- 헤더/네비: `.site-header .wrapper .site-title .site-nav .nav-trigger .menu-icon .trigger .page-link .search-icon-link`
-- 잔디: `.til-graph .til-graph-col .til-cell .til-cell--0`~`.til-cell--4`
-- 목록/그룹/토글: `.devlog-list .devlog-group .devlog-summary .devlog-title .devlog-badge .devlog-meta .devlog-toggle .devlog-extra-item`
-- TIL 태그필터: `.tag-filter .tag-chip`(`.active`)
-- 앱 카드(flip): `.apps-showcase .apps-slider-track .apps-shelf .apps-card`(`.finished` `.flipped`) `.apps-card-inner/-front/-back/-name/-btn`
-- 홈 비디오: `.home-list .home-video .home-video-link .home-thumb .home-video-text .home-date .home-title`
-- 워드클라우드: `.wordcloud-wrap #tag-cloud .wordcloud-label`
-- 오디오: `.audio-group .audio-works .audio-card .audio-thumb-wrap .audio-card-info .audio-card-title`
-- 리뷰: `.cork-board .sticky-card .sticky-comment .sticky-bottom .sticky-meta .sticky-author .sticky-project .sticky-source .sticky-date`
-- 컨택트: `.about-bio .about-tagline .support-buttons .support-btn .kakao-qr-modal .kakao-qr-box .kakao-qr-close`
-- 게시글: `.post .post-header .post-title .post-meta .post-content .app-card`(`-thumb/-info/-name/-link`) `.series-summary .yt-wrap .adfit-web .adfit-mobile .series-list-card .series-cards`(`.series-scrollable`) `.series-card`(`.series-current`) `.series-num .series-card-date .series-sep .series-card-title .series-reading`
-- 검색: `.search-wrap .search-input .search-empty .search-snippet`
-- 페이지 셸/푸터: `.page-content .wrapper .post-title` / `.site-footer .footer-inner .footer-left .footer-contact .footer-copy .footer-bmc .footer-icon`(`.footer-icon--yt`) `.post-meta`

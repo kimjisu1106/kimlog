@@ -12,7 +12,7 @@ async function copyDir(src, dest) {
   await cp(src, dest, { recursive: true });
 }
 
-// assets: images + fonts만. main.scss는 Jekyll 전용 소스 — Astro CSS는 /design 툴이 담당.
+// assets: images + fonts만(Astro CSS는 src/styles/global.css라 복사 대상 아님).
 await mkdir(join(root, 'public/assets'), { recursive: true });
 await copyDir(join(root, 'assets/images'), join(root, 'public/assets/images'));
 await copyDir(join(root, 'assets/fonts'), join(root, 'public/assets/fonts'));

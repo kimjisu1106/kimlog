@@ -1,8 +1,7 @@
 **/draft-*.md
-_site/
 .idea/
 
-# Astro (이관 작업 중 — Jekyll과 병존)
+# Astro
 node_modules/
 dist/
 .astro/

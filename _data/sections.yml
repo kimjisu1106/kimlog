@@ -1,7 +1,0 @@
-ue5:
-  title: Unreal Engine 5
-  include: [ue5]
-
-apps:
-  title: Apps
-  include: [apps]
