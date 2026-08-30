@@ -413,5 +413,6 @@ Pagefind 속성: `data-pagefind-body`(article)·`data-pagefind-meta="date"`(time
 
 ## 해야 할 일
 
+- [ ] **전체 URL을 랜덤 8자리 permalink로 이관 (차근차근)**: 기존 616편도 permalink를 서술형 경로 → 랜덤 8자(`a-z0-9`)로 바꿔 사이트 전체 URL을 균일화. 디렉터가 원함(2026-08-30). ⚠️ 기존 URL이 전부 바뀌므로 **반드시 `public/_redirects`에 옛 URL→새 URL 301을 함께** 넣어야 함(한글·공백·em-dash URL 인코딩 주의) — 안 하면 색인·AdSense·외부 링크가 404. 서술형 URL의 SEO 이점은 포기(디렉터 수용). 한 번에 다 말고 배치로 나눠 진행. permalink 기반(폴백+오버라이드)·616편 동결은 완료(2026-08-30, `dcd86d4`).
 - [ ] **라이브 데모 위젯**: 앱별 핵심 알고리즘 웹 위젯화 (앱마다 개별 작업)
 - [ ] **세션 조율 워크플로우 TIL**: 여러 프로젝트 세션을 `LogStoneShop/INBOX.md`로 조율하는 방식을 독립 TIL/회고로 소개 (개인 워크플로우라 공개 안전 — 각 devlog에 조각으로 새는 대신 한 편으로)
