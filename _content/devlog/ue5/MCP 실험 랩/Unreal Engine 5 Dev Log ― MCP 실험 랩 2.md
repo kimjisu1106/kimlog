@@ -2,6 +2,7 @@
 layout: post
 title: Unreal Engine 5 Dev Log ― MCP 실험 랩 2
 date: 2026-08-29
+permalink: "devlog/ue5/MCP 실험 랩/Unreal Engine 5 Dev Log ― MCP 실험 랩 2"
 description: 물건을 놓는 실험에서 동작하는 것으로 넘어가, MCP로 블루프린트를 만들어 닿으면 사라지는 수집 아이템을 붙이고 플레이 세션 로그로 검증했다.
 categories:
   - log

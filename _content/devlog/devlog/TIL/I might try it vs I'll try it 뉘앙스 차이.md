@@ -2,6 +2,7 @@
 layout: post
 title: I might try it vs I'll try it 뉘앙스 차이
 date: 2026-04-09
+permalink: "devlog/devlog/TIL/I might try it vs I'll try it 뉘앙스 차이"
 categories:
   - today-i-learn
 project: today-i-learn

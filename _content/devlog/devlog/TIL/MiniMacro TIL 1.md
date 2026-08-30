@@ -2,6 +2,7 @@
 layout: post
 title: MiniMacro TIL 1
 date: 2026-08-15
+permalink: "devlog/devlog/TIL/MiniMacro TIL 1"
 categories:
   - today-i-learn
 project: today-i-learn

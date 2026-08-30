@@ -2,6 +2,7 @@
 layout: post
 title: Django 모델 텍스트 필드 자동 수집 패턴
 date: 2026-05-19
+permalink: "devlog/devlog/TIL/Django 모델 텍스트 필드 자동 수집 패턴"
 categories:
   - today-i-learn
 project: today-i-learn

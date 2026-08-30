@@ -2,6 +2,7 @@
 layout: post
 title: MiniMacro 2
 date: 2026-08-18
+permalink: "devlog/apps/MiniMacro/MiniMacro 2"
 description: 드래그·스크롤 단계를 넣고 단계 창을 탭으로 정리한 뒤, 시안을 잡아 창 전체를 다시 짜고 재생 중 진행 상황이 보이게 만든 날.
 categories:
   - log

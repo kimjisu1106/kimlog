@@ -2,6 +2,7 @@
 layout: post
 title: 오픈데이 Openday 4
 date: 2026-08-25
+permalink: "devlog/apps/오픈데이 Openday/오픈데이 Openday 4"
 description: 앞날의 일을 미리 당겨 하고 마감을 정할 수 있게 만들고, 지운 것이 되살아나던 문제와 자정을 넘기면 날이 갈라지던 문제를 잡은 하루.
 categories:
   - log

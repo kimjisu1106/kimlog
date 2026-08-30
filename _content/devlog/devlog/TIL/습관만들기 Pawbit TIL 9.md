@@ -2,6 +2,7 @@
 layout: post
 title: 습관만들기 Pawbit TIL 9
 date: 2026-07-10
+permalink: "devlog/devlog/TIL/습관만들기 Pawbit TIL 9"
 categories:
   - today-i-learn
 project: today-i-learn

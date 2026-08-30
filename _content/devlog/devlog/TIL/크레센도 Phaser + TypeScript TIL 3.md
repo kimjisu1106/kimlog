@@ -2,6 +2,7 @@
 layout: post
 title: 크레센도 Phaser + TypeScript TIL 3
 date: 2026-06-09
+permalink: "devlog/devlog/TIL/크레센도 Phaser + TypeScript TIL 3"
 categories:
   - today-i-learn
 project: today-i-learn

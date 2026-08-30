@@ -2,6 +2,7 @@
 layout: post
 title: 메트로놈 Simple Metronome ― 처음 만든 앱, Google Play 출시기
 date: 2025-08-19
+permalink: "devlog/apps/메트로놈 Simple Metronome/메트로놈 Simple Metronome ― 처음 만든 앱, Google Play 출시기"
 categories:
   - log
   - apps

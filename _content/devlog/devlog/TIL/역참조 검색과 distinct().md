@@ -2,6 +2,7 @@
 layout: post
 title: 역참조 검색과 distinct()
 date: 2026-05-19
+permalink: "devlog/devlog/TIL/역참조 검색과 distinct()"
 categories:
   - today-i-learn
 project: today-i-learn

@@ -2,6 +2,7 @@
 layout: post
 title: OOP Object-Oriented Programming 객체 지향 프로그래밍
 date: 2026-04-19
+permalink: "devlog/devlog/TIL/OOP Object-Oriented Programming 객체 지향 프로그래밍"
 categories:
   - today-i-learn
 project: today-i-learn

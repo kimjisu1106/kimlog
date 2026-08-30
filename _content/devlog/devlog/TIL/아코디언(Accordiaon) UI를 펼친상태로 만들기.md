@@ -2,6 +2,7 @@
 layout: post
 title: 아코디언(Accordiaon) UI를 펼친상태로 만들기
 date: 2026-05-07
+permalink: "devlog/devlog/TIL/아코디언(Accordiaon) UI를 펼친상태로 만들기"
 categories:
   - today-i-learn
 project: today-i-learn

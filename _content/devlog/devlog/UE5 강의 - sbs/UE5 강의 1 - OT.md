@@ -2,6 +2,7 @@
 layout: post
 title: UE5 강의 1 - OT
 date: 2025-12-27
+permalink: "devlog/devlog/UE5 강의 - sbs/UE5 강의 1 - OT"
 categories:
   - today-i-learn
   - ue5

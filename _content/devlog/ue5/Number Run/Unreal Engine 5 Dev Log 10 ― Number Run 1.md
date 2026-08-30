@@ -2,6 +2,7 @@
 layout: post
 title: Unreal Engine 5 Dev Log 10 ― Number Run 1
 date: 2026-02-06
+permalink: "devlog/ue5/Number Run/Unreal Engine 5 Dev Log 10 ― Number Run 1"
 categories:
   - log
   - ue5

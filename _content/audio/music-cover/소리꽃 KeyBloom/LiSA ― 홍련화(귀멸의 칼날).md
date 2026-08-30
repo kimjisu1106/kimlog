@@ -2,6 +2,7 @@
 layout: post
 title: LiSA ― 홍련화(귀멸의 칼날)
 date: 2026-08-04
+permalink: "audio/music-cover/소리꽃 KeyBloom/LiSA ― 홍련화(귀멸의 칼날)"
 description: LiSA ― 홍련화 커버 연주 영상.
 categories:
   - music-cover

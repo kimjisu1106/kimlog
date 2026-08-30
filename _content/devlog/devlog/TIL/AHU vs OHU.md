@@ -2,6 +2,7 @@
 layout: post
 title: AHU vs OHU
 date: 2026-04-08
+permalink: "devlog/devlog/TIL/AHU vs OHU"
 categories:
   - today-i-learn
 project: today-i-learn

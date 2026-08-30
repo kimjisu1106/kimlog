@@ -2,6 +2,7 @@
 layout: post
 title: input의 step
 date: 2026-05-08
+permalink: "devlog/devlog/TIL/input의 step"
 categories:
   - today-i-learn
 project: today-i-learn

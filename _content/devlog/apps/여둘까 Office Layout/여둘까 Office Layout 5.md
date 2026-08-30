@@ -2,6 +2,7 @@
 layout: post
 title: 여둘까 Office Layout 5
 date: 2026-06-23
+permalink: "devlog/apps/여둘까 Office Layout/여둘까 Office Layout 5"
 categories:
   - apps
   - log

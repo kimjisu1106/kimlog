@@ -2,6 +2,7 @@
 layout: post
 title: MiniMacro 1
 date: 2026-08-15
+permalink: "devlog/apps/MiniMacro/MiniMacro 1"
 description: 마우스·키보드 반복 작업을 자동화하는 미니 툴을 만들고, hover 메뉴 대응과 듀얼 모니터 좌표 어긋남까지 잡은 날.
 categories:
   - log

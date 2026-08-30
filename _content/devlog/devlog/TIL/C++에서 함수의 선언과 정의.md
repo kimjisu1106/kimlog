@@ -2,6 +2,7 @@
 layout: post
 title: C++에서 함수의 선언과 정의
 date: 2026-03-28
+permalink: "devlog/devlog/TIL/C++에서 함수의 선언과 정의"
 categories:
   - today-i-learn
   - ue5

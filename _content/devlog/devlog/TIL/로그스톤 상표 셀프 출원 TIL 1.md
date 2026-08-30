@@ -2,6 +2,7 @@
 layout: post
 title: 로그스톤 상표 셀프 출원 TIL 1
 date: 2026-08-08
+permalink: "devlog/devlog/TIL/로그스톤 상표 셀프 출원 TIL 1"
 categories:
   - today-i-learn
 project: today-i-learn

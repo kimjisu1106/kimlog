@@ -2,6 +2,7 @@
 layout: post
 title: 안드로이드 AudioTrack 연속 재생, 실측 피커 정렬, 카메라 토치 플래시
 date: 2026-07-09
+permalink: "devlog/devlog/TIL/안드로이드 AudioTrack 연속 재생, 실측 피커 정렬, 카메라 토치 플래시"
 categories:
   - today-i-learn
 project: today-i-learn

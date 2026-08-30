@@ -2,6 +2,7 @@
 layout: post
 title: AssetManifest — Flutter 빌드 타임 asset 목록 런타임 조회
 date: 2026-05-25
+permalink: "devlog/devlog/TIL/AssetManifest — Flutter 빌드 타임 asset 목록 런타임 조회"
 categories:
   - today-i-learn
 project: today-i-learn

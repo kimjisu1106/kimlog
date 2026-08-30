@@ -2,6 +2,7 @@
 layout: post
 title: Google Sheets Sync 최적화
 date: 2026-04-13
+permalink: "devlog/devlog/TIL/Google Sheets Sync 최적화"
 categories:
   - today-i-learn
 project: today-i-learn

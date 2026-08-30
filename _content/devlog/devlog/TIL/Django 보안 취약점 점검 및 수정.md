@@ -2,6 +2,7 @@
 layout: post
 title: Django 보안 취약점 점검 및 수정
 date: 2026-04-17
+permalink: "devlog/devlog/TIL/Django 보안 취약점 점검 및 수정"
 categories:
   - today-i-learn
 project: today-i-learn

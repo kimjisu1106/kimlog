@@ -2,6 +2,7 @@
 layout: post
 title: 콘티온 Conti On TIL 6
 date: 2026-07-27
+permalink: "devlog/devlog/TIL/콘티온 Conti On TIL 6"
 categories:
   - today-i-learn
 project: today-i-learn

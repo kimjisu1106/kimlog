@@ -2,6 +2,7 @@
 layout: post
 title: 코드시트 ChordSheet 7
 date: 2026-03-22
+permalink: "devlog/apps/코드시트 ChordSheet/코드시트 ChordSheet 7"
 categories:
   - android-studio
   - log

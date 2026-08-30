@@ -2,6 +2,7 @@
 layout: post
 title: 오픈데이 Openday TIL 4
 date: 2026-08-25
+permalink: "devlog/devlog/TIL/오픈데이 Openday TIL 4"
 categories:
   - today-i-learn
 project: today-i-learn

@@ -2,6 +2,7 @@
 layout: post
 title: 히사이시 조 ― Summer
 date: 2026-07-30
+permalink: "audio/music-cover/소리꽃 KeyBloom/히사이시 조 ― Summer"
 description: 히사이시조 ― Summer 커버 연주 영상.
 categories:
   - music-cover

@@ -2,6 +2,7 @@
 layout: post
 title: 포켓몬 도감완성 PokeWalk 3
 date: 2026-06-01
+permalink: "devlog/apps/포켓몬 도감완성 PokeWalk/포켓몬 도감완성 PokeWalk 3"
 categories:
   - apps
   - log

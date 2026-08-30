@@ -2,6 +2,7 @@
 layout: post
 title: 온실 GreenHouse 2
 date: 2026-07-27
+permalink: "devlog/apps/온실 GreenHouse/온실 GreenHouse 2"
 description: 온실 GreenHouse를 실배포하고 광고 9건과 앱별 색 배너를 채운 날 — 규약 문서를 주는 대신 AdFit처럼 SDK 스크립트를 서빙하는 방식으로 전환해 첫 소비자(KeyBloom)까지 연결됐다.
 categories:
   - log

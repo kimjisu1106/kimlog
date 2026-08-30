@@ -2,6 +2,7 @@
 layout: post
 title: "Jekyll 코드블록 안의 Liquid 태그"
 date: 2026-05-04
+permalink: "devlog/devlog/TIL/Jekyll 코드블록 안의 Liquid 태그"
 categories:
   - today-i-learn
 project: today-i-learn

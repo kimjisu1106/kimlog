@@ -2,6 +2,7 @@
 layout: post
 title: UE5 강의 5 - GUI(UMG)
 date: 2026-01-24
+permalink: "devlog/devlog/UE5 강의 - sbs/UE5 강의 5 - GUI(UMG)"
 categories:
   - today-i-learn
   - ue5

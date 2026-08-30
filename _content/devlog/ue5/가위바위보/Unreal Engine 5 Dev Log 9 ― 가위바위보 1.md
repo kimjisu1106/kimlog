@@ -2,6 +2,7 @@
 layout: post
 title: Unreal Engine 5 Dev Log 9 ― 가위바위보 1
 date: 2026-01-24
+permalink: "devlog/ue5/가위바위보/Unreal Engine 5 Dev Log 9 ― 가위바위보 1"
 categories:
   - log
   - ue5

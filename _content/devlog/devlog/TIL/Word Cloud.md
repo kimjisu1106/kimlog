@@ -2,6 +2,7 @@
 layout: post
 title: Word Cloud
 date: 2026-05-17
+permalink: "devlog/devlog/TIL/Word Cloud"
 categories:
   - today-i-learn
 project: today-i-learn

@@ -2,6 +2,7 @@
 layout: post
 title: 안젤리크스페셜 ― The Queen
 date: 2026-08-11
+permalink: "audio/music-cover/소리꽃 KeyBloom/안젤리크스페셜 ― The Queen"
 description: 안젤리크스페셜 ― The Queen 커버 연주 영상.
 categories:
   - music-cover

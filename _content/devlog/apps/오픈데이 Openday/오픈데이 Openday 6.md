@@ -2,6 +2,7 @@
 layout: post
 title: 오픈데이 Openday 6
 date: 2026-08-29
+permalink: "devlog/apps/오픈데이 Openday/오픈데이 Openday 6"
 description: 쓴다고 적어 두고 안 싣고 있던 폰트를 싣고, 파비콘과 공유 카드를 만들고, 셔터에 그림을 붙인 하루.
 categories:
   - log

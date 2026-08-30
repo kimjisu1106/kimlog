@@ -2,6 +2,7 @@
 layout: post
 title: 거제 야호! RUN Geoje Yaho! Run 2
 date: 2026-06-04
+permalink: "devlog/apps/거제 야호! RUN Geoje Yaho Run/거제 야호! RUN Geoje Yaho! Run 2"
 categories:
   - apps
   - log

@@ -2,6 +2,7 @@
 layout: post
 title: subprocess.Popen으로 Windows 탐색기에 명령어를 전달
 date: 2026-04-10
+permalink: "devlog/devlog/TIL/subprocess.Popen으로 Windows 탐색기에 명령어를 전달"
 categories:
   - today-i-learn
 project: today-i-learn

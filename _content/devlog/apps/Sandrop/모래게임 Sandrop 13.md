@@ -2,6 +2,7 @@
 layout: post
 title: 모래게임 Sandrop 13
 date: 2026-07-23
+permalink: "devlog/apps/Sandrop/모래게임 Sandrop 13"
 categories:
   - apps
   - log

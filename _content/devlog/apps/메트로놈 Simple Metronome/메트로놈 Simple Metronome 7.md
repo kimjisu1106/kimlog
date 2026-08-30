@@ -2,6 +2,7 @@
 layout: post
 title: 메트로놈 Simple Metronome 7
 date: 2026-07-09
+permalink: "devlog/apps/메트로놈 Simple Metronome/메트로놈 Simple Metronome 7"
 categories:
   - log
   - apps

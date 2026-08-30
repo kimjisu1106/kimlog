@@ -2,6 +2,7 @@
 layout: post
 title: 온실 GreenHouse TIL 1
 date: 2026-07-26
+permalink: "devlog/devlog/TIL/온실 GreenHouse TIL 1"
 categories:
   - today-i-learn
 project: today-i-learn

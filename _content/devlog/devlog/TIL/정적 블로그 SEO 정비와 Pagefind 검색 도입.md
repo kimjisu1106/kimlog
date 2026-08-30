@@ -2,6 +2,7 @@
 layout: post
 title: 정적 블로그 SEO 정비와 Pagefind 검색 도입
 date: 2026-07-08
+permalink: "devlog/devlog/TIL/정적 블로그 SEO 정비와 Pagefind 검색 도입"
 description: "중복 제목·description·robots.txt·og:image 같은 SEO 기본기부터 Liquid 파일 존재 검사, Pagefind 인덱스 분할 검색, 접근성·운영 팁까지 블로그 개선 라운드에서 배운 것들."
 categories:
   - today-i-learn

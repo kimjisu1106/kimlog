@@ -2,6 +2,7 @@
 layout: post
 title: Unreal Engine 5 Dev Log ― MCP 실험 랩 1
 date: 2026-08-23
+permalink: "devlog/ue5/MCP 실험 랩/Unreal Engine 5 Dev Log ― MCP 실험 랩 1"
 description: Unreal Engine의 MCP 서버를 Claude Code에 붙여, 큐브 하나부터 121개 계단 피라미드까지 자연어로 시키며 어디서 처음 어긋나는지 기록한 첫 실험.
 categories:
   - log
