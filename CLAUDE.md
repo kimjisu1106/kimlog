@@ -117,7 +117,8 @@ apps/
 - URL = `_content` 기준 상대경로(확장자 뺀 것) **그대로**. 폴더 구조가 URL이고 category는 URL과 무관. 공백·한글·괄호·em-dash(`―` U+2015)·이중 `devlog/devlog`·트레일링 슬래시 전부 보존해야 함.
 - `astro.config.mjs`: `trailingSlash:'always'` + `build.format:'directory'`가 Jekyll `permalink: /:path/`를 재현.
 - `src/content.config.ts`: `generateId: ({entry}) => entry.replace(/\.md$/,'')` — **override 필수.** 기본 loader는 경로를 slugify(소문자화·공백/한글 제거)해 URL을 다 깨뜨린다.
-- 모든 내부 링크는 `postUrl(id)`(`lib/posts.ts`)로 생성 — `encodeURI('/' + id + '/')`. category·project 기반 URL 조립 금지.
+- 모든 내부 링크는 `postHref(post)`(`lib/posts.ts`)로 생성 — 내부적으로 `postUrl(urlId(post))` = `encodeURI('/' + (permalink ?? id) + '/')`. category·project 기반 URL 조립 금지.
+- **permalink 오버라이드 (2026-08-30)**: frontmatter `permalink`이 있으면 URL을 그 값으로 고정한다(파일경로·제목과 분리). 없으면 파일경로 폴백이라 기존 글 URL은 그대로 보존된다. `urlId(post)=permalink ?? id`가 단일 기준이고 라우트 `params.slug`·`postHref`·feed·sitemap·search가 전부 이걸 쓴다. **새 글에만 붙이면 되고 기존 글엔 소급 불필요.** 목적: 파일명·번호·제목을 바꿔도 URL이 안 흔들리게(향후 CMS 대비). permalink 값은 도메인·앞뒤 슬래시·`.md` 없는 경로 문자열이며 고유해야 하고 한 번 정하면 안 바꾼다.
 
 ## Frontmatter 스키마 (`src/content.config.ts`, Zod)
 
@@ -203,6 +204,7 @@ project_name: "표시할 이름" # (선택) project와 다른 표시명
 video_id: "YouTube ID" # (선택) summary + video_id 있으면 홈 Videos에 노출
 app_url: "https://..." # (선택) summary + app_url 있으면 홈 Apps 섹션 노출. 내부 경로(/apps/pdf-editor/index.html)도 가능
 short_title: "짧은 제목" # (선택) 목록에서 title 대신 표시. daily-log처럼 title에 날짜가 붙는 경우 사용
+permalink: "slug" # (선택) 있으면 URL을 이 값으로 고정(파일경로와 분리). 기존 글은 비워 두면 경로 폴백으로 URL 보존
 description: "설명" # SEO meta description. 새 포스트는 1문장 필수 (비우면 사이트 기본 설명으로 대체 — 첫 문단 자동추출 없음)
 ---
 ```

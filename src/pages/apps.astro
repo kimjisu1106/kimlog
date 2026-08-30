@@ -1,7 +1,7 @@
 ---
 import Page from '../layouts/Page.astro';
 import ContributionGraph from '../components/ContributionGraph.astro';
-import { getPosts, hasCatsCI, postUrl as href } from '../lib/posts';
+import { getPosts, hasCatsCI, postHref as href } from '../lib/posts';
 import { postDateStr } from '../lib/kst';
 
 const all = await getPosts();
@@ -31,7 +31,7 @@ const devlogPosts = all.filter((p) => hasCatsCI(p, 'log', 'apps'));
         {projects.map((post) => (
           <a
             class={`app-tile${post.data.status === 'finished' ? ' app-tile--finished' : ''}`}
-            href={href(post.id)}
+            href={href(post)}
           >
             <div class="app-tile-top">
               <img
@@ -62,7 +62,7 @@ const devlogPosts = all.filter((p) => hasCatsCI(p, 'log', 'apps'));
       <ul class="devlog-list">
         {devlogPosts.map((post) => (
           <li>
-            {postDateStr(post.data.date)} ｜ <a href={href(post.id)}>{post.data.title}</a>
+            {postDateStr(post.data.date)} ｜ <a href={href(post)}>{post.data.title}</a>
           </li>
         ))}
       </ul>

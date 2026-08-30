@@ -1,7 +1,7 @@
 ---
 import Page from '../layouts/Page.astro';
 import ContributionGraph from '../components/ContributionGraph.astro';
-import { getPosts, hasCatsCI, postUrl as href } from '../lib/posts';
+import { getPosts, hasCatsCI, postHref as href } from '../lib/posts';
 import { postDateStr } from '../lib/kst';
 
 const all = await getPosts();
@@ -25,7 +25,7 @@ const devlogPosts = all.filter((p) => hasCatsCI(p, 'log', 'ue5'));
         {projects.map((post) => (
           <li>
             {postDateStr(post.data.date)} ｜{' '}
-            <a href={href(post.id)}>{post.data.project_name || post.data.title}</a>
+            <a href={href(post)}>{post.data.project_name || post.data.title}</a>
             {post.data.status === 'finished' && <span class="devlog-badge">✅</span>}
           </li>
         ))}
@@ -42,7 +42,7 @@ const devlogPosts = all.filter((p) => hasCatsCI(p, 'log', 'ue5'));
       <ul class="devlog-list">
         {devlogPosts.map((post) => (
           <li>
-            {postDateStr(post.data.date)} ｜ <a href={href(post.id)}>{post.data.title}</a>
+            {postDateStr(post.data.date)} ｜ <a href={href(post)}>{post.data.title}</a>
           </li>
         ))}
       </ul>

@@ -1,6 +1,6 @@
 import rss from '@astrojs/rss';
 import type { APIContext } from 'astro';
-import { getPosts } from '../lib/posts';
+import { getPosts, urlId } from '../lib/posts';
 
 // jekyll-feed의 /feed.xml 대체. 최신순, 최근 20건(피드는 경량 유지).
 export async function GET(context: APIContext) {
@@ -13,7 +13,7 @@ export async function GET(context: APIContext) {
       title: p.data.title,
       pubDate: p.data.date,
       description: p.data.description ?? '',
-      link: `/${p.id}/`,
+      link: `/${urlId(p)}/`,
     })),
   });
 }

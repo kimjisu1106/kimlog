@@ -1,7 +1,7 @@
 ---
 import Page from '../layouts/Page.astro';
 import ContributionGraph from '../components/ContributionGraph.astro';
-import { getPosts, byCategory, postUrl as href } from '../lib/posts';
+import { getPosts, byCategory, postHref as href } from '../lib/posts';
 import { postDateStr } from '../lib/kst';
 
 const all = await getPosts();
@@ -34,7 +34,7 @@ const videos = all.filter((p) => p.data.video_id && p.data.categories.includes('
     {
       tils.slice(0, 5).map((p) => (
         <li>
-          {postDateStr(p.data.date)} ｜ <a href={href(p.id)}>{p.data.short_title || p.data.title}</a>
+          {postDateStr(p.data.date)} ｜ <a href={href(p)}>{p.data.short_title || p.data.title}</a>
         </li>
       ))
     }
@@ -48,7 +48,7 @@ const videos = all.filter((p) => p.data.video_id && p.data.categories.includes('
     {
       devlogs.slice(0, 5).map((p) => (
         <li>
-          {postDateStr(p.data.date)} ｜ <a href={href(p.id)}>{p.data.title}</a>
+          {postDateStr(p.data.date)} ｜ <a href={href(p)}>{p.data.title}</a>
         </li>
       ))
     }
@@ -64,7 +64,7 @@ const videos = all.filter((p) => p.data.video_id && p.data.categories.includes('
     ) : (
       <div class="app-grid">
         {apps.map((p) => (
-          <a class="app-tile" href={href(p.id)}>
+          <a class="app-tile" href={href(p)}>
             <div class="app-tile-top">
               <img
                 src={`/assets/images/${p.data.project}.png`}
@@ -98,7 +98,7 @@ const videos = all.filter((p) => p.data.video_id && p.data.categories.includes('
       ) : (
         videos.map((p, i) => (
           <li class={`home-video${i >= 5 ? ' devlog-extra-item' : ''}`} hidden={i >= 5}>
-            <a class="home-video-link" href={href(p.id)}>
+            <a class="home-video-link" href={href(p)}>
               <img
                 class="home-thumb"
                 src={`https://i.ytimg.com/vi/${p.data.video_id}/hqdefault.jpg`}

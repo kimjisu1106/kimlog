@@ -1,7 +1,7 @@
 ---
 import Page from '../layouts/Page.astro';
 import ContributionGraph from '../components/ContributionGraph.astro';
-import { getPosts, byCategory, groupByProject, gid, postUrl as href } from '../lib/posts';
+import { getPosts, byCategory, groupByProject, gid, postHref as href } from '../lib/posts';
 import { postDateStr } from '../lib/kst';
 
 const all = await getPosts();
@@ -40,7 +40,7 @@ function catLabel(cats: string[]): string {
             <ul class="devlog-list" id={listId}>
               {group.items.map((post, i) => (
                 <li hidden={i >= 5} class={i >= 5 ? 'devlog-extra-item' : undefined}>
-                  {postDateStr(post.data.date)} ｜ <a href={href(post.id)}>{post.data.title}</a>
+                  {postDateStr(post.data.date)} ｜ <a href={href(post)}>{post.data.title}</a>
                 </li>
               ))}
             </ul>

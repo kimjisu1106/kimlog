@@ -1,7 +1,7 @@
 ---
 import Page from '../layouts/Page.astro';
 import ContributionGraph from '../components/ContributionGraph.astro';
-import { getPosts, byPathPrefix, groupByProject, postUrl as href } from '../lib/posts';
+import { getPosts, byPathPrefix, groupByProject, postHref as href } from '../lib/posts';
 import { postDateStr } from '../lib/kst';
 
 const all = await getPosts();
@@ -33,7 +33,7 @@ function subfolderLabel(id: string): string {
             </h3>
             <div class="audio-works">
               {group.items.map((post) => (
-                <a class="audio-card" href={href(post.id)}>
+                <a class="audio-card" href={href(post)}>
                   <div class="audio-thumb-wrap">
                     {post.data.video_id && (
                       <img

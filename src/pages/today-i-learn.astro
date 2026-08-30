@@ -1,7 +1,7 @@
 ---
 import Page from '../layouts/Page.astro';
 import ContributionGraph from '../components/ContributionGraph.astro';
-import { getPosts, byCategory, groupByProject, gid, postUrl as href } from '../lib/posts';
+import { getPosts, byCategory, groupByProject, gid, postHref as href } from '../lib/posts';
 import { postDateStr } from '../lib/kst';
 
 const all = await getPosts();
@@ -46,7 +46,7 @@ const uniqueTags = [...new Set(posts.flatMap((p) => p.data.tags))].sort();
                     data-tags={post.data.tags.join(',')}
                   >
                     {postDateStr(post.data.date)} ｜{' '}
-                    <a href={href(post.id)}>{post.data.short_title || post.data.title}</a>
+                    <a href={href(post)}>{post.data.short_title || post.data.title}</a>
                   </li>
                 ))}
               </ul>

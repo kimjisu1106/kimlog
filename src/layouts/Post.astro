@@ -142,7 +142,7 @@ const thumb = data.project ? `/assets/images/${data.project}.png` : '';
                 {series.items.map((item, i) => (
                   <a
                     class={`series-card${item.current ? ' series-current' : ''}`}
-                    href={href(item.id)}
+                    href={href(item.url)}
                   >
                     <span class="series-num">{i + 1}</span>
                     <span class="series-card-date post-meta">{item.date}</span>
@@ -165,7 +165,7 @@ const thumb = data.project ? `/assets/images/${data.project}.png` : '';
             <div class="series-list-card" data-pagefind-ignore>
               <div class="series-cards">
                 {suggested.map((sp) => (
-                  <a class="series-card" href={href(sp.id)}>
+                  <a class="series-card" href={href(sp.url)}>
                     <span class="series-card-date post-meta">{sp.date}</span>
                     <span class="series-sep">｜</span>
                     <span class="series-card-title">{sp.project_name || sp.title}</span>

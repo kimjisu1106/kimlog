@@ -1,5 +1,5 @@
 import type { APIContext } from 'astro';
-import { getPosts, postUrl } from '../lib/posts';
+import { getPosts, postHref } from '../lib/posts';
 import { postDateStr } from '../lib/kst';
 
 // jekyll-sitemap 대체 — 직접 엔드포인트로 /sitemap.xml 파일명 유지(@astrojs/sitemap은 sitemap-index.xml로 바뀜).
@@ -36,7 +36,7 @@ export async function GET(_context: APIContext) {
     urls.push(`<url>\n<loc>${xmlEscape(SITE + encodeURI(u))}</loc>\n</url>`);
   }
   for (const p of posts) {
-    const loc = xmlEscape(SITE + postUrl(p.id));
+    const loc = xmlEscape(SITE + postHref(p));
     urls.push(`<url>\n<loc>${loc}</loc>\n<lastmod>${postDateStr(p.data.date)}T00:00:00+09:00</lastmod>\n</url>`);
   }
   const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.join('\n')}\n</urlset>\n`;

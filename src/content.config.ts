@@ -22,6 +22,7 @@ const posts = defineCollection({
       layout: z.string().nullish().transform((v) => v ?? 'post'),
       title: z.string(),
       date: z.coerce.date(),
+      permalink: optStr(), // 있으면 URL을 이 값으로 고정(파일경로와 분리). 없으면 경로 폴백.
       categories: strArr(),
       project: optStr(),
       project_name: optStr(),

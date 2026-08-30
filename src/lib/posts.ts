@@ -8,6 +8,17 @@ export function postUrl(id: string): string {
   return encodeURI('/' + id + '/');
 }
 
+// URL 식별자 — permalink가 있으면 그걸로 URL을 고정(파일경로·제목과 분리), 없으면 파일경로 폴백.
+// 기존 글은 permalink가 없어 id 그대로라 URL이 바이트 단위로 보존된다.
+export function urlId(post: Post): string {
+  return post.data.permalink ?? post.id;
+}
+
+// 링크 생성 단일 진입점 — 목록·레이아웃은 post 객체를 넘겨 이걸 쓴다.
+export function postHref(post: Post): string {
+  return postUrl(urlId(post));
+}
+
 // categories에 지정 값들을 모두 포함(대소문자 무시). apps/ue5 페이지의 Dev Log 필터용.
 export function hasCatsCI(post: Post, ...cats: string[]): boolean {
   const lower = post.data.categories.map((c) => c.toLowerCase());
@@ -65,6 +76,7 @@ export function groupByProject(list: Post[]): Group[] {
 // props로 넘길 경량 링크(전체 CollectionEntry 직렬화 방지).
 export interface SeriesLink {
   id: string;
+  url: string;
   title: string;
   short_title?: string;
   project_name?: string;
@@ -83,6 +95,7 @@ export function seriesFor(post: Post, all: Post[]): { items: SeriesLink[]; index
   const ordered = [...summary, ...rest];
   const items: SeriesLink[] = ordered.map((p) => ({
     id: p.id,
+    url: urlId(p),
     title: p.data.title,
     short_title: p.data.short_title,
     date: postDateStr(p.data.date),
@@ -109,6 +122,7 @@ export function suggestedFor(post: Post, all: Post[]): SeriesLink[] {
     .slice(0, 4)
     .map((p) => ({
       id: p.id,
+      url: urlId(p),
       title: p.data.title,
       short_title: p.data.short_title,
       project_name: p.data.project_name,

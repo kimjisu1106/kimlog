@@ -1,13 +1,13 @@
 ---
 import Post from '../layouts/Post.astro';
-import { getPosts, seriesFor, suggestedFor } from '../lib/posts';
+import { getPosts, seriesFor, suggestedFor, urlId } from '../lib/posts';
 
 // post.id = _content 상대경로 verbatim → params.slug 슬래시가 경로 구분자로 유지되어
 // trailingSlash 'always' + build.format 'directory'와 함께 Jekyll permalink를 그대로 재현한다.
 export async function getStaticPaths() {
   const posts = await getPosts();
   return posts.map((post) => ({
-    params: { slug: post.id },
+    params: { slug: urlId(post) },
     props: {
       post,
       series: seriesFor(post, posts),
