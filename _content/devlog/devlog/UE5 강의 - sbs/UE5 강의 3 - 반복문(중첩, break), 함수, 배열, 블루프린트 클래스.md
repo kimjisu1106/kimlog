@@ -2,7 +2,7 @@
 layout: post
 title: UE5 강의 3 - 반복문(중첩, break), 함수, 배열, 블루프린트 클래스
 date: 2026-01-10
-permalink: "devlog/devlog/UE5 강의 - sbs/UE5 강의 3 - 반복문(중첩, break), 함수, 배열, 블루프린트 클래스"
+permalink: "8c4kckih"
 categories:
   - today-i-learn
   - ue5

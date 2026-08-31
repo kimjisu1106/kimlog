@@ -2,7 +2,7 @@
 layout: post
 title: Call by Value, Call by Reference, Call by Pointer 비교
 date: 2026-04-04
-permalink: "devlog/devlog/TIL/Call by Value, Call by Reference, Call by Pointer 비교"
+permalink: "6oofc9xb"
 categories:
   - today-i-learn
 project: today-i-learn

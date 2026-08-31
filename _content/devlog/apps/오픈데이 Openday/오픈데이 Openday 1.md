@@ -2,7 +2,7 @@
 layout: post
 title: 오픈데이 Openday 1
 date: 2026-08-20
-permalink: "devlog/apps/오픈데이 Openday/오픈데이 Openday 1"
+permalink: "srcpzi1l"
 description: 오픈데이를 처음부터 만들어 셔터·도장 첫 조각을 띄우고, 같은 날 가게 세 채와 업무 체계까지 붙인 기록.
 categories:
   - log

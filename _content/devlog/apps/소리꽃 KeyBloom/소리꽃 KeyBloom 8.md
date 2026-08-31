@@ -2,7 +2,7 @@
 layout: post
 title: 소리꽃 KeyBloom 8
 date: 2026-07-18
-permalink: "devlog/apps/소리꽃 KeyBloom/소리꽃 KeyBloom 8"
+permalink: "32kun53a"
 categories:
   - apps
   - log

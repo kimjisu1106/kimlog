@@ -2,7 +2,7 @@
 layout: post
 title: DSL (Domain Specific Language)과 GPL (General Purpose Language)
 date: 2026-04-15
-permalink: "devlog/devlog/TIL/DSL (Domain Specific Language)과 GPL (General Purpose Language)"
+permalink: "cwgl806e"
 categories:
   - today-i-learn
 project: today-i-learn

@@ -2,7 +2,7 @@
 layout: post
 title: Gemfile — Jekyll 프로젝트의 의존성 파일
 date: 2026-04-06
-permalink: "devlog/devlog/TIL/Gemfile — Jekyll 프로젝트의 의존성 파일"
+permalink: "1de1nryu"
 categories:
   - today-i-learn
 project: today-i-learn

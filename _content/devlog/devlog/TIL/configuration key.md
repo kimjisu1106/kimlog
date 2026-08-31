@@ -2,7 +2,7 @@
 layout: post
 title: configuration key
 date: 2026-04-09
-permalink: "devlog/devlog/TIL/configuration key"
+permalink: "b7flfei1"
 categories:
   - today-i-learn
 project: today-i-learn

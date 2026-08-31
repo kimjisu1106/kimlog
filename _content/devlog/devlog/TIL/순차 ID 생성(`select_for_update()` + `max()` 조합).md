@@ -2,7 +2,7 @@
 layout: post
 title: 순차 ID 생성(`select_for_update()` + `max()` 조합)
 date: 2026-05-19
-permalink: "devlog/devlog/TIL/순차 ID 생성(`select_for_update()` + `max()` 조합)"
+permalink: "q4kez1l0"
 categories:
   - today-i-learn
 project: today-i-learn

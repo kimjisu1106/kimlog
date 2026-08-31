@@ -2,7 +2,7 @@
 layout: post
 title: 소설 타임라인 관리 도구 Lumior 1
 date: 2026-07-08
-permalink: "devlog/apps/소설 타임라인 관리 도구 Lumior/소설 타임라인 관리 도구 Lumior 1"
+permalink: "7epq7njf"
 categories:
   - apps
   - log

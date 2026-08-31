@@ -2,7 +2,7 @@
 layout: post
 title: 소설 타임라인 관리 도구 Lumior
 date: 2026-07-08
-permalink: "devlog/apps/소설 타임라인 관리 도구 Lumior/소설 타임라인 관리 도구 Lumior 0"
+permalink: "uvp5xa5x"
 description: "옵시디언 vault의 md frontmatter를 파싱해 소설 타임라인과 데이터 점검을 브라우저에서 보는 로컬 도구, Lumior 프로젝트 소개."
 categories:
   - apps

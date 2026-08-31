@@ -2,7 +2,7 @@
 layout: post
 title: 소리꽃 KeyBloom TIL 17
 date: 2026-07-20
-permalink: "devlog/devlog/TIL/소리꽃 KeyBloom TIL 17"
+permalink: "he22fkit"
 categories:
   - today-i-learn
 project: today-i-learn

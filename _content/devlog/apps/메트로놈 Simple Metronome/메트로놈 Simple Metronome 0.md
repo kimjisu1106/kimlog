@@ -2,7 +2,7 @@
 layout: post
 title: 메트로놈 Simple Metronome
 date: 2025-08-05
-permalink: "devlog/apps/메트로놈 Simple Metronome/메트로놈 Simple Metronome 0"
+permalink: "3dt5e9x9"
 description: "심플 안드로이드 메트로놈 앱을 직접 기획해 Google Play에 출시하고, 이후 테마·박자표·프리셋·백그라운드 재생까지 v1.14로 이어온 기록."
 categories:
   - summary

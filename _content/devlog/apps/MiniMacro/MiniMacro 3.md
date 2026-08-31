@@ -2,7 +2,7 @@
 layout: post
 title: MiniMacro 3
 date: 2026-08-19
-permalink: "devlog/apps/MiniMacro/MiniMacro 3"
+permalink: "jbsk8jgy"
 description: 실기로 써 보고 나온 지적을 반영해 재생 중 창을 다시 내리고 반복 규칙을 고친 뒤, 한국어·영어 전환을 붙인 날.
 categories:
   - log

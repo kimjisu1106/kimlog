@@ -2,7 +2,7 @@
 layout: post
 title: 여둘까 Office Layout 15
 date: 2026-08-24
-permalink: "devlog/apps/여둘까 Office Layout/여둘까 Office Layout 15"
+permalink: "eecvkasi"
 categories:
   - apps
   - log

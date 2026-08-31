@@ -2,7 +2,7 @@
 layout: post
 title: 회사 툴 — 본부 TaskManagement 개발 정리
 date: 2026-06-12
-permalink: "devlog/devlog/TIL/회사 툴 — 본부 TaskManagement 개발 정리"
+permalink: "mtaw39lz"
 categories:
   - today-i-learn
 project: company-task-management

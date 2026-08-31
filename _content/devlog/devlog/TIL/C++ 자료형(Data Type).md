@@ -2,7 +2,7 @@
 layout: post
 title: C++ 자료형(Data Type)
 date: 2026-03-14
-permalink: "devlog/devlog/TIL/C++ 자료형(Data Type)"
+permalink: "geckwm01"
 categories:
   - today-i-learn
 project: today-i-learn

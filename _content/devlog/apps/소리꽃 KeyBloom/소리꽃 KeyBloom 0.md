@@ -2,7 +2,7 @@
 layout: post
 title: 소리꽃 KeyBloom
 date: 2026-07-03
-permalink: "devlog/apps/소리꽃 KeyBloom/소리꽃 KeyBloom 0"
+permalink: "die8c93u"
 description: MIDI 연주를 88건반과 파티클 이펙트로 피워내고, 구간별 비주얼을 큐·시퀀서로 지정해 16:9 영상으로 저장하는 비주얼라이저 소리꽃 KeyBloom 소개 — 무료 웹과, 저지연 라이브·알파 출력을 더한 유료 데스크톱 앱(plus).
 categories:
   - apps

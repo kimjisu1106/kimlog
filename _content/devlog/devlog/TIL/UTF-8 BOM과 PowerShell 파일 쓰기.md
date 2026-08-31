@@ -2,7 +2,7 @@
 layout: post
 title: UTF-8 BOM과 PowerShell 파일 쓰기
 date: 2026-07-03
-permalink: "devlog/devlog/TIL/UTF-8 BOM과 PowerShell 파일 쓰기"
+permalink: "073zbpmk"
 categories:
   - today-i-learn
 project: today-i-learn

@@ -2,7 +2,7 @@
 layout: post
 title: Unreal Engine 5 Dev Log 2 ― 시네마틱(Portal Exit)
 date: 2025-08-30
-permalink: "devlog/ue5/Unreal Engine 5 Dev Log 2 ― 시네마틱(Portal Exit)"
+permalink: "luegxb5c"
 description: "UE5 최신 튜토리얼로 Portal Exit 컨셉 시네마틱 영상을 따라 만든 과정 기록."
 categories:
   - log

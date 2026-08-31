@@ -2,7 +2,7 @@
 layout: post
 title: kramdown-parser-gfm — Jekyll의 GFM 파서
 date: 2026-04-06
-permalink: "devlog/devlog/TIL/kramdown-parser-gfm — Jekyll의 GFM 파서"
+permalink: "wvuabc21"
 categories:
   - today-i-learn
 project: today-i-learn

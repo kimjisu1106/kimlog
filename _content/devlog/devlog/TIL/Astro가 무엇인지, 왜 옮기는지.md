@@ -2,7 +2,7 @@
 layout: post
 title: Astro가 무엇인지, 왜 옮기는지
 date: 2026-08-16
-permalink: "devlog/devlog/TIL/Astro가 무엇인지, 왜 옮기는지"
+permalink: "qtgettjv"
 categories:
   - today-i-learn
 project: today-i-learn

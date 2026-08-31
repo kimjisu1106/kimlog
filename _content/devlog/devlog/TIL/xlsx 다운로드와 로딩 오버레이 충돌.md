@@ -2,7 +2,7 @@
 layout: post
 title: xlsx 다운로드와 로딩 오버레이 충돌
 date: 2026-05-20
-permalink: "devlog/devlog/TIL/xlsx 다운로드와 로딩 오버레이 충돌"
+permalink: "0ebo3hk2"
 categories:
   - today-i-learn
 project: today-i-learn

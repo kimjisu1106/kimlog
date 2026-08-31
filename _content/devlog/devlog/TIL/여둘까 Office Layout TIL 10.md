@@ -2,7 +2,7 @@
 layout: post
 title: 여둘까 Office Layout TIL 10
 date: 2026-08-28
-permalink: "devlog/devlog/TIL/여둘까 Office Layout TIL 10"
+permalink: "ls9804ay"
 categories:
   - today-i-learn
 project: today-i-learn

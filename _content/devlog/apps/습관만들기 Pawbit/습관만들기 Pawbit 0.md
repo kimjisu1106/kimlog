@@ -2,7 +2,7 @@
 layout: post
 title: 습관만들기 Pawbit
 date: 2026-05-05
-permalink: "devlog/apps/습관만들기 Pawbit/습관만들기 Pawbit 0"
+permalink: "i7po5sjp"
 description: "버려진 강아지를 돌보며 습관을 만드는 Flutter 습관 트래커 앱 습관만들기 Pawbit — 리디자인·리워드 광고 수익화·경제 밸런싱을 마치고 출시 준비 중인 프로젝트 소개."
 categories:
   - apps

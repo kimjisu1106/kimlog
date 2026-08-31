@@ -2,7 +2,7 @@
 layout: post
 title: MD5 vs pHash
 date: 2026-03-24
-permalink: "devlog/devlog/TIL/MD5 vs pHash"
+permalink: "xdywxs8v"
 categories:
   - today-i-learn
 project: today-i-learn

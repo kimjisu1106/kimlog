@@ -2,7 +2,7 @@
 layout: post
 title: HUNTR/X ― Golden (for Alto recorder)
 date: 2026-02-28
-permalink: "audio/music-cover/Reflatmusic/헌트릭스 ― Golden (for Alto recorder)"
+permalink: "az8qa356"
 description: "HUNTR/X ― Golden — 알토 리코더 커버 연주 영상."
 categories:
   - music-cover

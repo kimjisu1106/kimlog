@@ -2,7 +2,7 @@
 layout: post
 title: 이루마―Kiss in the rain
 date: 2026-08-26
-permalink: "audio/music-cover/소리꽃 KeyBloom/이루마―Kiss in the rain"
+permalink: "8was8wos"
 description: 이루마―Kiss in the rain 커버 연주 영상.
 categories:
   - music-cover

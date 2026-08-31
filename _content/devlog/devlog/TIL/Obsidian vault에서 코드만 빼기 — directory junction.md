@@ -2,7 +2,7 @@
 layout: post
 title: Obsidian vault에서 코드만 빼기 — directory junction
 date: 2026-08-30
-permalink: "devlog/devlog/TIL/Obsidian vault에서 코드만 빼기 — directory junction"
+permalink: "eit6tfjo"
 categories:
   - today-i-learn
 project: today-i-learn

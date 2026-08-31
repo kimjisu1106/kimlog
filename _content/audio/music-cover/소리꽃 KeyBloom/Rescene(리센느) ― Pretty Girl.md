@@ -2,7 +2,7 @@
 layout: post
 title: Rescene(리센느) ― Pretty Girl
 date: 2026-07-15
-permalink: "audio/music-cover/소리꽃 KeyBloom/Rescene(리센느) ― Pretty Girl"
+permalink: "l8k8xfj5"
 description: Rescene(리센느) ― Pretty Girl 커버 연주 영상.
 categories:
   - music-cover

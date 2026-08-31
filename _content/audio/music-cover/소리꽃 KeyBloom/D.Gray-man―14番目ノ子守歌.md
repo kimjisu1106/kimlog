@@ -2,7 +2,7 @@
 layout: post
 title: D.Gray-man―14番目ノ子守歌
 date: 2026-08-25
-permalink: "audio/music-cover/소리꽃 KeyBloom/D.Gray-man―14番目ノ子守歌"
+permalink: "33etmmzg"
 description: D.Gray-man―14番目ノ子守歌 커버 연주 영상.
 categories:
   - music-cover

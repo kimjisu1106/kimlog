@@ -2,7 +2,7 @@
 layout: post
 title: SESSION_EXPIRE_AT_BROWSER_CLOSE=True
 date: 2026-04-09
-permalink: "devlog/devlog/TIL/SESSION_EXPIRE_AT_BROWSER_CLOSE=True"
+permalink: "h70l4u8b"
 categories:
   - today-i-learn
 project: today-i-learn

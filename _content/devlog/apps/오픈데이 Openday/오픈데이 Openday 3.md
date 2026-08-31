@@ -2,7 +2,7 @@
 layout: post
 title: 오픈데이 Openday 3
 date: 2026-08-24
-permalink: "devlog/apps/오픈데이 Openday/오픈데이 Openday 3"
+permalink: "730zksjd"
 description: 오픈데이에 반복 일정과 「마을」(가게 여러 채)을 넣고, 구글 계정에 연결해 기록을 이용자 본인 드라이브에 두고, 못 한 일을 다음 근무일로 넘기는 길까지 낸 하루.
 categories:
   - log

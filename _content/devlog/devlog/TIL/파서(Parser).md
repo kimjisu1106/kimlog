@@ -2,7 +2,7 @@
 layout: post
 title: 파서(Parser)
 date: 2026-04-06
-permalink: "devlog/devlog/TIL/파서(Parser)"
+permalink: "n3cu42ya"
 categories:
   - today-i-learn
 project: today-i-learn

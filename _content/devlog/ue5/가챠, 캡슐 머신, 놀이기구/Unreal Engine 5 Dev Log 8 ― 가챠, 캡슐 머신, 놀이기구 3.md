@@ -2,7 +2,7 @@
 layout: post
 title: Unreal Engine 5 Dev Log 8 ― 가챠, 캡슐 머신, 놀이기구 3
 date: 2025-12-16
-permalink: "devlog/ue5/가챠, 캡슐 머신, 놀이기구/Unreal Engine 5 Dev Log 8 ― 가챠, 캡슐 머신, 놀이기구 3"
+permalink: "cf5cn3w0"
 categories:
   - log
   - ue5

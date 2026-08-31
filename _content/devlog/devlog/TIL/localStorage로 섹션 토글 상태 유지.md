@@ -2,7 +2,7 @@
 layout: post
 title: localStorage로 섹션 토글 상태 유지
 date: 2026-05-19
-permalink: "devlog/devlog/TIL/localStorage로 섹션 토글 상태 유지"
+permalink: "wozdo0f2"
 categories:
   - today-i-learn
 project: today-i-learn

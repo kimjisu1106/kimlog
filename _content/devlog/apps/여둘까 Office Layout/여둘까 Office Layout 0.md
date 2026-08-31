@@ -2,7 +2,7 @@
 layout: post
 title: 여둘까 Office Layout
 date: 2026-06-17
-permalink: "devlog/apps/여둘까 Office Layout/여둘까 Office Layout 0"
+permalink: "0md5hr8q"
 description: "평면도 위에 책상·집기를 드래그해 배치하고 복도 간격을 확인하는 브라우저 기반 가구 배치 도구 소개."
 categories:
   - apps

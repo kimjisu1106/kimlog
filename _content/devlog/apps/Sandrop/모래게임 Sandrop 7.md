@@ -2,7 +2,7 @@
 layout: post
 title: 모래게임 Sandrop 7
 date: 2026-07-15
-permalink: "devlog/apps/Sandrop/모래게임 Sandrop 7"
+permalink: "fcncefyc"
 categories:
   - apps
   - log

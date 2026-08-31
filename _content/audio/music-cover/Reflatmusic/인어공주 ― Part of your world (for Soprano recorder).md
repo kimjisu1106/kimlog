@@ -2,7 +2,7 @@
 layout: post
 title: 인어공주 ― Part of your world (for Soprano recorder)
 date: 2023-10-24
-permalink: "audio/music-cover/Reflatmusic/인어공주 ― Part of your world (for Soprano recorder)"
+permalink: "2lohbnys"
 description: "인어공주 ― Part of your world — 소프라노 리코더 커버 연주 영상."
 categories:
   - music-cover

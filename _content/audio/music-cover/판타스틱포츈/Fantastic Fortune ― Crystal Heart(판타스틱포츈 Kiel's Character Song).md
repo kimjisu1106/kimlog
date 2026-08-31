@@ -2,7 +2,7 @@
 layout: post
 title: Fantastic Fortune ― Crystal Heart(판타스틱포츈 Kiel's Character Song)
 date: 2017-04-18
-permalink: "audio/music-cover/판타스틱포츈/Fantastic Fortune ― Crystal Heart(판타스틱포츈 Kiel's Character Song)"
+permalink: "ab0j703o"
 description: "Fantastic Fortune ― Crystal Heart(판타스틱포츈 Kiel's Character Song) 커버 연주 영상."
 categories:
   - music-cover

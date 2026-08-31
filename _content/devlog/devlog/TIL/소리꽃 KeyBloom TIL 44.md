@@ -1,7 +1,7 @@
 ---
 title: 소리꽃 KeyBloom TIL 44
 date: 2026-08-23
-permalink: "devlog/devlog/TIL/소리꽃 KeyBloom TIL 44"
+permalink: "qozi0xvw"
 categories:
   - today-i-learn
 project: today-i-learn

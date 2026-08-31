@@ -2,7 +2,7 @@
 layout: post
 title: Android 파일 공유 MIME 타입
 date: 2026-05-21
-permalink: "devlog/devlog/TIL/Android 파일 공유 MIME 타입"
+permalink: "fa2txsgx"
 categories:
   - today-i-learn
 project: today-i-learn

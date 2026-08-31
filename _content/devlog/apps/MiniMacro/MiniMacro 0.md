@@ -2,7 +2,7 @@
 layout: post
 title: MiniMacro
 date: 2026-08-15
-permalink: "devlog/apps/MiniMacro/MiniMacro 0"
+permalink: "bxl2ly8v"
 description: 마우스·키보드 반복 작업을 단계 편집과 녹화로 자동화하는 Windows 미니 툴 MiniMacro 소개.
 categories:
   - apps

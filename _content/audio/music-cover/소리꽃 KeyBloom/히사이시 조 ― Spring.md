@@ -2,7 +2,7 @@
 layout: post
 title: 히사이시 조 ― Spring
 date: 2026-07-16
-permalink: "audio/music-cover/소리꽃 KeyBloom/히사이시 조 ― Spring"
+permalink: "qen7rkeh"
 description: 히사이시조 ― Spring 커버 연주 영상.
 categories:
   - music-cover

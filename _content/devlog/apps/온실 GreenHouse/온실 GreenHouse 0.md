@@ -2,7 +2,7 @@
 layout: post
 title: 온실 GreenHouse
 date: 2026-07-26
-permalink: "devlog/apps/온실 GreenHouse/온실 GreenHouse 0"
+permalink: "v57nxrsx"
 description: 앱들이 서로와 블로그를 홍보하는 자체 광고(하우스 광고) 시스템 온실 GreenHouse 소개 — 광고 데이터 파일만 고치면 앱을 재빌드하지 않아도 배너가 바뀐다.
 categories:
   - apps

@@ -2,7 +2,7 @@
 layout: post
 title: 아이유 ― 비밀의 화원 (for Alto recorder)
 date: 2023-12-12
-permalink: "audio/music-cover/Reflatmusic/아이유 ― 비밀의 화원 (for Alto recorder)"
+permalink: "hww3rto8"
 description: "아이유 ― 비밀의 화원 — 알토 리코더 커버 연주 영상."
 categories:
   - music-cover

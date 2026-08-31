@@ -2,7 +2,7 @@
 layout: post
 title: 메트로놈 Simple Metronome ― ver 1.10
 date: 2025-08-26
-permalink: "devlog/apps/메트로놈 Simple Metronome/메트로놈 Simple Metronome ― ver 1.10"
+permalink: "7njd9kyo"
 categories:
   - log
   - apps

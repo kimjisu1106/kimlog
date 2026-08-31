@@ -2,7 +2,7 @@
 layout: post
 title: Tkinter padx, pady
 date: 2026-03-28
-permalink: "devlog/devlog/TIL/Tkinter padx, pady"
+permalink: "4788mcb8"
 categories:
   - today-i-learn
 project: today-i-learn

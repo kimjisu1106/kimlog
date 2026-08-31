@@ -2,7 +2,7 @@
 layout: post
 title: 나야 (It's me)
 date: 2017-06-12
-permalink: "audio/original/나야 (It's me)"
+permalink: "ds43h65m"
 description: "자작곡 ― 나야 (It's me). 직접 만든 곡의 기록."
 categories:
   - original

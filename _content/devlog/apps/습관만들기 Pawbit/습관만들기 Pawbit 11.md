@@ -2,7 +2,7 @@
 layout: post
 title: 습관만들기 Pawbit 11
 date: 2026-07-07
-permalink: "devlog/apps/습관만들기 Pawbit/습관만들기 Pawbit 11"
+permalink: "67f5bsfp"
 categories:
   - log
   - apps

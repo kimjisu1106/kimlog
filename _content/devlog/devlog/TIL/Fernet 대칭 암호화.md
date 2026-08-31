@@ -2,7 +2,7 @@
 layout: post
 title: Fernet 대칭 암호화
 date: 2026-04-21
-permalink: "devlog/devlog/TIL/Fernet 대칭 암호화"
+permalink: "uogeyuq0"
 categories:
   - today-i-learn
 project: today-i-learn

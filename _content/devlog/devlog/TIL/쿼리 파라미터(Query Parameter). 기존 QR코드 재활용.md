@@ -2,7 +2,7 @@
 layout: post
 title: 쿼리 파라미터(Query Parameter). 기존 QR코드 재활용
 date: 2026-04-16
-permalink: "devlog/devlog/TIL/쿼리 파라미터(Query Parameter). 기존 QR코드 재활용"
+permalink: "65gmki1r"
 categories:
   - today-i-learn
 project: today-i-learn

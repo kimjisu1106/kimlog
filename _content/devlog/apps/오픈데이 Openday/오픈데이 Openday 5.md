@@ -2,7 +2,7 @@
 layout: post
 title: 오픈데이 Openday 5
 date: 2026-08-27
-permalink: "devlog/apps/오픈데이 Openday/오픈데이 Openday 5"
+permalink: "lh0825df"
 description: 지나간 날 기록을 고칠 수 있게 방을 하나 더 열고, 그 방 하나 때문에 드러난 하드코딩 세 군데를 걷어낸 기록.
 categories:
   - log

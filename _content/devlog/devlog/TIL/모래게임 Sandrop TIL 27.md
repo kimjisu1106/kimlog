@@ -2,7 +2,7 @@
 layout: post
 title: 모래게임 Sandrop TIL 27
 date: 2026-08-17
-permalink: "devlog/devlog/TIL/모래게임 Sandrop TIL 27"
+permalink: "rqcqg6lr"
 categories:
   - today-i-learn
 project: today-i-learn

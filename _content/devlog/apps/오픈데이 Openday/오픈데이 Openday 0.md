@@ -2,7 +2,7 @@
 layout: post
 title: 오픈데이 Openday
 date: 2026-08-20
-permalink: "devlog/apps/오픈데이 Openday/오픈데이 Openday 0"
+permalink: "u88syhfw"
 description: 가게 셔터를 올리고 내리듯 하루를 열고 닫는 개인용 근무 트래커 오픈데이 Openday 소개.
 categories:
   - apps

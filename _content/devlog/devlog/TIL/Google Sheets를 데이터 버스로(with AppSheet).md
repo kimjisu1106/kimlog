@@ -2,7 +2,7 @@
 layout: post
 title: Google Sheets를 데이터 버스로(with AppSheet)
 date: 2026-05-18
-permalink: "devlog/devlog/TIL/Google Sheets를 데이터 버스로(with AppSheet)"
+permalink: "j9ykhdi4"
 categories:
   - today-i-learn
 project: today-i-learn

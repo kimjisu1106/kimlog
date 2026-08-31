@@ -2,7 +2,7 @@
 layout: post
 title: 소리꽃 KeyBloom 1
 date: 2026-07-03
-permalink: "devlog/apps/소리꽃 KeyBloom/소리꽃 KeyBloom 1"
+permalink: "ih2apvqt"
 categories:
   - apps
   - log

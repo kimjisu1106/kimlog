@@ -2,7 +2,7 @@
 layout: post
 title: 이무진 ― 신호등 (for Alto recorder)
 date: 2023-05-14
-permalink: "audio/music-cover/Reflatmusic/이무진 ― 신호등 (for Alto recorder)"
+permalink: "ootm9ohj"
 description: "이무진 ― 신호등 — 알토 리코더 커버 연주 영상."
 categories:
   - music-cover

@@ -2,7 +2,7 @@
 layout: post
 title: Git stash vs discard
 date: 2026-04-10
-permalink: "devlog/devlog/TIL/Git stash vs discard"
+permalink: "nn12ngne"
 categories:
   - today-i-learn
 project: today-i-learn

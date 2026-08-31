@@ -2,7 +2,7 @@
 layout: post
 title: const
 date: 2026-04-04
-permalink: "devlog/devlog/TIL/const"
+permalink: "pqpck30m"
 categories:
   - today-i-learn
 project: today-i-learn

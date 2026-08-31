@@ -2,7 +2,7 @@
 layout: post
 title: 비비 ― 밤양갱 (for Soprano recorder)
 date: 2024-05-23
-permalink: "audio/music-cover/Reflatmusic/비비 ― 밤양갱 (for Soprano recorder)"
+permalink: "cik1fpc5"
 description: "비비 ― 밤양갱 — 소프라노 리코더 커버 연주 영상."
 categories:
   - music-cover

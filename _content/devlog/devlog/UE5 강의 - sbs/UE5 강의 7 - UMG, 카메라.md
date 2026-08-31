@@ -2,7 +2,7 @@
 layout: post
 title: UE5 강의 7 - UMG, 카메라
 date: 2026-02-07
-permalink: "devlog/devlog/UE5 강의 - sbs/UE5 강의 7 - UMG, 카메라"
+permalink: "fp66aphn"
 categories:
   - today-i-learn
   - ue5

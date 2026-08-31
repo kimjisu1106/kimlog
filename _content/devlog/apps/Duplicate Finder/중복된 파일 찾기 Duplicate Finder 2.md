@@ -2,7 +2,7 @@
 layout: post
 title: 중복된 파일 찾기 Duplicate Finder 2
 date: 2026-03-23
-permalink: "devlog/apps/Duplicate Finder/중복된 파일 찾기 Duplicate Finder 2"
+permalink: "tzbx9eyt"
 categories:
   - log
   - apps

@@ -2,7 +2,7 @@
 layout: post
 title: 메트로놈 Simple Metronome TIL 1
 date: 2026-07-06
-permalink: "devlog/devlog/TIL/메트로놈 Simple Metronome TIL 1"
+permalink: "2yr4xr9d"
 categories:
   - today-i-learn
 project: today-i-learn

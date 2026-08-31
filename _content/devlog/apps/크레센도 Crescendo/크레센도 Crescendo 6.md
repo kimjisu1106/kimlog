@@ -2,7 +2,7 @@
 layout: post
 title: 크레센도 Crescendo 6
 date: 2026-06-11
-permalink: "devlog/apps/크레센도 Crescendo/크레센도 Crescendo 6"
+permalink: "9r02pbft"
 categories:
   - apps
   - log

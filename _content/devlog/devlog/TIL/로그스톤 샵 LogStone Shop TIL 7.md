@@ -2,7 +2,7 @@
 layout: post
 title: 로그스톤 샵 LogStone Shop TIL 7
 date: 2026-08-25
-permalink: "devlog/devlog/TIL/로그스톤 샵 LogStone Shop TIL 7"
+permalink: "ngbtn0qg"
 categories:
   - today-i-learn
 project: today-i-learn

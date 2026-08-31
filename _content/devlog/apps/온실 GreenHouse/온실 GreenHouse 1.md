@@ -2,7 +2,7 @@
 layout: post
 title: 온실 GreenHouse 1
 date: 2026-07-26
-permalink: "devlog/apps/온실 GreenHouse/온실 GreenHouse 1"
+permalink: "s9v7xpar"
 description: 네이티브 앱의 빈 광고 자리를 내 앱·블로그 홍보로 채우는 자체 광고 시스템 온실 GreenHouse를 독립 프로젝트로 세우고, 광고 데이터 규약과 250×250 배너 편집기까지 만든 첫날.
 categories:
   - log

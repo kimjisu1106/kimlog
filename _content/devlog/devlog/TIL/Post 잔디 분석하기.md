@@ -2,7 +2,7 @@
 layout: post
 title: Post 잔디 분석하기
 date: 2026-04-12
-permalink: "devlog/devlog/TIL/Post 잔디 분석하기"
+permalink: "zx22mekz"
 categories:
   - today-i-learn
 project: today-i-learn

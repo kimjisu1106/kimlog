@@ -1,7 +1,7 @@
 ---
 title: 소리꽃 KeyBloom 30
 date: 2026-08-24
-permalink: "devlog/apps/소리꽃 KeyBloom/소리꽃 KeyBloom 30"
+permalink: "oautmx0j"
 categories:
   - apps
   - log

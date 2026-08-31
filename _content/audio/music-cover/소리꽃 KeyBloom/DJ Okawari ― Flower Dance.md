@@ -2,7 +2,7 @@
 layout: post
 title: DJ Okawari ― Flower Dance
 date: 2026-08-08
-permalink: "audio/music-cover/소리꽃 KeyBloom/DJ Okawari ― Flower Dance"
+permalink: "lp97mht8"
 description: DJ Okawari ― Flower Dance 커버 연주 영상.
 categories:
   - music-cover

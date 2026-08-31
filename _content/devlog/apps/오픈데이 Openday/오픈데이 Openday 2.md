@@ -2,7 +2,7 @@
 layout: post
 title: 오픈데이 Openday 2
 date: 2026-08-21
-permalink: "devlog/apps/오픈데이 Openday/오픈데이 Openday 2"
+permalink: "0q5p9e77"
 description: 오픈데이를 실제 주소에 올려 동생에게 보내고, 첫 피드백을 받아 화면을 화면 크기에 맞게 다시 짜고 광고와 관리 화면까지 붙인 기록.
 categories:
   - log

@@ -2,7 +2,7 @@
 layout: post
 title: 블로그 Astro 이관 TIL
 date: 2026-08-19
-permalink: "devlog/devlog/TIL/블로그 Astro 이관 TIL"
+permalink: "2eangmfe"
 categories:
   - today-i-learn
 project: today-i-learn

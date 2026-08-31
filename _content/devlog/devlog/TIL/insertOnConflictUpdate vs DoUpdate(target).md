@@ -2,7 +2,7 @@
 layout: post
 title: insertOnConflictUpdate vs DoUpdate(target)
 date: 2026-05-06
-permalink: "devlog/devlog/TIL/insertOnConflictUpdate vs DoUpdate(target)"
+permalink: "kzw7m1le"
 categories:
   - today-i-learn
 project: today-i-learn

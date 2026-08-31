@@ -2,7 +2,7 @@
 layout: post
 title: 로그스톤 샵 LogStone Shop 9
 date: 2026-08-23
-permalink: "devlog/apps/로그스톤 샵 LogStone Shop/로그스톤 샵 LogStone Shop 9"
+permalink: "woxjjd0l"
 categories:
   - apps
   - log

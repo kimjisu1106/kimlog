@@ -2,7 +2,7 @@
 layout: post
 title: 테일즈위버―Reminiscence
 date: 2026-08-17
-permalink: "audio/music-cover/소리꽃 KeyBloom/테일즈위버―Reminiscence"
+permalink: "dyzzvpin"
 description: 테일즈위버―Reminiscence 커버 연주 영상.
 categories:
   - music-cover

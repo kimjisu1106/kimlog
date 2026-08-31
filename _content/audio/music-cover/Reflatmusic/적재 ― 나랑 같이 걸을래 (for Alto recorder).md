@@ -2,7 +2,7 @@
 layout: post
 title: 적재 ― 나랑 같이 걸을래 (for Alto recorder)
 date: 2024-10-28
-permalink: "audio/music-cover/Reflatmusic/적재 ― 나랑 같이 걸을래 (for Alto recorder)"
+permalink: "hl1ke2xs"
 description: "적재 ― 나랑 같이 걸을래 — 알토 리코더 커버 연주 영상."
 categories:
   - music-cover

@@ -2,7 +2,7 @@
 layout: post
 title: 코드시트 ChordSheet 2
 date: 2026-03-15
-permalink: "devlog/apps/코드시트 ChordSheet/코드시트 ChordSheet 2"
+permalink: "3s1v4xqb"
 categories:
   - log
   - apps
