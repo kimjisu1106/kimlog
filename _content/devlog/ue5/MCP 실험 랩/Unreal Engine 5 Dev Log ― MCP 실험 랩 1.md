@@ -24,15 +24,33 @@ tags:
 - 노출 구조를 파악했다. 클라이언트가 보는 도구는 3개뿐이고(`list_toolsets` → `describe_toolset` → `call_tool`), 실제 도구는 `call_tool`이 이름으로 간접 호출한다. toolset 52개를 다 펼치면 도구가 수백 개라 접어둔 것으로 보인다.
 - "어디서 처음 깨지는지" 찾는 실험 사다리를 만들어 자연어로만 시켰다.
 
-```text
-0  원점에 큐브 하나
-1  큐브 10×10 격자, 간격 200
-2  기둥 24개를 반지름 1000 원형으로, 전부 중심을 바라보게
-3  큐브 100개를 나선으로, 위로 갈수록 작아지게
-4  격자 중 짝수 번째만 빨간 머티리얼
-5  전부 Z로 300 올려 → 절반 지워
-6  11×11로 같은 규칙 + 중심에서 멀어질수록 Z에 50씩
-```
+`0` 원점에 큐브 하나
+
+![](/assets/images/for-posts/mcp-lab-1-0.webp)
+
+`1` 큐브 10×10 격자, 간격 200
+
+![](/assets/images/for-posts/mcp-lab-1-1.webp)
+
+`2` 기둥 24개를 반지름 1000 원형으로, 전부 중심을 바라보게
+
+![](/assets/images/for-posts/mcp-lab-1-2.webp)
+
+`3` 큐브 100개를 나선으로, 위로 갈수록 작아지게
+
+![](/assets/images/for-posts/mcp-lab-1-3.webp)
+
+`4` 격자 중 짝수 번째만 빨간 머티리얼
+
+![](/assets/images/for-posts/mcp-lab-1-4.webp)
+
+`5` 전부 Z로 300 올려 → 절반 지워
+
+![](/assets/images/for-posts/mcp-lab-1-5.webp)
+
+`6` 11×11로 4와 같은 규칙 + 중심에서 멀어질수록 Z에 +50씩
+
+![](/assets/images/for-posts/mcp-lab-1-6.webp)
 
 - 0~6단계를 전부 통과했다. 개수가 1개에서 100개로 늘자 전략이 갈렸다. 단건은 배치 전용 도구(`add_to_scene_from_asset`), 대량은 스크립트 실행(`ProgrammaticToolset.execute_tool_script`)이다. 100번 왕복 대신 스크립트 한 번으로 돈다.
 - 매 단계마다 배치 스크립트의 반환값을 믿지 않고 씬을 되읽어 검증했다. 반지름·각도 간격·총 회전수·링별 Z·색 패턴을 다시 계산해 기대값과 대조하는 방식이다.
