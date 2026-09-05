@@ -14,7 +14,6 @@ description: 스토어를 정적 사이트로 세우며 얻은 판단 — 서버
 tags:
   - Astro
   - CSS
-  - 설계
 ---
 KeyBloom을 파는 스토어를 세우며 정한 것들.
 

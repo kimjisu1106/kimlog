@@ -8,9 +8,8 @@ categories:
 project: today-i-learn
 project_name: Today I Learn
 tags:
-  - URL
+  - Astro
   - SEO
-  - 설계
 ---
 ## URL을 파일명에 묶으면 정리할 때마다 발목 잡힌다
 
