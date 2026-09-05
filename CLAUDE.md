@@ -211,6 +211,7 @@ description: "설명" # SEO meta description. 새 포스트는 1문장 필수 (�
 
 > `layout: post` frontmatter는 이제 선택. Astro는 `[...slug].astro`가 모든 게시글에 Post 레이아웃을 적용하고 이 필드를 읽지 않는다(있어도 무해).
 > draft 파일은 파일명에 `draft-` 접두사를 붙이면 `.gitignore` + 로더 pattern(`!**/draft-*.md`)에 의해 이중으로 제외됨.
+> **이미 게시된 글을 수정·재작성할 때는 파일에 `draft-`를 다시 붙여 draft로 되돌린 뒤 검수·재게시한다** (라이브 게시본을 직접 고쳐 두지 말 것 — 각 세션이 자기 게시본을 고쳐도 이 흐름을 탄다). `permalink`는 그대로 둬야 URL이 보존된다.
 
 ## Post Writing Rules
 
