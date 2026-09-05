@@ -346,6 +346,7 @@ Pagefind 속성: `data-pagefind-body`(article)·`data-pagefind-meta="date"`(time
 
 ### 5. 게시 (별도 요청 시)
 
+- **frontmatter에 `permalink` 없으면 랜덤 8자(`a-z0-9`) 부여** — 게시본은 전부 permalink를 가져 URL이 파일명과 분리된 채 고정돼야 한다(현재 616편 전부 보유). 이미 있으면 그대로 둔다. 새 글은 옛 URL이 없으니 `_redirects`는 안 건드린다.
 - `mv -n`으로 `draft-` 제거 (no-clobber, 덮어쓰기 방지).
 - `git add` → Bash 히어독으로 커밋(UTF-8) → push.
 
