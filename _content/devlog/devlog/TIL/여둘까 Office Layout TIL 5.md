@@ -31,7 +31,7 @@ tags:
 <input type="file" id="bgUpload" accept="image/*,application/pdf,.pdf" hidden>
 ```
 
-소리꽃 KeyBloom TIL 17에서 정리한 "게이팅은 UI와 실행 경로 두 겹으로"와 정확히 같은 구조다. `option`에 `disabled`를 걸어도 개발자도구로 지우면 뚫리니 실행 함수 안에 가드가 또 있어야 했던 것처럼, `accept`도 표시일 뿐이고 실제 판정은 핸들러 안에서 해야 한다.
+소리꽃 KeyBloom TIL 10에서 정리한 "게이팅은 UI와 실행 경로 두 겹으로"와 정확히 같은 구조다. `option`에 `disabled`를 걸어도 개발자도구로 지우면 뚫리니 실행 함수 안에 가드가 또 있어야 했던 것처럼, `accept`도 표시일 뿐이고 실제 판정은 핸들러 안에서 해야 한다.
 
 ### 가드는 핸들러 맨 앞에
 
