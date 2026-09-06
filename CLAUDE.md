@@ -39,6 +39,16 @@ Obsidian으로 마크다운 문서를 작성 → 이 vault 폴더가 git 추적�
 - `predev`/`prebuild`가 `scripts/copy-static.mjs`를 먼저 돌려 루트 `assets/{images,fonts}`와 정적앱 3종을 `public/`으로 복사한다(`public/assets`·`public/apps`는 gitignore — 원본은 루트).
 - Cloudflare Pages 빌드 커맨드: `npm run build`, 출력 디렉토리 `dist`. Pagefind가 빌드 후 `dist/pagefind/` 검색 인덱스를 생성(미적용 시 검색 페이지는 `/search.json` fallback으로 동작).
 
+### 커밋 범위 — 내 작업만 (2026-09-06)
+
+여러 세션이 같은 저장소를 공유한다. 각 세션이 자기 글을 재작성하려고 게시본에 `draft-`를 다시 붙이면, 그 이름 변경이 **스테이징된 채로 남아 있다.** 이 상태에서 다른 작업을 커밋하면 그 삭제가 함께 올라가 남의 게시글이 라이브에서 내려간다(실제로 하루에 두 번 났고, 한 번은 세션이 "커밋하지 말라"고 명시한 파일 14편이었다).
+
+- 커밋 전에 `git status --short`로 **내가 만들지 않은 변경이 스테이징돼 있는지 먼저 본다.**
+- `git add -A`·`git commit -a` 금지. **폴더 단위 pathspec도 금지** — `git commit -- _content/devlog/devlog/TIL` 처럼 폴더를 주면 그 폴더의 남의 변경이 전부 딸려 간다.
+- 커밋할 **파일 경로를 하나씩 나열**한다. 파일이 많으면 `git add <파일들>` 후 그 경로만 다시 pathspec으로 준다.
+- 남의 스테이징을 발견하면 건드리지 말고 그대로 둔다(`git reset`도 남의 의도를 지우므로 하지 않는다). 필요하면 INBOX로 알린다.
+- 사고가 났으면 `git checkout <직전커밋> -- <경로>`로 즉시 복구하고 INBOX에 알린다.
+
 ### 인코딩 — 한글 깨짐 방지 (Windows)
 
 이 환경은 Windows PowerShell 5.1이라 기본 인코딩이 CP949다. PowerShell로 한글이 든 인자를 native 명령에 넘기거나(`git commit -m "한글메시지"`) `Out-File`/`Set-Content`로 한글 파일을 쓰면 깨진다. 그래서 아래를 따른다.
