@@ -2,6 +2,7 @@
 layout: post
 title: Android 파일 공유 MIME 타입
 date: 2026-05-21
+description: 공유 시트에 파일 관리자가 안 뜨던 이유 — MIME 타입이 공유 대상 앱을 결정한다.
 permalink: "fa2txsgx"
 categories:
   - today-i-learn

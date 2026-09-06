@@ -2,6 +2,7 @@
 layout: post
 title: insertOnConflictUpdate vs DoUpdate(target)
 date: 2026-05-06
+description: PK 충돌만 잡는 것과 지정한 unique key 충돌까지 잡는 것의 차이 — 잘못 고르면 제약 위반이 난다.
 permalink: "kzw7m1le"
 categories:
   - today-i-learn

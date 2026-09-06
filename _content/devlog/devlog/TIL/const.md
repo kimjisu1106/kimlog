@@ -2,6 +2,7 @@
 layout: post
 title: const
 date: 2026-04-04
+description: 선언할 때 정한 값이 바뀌지 않는다는 것을 코드에 명시하는 const.
 permalink: "pqpck30m"
 categories:
   - today-i-learn

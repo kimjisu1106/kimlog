@@ -2,6 +2,7 @@
 layout: post
 title: subprocess.Popen으로 Windows 탐색기에 명령어를 전달
 date: 2026-04-10
+description: Python에서 다른 프로그램을 실행해 탐색기에서 특정 파일을 선택된 상태로 여는 법.
 permalink: "pffp5oq5"
 categories:
   - today-i-learn

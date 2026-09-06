@@ -2,6 +2,7 @@
 layout: post
 title: "Jekyll 코드블록 안의 Liquid 태그"
 date: 2026-05-04
+description: 코드블록 안에 Liquid 문법을 그대로 쓰면 Jekyll이 실행해 글이 깨진다. raw 태그로 막는 법.
 permalink: "706rbmr6"
 categories:
   - today-i-learn
@@ -32,7 +33,7 @@ Liquid 코드를 예시로 보여줄 때는 `{{ "{% raw " }}%}`와 `{{ "{% endra
 ```
 {% endraw %}
 
-`{{ "{% raw " }}%}`는 코드블록 **밖**에 있어야 한다. 코드블록 안에 넣어도 효과 없음.
+`{{ "{% raw " }}%}`는 코드블록 밖에 있어야 한다. 코드블록 안에 넣어도 효과 없음.
 
 ---
 

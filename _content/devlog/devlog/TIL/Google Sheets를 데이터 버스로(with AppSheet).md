@@ -2,6 +2,7 @@
 layout: post
 title: Google Sheets를 데이터 버스로(with AppSheet)
 date: 2026-05-18
+description: 서버에 외부 접근이 막힌 상태에서 현장 입력을 받기 위해 Google Sheets를 중간 통로로 쓴 구조.
 permalink: "j9ykhdi4"
 categories:
   - today-i-learn
@@ -24,7 +25,7 @@ tags:
 
 ### 흐름
 
-```
+```text
 PC                  Google Sheets              모바일
 ------              ─────────────             --------
 sheet_push →    전체 데이터 rows     ←→   AppSheet 현장 수정

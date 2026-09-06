@@ -2,6 +2,7 @@
 layout: post
 title: Google Sheets Sync 최적화
 date: 2026-04-13
+description: 1,000행 동기화에 쿼리 7,000번이 나가던 것을 트랜잭션과 조회 방식으로 줄인 과정.
 permalink: "ml0oew5z"
 categories:
   - today-i-learn
@@ -42,7 +43,7 @@ with transaction.atomic():
         Model.objects.update_or_create(...)
 ```
 
-```
+```text
 1,000행 × 5ms(fsync) = 5,000ms
 → 1,000번 SQL + 1번 flush = 수백ms
 ```
@@ -65,7 +66,7 @@ for row in rows:
     vendor = vendor_cache.get(vendor_id)
 ```
 
-```
+```text
 FK가 6개인 경우:
 1,000행 × 6 = 6,000번 SELECT → 6번 SELECT
 ```

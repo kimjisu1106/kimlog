@@ -2,6 +2,7 @@
 layout: post
 title: Call by Value, Call by Reference, Call by Pointer 비교
 date: 2026-04-04
+description: 함수에 변수를 넘길 때 값·참조·주소 중 무엇을 넘기는가, 셋의 차이와 Reference와 Pointer의 구분.
 permalink: "6oofc9xb"
 categories:
   - today-i-learn
@@ -17,7 +18,7 @@ tags:
 
 ---
 
-**CallByValue — 값을 복사해서 넘김(Copy)**
+### CallByValue — 값을 복사해서 넘김(Copy)
 
 ```cpp
 SwapByValue(num1, num2);
@@ -25,7 +26,7 @@ SwapByValue(num1, num2);
 // 함수 안에서 a, b를 바꿔도 원본 num1, num2는 그대로
 ```
 
-```
+```text
 main의 num1, num2  →  복사본 a, b
 함수 안에서 a↔b 교환  →  복사본끼리만 교환
 원본은 변화 없음 ❌
@@ -33,7 +34,7 @@ main의 num1, num2  →  복사본 a, b
 
 ---
 
-**CallByReference — 원본을 직접 넘김(Reference)**
+### CallByReference — 원본을 직접 넘김(Reference)
 
 ```cpp
 SwapByRefrence(num1, num2);
@@ -41,7 +42,7 @@ SwapByRefrence(num1, num2);
 // 함수 안의 a, b가 곧 num1, num2
 ```
 
-```
+```text
 a = num1 // num1의 별명. *없이 그냥 쓰면 됨
 a↔b 교환 = num1↔num2 교환
 원본 바뀜 ✅
@@ -49,7 +50,7 @@ a↔b 교환 = num1↔num2 교환
 
 ---
 
-**CallByPointer — 주소를 넘김(Pointer)**
+### CallByPointer — 주소를 넘김(Pointer)
 
 ```cpp
 SwapByPointer(&num1, &num2);
@@ -57,7 +58,7 @@ SwapByPointer(&num1, &num2);
 // 함수 안에서 그 방에 직접 들어가서 값을 바꿈
 ```
 
-```
+```cpp
 a = &num1 // num1의 방 번호
 *a = 그 방 안에 있는 값. *이 있어야 해당 value에 접근 가능
 *a ↔ *b 교환 = num1↔num2 교환
@@ -66,7 +67,7 @@ a = &num1 // num1의 방 번호
 
 ---
 
-**Reference와 Pointer 차이점**
+### Reference와 Pointer 차이점
 
 1. null 가능 여부
 

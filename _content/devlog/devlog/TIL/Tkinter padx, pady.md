@@ -2,6 +2,7 @@
 layout: post
 title: Tkinter padx, pady
 date: 2026-03-28
+description: Tkinter 위젯 사이 여백을 조절하는 padx·pady 정리.
 permalink: "4788mcb8"
 categories:
   - today-i-learn

@@ -2,6 +2,7 @@
 layout: post
 title: SESSION_EXPIRE_AT_BROWSER_CLOSE=True
 date: 2026-04-09
+description: 브라우저를 닫으면 로그인이 풀리게 하는 Django 설정 키.
 permalink: "h70l4u8b"
 categories:
   - today-i-learn

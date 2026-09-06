@@ -2,6 +2,7 @@
 layout: post
 title: 안드로이드 AudioTrack 연속 재생, 실측 피커 정렬, 카메라 토치 플래시
 date: 2026-07-09
+description: 루프 경계에서 첫 박이 깎이던 것을 연속 재생으로 없애고, 피커 정렬은 계산 대신 실측으로 맞춘 기록.
 permalink: "7lzf80em"
 categories:
   - today-i-learn

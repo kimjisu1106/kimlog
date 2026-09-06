@@ -2,6 +2,7 @@
 layout: post
 title: 순차 ID 생성(`select_for_update()` + `max()` 조합)
 date: 2026-05-19
+description: count 기반 순차 ID가 동시 요청과 삭제에서 중복되는 이유와 DB 레벨 직렬화로 푼 방법.
 permalink: "q4kez1l0"
 categories:
   - today-i-learn

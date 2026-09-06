@@ -69,7 +69,7 @@ description: "중복 제목·robots.txt·og:image 같은 SEO 기본기 정리."
 
 jekyll-sitemap이 sitemap.xml을 만들어줘도, 검색엔진이 그 존재를 모르면 소용이 줄어든다. robots.txt에 위치를 명시하면 크롤러가 사이트맵을 바로 찾는다. 파일 하나, 세 줄이면 끝.
 
-```
+```text
 User-agent: *
 Allow: /
 

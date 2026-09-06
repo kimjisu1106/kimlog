@@ -2,6 +2,7 @@
 layout: post
 title: Django 모델 텍스트 필드 자동 수집 패턴
 date: 2026-05-19
+description: 검색 대상 필드를 모델마다 하드코딩하면 새 필드를 빠뜨린다. 텍스트 필드를 자동 수집해 고급검색을 만든 패턴.
 permalink: "l88jskrr"
 categories:
   - today-i-learn

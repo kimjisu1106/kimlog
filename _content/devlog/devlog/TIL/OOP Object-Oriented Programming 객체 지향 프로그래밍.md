@@ -2,6 +2,7 @@
 layout: post
 title: OOP Object-Oriented Programming 객체 지향 프로그래밍
 date: 2026-04-19
+description: 클래스로 객체를 찍어내는 방식과 Python·C++의 접근 제어 차이.
 permalink: "0t41evx1"
 categories:
   - today-i-learn
@@ -31,7 +32,7 @@ Format 같은 개념으로 객체는 Class에 정의된 상태(state)와 동작(
 
 - Python
 	- 개발자들이 관례적으로 언더바를 이용해 구분하긴 하지만 C++처럼 컴파일러에서 관리하지 않는다.
-```
+```python
 a_field    # public (그냥 쓰면 됨)
 _a_field   # protected 관례 (언더바 하나)
 __a_field  # private 관례 (언더바 둘)

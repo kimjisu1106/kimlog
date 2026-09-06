@@ -2,6 +2,7 @@
 layout: post
 title: UTF-8 BOM과 PowerShell 파일 쓰기
 date: 2026-07-03
+description: 눈에 안 보이는 3바이트 때문에 Jekyll이 frontmatter를 못 읽는다. BOM이 무엇이고 PowerShell에서 어떻게 피하는가.
 permalink: "073zbpmk"
 categories:
   - today-i-learn
@@ -22,7 +23,7 @@ BOM(Byte Order Mark)은 파일 맨 앞에 붙는 3바이트(`EF BB BF`)다. 원�
 
 눈에 보이지 않아서 에디터에서는 멀쩡해 보여도 파일 내부는 이렇게 시작한다.
 
-```
+```text
 EF BB BF 2D 2D 2D ...
          --- (frontmatter 시작)
 ```
@@ -39,7 +40,7 @@ Jekyll은 파일이 `---`으로 시작해야 frontmatter로 인식한다. BOM이
 
 ### .NET의 UTF8 인코딩은 기본으로 BOM을 붙인다
 
-PowerShell에서 파일을 쓸 때 흔히 쓰는 방식:
+PowerShell에서 파일을 쓸 때 흔히 이렇게 쓴다.
 
 ```powershell
 [System.IO.File]::WriteAllText($path, $content, [System.Text.Encoding]::UTF8)

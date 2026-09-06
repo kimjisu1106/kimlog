@@ -2,6 +2,7 @@
 layout: post
 title: 역참조 검색과 distinct()
 date: 2026-05-19
+description: M2M이나 역방향 FK를 검색 조건에 넣으면 JOIN 때문에 같은 결과가 여러 번 뜬다.
 permalink: "2d2mim3d"
 categories:
   - today-i-learn

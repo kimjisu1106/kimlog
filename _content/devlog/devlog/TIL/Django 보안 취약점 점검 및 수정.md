@@ -2,6 +2,7 @@
 layout: post
 title: Django 보안 취약점 점검 및 수정
 date: 2026-04-17
+description: 개발 중인 Django 서비스를 항목별로 점검하고 고친 기록 — 로그인 메시지부터 설정까지.
 permalink: "9u9ix041"
 categories:
   - today-i-learn

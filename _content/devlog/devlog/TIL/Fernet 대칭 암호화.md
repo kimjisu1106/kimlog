@@ -2,6 +2,7 @@
 layout: post
 title: Fernet 대칭 암호화
 date: 2026-04-21
+description: 같은 키로 잠그고 여는 대칭 암호화와 Python Fernet이 보장하는 것 — 암호화·무결성·타임스탬프.
 permalink: "uogeyuq0"
 categories:
   - today-i-learn
@@ -39,9 +40,9 @@ token = f.encrypt(b"abc123")  # → "gAAAAABh..." 같은 암호문
 original = f.decrypt(token)   # → "abc123"
 ```
 
-**Fernet이 보장하는 것:**
+### Fernet이 보장하는 것
 
-```
+```text
 1. 암호화  → 키 없으면 원본 못 봄
 2. 무결성  → 암호문 조작되면 복호화 실패
 3. 타임스탬프 → 언제 암호화됐는지 기록

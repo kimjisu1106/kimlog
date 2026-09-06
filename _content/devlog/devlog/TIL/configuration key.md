@@ -2,6 +2,7 @@
 layout: post
 title: configuration key
 date: 2026-04-09
+description: 프레임워크마다 미리 약속해 둔 설정 키가 무엇이고 어디에 적는가.
 permalink: "b7flfei1"
 categories:
   - today-i-learn

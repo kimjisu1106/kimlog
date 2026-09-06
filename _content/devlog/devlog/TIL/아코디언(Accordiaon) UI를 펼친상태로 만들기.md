@@ -2,6 +2,7 @@
 layout: post
 title: 아코디언(Accordiaon) UI를 펼친상태로 만들기
 date: 2026-05-07
+description: HTML 기본 details·summary와 달리 클래스로 제어하는 커스텀 아코디언을 처음부터 펼쳐 두는 법.
 permalink: "1v92n0j4"
 categories:
   - today-i-learn

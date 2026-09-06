@@ -2,6 +2,7 @@
 layout: post
 title: xlsx 다운로드와 로딩 오버레이 충돌
 date: 2026-05-20
+description: 파일 다운로드는 페이지 이동이 아니라서 로딩 오버레이가 안 사라진다. 전역 핸들러에서 건너뛰게 한 처리.
 permalink: "0ebo3hk2"
 categories:
   - today-i-learn

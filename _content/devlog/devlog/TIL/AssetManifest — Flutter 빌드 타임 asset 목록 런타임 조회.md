@@ -2,6 +2,7 @@
 layout: post
 title: AssetManifest — Flutter 빌드 타임 asset 목록 런타임 조회
 date: 2026-05-25
+description: 퍼즐 목록을 코드에 박아 두면 그림 추가마다 코드를 고쳐야 한다. 빌드 타임 asset 목록을 런타임에 읽어 없앤 방법.
 permalink: "5yzapot5"
 categories:
   - today-i-learn

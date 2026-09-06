@@ -2,6 +2,7 @@
 layout: post
 title: localStorage로 섹션 토글 상태 유지
 date: 2026-05-19
+description: 역참조 섹션이 모델마다 늘어나 하드코딩되던 것을 재사용 카드로 바꾸고, 펼침 상태를 브라우저에 남긴 방법.
 permalink: "wozdo0f2"
 categories:
   - today-i-learn

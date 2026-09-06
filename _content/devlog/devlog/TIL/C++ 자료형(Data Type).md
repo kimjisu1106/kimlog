@@ -2,6 +2,7 @@
 layout: post
 title: C++ 자료형(Data Type)
 date: 2026-03-14
+description: 변수에 무엇을 담을지 미리 정하는 C++ 자료형 정리 — 정수형·실수형·문자형과 크기.
 permalink: "geckwm01"
 categories:
   - today-i-learn
