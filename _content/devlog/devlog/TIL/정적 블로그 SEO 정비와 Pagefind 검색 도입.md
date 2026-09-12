@@ -18,7 +18,7 @@ tags:
   - CSS
   - SEO
 ---
-1블로그 개선 라운드에서 나온 것들. 검색엔진이 내 블로그를 어떻게 읽는지(제목·description·robots·og:image), Liquid로 파일 존재를 검사하는 꼼수, 정적 사이트 검색 Pagefind의 원리, 그리고 96개 파일을 한 번에 고치는 스크립트까지.
+블로그 개선 라운드에서 나온 것들. 검색엔진이 내 블로그를 어떻게 읽는지(제목·description·robots·og:image), Liquid로 파일 존재를 검사하는 꼼수, 정적 사이트 검색 Pagefind의 원리, 그리고 96개 파일을 한 번에 고치는 스크립트까지.
 
 ---
 
