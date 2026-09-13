@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Unreal Engine MCP TIL 3
+title: 궁 미로 PalaceMaze TIL 1
 date: 2026-08-29
 permalink: "gfjvxy61"
 description: 궁 미로를 설계하며 알게 된 것 — 정답이 하나뿐인 미로는 재미가 없고, 막는 것보다 어렵게 두는 편이 낫다.

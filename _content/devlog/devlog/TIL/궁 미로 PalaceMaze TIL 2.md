@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Unreal Engine MCP TIL 4
+title: 궁 미로 PalaceMaze TIL 2
 date: 2026-09-01
 permalink: "mqa4uq57"
 description: MCP로 블루프린트를 만들며 알게 된 것 — 도구는 기능을 보여주지 관용어를 보여주지 않고, 자동으로 만들수록 치울 노드가 쌓인다.

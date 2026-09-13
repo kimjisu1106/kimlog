@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Unreal Engine MCP TIL 5
+title: 궁 미로 PalaceMaze TIL 3
 date: 2026-09-01
 permalink: "30sz6yhh"
 description: AI가 읽기 편하라고 C++을 골랐는데 빗나갔고, 정작 갈린 건 내가 결과물을 읽을 수 있느냐였다.
