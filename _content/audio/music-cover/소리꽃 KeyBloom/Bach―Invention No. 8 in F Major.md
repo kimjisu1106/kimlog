@@ -16,4 +16,5 @@ tags:
   - Cover
   - Piano
   - KeyBloom
+  - VegasPro
 ---
