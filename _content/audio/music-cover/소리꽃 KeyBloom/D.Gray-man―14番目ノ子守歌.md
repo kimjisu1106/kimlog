@@ -18,4 +18,5 @@ tags:
   - Cubase
   - LogicPro
   - KeyBloom
+  - VegasPro
 ---
