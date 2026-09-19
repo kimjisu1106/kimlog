@@ -16,7 +16,7 @@
 12. **Auto Commit** — 코드 CRUD(생성·수정·삭제)가 발생하면 작업 완료 후 자동으로 git commit & push. 보안 검사 통과 후 수행.
 13. **TIL 작성 전 기술 포인트 확인** — TIL을 작성하기 전에 해당 작업에서 나온 포인트 목록을 빠짐없이 사용자에게 제시하고, 어떤 항목을 기록할지 직접 선택하게 할 것. "중요한 것만" 추리지 말고 사소한 것도 포함해서 전부 나열한다. Claude Code가 코드를 작성하기 때문에 사용자가 어떤 기술이 쓰였는지 모를 수 있음 — 선택 과정 자체가 학습임. **단, 골라진 항목을 TIL로 쓸 때는 구현 메커니즘이 아니라 디렉터의 takeaway(원리·트레이드오프·판단)로 풀어 쓴다** (TIL 핵심 원칙 참고).
 14. **Description 필수** — 새 포스트(draft 포함)를 작성할 때 frontmatter에 `description`을 1문장으로 반드시 넣을 것. 본문 내용을 요약하며, 검색 결과 스니펫·SNS 공유 카드에 그대로 노출됨. 비우면 사이트 기본 설명(`KIMLOG―Need, Learn and Build`)으로 대체된다 — Astro는 Jekyll과 달리 첫 문단 자동 추출을 하지 않으므로 반드시 직접 작성.
-15. **INBOX 확인** — 세션 시작 시 `LogStoneShop/INBOX.md`에서 블로그(kimlog) 관련 open 항목·공지를 확인한다. LogStoneShop과의 정책·URL 조율이 여기서 오간다. 그 파일만 수정하고(코드·조항 직접 수정 금지 — 요청으로 적기), pull 직후 편집·즉시 push로 충돌을 피한다. open 항목은 낸 세션이 자기 소유 질문이면 자기가 close(project→shop 요청은 shop이 close). **세션 간 라이브 메시지 (2026-09-19)** — 세션을 열면 `/rename Kimlog(Blog)`. INBOX에 다른 세션 앞 항목을 적고 push했으면, 그 세션이 켜져 있을 때 "INBOX에 네 앞 항목 있으니 확인해" 알림을 한 번 보낸다. 메시지는 그 알림만 쓰고, 요청·회신·결정은 INBOX에 적는다.
+15. **INBOX 확인** — 세션 시작 시 `LogStoneShop/INBOX.md`에서 블로그(kimlog) 관련 open 항목·공지를 확인한다. LogStoneShop과의 정책·URL 조율이 여기서 오간다. 그 파일만 수정하고(코드·조항 직접 수정 금지 — 요청으로 적기), pull 직후 편집·즉시 push로 충돌을 피한다. open 항목은 낸 세션이 자기 소유 질문이면 자기가 close(project→shop 요청은 shop이 close). **세션 간 라이브 메시지 (2026-09-19)** — 세션을 열면 `/rename kimlog(blog)`. INBOX에 다른 세션 앞 항목을 적고 push했으면, 그 세션이 켜져 있을 때 "INBOX에 네 앞 항목 있으니 확인해" 알림을 한 번 보낸다. 메시지는 그 알림만 쓰고, 요청·회신·결정은 INBOX에 적는다.
 16. **다음에 할 일 알림장** — devlog를 게시할 때, 각 프로젝트 로그의 `다음에 할 일`을 정리해 `LogStoneShop/INBOX.md`에 알림장으로 공지한다. 각 프로젝트 세션이 "아직 안 한 항목은 자기 백로그·다음에 할 일에 기재, 이미 한 항목은 이행 여부 회신"하도록 프로젝트별로 묶어 적는다. INBOX 규칙(그 파일만 수정·pull 직후 편집·즉시 push)을 따른다.
 
 ## Project Overview
