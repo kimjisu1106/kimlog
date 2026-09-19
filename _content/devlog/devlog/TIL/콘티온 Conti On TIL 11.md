@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 콘티온 Conti On TIL 11
+title: 콘티온 ContiOn TIL 11
 date: 2026-08-23
 permalink: "eqydkqjt"
 categories:
