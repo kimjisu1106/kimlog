@@ -209,7 +209,7 @@ categories:
   - ue5 # 섹션 카테고리 (ue5 | apps | today-i-learn)
   - summary # (선택) 해당 페이지 Projects 섹션에 노출
 status: finished # (선택) finished 이면 완료 뱃지 표시
-project: "프로젝트명" # 시리즈·추천글 그룹핑 기준
+project: "프로젝트명" # 시리즈·추천글 그룹핑 기준. 소문자 kebab-case, 정본은 LogStoneShop/INBOX.md 상단 「이름 정본」 표 (2026-09-19)
 project_name: "표시할 이름" # (선택) project와 다른 표시명
 video_id: "YouTube ID" # (선택) summary + video_id 있으면 홈 Videos에 노출
 app_url: "https://..." # (선택) summary + app_url 있으면 홈 Apps 섹션 노출. 내부 경로(/apps/pdf-editor/index.html)도 가능

@@ -6,7 +6,7 @@ permalink: "45h3l6zn"
 categories:
   - log
   - apps
-project: habit-tracker
+project: pawbit
 project_name: 습관만들기 Pawbit
 video_id:
 app_url:

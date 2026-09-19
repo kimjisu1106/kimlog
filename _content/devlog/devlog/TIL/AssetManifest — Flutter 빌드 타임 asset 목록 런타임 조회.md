@@ -7,7 +7,7 @@ permalink: "5yzapot5"
 categories:
   - today-i-learn
 project: today-i-learn
-project_name:
+project_name: Today I Learn
 video_id:
 app_url:
 status:

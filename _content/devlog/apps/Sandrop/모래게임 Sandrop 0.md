@@ -7,7 +7,7 @@ categories:
   - apps
   - summary
 project: sandrop
-project_name: Sandrop
+project_name: 모래게임 Sandrop
 video_id:
 app_url: https://play.google.com/store/apps/details?id=com.kimlog0415.sandrop
 status: finished

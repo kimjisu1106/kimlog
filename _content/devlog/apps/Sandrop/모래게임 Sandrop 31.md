@@ -7,7 +7,7 @@ categories:
   - apps
   - log
 project: sandrop
-project_name: Sandrop
+project_name: 모래게임 Sandrop
 video_id:
 app_url:
 status:
