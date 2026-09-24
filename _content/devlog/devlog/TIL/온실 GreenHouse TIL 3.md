@@ -2,6 +2,7 @@
 layout: post
 title: 온실 GreenHouse TIL 3
 date: 2026-09-24
+permalink: "snnxrorn"
 categories:
   - today-i-learn
 project: today-i-learn
