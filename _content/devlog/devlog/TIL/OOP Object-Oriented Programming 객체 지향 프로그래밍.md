@@ -37,5 +37,5 @@ a_field    # public (그냥 쓰면 됨)
 _a_field   # protected 관례 (언더바 하나)
 __a_field  # private 관례 (언더바 둘)
 ```
-- C++
+- Cpp
 	- Private(Class 자신만 사용 가능), Public(누구나 사용 가능), Protected(자신과 자식만 사용 가능)으로 구분하며 엄격하게 컴파일러에서 관리한다.
