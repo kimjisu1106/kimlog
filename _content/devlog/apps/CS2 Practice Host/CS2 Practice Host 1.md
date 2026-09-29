@@ -1,5 +1,5 @@
 ---
-title: "CS2 Practice Host 1 - 스크립트를 앱으로, 친구를 링크로"
+title: "CS2 Practice Host 1"
 date: 2026-09-28
 categories:
   - log
