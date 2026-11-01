@@ -9,7 +9,7 @@ categories:
 project: office-layout
 project_name: 여둘까 Office Layout
 video_id:
-app_url: https://office-layout.pages.dev
+app_url: https://office-layout.logstone.net
 status: finished
 description: 앱마다 따로 놀던 개인정보처리방침을 LOGSTONE 통합 방침으로 갈아끼우고, 통합 방침 쪽에 도면이 서버로 올라가지 않는다는 조항을 넣은 날.
 tags:

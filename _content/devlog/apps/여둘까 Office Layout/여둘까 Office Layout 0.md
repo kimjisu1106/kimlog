@@ -11,7 +11,7 @@ categories:
 project: office-layout
 project_name: 여둘까 Office Layout
 video_id:
-app_url: https://office-layout.pages.dev
+app_url: https://office-layout.logstone.net
 status: finished
 tags:
   - JavaScript

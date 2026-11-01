@@ -9,7 +9,7 @@ categories:
 project: office-layout
 project_name: 여둘까 Office Layout
 video_id:
-app_url: https://office-layout.pages.dev
+app_url: https://office-layout.logstone.net
 status: finished
 description: 한 파일에 몰려 있던 2491줄을 기능별 모듈 18개로 나누고, 그 전에 화면을 실제로 눌러 보는 자동 점검을 저장소에 넣은 날.
 tags:

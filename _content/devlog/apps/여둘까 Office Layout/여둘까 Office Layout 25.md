@@ -9,7 +9,7 @@ categories:
 project: office-layout
 project_name: 여둘까 Office Layout
 video_id:
-app_url: https://office-layout.pages.dev
+app_url: https://office-layout.logstone.net
 status: finished
 description: 태블릿에서 실제로 만져 보고 나온 세 가지를 고친 날 — 한 번 누른 것이 두 번 처리되던 것, 손가락으로는 안 되던 가구 배치, 서랍에 들어가 뜨지 않던 광고.
 tags:

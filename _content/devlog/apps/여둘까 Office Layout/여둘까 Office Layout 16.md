@@ -9,7 +9,7 @@ categories:
 project: office-layout
 project_name: 여둘까 Office Layout
 video_id:
-app_url: https://office-layout.pages.dev
+app_url: https://office-layout.logstone.net
 status: finished
 description: 빈 곳을 끌어 여럿을 한 번에 고르는 범위 선택을 넣고, 배치도 여러 개를 한 PDF로 묶는 변환을 만든 날.
 tags:

@@ -9,7 +9,7 @@ categories:
 project: office-layout
 project_name: 여둘까 Office Layout
 video_id:
-app_url: https://office-layout.pages.dev
+app_url: https://office-layout.logstone.net
 status: finished
 description: 한 장이 한 쪽이라던 사용설명서가 실제로 인쇄하니 48쪽으로 넘치던 것을 고치고, 오래 이월돼 온 확인 두 건을 끝낸 날.
 tags:

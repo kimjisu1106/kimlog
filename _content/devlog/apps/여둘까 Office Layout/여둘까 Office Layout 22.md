@@ -9,7 +9,7 @@ categories:
 project: office-layout
 project_name: 여둘까 Office Layout
 video_id:
-app_url: https://office-layout.pages.dev
+app_url: https://office-layout.logstone.net
 status: finished
 description: 같은 원인으로 터졌던 세 경로 중 마지막 하나를 회귀 검사에 넣고, 그 검사가 정말 잡는지 일부러 깨뜨려 확인한 날.
 tags:

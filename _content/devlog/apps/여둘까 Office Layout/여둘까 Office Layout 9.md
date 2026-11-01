@@ -9,7 +9,7 @@ categories:
 project: office-layout
 project_name: 여둘까 Office Layout
 video_id:
-app_url: https://office-layout.pages.dev
+app_url: https://office-layout.logstone.net
 status: finished
 description: 캐드 파일(.dwg)을 올리면 아무 반응 없이 빈 화면이 되던 걸, 무료 뷰어로 PDF 변환 후 올리라는 안내로 바꾼 날.
 tags:

@@ -9,7 +9,7 @@ categories:
 project: office-layout
 project_name: 여둘까 Office Layout
 video_id:
-app_url: https://office-layout.pages.dev
+app_url: https://office-layout.logstone.net
 status: finished
 description: PDF 도면 해상도를 한 단계 더 올려 이미지로 넣은 것과 선 굵기를 맞추고, 내보내는 파일 이름을 프로젝트 이름으로 바꾼 날.
 tags:

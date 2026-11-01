@@ -9,7 +9,7 @@ categories:
 project: office-layout
 project_name: 여둘까 Office Layout
 video_id:
-app_url: https://office-layout.pages.dev
+app_url: https://office-layout.logstone.net
 status: finished
 description: 저장이 안 된다고 느껴지던 이유가 결과를 안 보여준 탓임을 밝히고, 브라우저를 자동으로 띄워 전 기능을 점검한 날.
 tags:

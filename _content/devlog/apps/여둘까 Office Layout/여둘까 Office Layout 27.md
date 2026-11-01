@@ -9,7 +9,7 @@ categories:
 project: office-layout
 project_name: 여둘까 Office Layout
 video_id:
-app_url: https://office-layout.pages.dev
+app_url: https://office-layout.logstone.net
 status: finished
 description: 태블릿을 직접 들고 써 보며 나온 것들을 하나씩 고친 날 — 서랍 손잡이 자리, 방향에 따라 바뀌던 여닫기, 손가락으로 점을 정확히 찍는 법.
 tags:

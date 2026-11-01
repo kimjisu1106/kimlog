@@ -9,7 +9,7 @@ categories:
 project: office-layout
 project_name: 여둘까 Office Layout
 video_id:
-app_url: https://office-layout.pages.dev
+app_url: https://office-layout.logstone.net
 status: finished
 description: PDF가 90MB로 나오던 것과 여러 장을 묶으면 아예 안 만들어지던 것을 한 원인으로 잡고, 측정 도구를 메뉴로 되돌리고 방 안쪽을 채울 수 있게 한 날.
 tags:

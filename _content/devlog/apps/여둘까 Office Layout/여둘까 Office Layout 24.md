@@ -9,7 +9,7 @@ categories:
 project: office-layout
 project_name: 여둘까 Office Layout
 video_id:
-app_url: https://office-layout.pages.dev
+app_url: https://office-layout.logstone.net
 status: finished
 description: 오른쪽 속성 패널을 접으면 왼쪽 팔레트까지 좁아지던 세 달 묵은 버그를 잡은 날.
 tags:

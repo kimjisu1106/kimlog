@@ -9,7 +9,7 @@ categories:
 project: office-layout
 project_name: 여둘까 Office Layout
 video_id:
-app_url: https://office-layout.pages.dev
+app_url: https://office-layout.logstone.net
 status: finished
 description: 「도형에 크기 표시」가 가구에서만 그려지고 네모·원·다각형·방에서는 체크만 켜지던 것을 고친 날.
 tags:

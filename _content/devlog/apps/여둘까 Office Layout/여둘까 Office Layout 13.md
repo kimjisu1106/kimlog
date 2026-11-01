@@ -9,7 +9,7 @@ categories:
 project: office-layout
 project_name: 여둘까 Office Layout
 video_id:
-app_url: https://office-layout.pages.dev
+app_url: https://office-layout.logstone.net
 status: finished
 description: 벽을 골라 세우는 방 도형을 넣고, 회전을 반복하면 배치가 조금씩 어긋나던 오래된 문제를 잡은 날.
 tags:

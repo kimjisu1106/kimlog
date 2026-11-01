@@ -9,7 +9,7 @@ categories:
 project: office-layout
 project_name: 여둘까 Office Layout
 video_id:
-app_url: https://office-layout.pages.dev
+app_url: https://office-layout.logstone.net
 status: finished
 description: PDF로 넣은 도면만 선이 굵고 뭉개지던 이유를 찾아 해상도를 올리고, 없던 사이트 아이콘을 붙인 날.
 tags:

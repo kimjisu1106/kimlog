@@ -9,7 +9,7 @@ categories:
 project: office-layout
 project_name: 여둘까 Office Layout
 video_id:
-app_url: https://office-layout.pages.dev
+app_url: https://office-layout.logstone.net
 status: finished
 description: 화면 세 장으로 받은 UI 개선안 여섯 가지를 고른 순서대로 앱에 넣고, 바뀐 화면에 맞춰 사용법 가이드를 다시 찍은 날.
 tags:

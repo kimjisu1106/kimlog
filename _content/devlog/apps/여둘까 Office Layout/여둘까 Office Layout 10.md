@@ -9,7 +9,7 @@ categories:
 project: office-layout
 project_name: 여둘까 Office Layout
 video_id:
-app_url: https://office-layout.pages.dev
+app_url: https://office-layout.logstone.net
 status: finished
 description: 도면 선에 묻히던 측정 숫자에 흰 배경을 깔고, 남의 파일을 열면 내 가구 팔레트가 영구히 바뀌던 것을 그 프로젝트 안으로 가두고, 거리 단위를 밀리미터·센티미터·미터에서 고를 수 있게 한 날.
 tags:

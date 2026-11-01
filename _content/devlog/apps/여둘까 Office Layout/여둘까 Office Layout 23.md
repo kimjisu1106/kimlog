@@ -9,7 +9,7 @@ categories:
 project: office-layout
 project_name: 여둘까 Office Layout
 video_id:
-app_url: https://office-layout.pages.dev
+app_url: https://office-layout.logstone.net
 status: finished
 description: 안 쓰는 코드를 걷어내고 진입점을 네 모듈로 쪼갠 뒤, 태블릿은 서랍·폰은 보기 전용으로 좁은 화면까지 받아 준 날.
 tags:

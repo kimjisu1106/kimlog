@@ -9,7 +9,7 @@ categories:
 project: office-layout
 project_name: 여둘까 Office Layout
 video_id:
-app_url: https://office-layout.pages.dev
+app_url: https://office-layout.logstone.net
 status: finished
 description: 베껴 두던 개인정보처리방침 사본을 걷어내고 여둘까 전용 방침으로 보내면서, 정작 빠져 있던 광고 고지를 찾아 채운 날.
 tags:

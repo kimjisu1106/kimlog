@@ -9,7 +9,7 @@ categories:
 project: office-layout
 project_name: 여둘까 Office Layout
 video_id:
-app_url: https://office-layout.pages.dev
+app_url: https://office-layout.logstone.net
 status: finished
 description: 도형에 가로×세로를 적어 주는 「크기 표시」 체크를 넣은 날 — 내가 가리킨 체크가 화면에 없어, 선택지를 받아 고르고 나서 시작했다.
 tags:

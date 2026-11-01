@@ -9,7 +9,7 @@ categories:
 project: office-layout
 project_name: 여둘까 Office Layout
 video_id:
-app_url: https://office-layout.pages.dev
+app_url: https://office-layout.logstone.net
 status: finished
 description: 임의 도형을 그려 팔레트에 저장하는 기능을 붙이고, 스크린샷을 스스로 찍는 사용설명서를 만든 뒤, 아이콘 중심 UI와 영어 버전까지 얹은 날.
 tags:
