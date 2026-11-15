@@ -1,5 +1,7 @@
 # KimLog - Astro Blog
 
+@../logstone-inbox/COMMON-RULES.md
+
 ## 작업 원칙 (Working Principles)
 
 1. **Think Before Coding** — 코드 작성 전에 요청을 완전히 이해할 것. 모호하면 먼저 질문.
