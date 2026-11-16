@@ -15,6 +15,7 @@
   --code-bg:#eef1ef;
   --g0:#ebedf0; --g1:#9be9a8; --g2:#40c463; --g3:#30a14e; --g4:#216e39;
   --trunk:#8a5a35; --trunk0:#ece3da; --soil:#c9a77c;
+  --leafH:#7cc56f; --leaf:#46a35a; --leafD:#2e7d43; --leafH0:#f0f4ee; --leaf0:#e7ece5; --leafD0:#dce3da;
   --mono:"JetBrains Mono",ui-monospace,"Cascadia Code",Consolas,"Noto Sans KR",monospace;
   --sans:"Archivo","Noto Sans KR",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
   --radius:8px;
@@ -30,7 +31,7 @@
     --accent:#39d353; --accentink:#57e06a; --accentsoft:#12331d;
     --code-bg:#1b2029;
     --g0:#20262e; --g1:#0e4429; --g2:#006d32; --g3:#26a641; --g4:#39d353;
-    --trunk:#b07a4f; --trunk0:#2a241f; --soil:#4a3a2c;
+    --trunk:#b07a4f; --trunk0:#2a241f; --soil:#4a3a2c; --leafH:#6dbb63; --leaf:#3f9a52; --leafD:#2a6e3a; --leafH0:#262c27; --leaf0:#212722; --leafD0:#1c211d;
     color-scheme:dark;
   }
 }
@@ -40,7 +41,7 @@
   --accent:#39d353; --accentink:#57e06a; --accentsoft:#12331d;
   --code-bg:#1b2029;
   --g0:#20262e; --g1:#0e4429; --g2:#006d32; --g3:#26a641; --g4:#39d353;
-  --trunk:#b07a4f; --trunk0:#2a241f; --soil:#4a3a2c;
+  --trunk:#b07a4f; --trunk0:#2a241f; --soil:#4a3a2c; --leafH:#6dbb63; --leaf:#3f9a52; --leafD:#2a6e3a; --leafH0:#262c27; --leaf0:#212722; --leafD0:#1c211d;
   color-scheme:dark;
 }
 
@@ -278,9 +279,13 @@ h1.post-title { font-size:32px; font-weight:700; letter-spacing:-.02em; line-hei
 .garden { display:grid; grid-template-columns:repeat(auto-fit,minmax(96px,1fr)); column-gap:0; row-gap:24px; margin:24px 0; }
 .garden-plot { margin:0; text-align:center; }
 .garden-tree { display:block; width:100%; height:auto; padding:0 12px; box-sizing:border-box; border-bottom:12px solid var(--soil); shape-rendering:crispEdges; }
-.garden-cell--L { fill:var(--g0); }
+.garden-cell--H { fill:var(--leafH0); }
+.garden-cell--L { fill:var(--leaf0); }
+.garden-cell--D { fill:var(--leafD0); }
 .garden-cell--T { fill:var(--trunk0); }
-.garden-cell--L.is-on { fill:var(--g3); }
+.garden-cell--H.is-on { fill:var(--leafH); }
+.garden-cell--L.is-on { fill:var(--leaf); }
+.garden-cell--D.is-on { fill:var(--leafD); }
 .garden-cell--T.is-on { fill:var(--trunk); }
 .garden-mound { fill:var(--soil); }
 .garden-name { margin-top:12px; font-weight:600; min-height:1.5em; }
