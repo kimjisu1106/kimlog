@@ -1,0 +1,45 @@
+---
+import Page from '../layouts/Page.astro';
+import revenue from '../data/revenue.json';
+import { TREE_ROWS, treeCells } from '../lib/tree';
+
+// 금액·목표는 공개하지 않는다(디렉터 결정 #393) — 원 값은 빌드 때 칸 수로만 바꾸고 HTML에는 싣지 않는다.
+// krw가 null이면 아직 안 심은 자리라 빈 땅으로 둔다.
+const PER_CELL = 10_000;
+const cells = treeCells();
+const W = TREE_ROWS[0].length;
+const H = TREE_ROWS.length;
+
+const plots = revenue.trees.map((t: { name: string; krw: number | null }) => ({
+  name: t.name,
+  planted: t.krw !== null,
+  filled: t.krw === null ? 0 : Math.min(cells.length, Math.floor(t.krw / PER_CELL)),
+}));
+---
+
+<Page title="The Garden">
+  <div class="garden">
+    {plots.map((p) => (
+      <figure class="garden-plot">
+        {p.planted ? (
+          <svg class="garden-tree" viewBox={`0 0 ${W} ${H}`} role="img" aria-label={`${p.name} 나무`}>
+            {cells.map((c, i) => (
+              <rect
+                x={c.x}
+                y={c.y}
+                width="1"
+                height="1"
+                class={`garden-cell garden-cell--${c.kind}${i < p.filled ? ' is-on' : ''}`}
+              />
+            ))}
+          </svg>
+        ) : (
+          <svg class="garden-tree" viewBox={`0 0 ${W} ${H}`} role="img" aria-label="아직 안 심은 자리">
+            <rect x={W / 2 - 6} y={H - 2} width="12" height="2" class="garden-mound" />
+          </svg>
+        )}
+        <figcaption class="garden-name">{p.planted ? p.name : ' '}</figcaption>
+      </figure>
+    ))}
+  </div>
+</Page>

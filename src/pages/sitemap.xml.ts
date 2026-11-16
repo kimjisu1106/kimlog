@@ -13,6 +13,7 @@ const PAGES = [
   '/apps/',
   '/audio/',
   '/search/',
+  '/garden/',
   '/contact/',
   '/reviews/',
   '/privacy-policy/',
