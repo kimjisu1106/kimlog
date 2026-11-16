@@ -277,7 +277,9 @@ h1.post-title { font-size:32px; font-weight:700; letter-spacing:-.02em; line-hei
 
 /* ── The Garden (garden.astro) — 칸 사이 틈 없이 붙여야 땅이 한 줄로 이어진다 ── */
 .garden { display:grid; grid-template-columns:repeat(auto-fit,minmax(96px,1fr)); column-gap:0; row-gap:24px; margin:24px 0; }
-.garden-plot { margin:0; text-align:center; }
+.garden-plot { margin:0; text-align:center; position:relative; outline:none; }
+.garden-pct { position:absolute; top:30%; left:50%; transform:translate(-50%,-50%); padding:4px 10px; border-radius:6px; background:var(--surface); border:1px solid var(--border); font-weight:600; font-size:16px; opacity:0; pointer-events:none; transition:opacity .15s; z-index:1; }
+.garden-plot:hover .garden-pct, .garden-plot:focus-visible .garden-pct, .garden-plot:focus .garden-pct { opacity:1; }
 .garden-tree { display:block; width:100%; height:auto; padding:0 12px; box-sizing:border-box; border-bottom:12px solid var(--soil); shape-rendering:crispEdges; }
 .garden-cell--H { fill:var(--leafH0); }
 .garden-cell--L { fill:var(--leaf0); }

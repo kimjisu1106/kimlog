@@ -4,6 +4,7 @@ import revenue from '../data/revenue.json';
 import { TREE_ROWS, treeCells } from '../lib/tree';
 
 // 금액·목표는 공개하지 않는다(디렉터 결정 #393) — 원 값은 빌드 때 칸 수로만 바꾸고 HTML에는 싣지 않는다.
+// 마우스를 올리면 도달률(%)만 소수점 첫째 자리까지 보인다(디렉터 지시 11-16). 켜진 칸 수 ÷ 10이라 올림 없이 내림이다.
 // krw가 null이면 아직 안 심은 자리라 빈 땅으로 둔다.
 const PER_CELL = 10_000;
 const cells = treeCells();
@@ -14,13 +15,14 @@ const plots = revenue.trees.map((t: { name: string; krw: number | null }) => ({
   name: t.name,
   planted: t.krw !== null,
   filled: t.krw === null ? 0 : Math.min(cells.length, Math.floor(t.krw / PER_CELL)),
-}));
+})).map((p) => ({ ...p, pct: ((p.filled / cells.length) * 100).toFixed(1) }));
 ---
 
 <Page title="The Garden">
   <div class="garden">
     {plots.map((p) => (
-      <figure class="garden-plot">
+      <figure class="garden-plot" tabindex={p.planted ? 0 : undefined}>
+        {p.planted && <span class="garden-pct">{p.pct}%</span>}
         {p.planted ? (
           <svg class="garden-tree" viewBox={`0 0 ${W} ${H}`} role="img" aria-label={`${p.name} 나무`}>
             {cells.map((c, i) => (
