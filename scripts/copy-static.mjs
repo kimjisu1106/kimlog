@@ -19,7 +19,7 @@ await copyDir(join(root, 'assets/fonts'), join(root, 'public/assets/fonts'));
 
 // 정적 웹앱 3종 — 내부 app_url(/apps/pdf-editor/index.html 등)이 그대로 resolve되게.
 await mkdir(join(root, 'public/apps'), { recursive: true });
-for (const app of ['image-converter', 'pdf-compressor', 'pdf-editor']) {
+for (const app of ['image-converter', 'pdf-compressor', 'pdf-editor', 'sandrop-color-demo']) {
   await copyDir(join(root, `apps/${app}`), join(root, `public/apps/${app}`));
 }
 
