@@ -74,6 +74,7 @@ src/
     reviews.astro        # 리뷰 (reviews 컬렉션, 이름 마스킹)
     search.astro         # 검색 (Pagefind 우선, 없으면 /search.json fallback, ?q= 지원)
     privacy-policy.astro # logstone.net/kimlog/privacy/ 로 리다이렉트하는 스텁(옛 URL 유지)
+    garden.astro         # The Garden — 앱별 수익 나무(금액·목표 비공개, 빌드 때 칸 수로만 바꿈 #393). hover하면 도달률 %(소수점 첫째, 내림)
     [...slug].astro      # 게시글 캐치올 라우트 (post.id = 파일경로 → URL)
     feed.xml.ts          # RSS (@astrojs/rss)
     sitemap.xml.ts       # 사이트맵 (직접 엔드포인트 — 파일명 /sitemap.xml 고정)
@@ -91,6 +92,9 @@ src/
     posts.ts             # getPosts()(단일 choke point) + URL·그룹·시리즈·추천 헬퍼
     kst.ts               # KST 날짜 유틸 + future:false(isPublished)
     og.ts                # og:image 선택 ({project}.png 있으면 그거, 없으면 profile.png)
+    tree.ts              # 정원 나무 도안(jewel-stitch 그림, #394) — 칸이 정확히 1000개라 한 칸 = 1만 원. 모양을 고치면 칸 수를 다시 셀 것
+  data/
+    revenue.json         # 나무별 금액(krw, null이면 빈 땅). 이 값만 고치고 push하면 나무가 찬다
   styles/
     global.css           # 전체 커스텀 CSS (여기에만 스타일 작성) — Base.astro에서 import
 scripts/
