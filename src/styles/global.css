@@ -250,7 +250,8 @@ h1.post-title { font-size:32px; font-weight:700; letter-spacing:-.02em; line-hei
 .series-num { font-family:var(--mono); font-size:12px; color:var(--muted); min-width:20px; }
 .series-card-date { font-family:var(--mono); font-size:12px; color:var(--muted); white-space:nowrap; }
 .series-sep { color:var(--border); }
-.series-card-title { font-size:14px; font-weight:600; color:var(--text); }
+.series-card-title { font-size:14px; font-weight:600; color:var(--text); min-width:0; overflow-wrap:anywhere; }
+.series-cards { overflow-x:hidden; }
 .series-current .series-card-title { color:var(--accentink); }
 .series-reading { margin-left:auto; font-family:var(--mono); font-size:11px; color:var(--accent); }
 
