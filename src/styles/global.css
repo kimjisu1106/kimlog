@@ -270,9 +270,18 @@ h1.post-title { font-size:32px; font-weight:700; letter-spacing:-.02em; line-hei
 .footer-copy a { color:var(--muted); }
 .footer-copy a:hover { color:var(--accent); }
 
+/* 넓은 표는 페이지를 밀지 않고 표 안에서 옆으로 민다 */
+.post-content table { display:block; max-width:100%; overflow-x:auto; }
+
 /* ── 반응형 ── */
 @media (max-width: 600px) {
-  .site-nav .trigger { gap:13px; }
+  /* 사이트 이름은 한 줄, 메뉴는 그 아래 줄에서 옆으로 밀어 본다 */
+  .site-header .wrapper { flex-wrap:wrap; row-gap:10px; padding-top:12px; padding-bottom:10px; }
+  .site-title { white-space:nowrap; }
+  .site-nav { flex:0 0 100%; min-width:0; }
+  .site-nav .trigger { gap:16px; width:100%; overflow-x:auto; scrollbar-width:none; -webkit-overflow-scrolling:touch; padding-bottom:2px; }
+  .site-nav .trigger::-webkit-scrollbar { display:none; }
+  .site-nav .trigger > * { flex-shrink:0; white-space:nowrap; }
   .page-link { font-size:12px; }
   .adfit-web { display:none; }
   .adfit-mobile { display:block; }
