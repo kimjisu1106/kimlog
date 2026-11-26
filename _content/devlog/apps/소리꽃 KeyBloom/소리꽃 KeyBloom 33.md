@@ -8,7 +8,7 @@ categories:
 project: key-bloom
 project_name: 소리꽃 KeyBloom
 video_id:
-app_url: https://keybloom.pages.dev
+app_url: https://keybloom.logstone.net
 status: finished
 description: 0.1.7 출시. 배경 이미지가 프레임을 무너뜨리던 원인을 잡고, 기기가 버거우면 자동으로 줄이는 성능 보호와 관객 화면 우선을 넣었다.
 tags:

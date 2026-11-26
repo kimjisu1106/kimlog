@@ -8,7 +8,7 @@ categories:
 project: key-bloom
 project_name: 소리꽃 KeyBloom
 video_id:
-app_url: https://keybloom.pages.dev
+app_url: https://keybloom.logstone.net
 status: finished
 description: 세로 비율 영상 추출은 접고, 크로마키는 라이브 모드 공연 출력 창에만 넣었으며, 데스크톱을 주 작업 PC로 삼아 네이티브 빌드 환경을 갖췄다.
 tags:

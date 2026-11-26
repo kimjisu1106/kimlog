@@ -9,7 +9,7 @@ categories:
 project: key-bloom
 project_name: 소리꽃 KeyBloom
 video_id:
-app_url: https://keybloom.pages.dev
+app_url: https://keybloom.logstone.net
 status: finished
 description: .kbloom 더블클릭 로드, 열 때 현재 창/새 창 선택(single-instance), 내보낸 영상의 오디오 클리핑을 막는 리미터까지 — 출시 직후 실사용에서 나온 것들을 고쳐 0.1.3을 낸 개발 로그.
 tags:

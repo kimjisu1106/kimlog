@@ -10,7 +10,7 @@ categories:
 project: key-bloom
 project_name: 소리꽃 KeyBloom
 video_id: FBdnxXNMLvk
-app_url: https://keybloom.pages.dev
+app_url: https://keybloom.logstone.net
 status: finished
 tags:
   - JavaScript
@@ -72,7 +72,7 @@ MIDI 파일을 넣으면 하단 88건반이 타이밍에 맞춰 눌리고, 그 �
 
 ## 결과
 
-- 무료 웹(keybloom.pages.dev)과 유료 데스크톱 앱(plus, Windows)을 둘 다 출시. 현재 0.1.9
+- 무료 웹(keybloom.logstone.net)과 유료 데스크톱 앱(plus, Windows)을 둘 다 출시. 현재 0.1.9
 - 무료 웹: 비주얼 엔진·큐/시퀀서·실시간 연주·프로젝트 저장·1080p MP4 내보내기까지 완성
 - 유료 앱(plus): 저지연 라이브 연주(ASIO)·투명 배경(알파) 출력·4K를 웹 오디오/코덱 한계를 넘어 제공. 라이선스는 Creem(MoR)로 결제, 앱 전용. 자동 업데이트·.kbloom 파일 연결도 갖춤
 - 오디오는 합성음에서 실제 피아노 샘플(Salamander Grand)로 갈아타 서스테인·백그라운드 재생까지 반영, 내보낸 영상에도 연주 소리를 담고 클리핑 방지 리미터로 다듬음

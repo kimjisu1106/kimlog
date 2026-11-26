@@ -8,7 +8,7 @@ categories:
 project: key-bloom
 project_name: 소리꽃 KeyBloom
 video_id:
-app_url: https://keybloom.pages.dev
+app_url: https://keybloom.logstone.net
 status: finished
 description: 공연 출력 창에서 배경 이미지가 안 뜨고 블랙으로 나오던 버그를, 창 사이 이벤트로 배경을 전달하고 준비 핸드셰이크로 동기화해 고친 로그.
 tags:

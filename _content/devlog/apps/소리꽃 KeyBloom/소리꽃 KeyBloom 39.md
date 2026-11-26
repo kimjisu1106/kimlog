@@ -8,7 +8,7 @@ categories:
 project: key-bloom
 project_name: 소리꽃 KeyBloom
 video_id:
-app_url: https://keybloom.pages.dev
+app_url: https://keybloom.logstone.net
 status: finished
 description: 뒤에 만들던 미완 작업을 빼고 먼저 만든 장치 설정만 떼어 0.1.9로 내면서, 그렇게 내보내는 방법을 정했다.
 tags:

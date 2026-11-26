@@ -8,7 +8,7 @@ categories:
 project: key-bloom
 project_name: 소리꽃 KeyBloom
 video_id:
-app_url: https://keybloom.pages.dev
+app_url: https://keybloom.logstone.net
 status: finished
 description: 세로 9:16·정사각 1:1 영상 추출에 착수하면서, 건반 높이를 화면 세로가 아니라 가로에 묶어 비율이 바뀌어도 키 모양이 유지되게 한 날.
 tags:

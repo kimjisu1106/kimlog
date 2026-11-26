@@ -9,7 +9,7 @@ categories:
 project: key-bloom
 project_name: 소리꽃 KeyBloom
 video_id:
-app_url: https://keybloom.pages.dev
+app_url: https://keybloom.logstone.net
 status: finished
 description: 첫 방문 5단계 투어와 데모곡, 룸 리버브와 스타카토 개선, 새 프로젝트·단축키, 내보내기 리버브 tail과 lead-in, 프리뷰 개선, 죽은 코드 정리까지 한 개발 로그.
 tags:

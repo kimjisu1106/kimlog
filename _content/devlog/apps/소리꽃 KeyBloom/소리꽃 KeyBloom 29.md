@@ -8,7 +8,7 @@ categories:
 project: key-bloom
 project_name: 소리꽃 KeyBloom
 video_id:
-app_url: https://keybloom.pages.dev
+app_url: https://keybloom.logstone.net
 status: finished
 description: 파티클을 모션별로 같은 계약으로 통일하고(방사형 반원 돔·속도 분리·모래 높이), 컨트롤 노출을 단일 출처로 정리한 뒤 0.1.5로 출시한 로그.
 tags:

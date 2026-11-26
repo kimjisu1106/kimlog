@@ -9,7 +9,7 @@ categories:
 project: key-bloom
 project_name: 소리꽃 KeyBloom
 video_id:
-app_url: https://keybloom.pages.dev
+app_url: https://keybloom.logstone.net
 status: finished
 description: 라이브 연주에 서스테인·큐 넘기기 키를 넣고, 네이티브에서 브라우저 단축키를 막고, 출시 뒤 push마다 배포되던 웹을 릴리스 브랜치로 분리한 개발 로그.
 tags:

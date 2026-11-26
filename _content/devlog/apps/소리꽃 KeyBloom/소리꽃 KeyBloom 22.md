@@ -9,7 +9,7 @@ categories:
 project: key-bloom
 project_name: 소리꽃 KeyBloom
 video_id:
-app_url: https://keybloom.pages.dev
+app_url: https://keybloom.logstone.net
 status: finished
 description: 알파(투명) 내보내기를 워커 풀로 최적화하다 4K에서 메모리·스레드 벽을 만나 1080p로 확정하고, 편집툴이 바로 읽는 ProRes 호환으로 코덱을 일원화하며 무료·유료 티어까지 확정한 여정.
 tags:

@@ -8,7 +8,7 @@ categories:
 project: key-bloom
 project_name: 소리꽃 KeyBloom
 video_id:
-app_url: https://keybloom.pages.dev
+app_url: https://keybloom.logstone.net
 status: finished
 description: 남겨 뒀던 건반 룩 2단계를 하지 않기로 정하고, 로그스톤 샵 제품 페이지의 파동 데모가 앱과 별개 물리로 돌고 있어 앱의 실제 값을 넘긴 날.
 ---

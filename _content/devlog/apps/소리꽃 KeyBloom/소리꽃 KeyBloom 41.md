@@ -8,7 +8,7 @@ categories:
 project: key-bloom
 project_name: 소리꽃 KeyBloom
 video_id:
-app_url: https://keybloom.pages.dev
+app_url: https://keybloom.logstone.net
 status: finished
 description: 공연 출력 창 배경이 OBS에서 어떻게 빠지는지 앱 없이 계산으로 재현해 보고, 그 결과대로 출력 창 배경 안내 문구를 고쳤다.
 tags:

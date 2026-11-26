@@ -9,7 +9,7 @@ categories:
 project: key-bloom
 project_name: 소리꽃 KeyBloom
 video_id: FBdnxXNMLvk
-app_url: https://keybloom.pages.dev
+app_url: https://keybloom.logstone.net
 status: finished
 tags:
   - JavaScript

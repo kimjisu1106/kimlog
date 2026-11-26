@@ -8,7 +8,7 @@ categories:
 project: key-bloom
 project_name: 소리꽃 KeyBloom
 video_id:
-app_url: https://keybloom.pages.dev
+app_url: https://keybloom.logstone.net
 status: finished
 description: 추출 영상이 편집툴에서 한 프레임 깨지던 원인을 테스트 파일로 확정해 고치고, 입체감을 넣은 건반과 함께 0.1.8로 냈다.
 tags:

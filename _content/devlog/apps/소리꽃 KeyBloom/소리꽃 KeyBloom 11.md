@@ -9,7 +9,7 @@ categories:
 project: key-bloom
 project_name: 소리꽃 KeyBloom
 video_id:
-app_url: https://keybloom.pages.dev
+app_url: https://keybloom.logstone.net
 status: finished
 description: 녹음 파일이 MIDI보다 길면 뒷부분이 잘리던 문제를, 영상을 뽑을 때 어느 길이에 맞출지 직접 고르게 해서 해결한 기록.
 tags:

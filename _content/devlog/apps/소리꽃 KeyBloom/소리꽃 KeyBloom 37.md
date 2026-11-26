@@ -8,7 +8,7 @@ categories:
 project: key-bloom
 project_name: 소리꽃 KeyBloom
 video_id:
-app_url: https://keybloom.pages.dev
+app_url: https://keybloom.logstone.net
 status: finished
 description: 다른 집 디지털 피아노를 USB로 붙였더니 피아노에서 앱 소리가 나서, 소리 출력 장치를 고를 수 있게 하고 입력·출력 설정을 한자리로 모았다.
 tags:

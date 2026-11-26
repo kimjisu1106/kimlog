@@ -8,7 +8,7 @@ categories:
 project: key-bloom
 project_name: 소리꽃 KeyBloom
 video_id:
-app_url: https://keybloom.pages.dev
+app_url: https://keybloom.logstone.net
 status: finished
 description: 앱을 업데이트하면 plus 라이선스가 풀리고 재활성화로 기기 슬롯이 깎이던 버그를 잡아 0.1.6 핫픽스로 낸 로그.
 tags:

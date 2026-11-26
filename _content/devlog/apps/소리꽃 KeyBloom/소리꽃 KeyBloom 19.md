@@ -9,7 +9,7 @@ categories:
 project: key-bloom
 project_name: 소리꽃 KeyBloom
 video_id:
-app_url: https://keybloom.pages.dev
+app_url: https://keybloom.logstone.net
 status: finished
 description: 백로그에 쌓아둔 자잘한 것들을 처리한 날 — 출력 창을 관객 모니터에 자동으로 풀스크린으로 띄우고, 결정적으로 만든 파티클을 다시 굴리는 버튼을 달고, 색 선택기에 RGB 입력을 붙이고, PRO 라이브에선 광고와 하단을 비웠다.
 tags:

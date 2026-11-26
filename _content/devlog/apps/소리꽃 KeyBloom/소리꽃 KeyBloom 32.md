@@ -8,7 +8,7 @@ categories:
 project: key-bloom
 project_name: 소리꽃 KeyBloom
 video_id:
-app_url: https://keybloom.pages.dev
+app_url: https://keybloom.logstone.net
 status: finished
 description: 새 파동 모션과 세기 반응 슬라이더를 넣고, 모래·분수·파티클 크기를 다듬고, 개수를 늘린 만큼 렌더를 최적화한 파티클 업데이트 로그.
 tags:

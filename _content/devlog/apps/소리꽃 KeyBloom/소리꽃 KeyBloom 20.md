@@ -9,7 +9,7 @@ categories:
 project: key-bloom
 project_name: 소리꽃 KeyBloom
 video_id:
-app_url: https://keybloom.pages.dev
+app_url: https://keybloom.logstone.net
 status: finished
 description: 결제·라이선스 백본과 자동 업데이터를 얹고, 투명 배경(알파) 영상 내보내기를 PNG 시퀀스·Ut Video로 완성한 큰 날 — WebM을 걷어내고, 브랜드 색을 로즈핑크로 바꾸고, 저장·로딩 표시와 여러 버그를 정리했다.
 tags:

@@ -9,7 +9,7 @@ categories:
 project: key-bloom
 project_name: 소리꽃 KeyBloom
 video_id:
-app_url: https://keybloom.pages.dev
+app_url: https://keybloom.logstone.net
 status: finished
 description: 벤치마킹 앱의 "떨어지는 노트+파티클"을 따라가는 대신, 노트마다 세로 컬럼 안에서 모래알들이 제각각 떠오르는 KeyBloom만의 파티클 모드 "모래 유영"을 만든 이야기.
 tags:

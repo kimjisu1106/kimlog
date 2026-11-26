@@ -9,7 +9,7 @@ categories:
 project: key-bloom
 project_name: 소리꽃 KeyBloom
 video_id:
-app_url: https://keybloom.pages.dev
+app_url: https://keybloom.logstone.net
 status: finished
 description: 자체 호스팅 폰트, plus 라이선스 활성화 UI와 앱 전용 확정, 활성화 후 게이트 재적용, 사용자 FPS, 첫 서명 릴리스까지 — KeyBloom 런칭 배선을 마친 개발 로그.
 tags:

@@ -9,7 +9,7 @@ categories:
 project: key-bloom
 project_name: 소리꽃 KeyBloom
 video_id:
-app_url: https://keybloom.pages.dev
+app_url: https://keybloom.logstone.net
 status: finished
 description: 영상 내보내기가 1080p에 30분 넘게 걸리던 것을 파헤쳐, 브라우저 인코더가 하드웨어를 못 쓰는 걸 찾아 ffmpeg 하드웨어 인코딩으로 바꾸고, 프레임 전송·압축 병목을 워커 풀로 풀어 12분으로 줄인 하루.
 tags:

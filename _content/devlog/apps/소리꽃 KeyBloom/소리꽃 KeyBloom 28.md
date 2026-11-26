@@ -9,7 +9,7 @@ categories:
 project: key-bloom
 project_name: 소리꽃 KeyBloom
 video_id:
-app_url: https://keybloom.pages.dev
+app_url: https://keybloom.logstone.net
 status: finished
 description: 파티클 "폭"을 슬라이더로 바꾸고 "높이"를 속도와 분리하며, 실사용에서 나온 이상 동작(나선처럼 돌기·방사 갇힘·높이 최대인데 못 감)을 하나씩 바로잡은 개발 로그.
 tags:
