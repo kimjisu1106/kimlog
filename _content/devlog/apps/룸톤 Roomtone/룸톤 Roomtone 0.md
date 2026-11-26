@@ -11,7 +11,7 @@ project: room-tone
 project_name: 룸톤 Roomtone
 video_id:
 app_url:
-status:
+status: finished
 tags:
   - Dart
   - Flutter

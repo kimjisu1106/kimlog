@@ -7,6 +7,7 @@ categories:
   - summary
 project: jewel-stitch
 project_name: 쥬얼 스티치 Jewel Stitch
+status: finished
 video_id:
 app_url:
 description: 보석십자수를 컨베이어 벨트 정렬 퍼즐로 바꾼 모바일 게임 쥬얼 스티치 Jewel Stitch 소개 — 잘못 깔린 보석을 벨트로 빼면 벨트가 돌다 제 색 빈 칸을 만나 날아가 박힌다.
